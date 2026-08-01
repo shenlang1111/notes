@@ -570,13 +570,52 @@ body{padding-bottom:3rem;}
   </div>
 </section>
 
+<section class="section" id="engineering">
+  <h2>工程化落地（第二轮）</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>项目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td><strong>一键部署脚本</strong></td><td>tools/deploy.js：校验 HTML/MD 成对 → 重新生成 mobile.html → 串行上传（含 sha 冲突检测）→ 触发构建 → 轮询 → 服务器端验证。任何 agent 可调用</td></tr>
+        <tr><td><strong>Token 本地化管理</strong></td><td>.env 存 GH_TOKEN（已 gitignore），脚本统一读取，不再在对话中传递</td></tr>
+        <tr><td><strong>会话记录分区</strong></td><td>新增"会话记录"域，每次对话总结入库，网页导航可见</td></tr>
+        <tr><td><strong>规范 v1.2</strong></td><td>新增数据来源标注、一键部署说明；澄清分区执行权（其他 agent 建议、主 agent 执行）</td></tr>
+        <tr><td><strong>部署结果</strong></td><td>35 文件全量上传成功、构建 built、验证通过（footer 0 次、16 面板）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="collab">
+  <h2>协作模式实践</h2>
+  <div class="concept-grid">
+    <div class="concept-card" style="border-top:3px solid var(--accent);">
+      <h4>🤖 多 Agent 并行</h4>
+      <p>本次实践：部署（主 agent）与审核（审核 agent）并行执行，互不阻塞。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent2);">
+      <h4>🛡️ 审核 Agent 把关</h4>
+      <p>独立审核发现 deploy.js 6 处问题（1 中 5 低/提示），全部修复：--files 附带 mobile.html、构建轮询竞态、409 排队处理、footer 检查词扩展等。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent3);">
+      <h4>📐 分工原则</h4>
+      <p>主 agent：底层架构+部署；内容/UI agent：用户后续补充规则；审核 agent：产出复核。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--success);">
+      <h4>🔑 教训：并发写仓库被 409</h4>
+      <p>GitHub 对同仓库并发写有保护，上传必须串行（CONCURRENCY=1）。</p>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="todo">
   <h2>后续待办</h2>
   <div class="card accent">
     <ul>
       <li><strong>资料补充</strong>：用户提供天赐产品手册 / 培训资料等，入库时数据标注来源</li>
+      <li><strong>内容纵深</strong>：补充助剂（增稠/乳化/防腐）、法规标准（GB/T、INCI）等知识缺口</li>
       <li><strong>其他 agent 规则</strong>：由用户后续自行补充到规范</li>
-      <li><strong>UI / 内容分工</strong>：现阶段主 agent 兼任，后续分派给专门 agent</li>
+      <li><strong>UI / 内容分工</strong>：过渡期主 agent 兼任，后续分派给专门 agent</li>
     </ul>
   </div>
 </section>
