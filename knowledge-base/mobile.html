@@ -376,7 +376,7 @@ body{padding-bottom:3rem;}
     <button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰ 目录</button>
   </div>
   <div class="nav-links" id="navLinks">
-    <a href="#home" class="active" data-nav="home">首页</a><a href="#session-20260801" data-nav="session-20260801">session-20260801</a><a href="#session-prompt" data-nav="session-prompt">session-prompt</a><a href="#inbox" data-nav="inbox">inbox</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a>
+    <a href="#home" class="active" data-nav="home">首页</a><a href="#session-20260801" data-nav="session-20260801">session-20260801</a><a href="#session-prompt" data-nav="session-prompt">session-prompt</a><a href="#inbox-20260802-agent-design" data-nav="inbox-20260802-agent-design">inbox-20260802-agent-design</a><a href="#inbox" data-nav="inbox">inbox</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a>
   </div>
 </nav>
 
@@ -966,6 +966,97 @@ ai-agent/
   </div>
 </section>
 </div>
+<div class="page-panel" id="panel-inbox-20260802-agent-design" data-panel="inbox-20260802-agent-design" style="display:none">
+<!-- ===== Page Hero ===== -->
+<div class="page-hero">
+  <div class="page-hero-meta"><span class="tag tag-orange">想法缓冲区</span></div>
+  <h1>智能体设计讨论存档</h1>
+  <p class="page-hero-desc">2026-08-02 主 agent 与用户的讨论存档。状态：[未整理]。任何 AI 继续聊智能体之前，先读这一份。</p>
+</div>
+<!-- ===== /Page Hero ===== -->
+
+<section class="section" id="vision">
+  <h2>一、用户的整体想法（深度理解）</h2>
+  <div class="card accent">
+    <p>你要的不是"一个更聪明的 AI"，而是<strong>一支住在知识库里的、都认识你的专家团队</strong>：</p>
+    <ul>
+      <li><strong>根基是知识库</strong>：里面不只有产品知识，还要有"你这个人"——你做什么、你怎么想、你的事</li>
+      <li><strong>成员是多个专业 AI</strong>：想法、内容、设计、技术……各司其职，不是一个人干所有事</li>
+      <li><strong>共享"懂你"档案</strong>：每个 AI 开工先读它，所以每个 AI 都懂你——找谁都不用自我介绍、不用转达</li>
+      <li><strong>你不当协调者</strong>：谁干什么，AI 之间自己组织</li>
+      <li><strong>一起成长</strong>：像这个知识库一样，越用越懂你</li>
+    </ul>
+  </div>
+  <div class="card">
+    <p style="margin:0;"><strong>一句话</strong>：要的是"一群懂你的专家"——以知识库为共同大脑、以"懂你"档案为共同记忆，各自专业、直接对话、共同成长。</p>
+  </div>
+</section>
+
+<section class="section" id="path">
+  <h2>二、讨论脉络（怎么走到这的）</h2>
+  <div class="card accent2">
+    <ul>
+      <li><strong>起点</strong>：想要"更像我的、更聪明的、能储存我记忆的智能体"</li>
+      <li><strong>纠偏 1</strong>：不要新建聊天窗口——AI 本身就是窗口，不需要额外程序/服务器/页面</li>
+      <li><strong>聚焦</strong>：先不做性格（人格化推迟），先做"非常强的、和你相关的知识库"——AI 会翻库回答 + 知识库含你的信息</li>
+      <li><strong>纠偏 2</strong>：不想靠"立规矩建文档"协调——想要 AI 真正组合成团队</li>
+      <li><strong>结论</strong>：N 个专业 AI + 一份共享"懂你"记忆档案 + 共享知识库；每个 AI 都专业、都懂用户，用户直接找任何一个都行</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="decided">
+  <h2>三、已确认 / 待讨论</h2>
+  <div class="concept-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+    <div class="concept-card" style="border-top:3px solid var(--success);">
+      <h4>✅ 已确认</h4>
+      <ul style="padding-left:1.2rem;">
+        <li>LLM 用 <strong>DeepSeek</strong>（不是硅基流动）</li>
+        <li>落地由主 agent 负责（能直接改代码、建目录）</li>
+        <li>先做"懂你的知识库"，性格说明书推迟</li>
+        <li>用户入口不固定：找哪个 AI 都行，每个都懂他</li>
+      </ul>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent3);">
+      <h4>❓ 待讨论（下一步）</h4>
+      <ul style="padding-left:1.2rem;">
+        <li>"懂你"档案先收集什么、放哪</li>
+        <li>翻库规则怎么立（AI 回答前先翻知识库）</li>
+        <li>AI 团队分工（现在只有主 agent + 闲聊 AI）</li>
+        <li>记忆档案怎么更新（每次对话后）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="resume">
+  <h2>四、下次继续的开场</h2>
+  <div class="card warning">
+    <p style="margin:0;">新对话框开场后说一句：<strong>"读一下思考收件箱的智能体设计存档，我们继续聊智能体"</strong>——就能无缝接上本次讨论，不用重聊。</p>
+  </div>
+</section>
+
+<section class="section" id="related">
+  <h2>相关页面（串联入口）</h2>
+  <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+    <a href="#inbox" class="page-card">
+      <div class="card-icon">📥</div>
+      <h3>思考收件箱</h3>
+      <p>想法缓冲区入口，本存档所属</p>
+    </a>
+    <a href="#session-20260801" class="page-card">
+      <div class="card-icon">💡</div>
+      <h3>与 AI 的交流经验</h3>
+      <p>第九节：AI 智能体构想（RAG 方案来源）</p>
+    </a>
+    <a href="#session-prompt" class="page-card">
+      <div class="card-icon">📋</div>
+      <h3>新会话开场话术</h3>
+      <p>开新对话框时用，包含读文档+报告版本号</p>
+    </a>
+  </div>
+</section>
+</div>
 <div class="page-panel" id="panel-inbox" data-panel="inbox" style="display:none">
 <!-- ===== Page Hero (auto-generated) ===== -->
 <div class="page-hero">
@@ -1017,6 +1108,7 @@ ai-agent/
   <div class="card accent4">
     <ul>
       <li><code>[未整理]</code> 提议在规范铁律顶部加 <code>#0 收尾门禁</code>：回复"完成"前必须输出 DoD 自检清单（CHANGELOG/双格式/部署/--expect），逐项打勾，未通过不宣布完成。需主 agent 审批并落地到规范。</li>
+      <li><code>[未整理]</code> <a href="#inbox-20260802-agent-design">智能体设计讨论存档</a>：用户想要"住在知识库里的、都认识他的专家团队"（N 个专业 AI + 共享"懂你"档案 + 共享知识库）。LLM 用 DeepSeek，先做"懂你的知识库"。下一步：懂你档案、翻库规则、团队分工。</li>
     </ul>
   </div>
 </section>
