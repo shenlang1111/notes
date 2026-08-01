@@ -158,6 +158,7 @@ thead th{
   background:linear-gradient(135deg, #0B7666 0%, #14B8A6 100%);
   color:#fff;font-weight:700;text-align:left;
   padding:0.75rem 0.9rem;font-size:0.82rem;white-space:nowrap;letter-spacing:0.02em;
+  position:sticky;top:0;z-index:5;
 }
 thead th:first-child{border-top-left-radius:0;}
 thead th:last-child{border-top-right-radius:0;}
@@ -449,7 +450,23 @@ footer .sources a{word-break:break-all;}
   .log-date{font-size:0.78rem;}
   .log-block li{font-size:0.85rem;}
   .week-group-title .wg-days{display:block;}
+  /* —— 移动端表格优化（UI 美化 AI）—— */
+  table{font-size:0.82rem;min-width:380px;}
+  thead th{padding:0.55rem 0.6rem;font-size:0.76rem;}
+  tbody td{padding:0.45rem 0.6rem;}
+  .snapshot{grid-template-columns:repeat(2,1fr);}
+  .snapshot .snap-num{font-size:1.3rem;}
+  .callout{padding-left:2.5rem;}
+  .callout::before{left:0.8rem;top:0.95rem;}
+  .stat-grid{grid-template-columns:repeat(2,1fr);}
 }
+/* ============ 平板断点 769-1024px（UI 美化 AI）============ */
+@media(min-width:769px) and (max-width:1024px){
+  .snapshot{grid-template-columns:repeat(2,1fr);}
+}
+/* ============ 表头固定 + section 节奏（UI 美化 AI 第二批）============ */
+thead th{position:sticky;top:0;z-index:10;}
+.section + .section{border-top:1px solid var(--rule);padding-top:0.5rem;}
 
 /* ===== 手机版专用 ===== */
 .mobile-nav{
@@ -7233,7 +7250,7 @@ ai-agent/
 </div>
 
 
-<div class="container">
+<div>
 
 <!-- Snapshot -->
 <div class="snapshot">
@@ -8298,7 +8315,7 @@ ai-agent/
 
 
 <!-- TOC -->
-<div class="container">
+<div>
   <details class="toc-nav" open="">
     <summary>学习路径导航</summary>
     <div class="toc-grid">
@@ -8322,7 +8339,7 @@ ai-agent/
 </div>
 
 <!-- Section 1: Basics -->
-<div class="container">
+<div>
 <section class="section" id="s1">
   <h2>一、先懂原理：表面活性剂四大分类</h2>
 
@@ -8440,7 +8457,7 @@ ai-agent/
 </section>
 
 <!-- Section: 阴离子表面活性剂 -->
-<div class="container">
+<div>
 <section class="section" id="s-anionic">
   <h2>阴离子表面活性剂 — 天赐Napure与AMIN系列详解</h2>
 
@@ -8545,7 +8562,7 @@ ai-agent/
 </div>
 
 <!-- Section: 阳离子表面活性剂 -->
-<div class="container">
+<div>
 <section class="section" id="s-cationic">
   <h2>阳离子表面活性剂 — 调理与抗静电专家</h2>
 
@@ -8782,7 +8799,7 @@ ai-agent/
 </div>
 
 <!-- Section 2: Key Concepts -->
-<div class="container">
+<div>
 <section class="section" id="s2">
   <h2>二、三个核心概念：CMC、HLB、增稠</h2>
 
@@ -8809,7 +8826,7 @@ ai-agent/
 </div>
 
 <!-- Section 3: Product Map -->
-<div class="container">
+<div>
 <section class="section" id="s3">
   <h2>三、产品全景：天赐表面活性剂全谱系</h2>
 
@@ -8825,7 +8842,7 @@ ai-agent/
 </div>
 
 <!-- Section 4: Naming Convention -->
-<div class="container">
+<div>
 <section class="section" id="s4">
   <h2>四、牌号密码：命名规则全解</h2>
 
@@ -8929,7 +8946,7 @@ ai-agent/
 </div>
 
 <!-- Section 5: Amino Acid Surfactants -->
-<div class="container">
+<div>
 <section class="section" id="s5">
   <h2>五、氨基酸表活：AMIN + Napure 全系列</h2>
 
@@ -9028,7 +9045,7 @@ ai-agent/
 </div>
 
 <!-- Section 6: Amphoteric Surfactants -->
-<div class="container">
+<div>
 <section class="section" id="s6">
   <h2>六、两性表活：TC-CAB / LAB / SHD / MAB / CAO 全系列</h2>
 
@@ -9149,7 +9166,7 @@ ai-agent/
 </div>
 
 <!-- Section: 非离子表面活性剂 -->
-<div class="container">
+<div>
 <section class="section" id="s-nonionic">
   <h2>非离子表面活性剂 — 稳定与绿色的"万能胶"</h2>
 
@@ -9235,7 +9252,7 @@ ai-agent/
 </div>
 
 <!-- Section 7: Formulation -->
-<div class="container">
+<div>
 <section class="section" id="s7">
   <h2>七、配方实战：表活怎么搭配</h2>
 
@@ -9343,7 +9360,7 @@ ai-agent/
 </div>
 
 <!-- Section 7b: 配方设计实战案例 -->
-<div class="container">
+<div>
 <section class="section" id="s7b">
   <h2>七（附）、配方设计实战案例</h2>
 
@@ -9504,7 +9521,7 @@ ai-agent/
 </div>
 
 <!-- Section 8: Key Selling Points -->
-<div class="container">
+<div>
 <section class="section" id="s8">
   <h2>八、卖点速查：核心技术话术</h2>
 
