@@ -37,6 +37,12 @@ updated: 2026-08-02
 - 结果：评分 B~D（nonionic D / properties C / market C / cationic C）；发现 8 条硬伤——已全部修复上线
 - 遗留：全库 60+ 处数据无来源 → 已统一标"待核实"，等产品手册/TDS 补真实来源（见任务板）
 
+**2026-08-02（第二次盘点，智能体 AI 执行）**
+- 范围：3 个转换生成大页（finechem-engineering / tinci-surfactant-guide / tinci-amphoteric-summary）
+- 结果：三页均 C（数据来源 D、结构 C）——牌号统计矛盾（23 vs 29）、命名与已核实信息脱节（TC-MAB INCI Coco/Lauro、GCK30P 旧名、市占率 32.6%/31.8% 矛盾）、章节乱序/内容错位/整段重复、渗透压机理错误、来源清单 MD 丢失
+- 处理：硬伤已登记任务板（大改动待主 AI）；共性根因 = 转换脚本生成 + 页面过大（三页均建议拆分）
+- 机制健康结论：无摆设机制；提醒各 AI 养成 ai-worklog 登记习惯、明确 ai-worklog（谁干了什么）与 CHANGELOG（库改了什么）边界
+
 ## 五、数据来源追踪（占位）
 
 待用户提供产品手册 / TDS / 培训资料后，逐条把"待核实"升级为"有来源"。此表按域维护，随盘点更新。
