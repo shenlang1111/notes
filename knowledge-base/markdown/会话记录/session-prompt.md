@@ -31,6 +31,7 @@ updated: 2026-08-01
 - UI：卡片式布局避免文字墙；页面底部不要出现 footer 文案
 - 会话记录：每次交流结束，把本次内容总结精炼进 会话记录 分区
 - DoD 铁律：宣布"完成"前必须逐项展示自检清单（CHANGELOG 记录 / 双格式 / 部署 / --expect 验证），任何一项没过就不许说"完成"
+- 可用能力：项目装有 16 个 skill（见根目录 SKILL_GUIDE.md：pdf/docx/xlsx/brainstorming/dispatching-parallel-agents/session-handoff 等），任务匹配时直接调用 Skill 工具，不用等用户指定
 
 任务：<在这里写你要做的事>
 
