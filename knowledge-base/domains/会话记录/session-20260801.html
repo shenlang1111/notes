@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>会话总结 2026-08-01 · 天赐材料知识库</title>
+<title>与 AI 的交流经验 · 天赐材料知识库</title>
 <link rel="stylesheet" href="../../_shared/css/style.css?v=3">
 </head>
 <body>
@@ -26,103 +26,126 @@
     <a href="../表面活性剂/troubleshooting.html">问题诊断</a>
     <a href="../销售与市场/market.html">市场趋势</a>
     <a href="../销售与市场/sales.html">销售话术</a>
-    <a href="session-20260801.html">会话记录</a>
+    <a href="session-20260801.html">AI 经验</a>
   </div>
 </nav>
 
 <div class="container">
 <!-- ===== Page Hero (auto-generated) ===== -->
 <div class="page-hero">
-  <div class="page-hero-meta"><span class="tag tag-orange">会话记录</span></div>
-  <h1>会话总结 · 2026-08-01</h1>
-  <p class="page-hero-desc">部署通道打通、手机版修复、维护规范建立、多会话协作体系。</p>
+  <div class="page-hero-meta"><span class="tag tag-orange">AI 协作经验</span></div>
+  <h1>与 AI 的交流经验</h1>
+  <p class="page-hero-desc">与 AI 协作中沉淀的<strong>可复用经验</strong>：部署、手机版、缓存、安全、内容维护、多 Agent 协作、高效提问。持续更新。</p>
 </div>
 <!-- ===== /Page Hero ===== -->
 
-<section class="section" id="overview">
-  <h2>本次会话摘要</h2>
-  <div class="concept-grid">
-    <div class="concept-card" style="border-top:3px solid var(--accent);">
-      <h4>🔧 部署通道</h4>
-      <p>git push 国内超时 → 改用 GitHub API（api.github.com）上传 + 触发构建。加速器时通时断不可靠；国内镜像站（ghproxy）不支持 push，不适用。</p>
-    </div>
-    <div class="concept-card" style="border-top:3px solid var(--accent2);">
-      <h4>📱 手机版修复</h4>
-      <p>footer 文案被截入每个面板（extractContainer 用 lastIndexOf 误截）→ 改为配对计数匹配，footer 重复问题消除；面板改用 div + cleanSections；每次打开强制回首页。</p>
-    </div>
-    <div class="concept-card" style="border-top:3px solid var(--accent3);">
-      <h4>📋 规范建立</h4>
-      <p>《知识库维护规范》v1.1 落地：内容架构、部署、手机版、会话协作、主 agent 规则、经验速查。</p>
-    </div>
-    <div class="concept-card" style="border-top:3px solid var(--success);">
-      <h4>🤝 多会话协作</h4>
-      <p>主 agent 负责底层架构与部署；小改动各 agent 自理、大改动归主 agent；一键部署脚本 deploy.js + 本地 .env 管理 Token。</p>
-    </div>
+<section class="section" id="deploy">
+  <h2>一、部署经验</h2>
+  <div class="card accent">
+    <ul>
+      <li><strong>部署优先走 GitHub API 通道</strong>：国内网络下 git push 不稳定（依赖加速器），api.github.com 直连稳定。上传用 Contents API，构建用 POST /pages/builds。国内镜像站（ghproxy）不支持 push，不适用。</li>
+      <li><strong>一键部署脚本</strong>：所有部署统一用 <code>node tools/deploy.js</code>——自动重新生成 mobile.html + 上传 + 触发构建 + 服务器端验证。不要手动逐个文件传。</li>
+      <li><strong>上传必须串行</strong>：并发写同一仓库会被 GitHub 返回 409 拒绝。教训：上传并发度 = 1。</li>
+      <li><strong>部署后要服务器端验证</strong>：不能只看"构建成功"，要拉取线上内容核对（footer 文案 0 次、面板数量、文件大小）。</li>
+    </ul>
   </div>
 </section>
 
-<section class="section" id="decisions">
-  <h2>关键决策</h2>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>决策</th><th>原因</th><th>结果</th></tr></thead>
-      <tbody>
-        <tr><td><strong>部署走 GitHub API</strong></td><td>git push 在加速器关闭时完全不通</td><td>api.github.com 稳定直连，Contents API + pages/builds 全流程可用</td></tr>
-        <tr><td><strong>mobile.html 修复根因定位</strong></td><td>footer 里的 div 导致 lastIndexOf 误截</td><td>配对计数匹配 container，footer 彻底排除</td></tr>
-        <tr><td><strong>缓存用版本参数绕过</strong></td><td>手机/微信浏览器缓存顽固</td><td>入口跳转加 ?v=2，部署后以服务器端抓取验证为准</td></tr>
-        <tr><td><strong>建立主 agent 协作体系</strong></td><td>多对话框同时操作同一文件夹</td><td>改动分级 + 单点部署 + 本地 .env 管 Token，防止互相覆盖</td></tr>
-      </tbody>
-    </table>
+<section class="section" id="mobile">
+  <h2>二、手机版经验</h2>
+  <div class="card accent2">
+    <ul>
+      <li><strong>内容变更后必须重新生成 mobile.html</strong>，否则手机版不同步（部署脚本已自动绑定生成）。</li>
+      <li><strong>提取页面内容用配对计数</strong>匹配 container 闭合标签，否则页面底部的 footer 会被截入每个面板（曾导致"参考资料反复跳"的 bug）。</li>
+      <li><strong>面板用 div</strong>（不用 section），避免与内容页的 section 标签冲突；内容页标签不平衡时用 cleanSections 兜底。</li>
+      <li><strong>每次打开强制回首页</strong>，忽略浏览器恢复的上次位置。</li>
+    </ul>
   </div>
 </section>
 
-<section class="section" id="engineering">
-  <h2>工程化落地（第二轮）</h2>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>项目</th><th>内容</th></tr></thead>
-      <tbody>
-        <tr><td><strong>一键部署脚本</strong></td><td>tools/deploy.js：校验 HTML/MD 成对 → 重新生成 mobile.html → 串行上传（含 sha 冲突检测）→ 触发构建 → 轮询 → 服务器端验证。任何 agent 可调用</td></tr>
-        <tr><td><strong>Token 本地化管理</strong></td><td>.env 存 GH_TOKEN（已 gitignore），脚本统一读取，不再在对话中传递</td></tr>
-        <tr><td><strong>会话记录分区</strong></td><td>新增"会话记录"域，每次对话总结入库，网页导航可见</td></tr>
-        <tr><td><strong>规范 v1.2</strong></td><td>新增数据来源标注、一键部署说明；澄清分区执行权（其他 agent 建议、主 agent 执行）</td></tr>
-        <tr><td><strong>部署结果</strong></td><td>35 文件全量上传成功、构建 built、验证通过（footer 0 次、16 面板）</td></tr>
-      </tbody>
-    </table>
+<section class="section" id="cache">
+  <h2>三、缓存经验</h2>
+  <div class="card accent3">
+    <ul>
+      <li><strong>手机/微信浏览器缓存顽固</strong>：改版后加版本参数（如 ?v=2）强制绕过缓存。</li>
+      <li><strong>"看不到更新 ≠ 没部署"</strong>：先排查缓存（清缓存/无痕/版本参数），再用服务器端内容核对是否真的更新了。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="security">
+  <h2>四、安全经验</h2>
+  <div class="card accent4">
+    <ul>
+      <li><strong>Token 存本地 .env</strong>（已 .gitignore），不在对话、脚本、仓库中传递。</li>
+      <li><strong>Token 硬编码会被 GitHub 自动吊销</strong>（Push Protection 拦截），泄露一次就要换新的。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="content">
+  <h2>五、内容维护经验</h2>
+  <div class="card success">
+    <ul>
+      <li><strong>每条内容 HTML / MD 双格式同步维护</strong>：HTML 用于网页展示，MD 用于 AI 检索。缺一个会报成对校验警告。</li>
+      <li><strong>具体数据标注来源</strong>：产品参数、市占率等标注"来源：产品手册/培训资料"；无法核实的数据明确说明，不冒充权威。</li>
+      <li><strong>新增内容流程</strong>：内容 → HTML → MD → registry.json → 重新生成 mobile.html → 部署。</li>
+    </ul>
   </div>
 </section>
 
 <section class="section" id="collab">
-  <h2>协作模式实践</h2>
+  <h2>六、多 Agent 协作经验</h2>
+  <div class="card">
+    <ul>
+      <li><strong>改动分级</strong>：小改动（单页增补、单 MD 修改）各 agent 自理；大改动（分区、导航、UI 体系、脚本、批量改动）仅主 agent。</li>
+      <li><strong>大改动配审核 agent</strong>：独立复核产出（本轮审核发现 deploy.js 6 处问题，全部修复后才放心部署）。</li>
+      <li><strong>改文件前先读最新版</strong>，多会话同文件夹时防止互相覆盖。</li>
+      <li><strong>GitHub 并发写保护</strong>：同一时刻只允许一个部署流程，冲突（409）由主 agent 协调。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="prompting">
+  <h2>七、与 AI 高效交流的技巧</h2>
   <div class="concept-grid">
     <div class="concept-card" style="border-top:3px solid var(--accent);">
-      <h4>🤖 多 Agent 并行</h4>
-      <p>本次实践：部署（主 agent）与审核（审核 agent）并行执行，互不阻塞。</p>
+      <h4>① 给上下文</h4>
+      <p>描述问题时说清"在哪（哪个页面/设备）、看到什么、期望什么"。例："手机上打开销售话术页，底部反复出现'天赐材料知识库持续更新中'"。</p>
     </div>
     <div class="concept-card" style="border-top:3px solid var(--accent2);">
-      <h4>🛡️ 审核 Agent 把关</h4>
-      <p>独立审核发现 deploy.js 6 处问题（1 中 5 低/提示），全部修复：--files 附带 mobile.html、构建轮询竞态、409 排队处理、footer 检查词扩展等。</p>
+      <h4>② 说"要什么"</h4>
+      <p>直接说"把标题改为'与 AI 的交流经验'，内容要可复用的经验"比"这样不对"更高效——AI 才知道往哪改。</p>
     </div>
     <div class="concept-card" style="border-top:3px solid var(--accent3);">
-      <h4>📐 分工原则</h4>
-      <p>主 agent：底层架构+部署；内容/UI agent：用户后续补充规则；审核 agent：产出复核。</p>
+      <h4>③ 大需求拆小步</h4>
+      <p>一次只确认一步（先看草稿→确认→再写入→再部署），避免返工。</p>
     </div>
     <div class="concept-card" style="border-top:3px solid var(--success);">
-      <h4>🔑 教训：并发写仓库被 409</h4>
-      <p>GitHub 对同仓库并发写有保护，上传必须串行（CONCURRENCY=1）。</p>
+      <h4>④ 数据给来源</h4>
+      <p>涉及具体数字时说明出处（产品手册/培训材料），AI 总结更准、更敢用。</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="todo">
-  <h2>后续待办</h2>
-  <div class="card accent">
-    <ul>
-      <li><strong>资料补充</strong>：用户提供天赐产品手册 / 培训资料等，入库时数据标注来源</li>
-      <li><strong>内容纵深</strong>：补充助剂（增稠/乳化/防腐）、法规标准（GB/T、INCI）等知识缺口</li>
-      <li><strong>其他 agent 规则</strong>：由用户后续自行补充到规范</li>
-      <li><strong>UI / 内容分工</strong>：过渡期主 agent 兼任，后续分派给专门 agent</li>
-    </ul>
+<section class="section" id="related">
+  <h2>相关页面（串联入口）</h2>
+  <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+    <a href="../../index.html" class="page-card">
+      <div class="card-icon">🏠</div>
+      <h3>知识库首页</h3>
+      <p>所有内容的入口与导航</p>
+    </a>
+    <a href="../销售与市场/sales.html" class="page-card">
+      <div class="card-icon">💬</div>
+      <h3>销售话术</h3>
+      <p>把技术翻译成销售语言的例子</p>
+    </a>
+    <a href="../表面活性剂/troubleshooting.html" class="page-card">
+      <div class="card-icon">🔍</div>
+      <h3>问题诊断</h3>
+      <p>客户常见问题速查</p>
+    </a>
   </div>
 </section>
 
@@ -130,7 +153,7 @@
 
 <footer>
   <div class="container">
-    <p>天赐材料日化知识库 · 会话记录 · 持续更新中</p>
+    <p>天赐材料日化知识库 · AI 协作经验 · 持续更新中</p>
     <p><a href="../../index.html">返回首页</a></p>
   </div>
 </footer>
