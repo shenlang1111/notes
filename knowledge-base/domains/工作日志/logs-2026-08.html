@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2026 年 8 月工作日志 · 天赐材料知识库</title>
-<link rel="stylesheet" href="../../_shared/css/style.css?v=4">
+<link rel="stylesheet" href="../../_shared/css/style.css?v=5">
 </head>
 <body>
 
@@ -14,45 +14,91 @@
 <div class="container">
 <!-- ===== Page Hero ===== -->
 <div class="page-hero">
-  <div class="page-hero-meta"><span class="tag tag-orange">工作日志</span></div>
+  <div class="page-hero-meta"><span class="tag tag-orange">工作日志</span><span class="tag tag-green">进行中</span></div>
   <h1>2026 年 8 月工作日志</h1>
-  <p class="page-hero-desc">本月日志按日期追加 · 月底可聚合为月报 · 数据供半月报/月报/年报引用</p>
+  <p class="page-hero-desc">本月日志按日追加 · 月底聚合为月报 · 数据供半月报/月报/年报引用</p>
   <a href="../../index.html" class="page-hero-back">← 返回首页</a>
 </div>
 <!-- ===== /Page Hero ===== -->
 
+<!-- ===== 本月速览 ===== -->
+<section class="section" id="overview">
+  <h2>📊 本月速览</h2>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-num" style="color:var(--accent);">0</div>
+      <div class="stat-label">记录天数</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:var(--accent2);">0</div>
+      <div class="stat-label">完成事项</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:var(--warning);">0</div>
+      <div class="stat-label">待解决问题</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="font-size:1.05rem;color:var(--accent3);">—</div>
+      <div class="stat-label">关键词（月底更新）</div>
+    </div>
+  </div>
+  <p class="stats-note">月底自动聚合 → 生成月报 · 数据以当月逐日日志为准</p>
+</section>
+
+<!-- ===== 每日速记提示 ===== -->
+<section class="section" id="daily-tip">
+  <h2>💡 每日速记（怎么给我素材）</h2>
+  <div class="callout accent2">
+    <strong>每天一两句就够了。</strong> 例如：<span class="tip-example">"今天跟李增兵学了脱异丙醇塔回流控制，卡在温度梯度没吃透"</span> —— 剩下的整理、归类、归档交给我。
+  </div>
+</section>
+
+<!-- ===== 日志记录 ===== -->
 <section class="section" id="logs">
   <h2>📅 日志记录</h2>
 
-  <!-- 日志按日期追加到此处（每天追加，不覆盖） -->
-  <!-- 模板：
-  <h3>2026-08-DD（周X）</h3>
-  <h4>今日完成</h4>
-  <ul>
-    <li>事项 —— 结果/产出</li>
-  </ul>
-  <h4>遇到的问题</h4>
-  <ul>
-    <li>问题 → 解决方式 / 待解决</li>
-  </ul>
-  <h4>明日计划</h4>
-  <ul>
-    <li>事项</li>
-  </ul>
+  <!-- 日志按日期追加到此处（每天追加，不覆盖）。结构示例：
+  <h3 class="week-group-title"><span class="wg-name">第 1 组</span><span class="wg-days">8.01（六）– 8.02（日）· 一句话主题</span></h3>
+  <div class="log-card">
+    <div class="log-card-head">
+      <span class="log-date">08-01 <span class="dow">周六</span></span>
+      <span class="log-tags"><span class="tag tag-blue">产线实操</span></span>
+    </div>
+    <div class="log-block">
+      <span class="lb-label">今日完成</span>
+      <ul>
+        <li>事项 —— 结果/产出</li>
+      </ul>
+    </div>
+    <div class="log-block issue">
+      <span class="lb-label">遇到的问题</span>
+      <ul>
+        <li>问题 → 解决方式 / 待解决</li>
+      </ul>
+    </div>
+    <div class="log-block idea">
+      <span class="lb-label">灵感</span>
+      <ul>
+        <li>一句话记录</li>
+      </ul>
+    </div>
+  </div>
   -->
 
   <div class="callout">
-    <strong>本月日志尚未开始记录。</strong>日志 AI 按 <a href="logs-guide.html">板块说明</a> 中的模板，每天把日志追加到本页（HTML + Markdown 双格式同步，部署验证）。
+    <strong>本月日志尚未开始记录。</strong>日志 AI 按 <a href="logs-guide.html">板块说明</a> 中的模板，每天把日志追加到本页（HTML + Markdown 双格式同步，部署验证）。<br>类别标签：<span class="tag tag-red">安全合规</span> <span class="tag tag-purple">质量认证</span> <span class="tag tag-blue">产线实操</span> <span class="tag tag-green">产品学习</span> <span class="tag tag-orange">知识库</span>
   </div>
 </section>
 
-<section class="section" id="monthly-summary">
-  <h2>📊 月度小结（月底生成）</h2>
+<!-- ===== 报告区 ===== -->
+<section class="section" id="reports">
+  <h2>📄 报告区</h2>
   <div class="card" style="color:var(--text-secondary);">
-    <p>月底由日志 AI 聚合本月日志生成：完成事项汇总、关键数据、问题复盘、下月计划。</p>
+    <p>半月报（8.15）/ 月报（8.31）生成后在此展示：完成事项汇总、关键数据、问题复盘、下月计划。</p>
   </div>
 </section>
 
+<!-- ===== 相关页面 ===== -->
 <section class="section" id="related">
   <h2>相关页面</h2>
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
