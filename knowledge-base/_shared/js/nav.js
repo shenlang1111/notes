@@ -28,6 +28,7 @@
     ['销售话术', 'domains/销售与市场/sales.html'],
     ['AI 经验', 'domains/会话记录/session-20260801.html'],
     ['新会话话术', 'domains/会话记录/session-prompt.html'],
+    ['用户画像', 'domains/会话记录/user-profile.html'],
     ['收件箱', 'domains/思考收件箱/inbox.html']
   ];
 
