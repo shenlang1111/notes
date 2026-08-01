@@ -36,6 +36,7 @@ updated: 2026-08-02
 | 2026-08-02 | 主 AI | 建立 AI 工作记录页（本页）：名字体系 + 谁做了什么留痕 | 思考收件箱/ai-worklog |
 | 2026-08-02 | 主 AI | 把 AI 协作机制同步给每个 AI：审查智能体 AI 改动（fanku/任务板/健康度）并修复 fanku 已知域；话术页各角色加协作机制与登记提醒；PROJECT_CONTEXT/两份交接文档状态同步 | session-prompt、PROJECT_CONTEXT、.claude/handoffs/、.trae/skills/fanku/SKILL.md |
 | 2026-08-02 | 日志 AI | 工作日志板块 UI 改造：卡片式日志（按周分组+类别标签）、本月速览卡、每日速记提示、报告区；补录 2026-07 日志（9 天整理版）；nav 加 7 月入口、registry 登记；style.css 加日志卡片样式；部署验证上线 | domains/工作日志/（logs-2026-07/08/guide html+md）、_shared/css/style.css、nav.js、registry.json |
+| 2026-08-02 | 日志 AI | 落实日志 AI 建议：logs-guide 模板加"产出/成果"块（链知识库成果页）+ 原则补"产出链接/补录标注"；8 月页模板注释同步示例；7 月速览卡标注"补录数据骨架级，不与实时混算" | domains/工作日志/（logs-guide、logs-2026-07、logs-2026-08 html+md） |
 | 2026-08-02 | 智能体 AI | 按新协作机制报到：读完 5 项必读（ai-worklog 名单/任务板/健康度盘点/fanku 翻库/版本号）并逐项报告；确认角色=智能体 AI | 思考收件箱/ai-worklog（本页） |
 
 登记规则：
