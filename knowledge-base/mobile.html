@@ -482,7 +482,7 @@ body{padding-bottom:3rem;}
     <button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰ 目录</button>
   </div>
   <div class="nav-links" id="navLinks">
-    <a href="#home" class="active" data-nav="home">首页</a><a href="#session-20260801" data-nav="session-20260801">session-20260801</a><a href="#session-prompt" data-nav="session-prompt">session-prompt</a><a href="#user-profile" data-nav="user-profile">user-profile</a><a href="#logs-2026-07" data-nav="logs-2026-07">logs-2026-07</a><a href="#logs-2026-08" data-nav="logs-2026-08">logs-2026-08</a><a href="#logs-guide" data-nav="logs-guide">logs-guide</a><a href="#ai-worklog" data-nav="ai-worklog">ai-worklog</a><a href="#inbox-20260802-agent-design" data-nav="inbox-20260802-agent-design">inbox-20260802-agent-design</a><a href="#inbox" data-nav="inbox">inbox</a><a href="#kb-health-checklist" data-nav="kb-health-checklist">kb-health-checklist</a><a href="#team-task-board" data-nav="team-task-board">team-task-board</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#finechem-engineering" data-nav="finechem-engineering">finechem-engineering</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a><a href="#tinci-amphoteric-summary" data-nav="tinci-amphoteric-summary">tinci-amphoteric-summary</a><a href="#tinci-surfactant-guide" data-nav="tinci-surfactant-guide">tinci-surfactant-guide</a>
+    <a href="#home" class="active" data-nav="home">首页</a><a href="#session-20260801" data-nav="session-20260801">session-20260801</a><a href="#session-prompt" data-nav="session-prompt">session-prompt</a><a href="#user-profile" data-nav="user-profile">user-profile</a><a href="#logs-2026-07" data-nav="logs-2026-07">logs-2026-07</a><a href="#logs-2026-08" data-nav="logs-2026-08">logs-2026-08</a><a href="#logs-guide" data-nav="logs-guide">logs-guide</a><a href="#ai-worklog" data-nav="ai-worklog">ai-worklog</a><a href="#inbox-20260802-agent-design" data-nav="inbox-20260802-agent-design">inbox-20260802-agent-design</a><a href="#inbox" data-nav="inbox">inbox</a><a href="#kb-health-checklist" data-nav="kb-health-checklist">kb-health-checklist</a><a href="#mechanism-updates" data-nav="mechanism-updates">mechanism-updates</a><a href="#team-task-board" data-nav="team-task-board">team-task-board</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#finechem-engineering" data-nav="finechem-engineering">finechem-engineering</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a><a href="#tinci-amphoteric-summary" data-nav="tinci-amphoteric-summary">tinci-amphoteric-summary</a><a href="#tinci-surfactant-guide" data-nav="tinci-surfactant-guide">tinci-surfactant-guide</a>
   </div>
 </nav>
 
@@ -497,7 +497,7 @@ body{padding-bottom:3rem;}
 <div class="feature-grid">
   <div class="feature-item">
     <div class="f-icon">📚</div>
-    <h4>27 个专题页面</h4>
+    <h4>28 个专题页面</h4>
     <p>从基础概念到销售实战</p>
   </div>
   <div class="feature-item">
@@ -677,6 +677,11 @@ body{padding-bottom:3rem;}
     <div class="card-icon">🩺</div>
     <h3>知识库健康度盘点</h3>
     <p>定期体检清单：双格式/数据来源/硬伤/深度/翻库实测</p>
+  </a>
+  <a href="#mechanism-updates" class="page-card">
+    <div class="card-icon">📢</div>
+    <h3>机制更新</h3>
+    <p>新增协作机制的广播索引：谁建了机制、去哪读，新 AI 到岗必读</p>
   </a>
 </div>
 
@@ -1042,7 +1047,7 @@ ai-agent/
 - 响应四问：理解了吗 / 讨论还是执行 / 读了吗 / 谁拍板——模糊的讨论型任务先复述确认
 - 可用能力：项目装有 17 个 skill（pdf/docx/xlsx/brainstorming/并行分派等，见 SKILL_GUIDE.md），任务匹配直接调用
 - 翻库规则：知识类问题必翻库再答——"先翻库、再开口；带出处、不编造；翻不到、说没有"（完整版见 .trae/skills/fanku/SKILL.md）
-- AI 协作机制：新窗口到岗先读 ai-worklog（团队名单+谁干过什么）、team-task-board（待办任务）、kb-health-checklist（体检维度）；干完活到 ai-worklog 登记一行（日期 + 你的名字 + 做了什么 + 涉及位置，其他 AI 靠它知道谁干过什么）；多人协作任务在团队任务板登记/认领；定期做知识库健康度盘点
+- AI 协作机制：新窗口到岗先读机制更新页（mechanism-updates：最近新增机制广播）+ ai-worklog（团队名单+谁干过什么）、team-task-board（待办任务）、kb-health-checklist（体检维度）；干完活到 ai-worklog 登记一行（日期 + 你的名字 + 做了什么 + 涉及位置，其他 AI 靠它知道谁干过什么）；多人协作任务在团队任务板登记/认领；定期做知识库健康度盘点
 
 任务：<在这里写你要做的事>
 
@@ -1159,14 +1164,16 @@ ai-agent/
 【第二步：读公共文档 + 报告版本号】
 知识库维护规范.md（v3.2）/ PROJECT_CONTEXT.md / CODE_WIKI.md / SKILL_GUIDE.md / CHANGELOG.md 顶部（看最近更新）
 
-【第三步：必读新增协作机制（新 AI 到岗先读这 4 样，读完逐项报告）】
-1. AI 工作记录 → domains/思考收件箱/ai-worklog.html：团队名单（主 AI/闲聊 AI/智能体 AI/日志 AI + 主 AI 手下子代理）+ 谁干过什么留痕
+【第三步：必读新增协作机制（新 AI 到岗先读，读完逐项报告）】
+1. 机制更新 → domains/思考收件箱/mechanism-updates.html：所有新增机制的广播索引
+   读完报：最近新增了哪几个机制？各自去哪读？
+2. AI 工作记录 → domains/思考收件箱/ai-worklog.html：团队名单（主 AI/闲聊 AI/智能体 AI/日志 AI + 主 AI 手下子代理）+ 谁干过什么留痕
    读完报：团队有哪几个 AI？你的角色是谁？最近别人都干了什么？
-2. 团队任务板 → domains/思考收件箱/team-task-board.html：多人协作任务的登记/认领入口
+3. 团队任务板 → domains/思考收件箱/team-task-board.html：多人协作任务的登记/认领入口
    读完报：现在有哪些待办任务？
-3. 知识库健康度盘点 → domains/思考收件箱/kb-health-checklist.html：定期体检清单
+4. 知识库健康度盘点 → domains/思考收件箱/kb-health-checklist.html：定期体检清单
    读完报：盘点分哪几个维度？
-4. 翻库纪律 → .trae/skills/fanku/SKILL.md：知识问题必先查库再答
+5. 翻库纪律 → .trae/skills/fanku/SKILL.md：知识问题必先查库再答
    读完报：翻库口诀是什么？
 
 【第四步：谁需要懂用户】
@@ -1968,6 +1975,11 @@ ai-agent/
           <td>session-prompt、PROJECT_CONTEXT、.claude/handoffs/、.trae/skills/fanku/SKILL.md</td>
         </tr>
         <tr>
+          <td>2026-08-02</td><td><span class="tag tag-orange">主 AI</span></td>
+          <td>按用户建议建"机制更新"页（新增机制广播索引，解决"话术页清单会过时"）；话术页第七节必读清单改为 5 项（机制更新页置顶）；PROJECT_CONTEXT/首页/nav/registry 登记，页面数 27→28</td>
+          <td>思考收件箱/mechanism-updates、session-prompt、index.html、nav.js、registry.json、PROJECT_CONTEXT</td>
+        </tr>
+        <tr>
           <td>2026-08-02</td><td><span class="tag tag-green">日志 AI</span></td>
           <td>工作日志板块 UI 改造：卡片式日志（按周分组+类别标签）、本月速览卡、每日速记提示、报告区；补录 2026-07 日志（9 天整理版）；nav 加 7 月入口、registry 登记；style.css 加日志卡片样式；部署验证上线</td>
           <td>domains/工作日志/（logs-2026-07/08/guide html+md）、_shared/css/style.css、nav.js、registry.json</td>
@@ -2350,6 +2362,105 @@ ai-agent/
       <div class="card-icon">💡</div>
       <h3>与 AI 的交流经验</h3>
       <p>经验沉淀仓库</p>
+    </a>
+  </div>
+</section>
+</div>
+<div class="page-panel" id="panel-mechanism-updates" data-panel="mechanism-updates" style="display:none">
+<!-- ===== Page Hero ===== -->
+<div class="page-hero">
+  <div class="page-hero-meta"><span class="tag tag-orange">AI 协作</span></div>
+  <h1>机制更新</h1>
+  <p class="page-hero-desc">新增协作机制的"更新广播"：谁建了新机制就往这追加一条，新 AI 到岗读这一页，就知道"最近系统加了什么、去哪读"——不用改话术页，也不用我手把手教。</p>
+</div>
+<!-- ===== /Page Hero ===== -->
+
+<section class="section" id="what">
+  <h2>一、这是什么</h2>
+  <div class="card accent2">
+    <p style="margin:0;">一句话定位：<strong>机制增量索引</strong>——话术页负责"固定必读"（ai-worklog/任务板/健康度/翻库），本页负责"最近新增"。每建一个新机制，在下方追加一条；新 AI 到岗必读本页，按条找到对应页面去读。</p>
+  </div>
+  <div class="concept-grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
+    <div class="concept-card" style="border-top:3px solid var(--accent);">
+      <h4>建机制 → 追加</h4>
+      <p>谁建了新机制（新页面/新规则/新 skill），顺手在本页追加一行：日期 + 机制 + 去哪读 + 谁加的。只做索引，不复制内容。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent4);">
+      <h4>新 AI → 必读</h4>
+      <p>新窗口到岗读本页（话术页第七节已列为本页入口之一），逐条找到对应页面读，读完报告看到了什么。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent3);">
+      <h4>过时 → 清理</h4>
+      <p>机制稳定后可从本页摘除（保留在各自页面），本页只留"还没普遍掌握的新机制"，保持短小。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="list">
+  <h2>二、更新记录（新机制必读）</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>2026-08-02</td><td><strong>AI 工作记录（名字体系）</strong>——每个 AI 干完活登记：日期+名字+做了什么+涉及位置</td>
+          <td>domains/思考收件箱/ai-worklog.html</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
+          <td>2026-08-02</td><td><strong>团队任务板</strong>——多人协作任务的登记/认领/状态流转</td>
+          <td>domains/思考收件箱/team-task-board.html</td><td><span class="tag tag-purple">智能体 AI</span></td>
+        </tr>
+        <tr>
+          <td>2026-08-02</td><td><strong>知识库健康度盘点</strong>——五维体检清单，问题进任务板</td>
+          <td>domains/思考收件箱/kb-health-checklist.html</td><td><span class="tag tag-purple">智能体 AI</span></td>
+        </tr>
+        <tr>
+          <td>2026-08-02</td><td><strong>翻库规则（fanku skill）</strong>——知识问题必先查库：先翻库、再开口；带出处、不编造；翻不到、说没有</td>
+          <td>.trae/skills/fanku/SKILL.md + 规范八</td><td><span class="tag tag-purple">智能体 AI</span></td>
+        </tr>
+        <tr>
+          <td>2026-08-02</td><td><strong>本页（机制更新）建立</strong>——所有新增机制的广播索引</td>
+          <td>本页</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="rules">
+  <h2>三、维护规则</h2>
+  <div class="card warning">
+    <ul>
+      <li><strong>谁建谁记</strong>：新建机制（页面/规则/skill/流程）后，建立者顺手在本页追加一行——并进 DoD 自检，防止"建了没人广播"</li>
+      <li><strong>只索引不复制</strong>：每条写"去哪读"指向具体页面，内容留在原页面，避免本页膨胀成第二个话术页</li>
+      <li><strong>固定项不进本页</strong>：ai-worklog/团队任务板/健康度/翻库这 4 样是"永久必读"，属于话术页固定项；本页只收增量</li>
+      <li><strong>稳定即摘除</strong>：机制被普遍掌握后，从本页摘除（各 AI 已知道、入口已在话术页），本页保持"最近新增"的短小形态</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="related">
+  <h2>相关页面</h2>
+  <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+    <a href="#session-prompt" class="page-card">
+      <div class="card-icon">📋</div>
+      <h3>新会话开场话术</h3>
+      <p>各 AI 的开场与固定必读（本页是其增量入口）</p>
+    </a>
+    <a href="#ai-worklog" class="page-card">
+      <div class="card-icon">📝</div>
+      <h3>AI 工作记录</h3>
+      <p>谁做了什么，带名字留痕</p>
+    </a>
+    <a href="#team-task-board" class="page-card">
+      <div class="card-icon">📋</div>
+      <h3>团队任务板</h3>
+      <p>该做什么：登记、认领、追踪</p>
+    </a>
+    <a href="#kb-health-checklist" class="page-card">
+      <div class="card-icon">🩺</div>
+      <h3>知识库健康度盘点</h3>
+      <p>定期体检清单</p>
     </a>
   </div>
 </section>
