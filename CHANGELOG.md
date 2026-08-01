@@ -8,6 +8,7 @@
 
 | 日期 | 主题 | 修改内容 | 涉及文件 |
 |---|---|---|---|
+| 2026-08-02 | 全量同步部署 | 全部新加内容（工作日志域、精细化工与扩展域、收件箱新页、销售与市场两手册、会话记录/用户画像/交接提示词等 28 页 62 文件）全量上线；此前 3 文件 409 冲突经核对线上=本地（并发竞态）后重传成功；构建 built、--expect 3 项全过 | 全库 62 文件、线上操作 |
 | 2026-08-01 | 部署通道打通 | git push 国内超时 → 改用 GitHub API（Contents API 上传 + POST /pages/builds 触发构建） | —（线上操作） |
 | 2026-08-01 | mobile.html 修复 | 修复 footer 文案被截入每个面板：extractContainer 由 lastIndexOf 改为配对计数匹配 | tools/build_mobile.js |
 | 2026-08-01 | 缓存处理 | 入口跳转加版本参数 ?v=2 绕过手机/微信缓存 | index.html |
@@ -74,3 +75,4 @@
 | 2026-08-02 | 协作机制同步给每个 AI | 用户要求"把这些改动同步给每一个 AI"→ 各 AI 入场入口全量同步：①话术页一/五/六/七节加"AI 协作机制"（干完活登记 ai-worklog：日期+名字+做了什么+涉及位置；任务在团队任务板登记/认领；定期做健康度盘点），八节日志 AI 已有登记提醒（HTML/MD 同步）②PROJECT_CONTEXT v3.1→v3.2：7 域 27 页结构、首页 7 大分类、协作工作流加"AI 团队与协作留痕"（四主窗口 AI 分工 + ai-worklog/任务板/健康度）与翻库规则 ③主 agent 交接文档：状态摘要（7 域 27 页/17 skill/四 AI）、关键机制加 ai-worklog 留痕、下一步更新、关键文件表加 4 项 ④闲聊 AI 交接文档规则速览加 ai-worklog 登记 ⑤ai-worklog 追加主 AI 本次登记；部署验证 | session-prompt.html、.md、PROJECT_CONTEXT.md、.claude/handoffs/（两份）、ai-worklog.html、.md、CHANGELOG.md |
 | 2026-08-02 | 新 AI 必修协作机制 | 用户要求"新 AI 加入也要提前学习这部分"→ 话术页第七节（创建新窗口提示词）新增"第三步：必读新增协作机制"：到岗先读 ai-worklog（团队名单+谁干过什么）/ team-task-board（待办任务）/ kb-health-checklist（体检维度）/ fanku 翻库纪律（知识必先查库），读完逐项报告（防止"说读了其实没读"）；第一节通用开场话术的"AI 协作机制"行同步补"新窗口到岗先读"指引（HTML/MD 双格式）；部署验证 | session-prompt.html、.md |
 | 2026-08-02 | 日志板块 UI 改造 + 7 月补录 | 日志 AI 落地板块改造（用户拍板方案）：①style.css 加日志卡片样式（log-card/log-date/log-block/week-group-title/速览配套，只加类不动现有）②logs-2026-07/08 改卡片式：本月速览卡 + 每日速记提示 + 按周分组日志卡片（类别标签：安全合规/质量认证/产线实操/产品学习/知识库）+ 报告区 + 关联成果 ③logs-guide 模板更新为卡片结构 ④nav 加 7 月入口、registry 登记 logs-2026-07 ⑤7 月日志补录（9 天整理版：豆包日报骨架 + 知识库成果核对，去虚构细节）⑥ai-worklog 登记日志 AI 本次工作；部署 2 次（mobile 409 并发冲突重试通过）+ --expect 验证「本月速览」「log-card」 | style.css、nav.js、registry.json、domains/工作日志/（logs-2026-07/08/guide html+md）、思考收件箱/ai-worklog.html、.md、CHANGELOG.md |
+| 2026-08-02 | 日志板块规则补充 | 落实日志 AI 建议（用户拍板"关于我的部分都落实"）：①logs-guide 模板加"产出/成果"块（知识库成果链到成果页）+ 写日志原则补"产出链接/补录标注"两条 ②logs-2026-08 模板注释同步产出示例 ③logs-2026-07 速览卡标注"补录数据骨架级，不与实时混算"；ai-worklog 登记；部署验证「补录标注」 | domains/工作日志/（logs-guide、logs-2026-07、logs-2026-08 html+md）、思考收件箱/ai-worklog.html、.md、CHANGELOG.md |
