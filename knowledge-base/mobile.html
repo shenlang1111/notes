@@ -533,6 +533,33 @@ body{padding-bottom:3rem;}
 </div>
 <!-- ===== /Page Hero ===== -->
 
+<section class="section" id="quickref">
+  <h2>经验速查索引</h2>
+  <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:1rem;">每条经验 = 场景 → 做法。下方七大块为详细说明；超过 30 条时按子主题拆分为独立页面。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>场景</th><th>核心做法</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>部署不通 / 慢</td><td>走 GitHub API（api.github.com）直连：Contents API 上传 + POST /pages/builds 构建</td></tr>
+        <tr><td>2</td><td>部署文件多 / 易漏</td><td>统一 <code>node tools/deploy.js</code> 一键部署，不手动逐个传</td></tr>
+        <tr><td>3</td><td>上传报 409</td><td>串行上传（并发度 = 1），GitHub 对同仓库并发写有保护</td></tr>
+        <tr><td>4</td><td>部署是否真生效</td><td>服务器端抓取验证（内容/大小/标记），不看构建状态</td></tr>
+        <tr><td>5</td><td>手机版不同步</td><td>内容变更后必须重新生成 mobile.html（deploy.js 已绑定）</td></tr>
+        <tr><td>6</td><td>手机版 footer 重复</td><td>提取内容用配对计数匹配 container，不用 lastIndexOf</td></tr>
+        <tr><td>7</td><td>手机版面板块错乱</td><td>面板用 div（不用 section）+ cleanSections 兜底</td></tr>
+        <tr><td>8</td><td>手机版位置错乱</td><td>每次打开强制回首页，忽略浏览器恢复的 hash</td></tr>
+        <tr><td>9</td><td>改版后看不到更新</td><td>加版本参数（?v=2）绕过缓存；先查缓存再查部署</td></tr>
+        <tr><td>10</td><td>Token 安全</td><td>存本地 .env（gitignore），不在对话/仓库/脚本中硬编码</td></tr>
+        <tr><td>11</td><td>数据可信度</td><td>具体数据标注来源；无法核实的不冒充权威</td></tr>
+        <tr><td>12</td><td>双格式同步</td><td>HTML / MD 成对维护，缺一个触发成对校验警告</td></tr>
+        <tr><td>13</td><td>多会话互相覆盖</td><td>改动分级：小改动自理，大改动仅主 agent；改前先读最新版</td></tr>
+        <tr><td>14</td><td>质量把关</td><td>关键产出配审核 agent 独立复核，问题修复后才部署</td></tr>
+        <tr><td>15</td><td>让 AI 更懂你</td><td>给上下文 / 说要什么 / 大需求拆小步 / 数据给来源</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section class="section" id="deploy">
   <h2>一、部署经验</h2>
   <div class="card accent">
