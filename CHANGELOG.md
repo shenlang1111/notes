@@ -8,7 +8,8 @@
 
 | 日期 | 主题 | 修改内容 | 涉及文件 |
 |---|---|---|---|
-| 2026-08-02 | UI 第四批：首页重分块+改标题 | 首页从 7 个学科分类改为 3 个使用场景分块（知识体系/产品与实战/AI 协作与日志），每块加描述语；主标题"知识库"→"资料库"（v3.0），副标题重写；style.css 加 category-desc 样式；部署验证上线 | index.html、_shared/css/style.css |
+| 2026-08-02 | 智能体 AI 接替修复：精细化工页 + 天赐学习手册 | 源文件修复：①精细化工工艺学核心内容提炼.html：章节编号9.4/9.5→9.10/9.11、渗透压多元醇"膜渗透压"→"膜结构/膜蛋白"、低盐逻辑"低渗透压"→"减少电解质干扰" ②tinci-surfactant-guide.html：TC-MAB INCI 椰油酰→月桂酰、氨基酸误归两性修正（甜菜碱/CAB→咪唑啉型）、CD 后缀 Coco→Lauro 同步；任务板更新 2 项 ✅ 已完成 | 精细化工工艺学核心内容提炼.html、tinci-surfactant-guide.html、team-task-board html+md |
+| 2026-08-02 | 全库查验 + 3 个大页拆分修复 | 查验发现 3 个大页硬伤全属实（渗透压错误/市占率矛盾/牌号命名冲突/MD 转换残渣等）；系统修复：①精细化工拆 3 页（finechem-additives/daily-chem/surfaces）+ 渗透压修正 + 章节重排 ②天赐学习手册拆 3 页（tinci-product-overview/surfactant-details/market-sales）+ 市占率统一/命名修正/氨基酸分类/重复删除 ③两性表活目录原地修复（牌号23→29/MAB命名Coco→Lauro/RSPO 5→4/化学类型5→6）+ MD 重构 ④首页补 7 月日志卡片 + 页面数 29→33 ⑤nonionic 加待核实标注 + 来源区块 ⑥旧页删除 + registry/nav/index 全量同步 | 6 新页 + 2 旧页删除 + index.html + registry.json + nav.js + nonionic html+md + 两性目录 html+md |
 | 2026-08-02 | UI 第三批：Bento 首页+浮动速跳 | 首页改 Bento 网格布局（featured 大卡/compact 紧凑卡，桌面端 featured 跨 2 列）；nav.js 加浮动速跳按钮（≤1024px 显示，分"知识页""AI 协作/日志"两组面板）；style.css 加 Bento+float 样式；部署验证上线 | index.html、_shared/css/style.css、_shared/js/nav.js |
 | 2026-08-02 | 智能体 AI 首次健康度修复 | 多组并行修复：文档事实修正（session-prompt 铁律数/版本示例、CODE_WIKI/PROJECT_CONTEXT 页面数同步）、结构修正（market hero 趋势名对齐+h2+相关页面区、sales 补相关页面区）、收件箱状态更新（inbox 收尾门禁→可归档、agent-design 团队列表补新成员）、内容硬伤（troubleshooting hero 过期文案、amphoteric 5.3.2 代表产品、synthesis 第8章编号重排）、称呼统一（智能体搭建AI→智能体AI 7文件）、session-20260801 经验索引#16跳号修复 | 约 20 个文件（domains 下 HTML+MD 双格式、根目录 .md、CHANGELOG） |
 | 2026-08-02 | 全量同步部署 | 全部新加内容（工作日志域、精细化工与扩展域、收件箱新页、销售与市场两手册、会话记录/用户画像/交接提示词等 28 页 62 文件）全量上线；此前 3 文件 409 冲突经核对线上=本地（并发竞态）后重传成功；构建 built、--expect 3 项全过 | 全库 62 文件、线上操作 |
