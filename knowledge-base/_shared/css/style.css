@@ -397,7 +397,31 @@ footer .sources a{word-break:break-all;}
 }
 .slot-hint::before{content:'📌 ';}
 
-/* ============ 移动端 ============ */
+/* ============ 工作日志板块 ============ */
+.week-group-title{display:flex;align-items:baseline;gap:0.6rem;margin:2.4rem 0 0.6rem;padding-left:0.85rem;border-left:4px solid var(--accent2);}
+.week-group-title .wg-name{font-size:1.1rem;font-weight:800;color:var(--ink);}
+.week-group-title .wg-days{font-size:0.78rem;color:var(--muted);font-weight:500;}
+
+.log-card{background:var(--bg2);border:1px solid var(--rule);border-radius:12px;padding:1.1rem 1.25rem;margin:0.85rem 0;box-shadow:var(--shadow-xs);transition:all 0.2s;}
+.log-card:hover{box-shadow:var(--shadow-md);border-color:rgba(20,184,166,0.4);}
+.log-card-head{display:flex;align-items:center;gap:0.55rem;flex-wrap:wrap;margin-bottom:0.55rem;}
+.log-date{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;font-weight:800;color:#fff;background:var(--accent);padding:0.22rem 0.75rem;border-radius:999px;letter-spacing:0.02em;}
+.log-date .dow{font-weight:500;opacity:0.85;}
+.log-tags{display:flex;gap:0.3rem;flex-wrap:wrap;}
+.log-tags .tag{margin-right:0;}
+.log-block{margin:0.5rem 0;}
+.log-block .lb-label{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.74rem;font-weight:800;color:var(--muted);letter-spacing:0.06em;}
+.log-block .lb-label::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block;}
+.log-block.issue .lb-label::before{background:var(--warning);}
+.log-block.idea .lb-label::before{background:var(--accent3);}
+.log-block ul{list-style:none;padding:0;margin:0.3rem 0 0;}
+.log-block li{font-size:0.88rem;color:#26453F;line-height:1.75;padding:0.12rem 0;}
+.log-block li::before{content:"·";color:var(--accent2);margin-right:0.45rem;font-weight:700;}
+
+.stats-note{font-size:0.78rem;color:var(--muted);margin-top:0.5rem;text-align:center;}
+.daily-tip{font-size:0.88rem;line-height:1.8;}
+.daily-tip .tip-example{display:inline-block;background:var(--accent-soft);color:var(--accent);border-radius:6px;padding:0.1rem 0.5rem;font-size:0.84rem;}
+
 @media(max-width:768px){
   html{font-size:15px;}
   .container{padding:0 1.1rem;}
@@ -413,4 +437,9 @@ footer .sources a{word-break:break-all;}
   .feature-grid{grid-template-columns:repeat(2,1fr);}
   .section h3{font-size:1.02rem;}
   .page-hero-desc{font-size:0.88rem;}
+  /* 工作日志板块移动端 */
+  .log-card{padding:0.9rem 1rem;}
+  .log-date{font-size:0.78rem;}
+  .log-block li{font-size:0.85rem;}
+  .week-group-title .wg-days{display:block;}
 }
