@@ -327,23 +327,63 @@
       "updated": "2026-08-02"
     },
     {
-      "id": "finechem-engineering",
-      "title": "《精细化工工艺学》学习笔记",
+      "id": "finechem-additives",
+      "title": "精细化工：助剂与添加剂",
       "domain": "精细化工与扩展",
-      "tags": ["精细化工", "工艺学", "教材"],
+      "tags": ["精细化工", "助剂", "塑料助剂", "食品添加剂", "香料"],
       "category": "基础理论",
       "type": "article",
-      "file": "domains/精细化工与扩展/finechem-engineering.html",
+      "file": "domains/精细化工与扩展/finechem-additives.html",
       "updated": "2026-08-02"
     },
     {
-      "id": "tinci-surfactant-guide",
-      "title": "天赐材料表面活性剂学习手册",
+      "id": "finechem-daily-chem",
+      "title": "精细化工：日用化学品",
+      "domain": "精细化工与扩展",
+      "tags": ["精细化工", "日用化学品", "化妆品", "洗涤剂", "防腐"],
+      "category": "基础理论",
+      "type": "article",
+      "file": "domains/精细化工与扩展/finechem-daily-chem.html",
+      "updated": "2026-08-02"
+    },
+    {
+      "id": "finechem-surfaces",
+      "title": "精细化工：涂料、胶粘剂与展望",
+      "domain": "精细化工与扩展",
+      "tags": ["精细化工", "涂料", "胶粘剂", "发展趋势"],
+      "category": "基础理论",
+      "type": "article",
+      "file": "domains/精细化工与扩展/finechem-surfaces.html",
+      "updated": "2026-08-02"
+    },
+    {
+      "id": "tinci-product-overview",
+      "title": "产品总览与命名规则",
       "domain": "销售与市场",
-      "tags": ["天赐", "产品手册", "学习手册", "销售"],
+      "tags": ["天赐", "产品", "命名", "分类"],
       "category": "产品手册",
       "type": "article",
-      "file": "domains/销售与市场/tinci-surfactant-guide.html",
+      "file": "domains/销售与市场/tinci-product-overview.html",
+      "updated": "2026-08-02"
+    },
+    {
+      "id": "tinci-surfactant-details",
+      "title": "天赐表活产品详解",
+      "domain": "销售与市场",
+      "tags": ["天赐", "阴离子", "两性", "阳离子", "非离子"],
+      "category": "产品手册",
+      "type": "article",
+      "file": "domains/销售与市场/tinci-surfactant-details.html",
+      "updated": "2026-08-02"
+    },
+    {
+      "id": "tinci-market-sales",
+      "title": "市场分析与销售话术",
+      "domain": "销售与市场",
+      "tags": ["天赐", "市场", "话术", "销售"],
+      "category": "产品手册",
+      "type": "article",
+      "file": "domains/销售与市场/tinci-market-sales.html",
       "updated": "2026-08-02"
     },
     {
