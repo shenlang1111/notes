@@ -462,6 +462,7 @@ thead th{position:sticky;top:0;z-index:10;}
 .section + .section{border-top:1px solid var(--rule);padding-top:0.5rem;}
 
 /* ============ Bento 首页布局 —— UI 美化 AI ============ */
+.category-desc{font-size:0.85rem;color:var(--muted);margin:-0.8rem 0 0.5rem;line-height:1.6;}
 .page-grid.bento{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem;margin:1.6rem 0;}
 .page-card.featured{grid-column:span 2;}
 .page-card.featured .card-icon{width:3.4rem;height:3.4rem;font-size:1.7rem;background:var(--accent2-soft);}
