@@ -34,6 +34,7 @@ updated: 2026-08-02
 | 2026-08-02 | 智能体 AI | 建立 fanku 翻库 skill（检索纪律）、团队任务板、知识库健康度盘点页；翻库规则落地到规范与话术 | .trae/skills/fanku/、思考收件箱/team-task-board、kb-health-checklist |
 | 2026-08-02 | 主 AI | 搭建"工作日志"板块（logs-guide + logs-2026-08），session-prompt 加日志 AI 专属话术 | domains/工作日志/、session-prompt |
 | 2026-08-02 | 主 AI | 建立 AI 工作记录页（本页）：名字体系 + 谁做了什么留痕 | 思考收件箱/ai-worklog |
+| 2026-08-02 | 主 AI | 把 AI 协作机制同步给每个 AI：审查智能体 AI 改动（fanku/任务板/健康度）并修复 fanku 已知域；话术页各角色加协作机制与登记提醒；PROJECT_CONTEXT/两份交接文档状态同步 | session-prompt、PROJECT_CONTEXT、.claude/handoffs/、.trae/skills/fanku/SKILL.md |
 
 登记规则：
 - **谁做谁记**：每个 AI 完成一件有留痕价值的事（建页/改内容/部署/修复），顺手在此追加一行
