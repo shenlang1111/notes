@@ -1,0 +1,222 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-08-01",
+  "domains": [
+    {
+      "name": "表面活性剂",
+      "description": "表面活性剂基础知识、分类、合成、性质、应用"
+    },
+    {
+      "name": "日化原料与配方",
+      "description": "日化原料知识、配方设计、产品开发"
+    },
+    {
+      "name": "销售与市场",
+      "description": "市场趋势、竞争分析、销售话术"
+    },
+    {
+      "name": "笔记收件箱",
+      "description": "零散想法、读书笔记、待整理内容"
+    }
+  ],
+  "pages": [
+    {
+      "id": "fundamentals",
+      "title": "基础概念与原理",
+      "domain": "表面活性剂",
+      "tags": [
+        "基础",
+        "胶束",
+        "CPP",
+        "必读"
+      ],
+      "category": "基础理论",
+      "type": "article",
+      "file": "domains/表面活性剂/fundamentals.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "anionic",
+      "title": "阴离子表面活性剂",
+      "domain": "表面活性剂",
+      "tags": [
+        "阴离子",
+        "氨基酸表活",
+        "AES"
+      ],
+      "category": "四大表面活性剂",
+      "type": "article",
+      "file": "domains/表面活性剂/anionic.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "cationic",
+      "title": "阳离子表面活性剂",
+      "domain": "表面活性剂",
+      "tags": [
+        "阳离子",
+        "季铵盐",
+        "聚季铵盐"
+      ],
+      "category": "四大表面活性剂",
+      "type": "article",
+      "file": "domains/表面活性剂/cationic.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "amphoteric",
+      "title": "两性表面活性剂",
+      "domain": "表面活性剂",
+      "tags": [
+        "两性",
+        "甜菜碱",
+        "氧化胺"
+      ],
+      "category": "四大表面活性剂",
+      "type": "article",
+      "file": "domains/表面活性剂/amphoteric.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "nonionic",
+      "title": "非离子表面活性剂",
+      "domain": "表面活性剂",
+      "tags": [
+        "非离子",
+        "AEO",
+        "APG"
+      ],
+      "category": "四大表面活性剂",
+      "type": "article",
+      "file": "domains/表面活性剂/nonionic.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "properties",
+      "title": "核心物化性质",
+      "domain": "表面活性剂",
+      "tags": [
+        "CMC",
+        "HLB",
+        "Krafft点"
+      ],
+      "category": "基础理论",
+      "type": "article",
+      "file": "domains/表面活性剂/properties.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "synthesis",
+      "title": "合成工艺详解",
+      "domain": "表面活性剂",
+      "tags": [
+        "合成",
+        "工艺",
+        "路线"
+      ],
+      "category": "基础理论",
+      "type": "article",
+      "file": "domains/表面活性剂/synthesis.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "applications",
+      "title": "应用原理深度",
+      "domain": "表面活性剂",
+      "tags": [
+        "乳化",
+        "增溶",
+        "泡沫",
+        "复配"
+      ],
+      "category": "基础理论",
+      "type": "article",
+      "file": "domains/表面活性剂/applications.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "products",
+      "title": "天赐产品全对照",
+      "domain": "表面活性剂",
+      "tags": [
+        "天赐",
+        "产品对照",
+        "选型"
+      ],
+      "category": "实战应用",
+      "type": "article",
+      "file": "domains/表面活性剂/products.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "advanced",
+      "title": "新型表活与检测",
+      "domain": "表面活性剂",
+      "tags": [
+        "Gemini",
+        "生物表活",
+        "检测"
+      ],
+      "category": "扩展阅读",
+      "type": "article",
+      "file": "domains/表面活性剂/advanced.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "troubleshooting",
+      "title": "客户问题诊断",
+      "domain": "表面活性剂",
+      "tags": [
+        "诊断",
+        "问题",
+        "解决方案"
+      ],
+      "category": "实战应用",
+      "type": "article",
+      "file": "domains/表面活性剂/troubleshooting.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "formulation",
+      "title": "配方设计",
+      "domain": "日化原料与配方",
+      "tags": [
+        "配方",
+        "洁面膏",
+        "婴童"
+      ],
+      "category": "实战应用",
+      "type": "article",
+      "file": "domains/日化原料与配方/formulation.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "market",
+      "title": "市场趋势与竞争",
+      "domain": "销售与市场",
+      "tags": [
+        "市场",
+        "趋势",
+        "竞争"
+      ],
+      "category": "扩展阅读",
+      "type": "article",
+      "file": "domains/销售与市场/market.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "sales",
+      "title": "销售话术与附录",
+      "domain": "销售与市场",
+      "tags": [
+        "话术",
+        "选型指南",
+        "术语"
+      ],
+      "category": "实战应用",
+      "type": "article",
+      "file": "domains/销售与市场/sales.html",
+      "updated": "2026-08-01"
+    }
+  ]
+}
