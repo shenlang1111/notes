@@ -24,12 +24,40 @@ for (const domain of fs.readdirSync(domainsDir)) {
   }
 }
 
-// 提取 <div class="container">...</div> 之间的内容
+// 提取 <div class="container">...</div> 之间的内容（配对计数，避免截到 footer 等外层 div）。
+// 支持"多 container"结构（如 <header class="cover"> 内一个 container + 正文多个 container）：
+// 从第一个 container 开始，配对计数到最后一个 container 结束，取整段内容。
+// 注意：footer 内的 container 不算正文，提取范围截断到 <footer> 之前。
 function extractContainer(html) {
-  const start = html.indexOf('<div class="container">');
-  const end = html.lastIndexOf('</div>');
-  if (start < 0 || end < 0) return '';
-  return html.slice(start + '<div class="container">'.length, end).trim();
+  const footerIdx = html.indexOf('<footer');
+  const scope = footerIdx > 0 ? html.slice(0, footerIdx) : html;
+  const marker = '<div class="container">';
+  // 收集所有 container 起始位置（footer 之外）
+  const starts = [];
+  let idx = scope.indexOf(marker);
+  while (idx >= 0) {
+    starts.push(idx);
+    idx = scope.indexOf(marker, idx + marker.length);
+  }
+  if (starts.length === 0) return '';
+  const first = starts[0];
+  const last = starts[starts.length - 1];
+  // 从第一个 container 开始配对计数；depth 归零时若已越过最后一个 container 起点则结束
+  let depth = 1; // container 自身
+  const re = /<div[\s>]|<\/div>/g;
+  re.lastIndex = first + marker.length;
+  let m;
+  while ((m = re.exec(scope))) {
+    if (m[0] === '</div>') {
+      depth--;
+      if (depth === 0 && m.index > last) {
+        return scope.slice(first + marker.length, m.index).trim();
+      }
+    } else {
+      depth++;
+    }
+  }
+  return '';
 }
 
 // 平衡 section 标签：删除多余的 </section>，末尾补齐缺失的闭合
@@ -60,6 +88,23 @@ function cleanSections(body) {
   return out;
 }
 
+// 为长面板生成站内目录：面板内 h2/h3 带 id 锚点 ≥3 个时启用，
+// 目录链接用 onclick 滚动定位（不能用 #hash——会与 mobile 的 hash 面板切换冲突）
+function buildToc(body, panelId) {
+  const anchorRe = /<h([23])[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/g;
+  const items = [];
+  let m;
+  while ((m = anchorRe.exec(body))) {
+    const text = m[3].replace(/<[^>]+>/g, '').trim();
+    if (text && text.length <= 40) items.push({ id: m[2], text });
+  }
+  if (items.length < 3) return body;
+  const links = items.map((it, i) =>
+    `<a href="javascript:void(0)" onclick="goAnchor('${panelId}','${it.id}')"><span class="toc-num">${i + 1}</span>${it.text}</a>`
+  ).join('\n');
+  return `<details class="toc-nav" open>\n<summary>本页目录</summary>\n<div class="toc-grid">\n${links}\n</div>\n</details>\n` + body;
+}
+
 // 读取首页内容
 const homeHtml = fs.readFileSync(path.join(KB, 'index.html'), 'utf8');
 let homeBody = extractContainer(homeHtml);
@@ -75,7 +120,8 @@ for (const p of pages) {
   body = body.replace(/\s*<p><a href="\.\.\/\.\.\/index\.html">返回首页<\/a><\/p>\s*/g, '');
   // 平衡 section 标签，防止多余闭合破坏合并结构
   body = cleanSections(body);
-  panels[p.id] = body;
+  // 长面板（≥3 个 h2/h3 锚点）自动生成站内目录
+  panels[p.id] = buildToc(body, p.id);
 }
 
 // 构建导航：首页 + 各页面
@@ -91,7 +137,6 @@ const pagePanels = pages.map(p =>
 ).join('\n');
 
 // 相对链接重写为 hash 导航（html 后缀链接 -> #id）
-const linkRewrite = pages.map(p => p.id).join('|');
 const re = new RegExp(`href="(?:\\.\\./)*([^"]*\\.html)"`, 'g');
 
 const html = `<!DOCTYPE html>
@@ -152,6 +197,15 @@ function showPage(id){
   document.getElementById('navLinks').classList.remove('open');
   window.scrollTo(0,0);
   document.title=panel&&panel.querySelector('h1')?(panel.querySelector('h1').textContent+' · 天赐材料知识库'):'天赐材料知识库';
+}
+// 目录锚点定位：先切到对应面板，再在面板内滚动到锚点（偏移顶部 sticky 导航高度）
+function goAnchor(panel,id){
+  showPage(panel.replace('panel-',''));
+  setTimeout(function(){
+    var p=document.getElementById(panel);if(!p)return;
+    var el=p.querySelector('#'+id);
+    if(el){window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 72);}
+  },50);
 }
 function route(){
   var h=location.hash.replace('#','');
