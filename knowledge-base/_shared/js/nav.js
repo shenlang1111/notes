@@ -38,6 +38,7 @@
     ['天赐学习手册', 'domains/销售与市场/tinci-surfactant-guide.html'],
     ['两性表活目录', 'domains/销售与市场/tinci-amphoteric-summary.html'],
     ['工作日志', 'domains/工作日志/logs-2026-08.html'],
+    ['7月日志', 'domains/工作日志/logs-2026-07.html'],
     ['日志说明', 'domains/工作日志/logs-guide.html']
   ];
 
