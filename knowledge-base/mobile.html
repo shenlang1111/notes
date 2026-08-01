@@ -1042,7 +1042,7 @@ ai-agent/
 - 响应四问：理解了吗 / 讨论还是执行 / 读了吗 / 谁拍板——模糊的讨论型任务先复述确认
 - 可用能力：项目装有 17 个 skill（pdf/docx/xlsx/brainstorming/并行分派等，见 SKILL_GUIDE.md），任务匹配直接调用
 - 翻库规则：知识类问题必翻库再答——"先翻库、再开口；带出处、不编造；翻不到、说没有"（完整版见 .trae/skills/fanku/SKILL.md）
-- AI 协作机制：干完活到思考收件箱 ai-worklog 登记一行（日期 + 你的名字 + 做了什么 + 涉及位置，其他 AI 靠它知道谁干过什么）；多人协作任务在团队任务板 team-task-board 登记/认领；定期做知识库健康度盘点 kb-health-checklist
+- AI 协作机制：新窗口到岗先读 ai-worklog（团队名单+谁干过什么）、team-task-board（待办任务）、kb-health-checklist（体检维度）；干完活到 ai-worklog 登记一行（日期 + 你的名字 + 做了什么 + 涉及位置，其他 AI 靠它知道谁干过什么）；多人协作任务在团队任务板登记/认领；定期做知识库健康度盘点
 
 任务：<在这里写你要做的事>
 
@@ -1159,11 +1159,21 @@ ai-agent/
 【第二步：读公共文档 + 报告版本号】
 知识库维护规范.md（v3.2）/ PROJECT_CONTEXT.md / CODE_WIKI.md / SKILL_GUIDE.md / CHANGELOG.md 顶部（看最近更新）
 
-【第三步：谁需要懂用户】
+【第三步：必读新增协作机制（新 AI 到岗先读这 4 样，读完逐项报告）】
+1. AI 工作记录 → domains/思考收件箱/ai-worklog.html：团队名单（主 AI/闲聊 AI/智能体 AI/日志 AI + 主 AI 手下子代理）+ 谁干过什么留痕
+   读完报：团队有哪几个 AI？你的角色是谁？最近别人都干了什么？
+2. 团队任务板 → domains/思考收件箱/team-task-board.html：多人协作任务的登记/认领入口
+   读完报：现在有哪些待办任务？
+3. 知识库健康度盘点 → domains/思考收件箱/kb-health-checklist.html：定期体检清单
+   读完报：盘点分哪几个维度？
+4. 翻库纪律 → .trae/skills/fanku/SKILL.md：知识问题必先查库再答
+   读完报：翻库口诀是什么？
+
+【第四步：谁需要懂用户】
 - 闲聊角色：读用户画像页 user-profile.html——沟通风格、性格、在意什么、目标（"懂你档案"仅闲聊 AI 专属）
 - 其他角色：不需要懂用户，专注你的专业性（用户原话："其他 AI 只用保持其专业性，不需要懂我"）
 
-【第四步：你是谁】
+【第五步：你是谁】
 - 你是来干你角色的活的；闲聊角色不执行任务（除非用户说"帮我做"）
 - 小改动可自理；大改动（分区/registry/导航/样式/tools/批量/部署）一律不碰，说"找主 agent"
 
@@ -1947,6 +1957,11 @@ ai-agent/
           <td>2026-08-02</td><td><span class="tag tag-green">日志 AI</span></td>
           <td>工作日志板块 UI 改造：卡片式日志（按周分组+类别标签）、本月速览卡、每日速记提示、报告区；补录 2026-07 日志（9 天整理版）；nav 加 7 月入口、registry 登记；style.css 加日志卡片样式；部署验证上线</td>
           <td>domains/工作日志/（logs-2026-07/08/guide html+md）、_shared/css/style.css、nav.js、registry.json</td>
+        </tr>
+        <tr>
+          <td>2026-08-02</td><td><span class="tag tag-green">智能体 AI</span></td>
+          <td>按新协作机制报到：读完 5 项必读（ai-worklog 名单/任务板/健康度盘点/fanku 翻库/版本号）并逐项报告；确认角色=智能体 AI</td>
+          <td>思考收件箱/ai-worklog（本页）</td>
         </tr>
       </tbody>
     </table>
