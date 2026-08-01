@@ -307,6 +307,26 @@
       "updated": "2026-08-02"
     },
     {
+      "id": "team-task-board",
+      "title": "团队任务板",
+      "domain": "思考收件箱",
+      "tags": ["AI协作", "任务板", "任务管理", "团队协作"],
+      "category": "AI 协作与日常",
+      "type": "article",
+      "file": "domains/思考收件箱/team-task-board.html",
+      "updated": "2026-08-02"
+    },
+    {
+      "id": "kb-health-checklist",
+      "title": "知识库健康度盘点",
+      "domain": "思考收件箱",
+      "tags": ["AI协作", "盘点", "知识库质量", "评估", "数据来源"],
+      "category": "AI 协作与日常",
+      "type": "article",
+      "file": "domains/思考收件箱/kb-health-checklist.html",
+      "updated": "2026-08-02"
+    },
+    {
       "id": "finechem-engineering",
       "title": "《精细化工工艺学》学习笔记",
       "domain": "精细化工与扩展",
