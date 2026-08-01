@@ -25,25 +25,24 @@
   <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:0.5rem;">打开新对话框后直接粘贴，把「任务」部分替换成你要做的事。</p>
   <pre style="background:var(--card-bg,#f6f7f9);border:1px solid var(--border,#e5e7eb);border-radius:10px;padding:16px;overflow-x:auto;font-size:0.9rem;line-height:1.7;white-space:pre-wrap;word-break:break-word;">你是我的知识库协作 agent，工作目录：c:\Users\浪\Desktop\学习公司产品知识树
 
-开始干活前，先按顺序读取并理解这 4 个文档（读完简要复述你理解的关键规则，确认无误再动手）：
-1. 知识库维护规范.md（★★★ 总规则，一切以它为准）
-2. PROJECT_CONTEXT.md（★★ 项目背景与我的需求）
-3. CODE_WIKI.md（★ 技术架构与工具链）
-4. CHANGELOG.md（☆ 最近改了什么，按需）
+【第一步：读文档 + 报告版本号】开工前必须按顺序读完这 5 份，并报告每份的版本号（如"规范 v3.1"），确认读到最新版再动手：
+1. 知识库维护规范.md —— 总规则（★★★ 必读，8 条铁律）
+2. PROJECT_CONTEXT.md —— 项目背景/用户画像（★★ 必读）
+3. CODE_WIKI.md —— 技术实现细节（★ 推荐）
+4. SKILL_GUIDE.md —— skill 能力清单（★ 推荐）
+5. CHANGELOG.md —— 只读顶部，看最近更新了什么（☆）
 
-关键规则速览（细节以规范为准）：
-- 内容双格式：knowledge-base/domains/<分区>/*.html（网页）+ knowledge-base/markdown/<分区>/*.md（AI 检索），必须成对更新
-- 改动分级：单个内容页增补、单个 MD 修改这类小改动你可以直接做；新增/删除分区、registry.json、首页导航、style.css、mobile.html 生成逻辑、tools/ 脚本、跨页批量改动、部署机制 = 大改动，只许建议、不许执行（由主 agent 处理）
-- 部署：统一用 node tools/deploy.js（自动重新生成 mobile.html + 上传 + 构建 + 验证）；部署后必须用 --expect "文件:关键词" 验证本次修改内容上线，不能只做通用检查
-- 数据：具体数据标注来源，无法核实的不冒充权威
-- UI：卡片式布局避免文字墙；页面底部不要出现 footer 文案
-- 会话记录：每次交流结束，把本次内容总结精炼进 会话记录 分区
-- DoD 铁律：宣布"完成"前必须逐项展示自检清单（CHANGELOG 记录 / 双格式 / 部署 / --expect 验证），任何一项没过就不许说"完成"
-- 可用能力：项目装有 16 个 skill（见根目录 SKILL_GUIDE.md：pdf/docx/xlsx/brainstorming/dispatching-parallel-agents/session-handoff 等），任务匹配时直接调用 Skill 工具，不用等用户指定
+【第二步：关键规则速览】（细节以规范为准）
+- 双格式：domains/<域>/*.html + markdown/<域>/*.md 成对维护
+- 改动分级：单页/单 MD 小改动可自理；分区、registry、导航、样式、tools/、批量、部署机制 = 大改动，只建议不执行
+- 部署：统一 node tools/deploy.js，部署后必须 --expect "文件:关键词" 验证本次修改上线
+- DoD 铁律：宣布"完成"前展示自检清单（CHANGELOG/双格式/部署/验证），没过不宣布
+- 响应四问：理解了吗 / 讨论还是执行 / 读了吗 / 谁拍板——模糊的讨论型任务先复述确认
+- 可用能力：项目装有 16 个 skill（pdf/docx/xlsx/brainstorming/并行分派等，见 SKILL_GUIDE.md），任务匹配直接调用
 
 任务：<在这里写你要做的事>
 
-完成后汇报：改了哪些文件、做了什么、自检清单逐项结果。</pre>
+完成后汇报：改了哪些文件、做了什么、各文档版本号、DoD 自检清单。</pre>
 </section>
 
 <section class="section" id="task">
@@ -65,7 +64,7 @@
 <section class="section" id="short">
   <h2>三、极简版（小任务专用）</h2>
   <div class="card success">
-    <pre style="background:rgba(0,0,0,0.04);border-radius:8px;padding:12px;font-size:0.9rem;line-height:1.6;white-space:pre-wrap;word-break:break-word;margin:0;">读一下根目录的《知识库维护规范.md》和 PROJECT_CONTEXT.md，按里面的规则帮我做：<任务>。小改动你自己做并部署（用 deploy.js + --expect 验证），大改动只给建议别动手。</pre>
+    <pre style="background:rgba(0,0,0,0.04);border-radius:8px;padding:12px;font-size:0.9rem;line-height:1.6;white-space:pre-wrap;word-break:break-word;margin:0;">读一下根目录的《知识库维护规范.md》和 PROJECT_CONTEXT.md，报告版本号确认是最新版，再按规则帮我做：<任务>。小改动你自己做并部署（用 deploy.js + --expect 验证），大改动只给建议别动手。</pre>
   </div>
 </section>
 
