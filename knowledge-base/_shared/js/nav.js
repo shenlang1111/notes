@@ -77,4 +77,49 @@
   if (mount) {
     mount.appendChild(nav);
   }
+
+  // —— 浮动速跳按钮（UI 美化 AI）——
+  var floatNav = document.createElement('div');
+  floatNav.className = 'float-nav';
+  var details = document.createElement('details');
+  details.className = 'float-details';
+  var summary = document.createElement('summary');
+  summary.className = 'float-btn';
+  summary.textContent = '☰';
+  details.appendChild(summary);
+  var panel = document.createElement('div');
+  panel.className = 'float-panel';
+  // 知识页分组
+  var group1 = document.createElement('div');
+  group1.className = 'float-group';
+  var label1 = document.createElement('div');
+  label1.className = 'float-label';
+  label1.textContent = '知识页';
+  group1.appendChild(label1);
+  items.slice(0, 15).forEach(function (item) {
+    var a = document.createElement('a');
+    a.href = root + '/' + item[1];
+    a.textContent = item[0];
+    if (a.href.split('/').pop() === currentFile) a.classList.add('active');
+    group1.appendChild(a);
+  });
+  panel.appendChild(group1);
+  // AI/日志页分组
+  var group2 = document.createElement('div');
+  group2.className = 'float-group';
+  var label2 = document.createElement('div');
+  label2.className = 'float-label';
+  label2.textContent = 'AI 协作 / 日志';
+  group2.appendChild(label2);
+  items.slice(15).forEach(function (item) {
+    var a = document.createElement('a');
+    a.href = root + '/' + item[1];
+    a.textContent = item[0];
+    if (a.href.split('/').pop() === currentFile) a.classList.add('active');
+    group2.appendChild(a);
+  });
+  panel.appendChild(group2);
+  details.appendChild(panel);
+  floatNav.appendChild(details);
+  document.body.appendChild(floatNav);
 })();
