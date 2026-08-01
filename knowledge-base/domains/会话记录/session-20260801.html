@@ -22,7 +22,7 @@
 
 <section class="section" id="quickref">
   <h2>经验速查索引</h2>
-  <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:1rem;">每条经验 = 场景 → 做法。下方七大块为详细说明；超过 30 条时按子主题拆分为独立页面。</p>
+  <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:1rem;">每条经验 = 场景 → 做法。下方分类为详细说明；超过 30 条时按子主题拆分为独立页面。</p>
   <div class="table-wrap">
     <table>
       <thead><tr><th>#</th><th>场景</th><th>核心做法</th></tr></thead>
@@ -42,6 +42,12 @@
         <tr><td>13</td><td>多会话互相覆盖</td><td>改动分级：小改动自理，大改动仅主 agent；改前先读最新版</td></tr>
         <tr><td>14</td><td>质量把关</td><td>关键产出配审核 agent 独立复核，问题修复后才部署</td></tr>
         <tr><td>15</td><td>让 AI 更懂你</td><td>给上下文 / 说要什么 / 大需求拆小步 / 数据给来源</td></tr>
+        <tr><td>16</td><td>部署是否真生效</td><td>验证"本次修改内容"上线：<code>--expect "文件:关键词"</code>，不只做通用检查</td></tr>
+        <tr><td>17</td><td>"写了规范不用"</td><td>任务完成定义 DoD：回复"完成"前展示自检清单，未通过不宣布完成</td></tr>
+        <tr><td>18</td><td>导航多处维护不同步</td><td>nav.js 共享脚本统一渲染，新增页面只改 nav.js 一处</td></tr>
+        <tr><td>19</td><td>多 Agent 并行</td><td>任务拆解避免文件冲突（各 agent 只碰分配的文件），关键产出配审核 agent</td></tr>
+        <tr><td>20</td><td>文档体系混乱</td><td>核心文档互相交叉引用 + 必读优先级标注，新 AI 按顺序读</td></tr>
+        <tr><td>21</td><td>内容分类混乱</td><td>日化知识之外内容（AI 经验/日常）独立大类，不混入知识分类</td></tr>
       </tbody>
     </table>
   </div>
@@ -55,6 +61,8 @@
       <li><strong>一键部署脚本</strong>：所有部署统一用 <code>node tools/deploy.js</code>——自动重新生成 mobile.html + 上传 + 触发构建 + 服务器端验证。不要手动逐个文件传。</li>
       <li><strong>上传必须串行</strong>：并发写同一仓库会被 GitHub 返回 409 拒绝。教训：上传并发度 = 1。</li>
       <li><strong>部署后要服务器端验证</strong>：不能只看"构建成功"，要拉取线上内容核对（footer 文案 0 次、面板数量、文件大小）。</li>
+      <li><strong>验证本次修改内容</strong>：部署后必须用 <code>--expect "文件:关键词"</code> 验证本次修改的标记上线，不能只做通用检查（用户曾因只做通用检查而质疑"没部署"）。</li>
+      <li><strong>DoD 门禁</strong>：任务宣布"完成"前必须逐项过 DoD（CHANGELOG/部署/验证），回复"完成"前展示自检清单——防止"写了规范不用"。</li>
     </ul>
   </div>
 </section>
@@ -98,6 +106,7 @@
       <li><strong>每条内容 HTML / MD 双格式同步维护</strong>：HTML 用于网页展示，MD 用于 AI 检索。缺一个会报成对校验警告。</li>
       <li><strong>具体数据标注来源</strong>：产品参数、市占率等标注"来源：产品手册/培训资料"；无法核实的数据明确说明，不冒充权威。</li>
       <li><strong>新增内容流程</strong>：内容 → HTML → MD → registry.json → 重新生成 mobile.html → 部署。</li>
+      <li><strong>分类意识</strong>：日化知识之外的内容（AI 经验/日常）主动规划独立大类，不混入知识分类、不等用户指出。</li>
     </ul>
   </div>
 </section>
@@ -110,6 +119,7 @@
       <li><strong>大改动配审核 agent</strong>：独立复核产出（本轮审核发现 deploy.js 6 处问题，全部修复后才放心部署）。</li>
       <li><strong>改文件前先读最新版</strong>，多会话同文件夹时防止互相覆盖。</li>
       <li><strong>GitHub 并发写保护</strong>：同一时刻只允许一个部署流程，冲突（409）由主 agent 协调。</li>
+      <li><strong>并行拆解</strong>：任务按文件拆分给多个 agent 并行（各 agent 只碰分配的文件），关键产出配审核 agent 独立复核后才部署（本次 3 执行 + 1 审核并行实践成功）。</li>
     </ul>
   </div>
 </section>
@@ -133,6 +143,18 @@
       <h4>④ 数据给来源</h4>
       <p>涉及具体数字时说明出处（产品手册/培训材料），AI 总结更准、更敢用。</p>
     </div>
+  </div>
+</section>
+
+<section class="section" id="docs">
+  <h2>八、文档管理与交接</h2>
+  <div class="card accent2">
+    <ul>
+      <li><strong>4 个核心文档</strong>：知识库维护规范（★★★ 必读，总规则）/ PROJECT_CONTEXT（★★ 必读，背景）/ CODE_WIKI（★ 推荐，技术）/ CHANGELOG（☆ 按需，追溯）。</li>
+      <li><strong>阅读顺序</strong>：规范 → 项目背景 → 技术维基 → 变更日志。新 AI 接手按此顺序读，最快进入状态。</li>
+      <li><strong>交叉引用</strong>：每个文档头部都有"文档关系"块，互相引用，打开任何一份都能看到全貌。</li>
+      <li><strong>交接文档随项目更新</strong>：PROJECT_CONTEXT / CODE_WIKI 必须反映当前状态（旧路径/旧机制会误导后续 AI，本次重写 v2.0 即是教训）。</li>
+    </ul>
   </div>
 </section>
 
