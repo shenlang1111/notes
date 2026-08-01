@@ -8,6 +8,7 @@
 
 | 日期 | 主题 | 修改内容 | 涉及文件 |
 |---|---|---|---|
+| 2026-08-02 | 全部 AI 交接/话术翻库改造 | 主 AI 交接（comprehensive-handover）启动步骤改为"调 fanku skill 翻库获取信息"；其他 4 份 handoff 文档同步加翻库步骤；session-prompt 一~十节全部话术改"读文档→调 fanku"；HTML/MD 双格式同步 | comprehensive-handover.md、tinci-knowledge-base.md、casual-chat.md、agent-fix-round2.md、agent-knowledge-ops.md、session-prompt.html、session-prompt.md |
 | 2026-08-02 | 智能体 AI 接替闲聊 AI 任务：Claude Code 移交 | 确认推翻存档"LLM 用 DeepSeek"→改用 Claude Code ✅；session-prompt 追加第十节 Claude Code 专属提示词（读写权限/职责边界/规则）✅；存档决策标注 crossed-out ✅；任务板更新 ✅ | session-prompt html+md、team-task-board html+md、inbox-20260802-agent-design、ai-worklog html+md、CHANGELOG |
 | 2026-08-02 | 目录清理：删除旧版独立转存 + 一次性临时脚本 | 删除 7 项冗余：①精细化工旧版独立 HTML（已被知识库 3 个拆分页取代）②天赐学习手册 standalone 文件夹（含 mermaid.min.js）③两性表活目录 standalone 文件夹（含 mermaid.min.js）④kb_verify_console_tmp.js ⑤_preview_server.js ⑥convert-new-files.js ⑦restyle-new-pages.js；保留 tools/ 下可复用工具（html2md-new.js、半月报脚本、deploy.js）和 handoffs 交接文档 | 9 文件删除 + 2 空目录清除 |
 | 2026-08-02 | 全库查验 + 3 个大页拆分修复 | 查验发现 3 个大页硬伤全属实（渗透压错误/市占率矛盾/牌号命名冲突/MD 转换残渣等）；系统修复：①精细化工拆 3 页（finechem-additives/daily-chem/surfaces）+ 渗透压修正 + 章节重排 ②天赐学习手册拆 3 页（tinci-product-overview/surfactant-details/market-sales）+ 市占率统一/命名修正/氨基酸分类/重复删除 ③两性表活目录原地修复（牌号23→29/MAB命名Coco→Lauro/RSPO 5→4/化学类型5→6）+ MD 重构 ④首页补 7 月日志卡片 + 页面数 29→33 ⑤nonionic 加待核实标注 + 来源区块 ⑥旧页删除 + registry/nav/index 全量同步 | 6 新页 + 2 旧页删除 + index.html + registry.json + nav.js + nonionic html+md + 两性目录 html+md |
