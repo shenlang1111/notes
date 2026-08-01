@@ -9,26 +9,7 @@
 </head>
 <body>
 
-<nav class="site-nav">
-  <a href="../../index.html" class="nav-home"><span class="nav-dot"></span>天赐材料知识库</a>
-  <div class="nav-links">
-    <a href="fundamentals.html">基础概念</a>
-    <a href="anionic.html">阴离子</a>
-    <a href="cationic.html">阳离子</a>
-    <a href="amphoteric.html">两性</a>
-    <a href="nonionic.html">非离子</a>
-    <a href="properties.html">物化性质</a>
-    <a href="synthesis.html">合成工艺</a>
-    <a href="applications.html">应用原理</a>
-    <a href="products.html">产品对照</a>
-    <a href="advanced.html">新型表活</a>
-    <a href="../日化原料与配方/formulation.html">配方设计</a>
-    <a href="troubleshooting.html">问题诊断</a>
-    <a href="../销售与市场/market.html">市场趋势</a>
-    <a href="../销售与市场/sales.html">销售话术</a>
-  </div>
-    <a href="../会话记录/session-20260801.html">AI 经验</a>
-</nav>
+<div id="site-nav"></div>
 
 <div class="container">
 <!-- ===== Page Hero (auto-generated) ===== -->
@@ -120,15 +101,7 @@
   </div>
 </footer>
 
-<script>
-(function(){
-  var links = document.querySelectorAll('.site-nav .nav-links a');
-  var current = location.pathname.split('/').pop();
-  links.forEach(function(a){
-    if (a.getAttribute('href') === current) a.classList.add('active');
-  });
-})();
-</script>
+<script src="../../_shared/js/nav.js" defer></script>
 
 </body>
 </html>
