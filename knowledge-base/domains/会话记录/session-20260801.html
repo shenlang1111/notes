@@ -158,6 +158,74 @@
   </div>
 </section>
 
+<section class="section" id="agent">
+  <h2>九、AI 智能体构想（2026-08-01 闲聊）</h2>
+  <div class="card warning">
+    <p>闲聊中讨论的构想：让现有知识库从"高级记录体"进化为<strong>"像你、比你懂得多"</strong>的个人 AI 智能体。</p>
+  </div>
+
+  <div class="card accent" style="margin-top:1rem;">
+    <h3>现状认知</h3>
+    <p>现有知识库本质是<strong>仓库</strong>——分门别类存放，需要时去翻。不会主动联想、不会追问、不会消化（只是存档，不是理解）。</p>
+    <h4 style="margin-top:1rem;">理想形态</h4>
+    <div style="text-align:center;padding:0.8rem;background:var(--bg);border-radius:8px;margin:0.5rem 0;font-family:monospace;">
+      你的想法/资料 → 储存 → 检索 + 理解 → 输出像你的回答
+    </div>
+    <ul>
+      <li>储存：已解决（HTML + MD 双格式）</li>
+      <li>检索+理解：缺 RAG 层</li>
+      <li>像你的回答：缺人格化</li>
+    </ul>
+  </div>
+
+  <div class="card accent4" style="margin-top:1rem;">
+    <h3>安全顾虑</h3>
+    <ul>
+      <li>静态网站本身无攻击面（内容公开，无后端）</li>
+      <li>真正风险是 Token 泄露 → 已在防护（.env 不上传）</li>
+      <li>建议加一道：GitHub 两步验证（2FA）</li>
+    </ul>
+  </div>
+
+  <div class="card accent2" style="margin-top:1rem;">
+    <h3>推荐方案：自建 RAG 智能体</h3>
+    <div class="table-wrap" style="margin-top:0.8rem;">
+      <table>
+        <thead><tr><th>组件</th><th>选型</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>聊天前端</td><td>HTML + 原生 JS</td><td>单页，类似现有 mobile.html 风格</td></tr>
+          <tr><td>API 后端</td><td>Python + FastAPI</td><td>轻量异步框架</td></tr>
+          <tr><td>向量检索</td><td>读取 MD 文件 + Embedding API</td><td>不依赖额外向量数据库</td></tr>
+          <tr><td>LLM</td><td>硅基流动 API</td><td>便宜，国内直连</td></tr>
+          <tr><td>人格系统</td><td>一条 system prompt</td><td>从知识库文本提炼说话风格</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4 style="margin-top:1rem;">核心流程</h4>
+    <ul>
+      <li><strong>启动时</strong>：读取 <code>markdown/</code> 下所有 MD → 按段落切分 → 生成 Embedding 向量索引</li>
+      <li><strong>每次对话</strong>：用户发消息 → 检索最相关 3-5 个片段 → 组装 prompt（片段 + 风格 + 对话历史）→ 调 LLM → 返回回答</li>
+      <li><strong>每次结束</strong>：对话总结写回"会话记录"分区（HTML + MD 双格式）</li>
+    </ul>
+    <details style="margin-top:1rem;">
+      <summary style="cursor:pointer;font-weight:600;color:var(--accent);">新增文件结构</summary>
+      <pre style="background:var(--bg);padding:0.8rem;border-radius:6px;margin-top:0.5rem;overflow-x:auto;font-size:0.85rem;">
+ai-agent/
+├── agent.py              # 主程序（FastAPI 服务）
+├── kb_loader.py          # 读取 MD 知识库，生成索引
+├── retriever.py          # 检索模块
+├── chat.py               # 对话逻辑（组装 prompt + 调 LLM API）
+├── config.py             # 配置
+├── requirements.txt      # Python 依赖
+├── personality.md        # 人格描述
+├── templates/
+│   └── index.html        # 聊天界面
+└── .env                  # API Key（不上传）
+      </pre>
+    </details>
+  </div>
+</section>
+
 <section class="section" id="related">
   <h2>相关页面（串联入口）</h2>
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
