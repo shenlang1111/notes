@@ -43,4 +43,10 @@
 | 2026-08-01 | 主 agent 备注 + 清理缓存 | 新增 AGENT_NOTES.md（主 agent 私享速查：重要文件地图/响应四问/常见坑/常用命令/关键信息）；清理本地 .trae-html-share-packages 分享包缓存 19 个 zip（不影响线上） | AGENT_NOTES.md、—（本地缓存清理） |
 | 2026-08-02 | Skill 安装 + 经验沉淀 | 调查 skill marketplace → 3 Agent 并行安装 16 个 skill（元技能/AI 智能体/协作流程/通用工具）→ 审核 Agent 复核通过 → 沉淀到经验页第十一节（HTML+MD 双格式） | session-20260801.html、.md |
 | 2026-08-02 | Skill 使用指南 | 新增 SKILL_GUIDE.md（给所有 AI：16 个 skill 清单 + 调用方式 + 典型场景 + 注意事项）；规范文档关系、PROJECT_CONTEXT 结构、新会话开场话术均加引用/提示（HTML+MD 双格式） | SKILL_GUIDE.md、知识库维护规范.md、PROJECT_CONTEXT.md、session-prompt.html、.md |
+| 2026-08-02 | 开场话术升级（版本号报告制） | 用户反馈"AI 不会主动读更新后的文档" → 开场话术升级：①第一步要求读完 5 份文档并**报告各文档版本号**（规范 v3.1/PROJECT_CONTEXT v3.0/CODE_WIKI v3.0/SKILL_GUIDE v1.0/CHANGELOG 顶部），防止"说读了其实没读"；②规则速览精简为 6 条；③极简版同步；SKILL_GUIDE 补版本号 v1.0 | session-prompt.html、.md、SKILL_GUIDE.md |
+| 2026-08-02 | 收尾门禁（铁律 0） | 闲聊 AI 提议 + 主 agent 补充，防"回复完成时忘 DoD"：规范铁律速览顶部新增 #0 收尾门禁（9 条）；七 DoD 新增"用户检查手段"（回复无自检清单 = 未完成，用户可直接判定）；规范升 v3.2；AGENT_NOTES 常见坑置顶 DoD 门禁 | 知识库维护规范.md、AGENT_NOTES.md |
+| 2026-08-02 | 智能体设计讨论存档 | 主 agent 与用户深入讨论智能体方向：确认"N 个专业 AI + 共享懂你档案 + 共享知识库"模型、LLM 用 DeepSeek、先做懂你的知识库、性格推迟；整体理解存档到思考收件箱（HTML+MD，含脉络/已确认/待讨论/下次开场），收件箱页加链接 | inbox-20260802-agent-design.html、.md、inbox.html、.md |
+| 2026-08-02 | 会话交接文档 | 生成标准交接文档 .claude/handoffs/2026-08-02-tinci-knowledge-base.md（当前状态/重要上下文/下一步/决策/关键文件/坑/交接链）；PROJECT_CONTEXT 头部加"接手前必做"指引（读最新交接 + 智能体存档） | .claude/handoffs/2026-08-02-tinci-knowledge-base.md、PROJECT_CONTEXT.md |
+| 2026-08-02 | 交接文档扩充：历程与默契 | 用户希望"下一个窗口遇到的还是你" → 交接文档新增第三节"我们的历程与相处之道"：第一次聊天、10 个关键节点、用户教的几课、新窗口如何延续"我"（沟通风格/响应四问/DoD/主动复盘/温度） | .claude/handoffs/2026-08-02-tinci-knowledge-base.md |
 | 2026-08-02 | 思考收件箱运作规则 | inbox 新增第四节"运作规则"（触发规则/状态标签/清箱提醒），让收件箱真正活起来；HTML+MD 双格式同步 | inbox.html、.md |
+| 2026-08-02 | 用户画像页 | 新建"用户画像"独立页面（沟通风格/性格特质/在意什么/目标/技术背景），供新 AI 快速了解用户；HTML+MD 双格式 + registry + nav 注册 | user-profile.html、.md、registry.json、nav.js |
