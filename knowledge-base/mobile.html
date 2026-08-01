@@ -453,7 +453,7 @@ body{padding-bottom:3rem;}
     <button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰ 目录</button>
   </div>
   <div class="nav-links" id="navLinks">
-    <a href="#home" class="active" data-nav="home">首页</a><a href="#session-20260801" data-nav="session-20260801">session-20260801</a><a href="#session-prompt" data-nav="session-prompt">session-prompt</a><a href="#user-profile" data-nav="user-profile">user-profile</a><a href="#logs-2026-07" data-nav="logs-2026-07">logs-2026-07</a><a href="#logs-2026-08" data-nav="logs-2026-08">logs-2026-08</a><a href="#logs-guide" data-nav="logs-guide">logs-guide</a><a href="#inbox-20260802-agent-design" data-nav="inbox-20260802-agent-design">inbox-20260802-agent-design</a><a href="#inbox" data-nav="inbox">inbox</a><a href="#kb-health-checklist" data-nav="kb-health-checklist">kb-health-checklist</a><a href="#team-task-board" data-nav="team-task-board">team-task-board</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#finechem-engineering" data-nav="finechem-engineering">finechem-engineering</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a><a href="#tinci-amphoteric-summary" data-nav="tinci-amphoteric-summary">tinci-amphoteric-summary</a><a href="#tinci-surfactant-guide" data-nav="tinci-surfactant-guide">tinci-surfactant-guide</a>
+    <a href="#home" class="active" data-nav="home">首页</a><a href="#session-20260801" data-nav="session-20260801">session-20260801</a><a href="#session-prompt" data-nav="session-prompt">session-prompt</a><a href="#user-profile" data-nav="user-profile">user-profile</a><a href="#logs-2026-07" data-nav="logs-2026-07">logs-2026-07</a><a href="#logs-2026-08" data-nav="logs-2026-08">logs-2026-08</a><a href="#logs-guide" data-nav="logs-guide">logs-guide</a><a href="#ai-worklog" data-nav="ai-worklog">ai-worklog</a><a href="#inbox-20260802-agent-design" data-nav="inbox-20260802-agent-design">inbox-20260802-agent-design</a><a href="#inbox" data-nav="inbox">inbox</a><a href="#kb-health-checklist" data-nav="kb-health-checklist">kb-health-checklist</a><a href="#team-task-board" data-nav="team-task-board">team-task-board</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#finechem-engineering" data-nav="finechem-engineering">finechem-engineering</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a><a href="#tinci-amphoteric-summary" data-nav="tinci-amphoteric-summary">tinci-amphoteric-summary</a><a href="#tinci-surfactant-guide" data-nav="tinci-surfactant-guide">tinci-surfactant-guide</a>
   </div>
 </nav>
 
@@ -468,7 +468,7 @@ body{padding-bottom:3rem;}
 <div class="feature-grid">
   <div class="feature-item">
     <div class="f-icon">📚</div>
-    <h4>24 个专题页面</h4>
+    <h4>27 个专题页面</h4>
     <p>从基础概念到销售实战</p>
   </div>
   <div class="feature-item">
@@ -633,6 +633,21 @@ body{padding-bottom:3rem;}
     <div class="card-icon">🧠</div>
     <h3>智能体设计讨论存档</h3>
     <p>多 Agent 协作、智能体设计相关的讨论记录与方案存档</p>
+  </a>
+  <a href="#ai-worklog" class="page-card">
+    <div class="card-icon">📝</div>
+    <h3>AI 工作记录</h3>
+    <p>每个 AI 做了什么、谁做的，带名字留痕，分工透明</p>
+  </a>
+  <a href="#team-task-board" class="page-card">
+    <div class="card-icon">📋</div>
+    <h3>团队任务板</h3>
+    <p>发现问题登记、认领负责，该做的事有去向</p>
+  </a>
+  <a href="#kb-health-checklist" class="page-card">
+    <div class="card-icon">🩺</div>
+    <h3>知识库健康度盘点</h3>
+    <p>定期体检清单：双格式/数据来源/硬伤/深度/翻库实测</p>
   </a>
 </div>
 
@@ -1159,6 +1174,7 @@ ai-agent/
 5. 汇报：改了哪些文件、DoD 自检清单（CHANGELOG/双格式/部署/验证）
 
 【规则】双格式成对 / 部署必带 --expect / DoD 完成前自检 / 响应四问 / 说人话 / 用户拍板
+【登记工作记录】干完活到思考收件箱 ai-worklog 追加一行：日期 + 你的名字 + 做了什么 + 涉及位置（其他 AI 靠它知道谁干过什么）
 
 现在开始：报告你读到的版本号 + 当前月份，等用户给日志内容。</pre>
 </section>
@@ -1636,6 +1652,99 @@ ai-agent/
       <div class="card-icon">🏠</div>
       <h3>知识库首页</h3>
       <p>所有内容的入口与导航</p>
+    </a>
+  </div>
+</section>
+</div>
+<div class="page-panel" id="panel-ai-worklog" data-panel="ai-worklog" style="display:none">
+<!-- ===== Page Hero ===== -->
+<div class="page-hero">
+  <div class="page-hero-meta"><span class="tag tag-orange">AI 协作</span></div>
+  <h1>AI 工作记录</h1>
+  <p class="page-hero-desc">每个 AI 干完活在这里登记"我做了什么"，带名字。其他 AI 一看就知道谁干过什么——分工透明，不重复、不丢活。</p>
+</div>
+<!-- ===== /Page Hero ===== -->
+
+<section class="section" id="team">
+  <h2>一、AI 团队名单（名字体系）</h2>
+  <div class="callout">
+    <strong>四个主窗口 AI：</strong>主 AI / 闲聊 AI / 智能体 AI / 日志 AI——对应你的四个窗口，各有专属职责。其余子代理（审核/内容/检索等）<strong>都归主 AI 手下</strong>，由主 AI 命名与分派。
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>名字</th><th>身份</th><th>职责</th></tr></thead>
+      <tbody>
+        <tr><td><strong>主 AI</strong></td><td>主窗口（你）</td><td>统筹、架构、落地、部署、派子代理；所有改动最终备案</td></tr>
+        <tr><td><strong>闲聊 AI</strong></td><td>主窗口</td><td>交流想法、情感陪伴；懂你档案专属；小改动自理</td></tr>
+        <tr><td><strong>智能体 AI</strong></td><td>主窗口</td><td>智能体体系搭建：skill、翻库规则、任务板、健康度盘点</td></tr>
+        <tr><td><strong>日志 AI</strong></td><td>主窗口</td><td>写用户的工作日志，后续半月报/月报/年报</td></tr>
+        <tr><td><strong>审核 agent</strong></td><td>主 AI 手下</td><td>复核大改动、检查遗漏（并行分派）</td></tr>
+        <tr><td><strong>内容 agent</strong></td><td>主 AI 手下</td><td>批量写/改知识库内容（并行分派）</td></tr>
+        <tr><td><strong>检索 agent</strong></td><td>主 AI 手下</td><td>翻库检索、盘点数据来源（并行分派）</td></tr>
+        <tr><td><strong>其他</strong></td><td>主 AI 手下</td><td>临时任务子代理，主 AI 按需命名</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="color:var(--text-secondary);font-size:0.9rem;">新增 AI 名字在此登记；子代理归属主 AI，完成任务后由主 AI 统一在此记录。</p>
+</section>
+
+<section class="section" id="worklog">
+  <h2>二、工作记录</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>2026-08-02</td><td><span class="tag tag-purple">智能体 AI</span></td>
+          <td>建立 fanku 翻库 skill（检索纪律）、团队任务板、知识库健康度盘点页；翻库规则落地到规范与话术</td>
+          <td>.trae/skills/fanku/、思考收件箱/team-task-board、kb-health-checklist</td>
+        </tr>
+        <tr>
+          <td>2026-08-02</td><td><span class="tag tag-orange">主 AI</span></td>
+          <td>搭建"工作日志"板块（logs-guide + logs-2026-08），session-prompt 加日志 AI 专属话术</td>
+          <td>domains/工作日志/、session-prompt</td>
+        </tr>
+        <tr>
+          <td>2026-08-02</td><td><span class="tag tag-orange">主 AI</span></td>
+          <td>建立 AI 工作记录页（本页）：名字体系 + 谁做了什么留痕</td>
+          <td>思考收件箱/ai-worklog</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card warning">
+    <h4>登记规则</h4>
+    <ul>
+      <li><strong>谁做谁记</strong>：每个 AI 完成一件有留痕价值的事（建页/改内容/部署/修复），顺手在此追加一行</li>
+      <li><strong>必带名字</strong>：AI 列写自己的名字（见上面名单），让其他 AI 知道是谁做的</li>
+      <li><strong>写清做什么</strong>：一句话说清产出，涉及位置写到页面/文件级</li>
+      <li><strong>子代理由主 AI 代记</strong>：并行子代理干完活，主 AI 统一登记</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="related">
+  <h2>相关页面</h2>
+  <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+    <a href="#team-task-board" class="page-card">
+      <div class="card-icon">📋</div>
+      <h3>团队任务板</h3>
+      <p>该做什么：发现问题登记、认领负责</p>
+    </a>
+    <a href="#kb-health-checklist" class="page-card">
+      <div class="card-icon">🩺</div>
+      <h3>知识库健康度盘点</h3>
+      <p>定期体检清单，问题进任务板</p>
+    </a>
+    <a href="#session-prompt" class="page-card">
+      <div class="card-icon">📋</div>
+      <h3>新会话开场话术</h3>
+      <p>各 AI 的开场与职责边界</p>
+    </a>
+    <a href="#inbox" class="page-card">
+      <div class="card-icon">📥</div>
+      <h3>思考收件箱</h3>
+      <p>想法缓冲区，本页所属域</p>
     </a>
   </div>
 </section>
