@@ -453,7 +453,7 @@ body{padding-bottom:3rem;}
     <button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰ 目录</button>
   </div>
   <div class="nav-links" id="navLinks">
-    <a href="#home" class="active" data-nav="home">首页</a><a href="#session-20260801" data-nav="session-20260801">session-20260801</a><a href="#session-prompt" data-nav="session-prompt">session-prompt</a><a href="#user-profile" data-nav="user-profile">user-profile</a><a href="#logs-2026-08" data-nav="logs-2026-08">logs-2026-08</a><a href="#logs-guide" data-nav="logs-guide">logs-guide</a><a href="#inbox-20260802-agent-design" data-nav="inbox-20260802-agent-design">inbox-20260802-agent-design</a><a href="#inbox" data-nav="inbox">inbox</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#finechem-engineering" data-nav="finechem-engineering">finechem-engineering</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a><a href="#tinci-amphoteric-summary" data-nav="tinci-amphoteric-summary">tinci-amphoteric-summary</a><a href="#tinci-surfactant-guide" data-nav="tinci-surfactant-guide">tinci-surfactant-guide</a>
+    <a href="#home" class="active" data-nav="home">首页</a><a href="#session-20260801" data-nav="session-20260801">session-20260801</a><a href="#session-prompt" data-nav="session-prompt">session-prompt</a><a href="#user-profile" data-nav="user-profile">user-profile</a><a href="#logs-2026-08" data-nav="logs-2026-08">logs-2026-08</a><a href="#logs-guide" data-nav="logs-guide">logs-guide</a><a href="#inbox-20260802-agent-design" data-nav="inbox-20260802-agent-design">inbox-20260802-agent-design</a><a href="#inbox" data-nav="inbox">inbox</a><a href="#kb-health-checklist" data-nav="kb-health-checklist">kb-health-checklist</a><a href="#team-task-board" data-nav="team-task-board">team-task-board</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#finechem-engineering" data-nav="finechem-engineering">finechem-engineering</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a><a href="#tinci-amphoteric-summary" data-nav="tinci-amphoteric-summary">tinci-amphoteric-summary</a><a href="#tinci-surfactant-guide" data-nav="tinci-surfactant-guide">tinci-surfactant-guide</a>
   </div>
 </nav>
 
@@ -1534,7 +1534,7 @@ ai-agent/
       <h4>❓ 待讨论（下一步）</h4>
       <ul style="padding-left:1.2rem;">
         <li>"懂你"档案先收集什么、放哪（✅ 已随方向修正撤下，懂你档案现为闲聊 AI 专属）</li>
-        <li>翻库规则怎么立（AI 回答前先翻知识库）——⭐ 优先级最高，贴合"专业"方向</li>
+        <li>翻库规则——✅ 已完成（2026-08-02 落地 fanku skill + 规范 + 话术，见 SKILL_GUIDE）</li>
         <li>AI 团队分工（现有：主 agent + 闲聊 AI + 智能体搭建 AI）</li>
         <li>记忆档案怎么更新——需重新定义（从"懂你记忆"改为"知识库维护记忆"）</li>
       </ul>
@@ -1621,7 +1621,7 @@ ai-agent/
   <div class="card accent4">
     <ul>
       <li><code>[未整理]</code> 提议在规范铁律顶部加 <code>#0 收尾门禁</code>：回复"完成"前必须输出 DoD 自检清单（CHANGELOG/双格式/部署/--expect），逐项打勾，未通过不宣布完成。需主 agent 审批并落地到规范。</li>
-      <li><code>[未整理]</code> <a href="#inbox-20260802-agent-design">智能体设计讨论存档</a>：用户想要"住在知识库里的、都认识他的专家团队"（N 个专业 AI + 共享"懂你"档案 + 共享知识库）。LLM 用 DeepSeek，先做"懂你的知识库"。下一步：懂你档案、翻库规则、团队分工。</li>
+      <li><code>[讨论中]</code> <a href="#inbox-20260802-agent-design">智能体设计讨论存档</a>：用户想要"住在知识库里的、都认识他的专家团队"（N 个专业 AI + 共享知识库；懂你仅限闲聊 AI）。已落地：翻库规则（fanku skill，2026-08-02）。下一步：团队自治/记忆机制。</li>
       <li><code>[未整理]</code> 闲聊 AI 对用户的印象：务实有主见、长线思维、会用人（知道什么时候找哪个 AI）。用户追问"你觉得我是什么样的人"后表示 AI 感觉准但不全面。用户认可与 AI 从"工具"变成了"伙伴"关系。</li>
     </ul>
   </div>
@@ -1672,6 +1672,225 @@ ai-agent/
       <div class="card-icon">📋</div>
       <h3>新会话开场话术</h3>
       <p>让新 AI 快速复用知识</p>
+    </a>
+    <a href="#team-task-board" class="page-card">
+      <div class="card-icon">📋</div>
+      <h3>团队任务板</h3>
+      <p>AI 团队任务中转站</p>
+    </a>
+    <a href="#kb-health-checklist" class="page-card">
+      <div class="card-icon">🩺</div>
+      <h3>知识库健康度盘点</h3>
+      <p>定期体检，问题进任务板</p>
+    </a>
+  </div>
+</section>
+</div>
+<div class="page-panel" id="panel-kb-health-checklist" data-panel="kb-health-checklist" style="display:none">
+<!-- ===== Page Hero ===== -->
+<div class="page-hero">
+  <div class="page-hero-meta"><span class="tag tag-orange">AI 协作</span></div>
+  <h1>知识库健康度盘点</h1>
+  <p class="page-hero-desc">定期体检清单：双格式 / 数据来源 / 硬伤 / 深度 / 翻库实测五维检查，让"库越用越准"可度量、可追踪。</p>
+</div>
+<!-- ===== /Page Hero ===== -->
+
+<section class="section" id="why">
+  <h2>一、为什么盘</h2>
+  <div class="card accent2">
+    <p style="margin:0;">翻库规则落地后，需要回答"库在变好吗"。光靠感觉不够——<strong>定期盘点把问题暴露出来，硬伤进任务板修复，数据缺口登记追踪</strong>。这就是评估闭环。</p>
+  </div>
+</section>
+
+<section class="section" id="checklist">
+  <h2>二、五维检查清单</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
+    <thead>
+      <tr style="text-align:left;border-bottom:2px solid var(--border,#e5e7eb);">
+        <th style="padding:8px;">维度</th>
+        <th style="padding:8px;">查什么</th>
+        <th style="padding:8px;">通过标准</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><strong>① 双格式成对</strong></td>
+        <td style="padding:8px;">HTML/MD 是否成对</td>
+        <td style="padding:8px;">deploy 成对校验无缺对告警</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><strong>② 数据来源</strong></td>
+        <td style="padding:8px;">具体数值是否标来源</td>
+        <td style="padding:8px;">无"裸数据当权威"；至少标"待核实"</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><strong>③ 硬伤扫描</strong></td>
+        <td style="padding:8px;">错误/矛盾/误导表述</td>
+        <td style="padding:8px;">无已知硬伤残留（修复后才关闭）</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><strong>④ 深度与落点</strong></td>
+        <td style="padding:8px;">是否达"为什么"+销售落点</td>
+        <td style="padding:8px;">无纯罗列页；知识页能落到客户场景</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;"><strong>⑤ 翻库实测</strong></td>
+        <td style="padding:8px;">fanku 能否跑通</td>
+        <td style="padding:8px;">随机 2 个知识问题 → 带出处、不编造</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="flow">
+  <h2>三、盘点流程</h2>
+  <div class="concept-grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
+    <div class="concept-card" style="border-top:3px solid var(--accent4);">
+      <h4>触发时机</h4>
+      <p>每周一次 ｜ 攒够 5 条用户反馈 ｜ 大改动后。三者任一即可。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent);">
+      <h4>执行方式</h4>
+      <p>子代理并行读页 → 按五维逐页评分 → 汇总盘点报告。硬伤进任务板，修复后复检关闭。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent3);">
+      <h4>产出</h4>
+      <p>盘点报告（各页评分 + 硬伤清单 + 数据缺口清单）+ 任务板登记。记录在下方历次盘点。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="history">
+  <h2>四、历次盘点记录</h2>
+  <div class="card">
+    <h4 style="margin-top:0;">2026-08-02（首次盘点，智能体搭建 AI 执行）</h4>
+    <ul>
+      <li>范围：14 个知识页（基础/四大表活/实战/配方市场四组并行）</li>
+      <li>结果：评分 B~D（nonionic D / properties C / market C / cationic C）；发现 <strong>8 条硬伤</strong>——已全部修复上线</li>
+      <li>遗留：全库 <strong>60+ 处数据无来源</strong> → 已统一标"待核实"，等产品手册/TDS 补真实来源（见任务板）</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="tracking">
+  <h2>五、数据来源追踪（占位）</h2>
+  <div class="card warning">
+    <p style="margin:0;">待用户提供产品手册 / TDS / 培训资料后，逐条把"待核实"升级为"有来源"。此表按域维护，随盘点更新。</p>
+  </div>
+</section>
+
+<section class="section" id="related">
+  <h2>相关页面</h2>
+  <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+    <a href="#team-task-board" class="page-card">
+      <div class="card-icon">📋</div>
+      <h3>团队任务板</h3>
+      <p>盘点发现的硬伤/缺口在此登记</p>
+    </a>
+    <a href="#inbox" class="page-card">
+      <div class="card-icon">📥</div>
+      <h3>思考收件箱</h3>
+      <p>想法缓冲区，本清单所属域</p>
+    </a>
+    <a href="#session-20260801" class="page-card">
+      <div class="card-icon">💡</div>
+      <h3>与 AI 的交流经验</h3>
+      <p>经验沉淀仓库</p>
+    </a>
+  </div>
+</section>
+</div>
+<div class="page-panel" id="panel-team-task-board" data-panel="team-task-board" style="display:none">
+<!-- ===== Page Hero ===== -->
+<div class="page-hero">
+  <div class="page-hero-meta"><span class="tag tag-orange">AI 协作</span></div>
+  <h1>团队任务板</h1>
+  <p class="page-hero-desc">AI 团队共享任务板：谁发现问题谁登记，谁认领谁负责，完成即更新状态。让"该做的事"不靠口头转达，有记录、有去向、可追踪。</p>
+</div>
+<!-- ===== /Page Hero ===== -->
+
+<section class="section" id="what">
+  <h2>一、这是什么</h2>
+  <div class="card accent2">
+    <p style="margin:0;">一句话定位：<strong>任务中转站</strong>——你或任何 AI 发现"该做但超出当前职责"的事，登记在这里；有人认领就推进，完成就标记。任务有去向，团队不丢活。</p>
+  </div>
+  <div class="concept-grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
+    <div class="concept-card" style="border-top:3px solid var(--accent4);">
+      <h4>发现问题 → 登记</h4>
+      <p>AI 翻库/工作中发现库有错、有缺、有该做的事，登记任务（说清：页面+问题+建议）。不越权直接改，但保证不丢。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent);">
+      <h4>认领 → 负责</h4>
+      <p>认领即负责：谁认领谁跟进。小改动认领后自理并部署；大改动认领后找主 agent 执行。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent3);">
+      <h4>完成 → 标记</h4>
+      <p>完成后更新状态 ✅ + 记录完成日期，按知识库规范部署上线。历史任务保留 1 个月后清理。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="board">
+  <h2>二、当前任务</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
+    <thead>
+      <tr style="text-align:left;border-bottom:2px solid var(--border,#e5e7eb);">
+        <th style="padding:8px;">状态</th>
+        <th style="padding:8px;">任务</th>
+        <th style="padding:8px;">登记人</th>
+        <th style="padding:8px;">认领人</th>
+        <th style="padding:8px;">日期</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-purple">🆕 待认领</span></td>
+        <td style="padding:8px;">数据来源补齐：全库 60+ 处"待核实"数值，待产品手册/TDS 到位后逐条补来源或降级</td>
+        <td style="padding:8px;">智能体搭建 AI</td>
+        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">2026-08-02</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;"><span class="tag tag-teal">🔧 进行中</span></td>
+        <td style="padding:8px;">（示例占位：本板机制刚建立，后续任务在此登记）</td>
+        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">—</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="rules">
+  <h2>三、运作规则</h2>
+  <div class="card warning">
+    <ul>
+      <li><strong>登记触发</strong>：AI 翻库/工作发现"该修但不是我职责范围/超出小改动"→ 登记任务板，不静默绕过</li>
+      <li><strong>用户入口</strong>：你说"帮我做 X"——可口头直接做，也可进板追踪（长任务/跨会话建议进板）</li>
+      <li><strong>认领边界</strong>：小改动认领即自理（含部署）；分区/registry 结构/导航/样式/tools/批量 = 大改动，登记后找主 agent</li>
+      <li><strong>状态流转</strong>：🆕 待认领 → 🔧 进行中 → ✅ 已完成（完成需 DoD 自检通过）</li>
+      <li><strong>清理</strong>：已完成任务保留 1 个月后归档，保持任务板清爽</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="related">
+  <h2>相关页面</h2>
+  <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+    <a href="#inbox" class="page-card">
+      <div class="card-icon">📥</div>
+      <h3>思考收件箱</h3>
+      <p>想法缓冲区，本板所属域</p>
+    </a>
+    <a href="#kb-health-checklist" class="page-card">
+      <div class="card-icon">🩺</div>
+      <h3>知识库健康度盘点</h3>
+      <p>定期体检清单，发现问题进任务板</p>
+    </a>
+    <a href="#inbox-20260802-agent-design" class="page-card">
+      <div class="card-icon">🤖</div>
+      <h3>智能体设计存档</h3>
+      <p>团队愿景与分工讨论记录</p>
     </a>
   </div>
 </section>
