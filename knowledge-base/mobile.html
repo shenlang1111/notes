@@ -731,6 +731,48 @@ ai-agent/
   </div>
 </section>
 
+<section class="section" id="inbox">
+  <h2>十、思考收件箱设计讨论（2026-08-01）</h2>
+
+  <div class="card warning">
+    <p>闲聊内容越来越多、越来越杂，现有"会话记录"定位是"可复用经验"，不适合放半成品想法。需要一个<strong>临时暂存区</strong>。</p>
+  </div>
+
+  <div class="card accent" style="margin-top:1rem;">
+    <h3>定位</h3>
+    <ul>
+      <li><strong>会话记录</strong> = 成品仓库（已整理、可复用的经验）</li>
+      <li><strong>思考收件箱</strong> = 原料堆场（零散想法、未整理讨论，先放着后续再管）</li>
+    </ul>
+  </div>
+
+  <div class="card accent2" style="margin-top:1rem;">
+    <h3>设计要点</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>方面</th><th>建议</th></tr></thead>
+        <tbody>
+          <tr><td>命名</td><td>"思考收件箱"（与现有"笔记收件箱"呼应）</td></tr>
+          <tr><td>结构</td><td>按日期/话题分独立页面，便于后续整理归档</td></tr>
+          <tr><td>域定位</td><td>新增 domain，独立于"会话记录"</td></tr>
+          <tr><td>已有内容</td><td>第九节"AI 智能体构想"是已整理经验，留在会话记录合适</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card accent4" style="margin-top:1rem;">
+    <h3>本次教训：部署必须紧跟文件创建</h3>
+    <p><strong>问题：</strong>创建新文件后没有立即部署，被用户指出"读了规范为什么不做"。</p>
+    <p><strong>根因：</strong></p>
+    <ul>
+      <li>误判"部署"属于大改动——文件创建是内容操作，部署是标准流程，不管大小改动都应该部署</li>
+      <li>把"registry.json 和 nav.js 是大改动"和"部署也是大改动"混为一谈</li>
+    </ul>
+    <p><strong>教训：</strong>任何文件创建/修改，做完后<strong>立即部署</strong>。部署是流程终点，不是架构决定。<code>node tools/deploy.js --files</code> 可以只部署指定文件，不碰 registry/nav。<strong>"大改动"限制的是架构变更，不是限制你上线内容。</strong></p>
+  </div>
+</section>
+
 <section class="section" id="related">
   <h2>相关页面（串联入口）</h2>
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
