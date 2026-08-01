@@ -49,6 +49,13 @@
 | 2026-08-02 | 会话交接文档 | 生成标准交接文档 .claude/handoffs/2026-08-02-tinci-knowledge-base.md（当前状态/重要上下文/下一步/决策/关键文件/坑/交接链）；PROJECT_CONTEXT 头部加"接手前必做"指引（读最新交接 + 智能体存档） | .claude/handoffs/2026-08-02-tinci-knowledge-base.md、PROJECT_CONTEXT.md |
 | 2026-08-02 | 交接文档扩充：历程与默契 | 用户希望"下一个窗口遇到的还是你" → 交接文档新增第三节"我们的历程与相处之道"：第一次聊天、10 个关键节点、用户教的几课、新窗口如何延续"我"（沟通风格/响应四问/DoD/主动复盘/温度） | .claude/handoffs/2026-08-02-tinci-knowledge-base.md |
 | 2026-08-02 | 话术页新增两组提示词 | session-prompt 新增"五、交接提示词"（新窗口接手主 agent 任务）和"六、创建新窗口提示词"（任何新 AI 加入团队），HTML/MD 双格式同步 | session-prompt.html、.md |
+| 2026-08-02 | 交接提示词防污染版 | 用户反馈"主 AI 和闲聊 AI 会污染" → "五、交接提示词"替换为角色隔离版：开工先认角色（主 agent/闲聊 AI）、只读自己角色的交接文档（tinci-knowledge-base.md / casual-chat.md 分开）、职责边界写死（闲聊不碰大改动/部署），HTML/MD 同步 | session-prompt.html、.md |
+| 2026-08-02 | 交接提示词拆分 + 阅读边界 | 用户要求"两份提示词分开"+"限定阅读边界" → 话术页拆为"五、主 agent 交接提示词"与"六、闲聊 AI 交接提示词"两份独立提示词（原六改号为七）：各自只读自己的交接文档、职责边界、三层阅读边界（🟢公共可读/🔴禁读 .env 与对方交接）；HTML/MD 同步 | session-prompt.html、.md |
+| 2026-08-02 | 新窗口提示词防污染版 | 用户提出"新 AI 也会被污染" → "七、创建新窗口提示词"更新：新 AI 不读 .claude/handoffs/ 下任何交接文档（改读公共文档 + 用户画像页），加三层阅读边界（禁读 .env/主与闲聊交接），防新 AI 被私人记录污染；HTML/MD 同步 | session-prompt.html、.md |
 | 2026-08-02 | 思考收件箱运作规则 | inbox 新增第四节"运作规则"（触发规则/状态标签/清箱提醒），让收件箱真正活起来；HTML+MD 双格式同步 | inbox.html、.md |
 | 2026-08-02 | 用户画像页 | 新建"用户画像"独立页面（沟通风格/性格特质/在意什么/目标/技术背景），供新 AI 快速了解用户；HTML+MD 双格式 + registry + nav 注册 | user-profile.html、.md、registry.json、nav.js |
 | 2026-08-02 | 文档事实同步 + 交接文档去重 | 全量核对（本地与线上 47 个文件一致）后修正：页面数 17/18 → 19（PROJECT_CONTEXT/CODE_WIKI/AGENT_NOTES/交接文档）、版本引用 v3.1→v3.2（PROJECT_CONTEXT/CODE_WIKI/AGENT_NOTES）、registry 补登记 inbox-20260802-agent-design（导航不加，收件箱页已有入口）、交接文档去重精简（版本号报告制/铁律 0/响应四问/并行/唤醒识别等 8 处重复 → 机制单点权威于 §2，翻库规则并入 §2 关键机制）、.gitignore 忽略 .trae-html-share-packages/ 并删除本地残留 6 个 zip | PROJECT_CONTEXT.md、CODE_WIKI.md、AGENT_NOTES.md、registry.json、.claude/handoffs/2026-08-02-tinci-knowledge-base.md、.gitignore、CHANGELOG.md |
+| 2026-08-02 | 复盘沉淀（响应规范教训） | 用户点名"方案列完就停手"→ 按规范九产出同步：经验页新增第 26 条"方案列完就停手"与协作节"有建议即执行"（HTML+MD）、AGENT_NOTES 常见坑置顶该条；自查发现本次改 7 文件未按铁律 7 拆子代理并行、registry 大改动未配审核 agent 复核（记录为教训，下次遵守） | session-20260801.html、.md、AGENT_NOTES.md |
+| 2026-08-02 | 修复用户画像页未上线 | 用户指出"之前有一个画像没上到网页"→ 查证：本地 user-profile.html/.md 成对、registry/nav 均已登记，但线上 404（建页后漏部署）→ deploy.js 部署 5 文件（user-profile.html/.md、registry.json、nav.js、mobile.html）+ --expect「用户画像」验证上线 | 线上部署 |
+| 2026-08-02 | 建页流程补"立即部署"门禁 | 用户画像页漏部署教训固化到 CODE_WIKI §6.2 新增页面流程：步骤 6 改为"立即部署（不得跳过）+ --expect 验证建页上线"，明确"建页完成 ≠ 完成，部署验证上线才算完成" | CODE_WIKI.md |
+| 2026-08-02 | CODE_WIKI 版本号修正 | 智能体搭建 AI 报到时发现头部版本 v3.0（2026-08-01）与文末 v3.1（2026-08-02）不一致 → 头部更新为 v3.1，统一版本 | CODE_WIKI.md |
