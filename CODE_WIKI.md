@@ -28,11 +28,11 @@
 | **项目名称** | 天赐材料日化知识库 |
 | **项目类型** | 静态 HTML 知识库（多页面 + 手机版单文件） |
 | **技术栈** | HTML5 + CSS3 + 原生 JS；Node.js（≥18，内置 fetch）用于构建/部署脚本 |
-| **内容规模** | 5 个内容域 · 19 个页面 · HTML/MD 双格式成对 |
+| **内容规模** | 7 个内容域 · 29 个页面 · HTML/MD 双格式成对 |
 | **托管** | GitHub Pages（shenlang1111/tinci-knowledge-base，branch=main） |
 | **部署通道** | GitHub API（api.github.com）Contents 上传 + POST /pages/builds |
 | **线上地址** | https://shenlang1111.github.io/tinci-knowledge-base/ |
-| **最后更新** | 2026-08-01 |
+| **最后更新** | 2026-08-02 |
 
 ---
 
@@ -84,7 +84,7 @@ knowledge-base/
 **机制**：内容页只放 `<div id="site-nav"></div>` 占位 + `<script src="../../_shared/js/nav.js" defer>`，导航由 nav.js 运行时动态渲染。
 
 - **根路径推算**：`document.currentScript.src`（回退 `document.querySelector('script[src*="nav.js"]')`），用 `replace(/\/_shared\/js\/nav\.js[?#]?.*$/, '')` + `decodeURIComponent` 得到 knowledge-base 根路径——兼容 file:// 与 https://，**不依赖页面自身相对路径**。
-- **链接清单**：脚本内 `items` 数组，每项 `[标题, 相对根路径]`，当前 18 项（如 `['基础概念', 'domains/表面活性剂/fundamentals.html']`）。**新增页面只需在此清单加一项**，全站导航自动同步。
+- **链接清单**：脚本内 `items` 数组，每项 `[标题, 相对根路径]`，当前 29 项（如 `['基础概念', 'domains/表面活性剂/fundamentals.html']`）。**新增页面只需在此清单加一项**，全站导航自动同步。
 - **渲染结构**：`<nav class="site-nav">` → 首页链接 `nav-home`（href = root + `/index.html`，含 `.nav-dot` 圆点 + 文案"天赐材料知识库"）+ `.nav-links` 内全部 `items` 链接。
 - **当前页高亮**：`currentFile = decodeURIComponent(location.pathname.split('/').pop())`，逐个比较 `a.href.split('/').pop()` 文件名相等 → 加 `.active` 类。
 - **挂载**：`document.getElementById('site-nav')`，找不到则静默（不报错）。
@@ -187,13 +187,8 @@ node tools/deploy.js --files a.html --expect "a.html:关键词"    # 可组合�
 ## 5. 部署与发布
 
 - **线上地址**：https://shenlang1111.github.io/tinci-knowledge-base/
-- **通道**：GitHub API（api.github.com，国内直连稳定）；git push 仅备选（国内不稳）。
-- **部署入口**：统一 `node tools/deploy.js`，任何发布（含小改动）都走它，自动完成：成对校验 → 生成 mobile.html → 串行上传 → 触发构建 → 轮询 built → 服务器端验证。
-- **本次修改验证**：每次部署**必须带 `--expect "文件:关键词"`** 验证本次修改已上线（规则三-3）；通过后才可通知用户。
-- **缓存处理**：
-  - 改版加版本参数 `?v=`：如首页样式 `_shared/css/style.css?v=3`、根入口跳转 `knowledge-base/mobile.html?v=2`；
-  - 仍不见效 → 让用户清缓存/无痕窗口（浏览器强缓存优先级高于 HTML 里的版本号）。
-- **验证标准**：以服务器端抓取为准（deploy.js verify 拉线上 mobile.html 检查 footer 文案 0 次、面板数量、size + `--expect`），构建状态 built 不等于内容已上线。
+- **部署入口**：统一 `node tools/deploy.js`；完整流程与参数见 §4.2，部署验证规则见规范三。
+- **缓存处理**：改版加版本参数 `?v=`（如 `_shared/css/style.css?v=3`、`knowledge-base/mobile.html?v=2`）；仍不见效 → 让用户清缓存/无痕窗口。
 
 ---
 
@@ -209,7 +204,7 @@ node tools/deploy.js --files a.html --expect "a.html:关键词"    # 可组合�
 
 ### 6.2 新增页面流程
 
-1. 建 `domains/<域>/<页>.html`（按页面写作标准：卡片式、hero、分区、数据表标来源、相关页面链接、页面底部不得有 footer 文案）；
+1. 建 `domains/<域>/<页>.html`（按页面写作标准，见规范二-4/二-5）；
 2. 建 `markdown/<域>/<页>.md`（成对，头部元信息 title/domain/tags/description）；
 3. 登记 `registry.json` 的 pages 数组（id/title/domain/tags/category/type/file/updated）；
 4. **在 `nav.js` 链接清单加一项**（全站导航自动同步）；
@@ -217,11 +212,9 @@ node tools/deploy.js --files a.html --expect "a.html:关键词"    # 可组合�
 6. **立即部署（不得跳过）**：`node tools/deploy.js --files <新页面及其登记文件> --expect "<新页面:关键词>"` 验证本次建页上线，再 + CHANGELOG + DoD。
    > ⚠️ 教训（2026-08-02）：用户画像页建好后漏了部署 → 线上 404 直到用户发现。**建页完成 ≠ 完成，部署验证上线才算完成**（铁律 3）。
 
-### 6.3 DoD 驱动（详见规范七，此处只列技术项）
+### 6.3 DoD 驱动
 
-- 内容类：HTML/MD 成对 / registry 登记 / 导航入口 / mobile 重新生成（deploy 绑定）/ `--expect` 通过；
-- 部署类：只走 deploy.js / built / 通用验证（footer 0 次、面板数）/ `--expect` 通过；
-- 任何一项未过 → 继续修复，不得宣布"完成"；宣布完成前输出自检清单逐项打勾。
+DoD 详见《知识库维护规范》七（含用户检查手段）；此处不再重复。
 
 ---
 
