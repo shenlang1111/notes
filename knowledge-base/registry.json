@@ -297,6 +297,36 @@
       "type": "article",
       "file": "domains/思考收件箱/inbox-20260802-agent-design.html",
       "updated": "2026-08-02"
+    },
+    {
+      "id": "finechem-engineering",
+      "title": "《精细化工工艺学》学习笔记",
+      "domain": "精细化工与扩展",
+      "tags": ["精细化工", "工艺学", "教材"],
+      "category": "基础理论",
+      "type": "article",
+      "file": "domains/精细化工与扩展/finechem-engineering.html",
+      "updated": "2026-08-02"
+    },
+    {
+      "id": "tinci-surfactant-guide",
+      "title": "天赐材料表面活性剂学习手册",
+      "domain": "销售与市场",
+      "tags": ["天赐", "产品手册", "学习手册", "销售"],
+      "category": "产品手册",
+      "type": "article",
+      "file": "domains/销售与市场/tinci-surfactant-guide.html",
+      "updated": "2026-08-02"
+    },
+    {
+      "id": "tinci-amphoteric-summary",
+      "title": "天赐温和两性表面活性剂 — 产品目录归纳总结",
+      "domain": "销售与市场",
+      "tags": ["天赐", "两性表活", "产品目录", "温和"],
+      "category": "产品手册",
+      "type": "article",
+      "file": "domains/销售与市场/tinci-amphoteric-summary.html",
+      "updated": "2026-08-02"
     }
   ]
 }
