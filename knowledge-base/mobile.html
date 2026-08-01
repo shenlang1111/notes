@@ -1362,7 +1362,7 @@ ai-agent/
       <div class="stat-label">安全合规 · 质量认证 · 产线实操 · 产品学习</div>
     </div>
   </div>
-  <p class="stats-note">月底自动聚合 → 生成月报 · 数据以当月逐日日志为准</p>
+  <p class="stats-note">月底自动聚合 → 生成月报 · ⚠️ 7 月为补录数据（骨架级），月报引用时单独标注，不与实时数据混算</p>
 </section>
 
 <!-- ===== 每日速记提示 ===== -->
@@ -1689,6 +1689,12 @@ ai-agent/
         <li>事项 —— 结果/产出</li>
       </ul>
     </div>
+    <div class="log-block">
+      <span class="lb-label">产出 / 成果</span>
+      <ul>
+        <li>《XX手册》整理完成 → <a href="../销售与市场/xx.html">知识库成果页</a>（有成果时加链接）</li>
+      </ul>
+    </div>
     <div class="log-block issue">
       <span class="lb-label">遇到的问题</span>
       <ul>
@@ -1806,6 +1812,12 @@ ai-agent/
       <li>事项 —— 结果/产出</li>
     </ul>
   </div>
+  <div class="log-block">
+    <span class="lb-label">产出 / 成果</span>
+    <ul>
+      <li>《XX手册》整理完成 → <a href="../销售与市场/xx.html">知识库成果页</a>（有知识库成果时加链接）</li>
+    </ul>
+  </div>
   <div class="log-block issue">
     <span class="lb-label">遇到的问题</span>
     <ul>
@@ -1827,6 +1839,8 @@ ai-agent/
       <li><strong>留数据</strong>：有数字写数字（销售额、客户数、工期、百分比）</li>
       <li><strong>不吹不贬</strong>：如实记录，问题也是素材</li>
       <li><strong>给素材</strong>：用户只需说一两句（"今天学了 XX，卡在 YY"），日志 AI 负责归类、补全、归档</li>
+      <li><strong>产出链接</strong>：有知识库成果（手册/目录/笔记）时加"产出"块并链到成果页——月报"成果"可直接点开验证</li>
+      <li><strong>补录标注</strong>：补录的历史内容单独标"补录"，不混入实时数据；月报引用时按骨架级处理，不与实时数据混算</li>
     </ul>
   </div>
 </section>
