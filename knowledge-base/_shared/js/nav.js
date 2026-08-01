@@ -30,7 +30,10 @@
     ['新会话话术', 'domains/会话记录/session-prompt.html'],
     ['用户画像', 'domains/会话记录/user-profile.html'],
     ['收件箱', 'domains/思考收件箱/inbox.html'],
-    ['智能体设计', 'domains/思考收件箱/inbox-20260802-agent-design.html']
+    ['智能体设计', 'domains/思考收件箱/inbox-20260802-agent-design.html'],
+    ['精细化工工艺', 'domains/精细化工与扩展/finechem-engineering.html'],
+    ['天赐学习手册', 'domains/销售与市场/tinci-surfactant-guide.html'],
+    ['两性表活目录', 'domains/销售与市场/tinci-amphoteric-summary.html']
   ];
 
   var nav = document.createElement('nav');
