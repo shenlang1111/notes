@@ -32,6 +32,7 @@
     ['收件箱', 'domains/思考收件箱/inbox.html'],
     ['智能体设计', 'domains/思考收件箱/inbox-20260802-agent-design.html'],
     ['AI 工作记录', 'domains/思考收件箱/ai-worklog.html'],
+    ['机制更新', 'domains/思考收件箱/mechanism-updates.html'],
     ['团队任务板', 'domains/思考收件箱/team-task-board.html'],
     ['健康度盘点', 'domains/思考收件箱/kb-health-checklist.html'],
     ['精细化工工艺', 'domains/精细化工与扩展/finechem-engineering.html'],
