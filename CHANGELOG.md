@@ -8,6 +8,7 @@
 
 | 日期 | 主题 | 修改内容 | 涉及文件 |
 |---|---|---|---|
+| 2026-08-02 | UI 第三批：Bento 首页+浮动速跳 | 首页改 Bento 网格布局（featured 大卡/compact 紧凑卡，桌面端 featured 跨 2 列）；nav.js 加浮动速跳按钮（≤1024px 显示，分"知识页""AI 协作/日志"两组面板）；style.css 加 Bento+float 样式；部署验证上线 | index.html、_shared/css/style.css、_shared/js/nav.js |
 | 2026-08-02 | 智能体 AI 首次健康度修复 | 多组并行修复：文档事实修正（session-prompt 铁律数/版本示例、CODE_WIKI/PROJECT_CONTEXT 页面数同步）、结构修正（market hero 趋势名对齐+h2+相关页面区、sales 补相关页面区）、收件箱状态更新（inbox 收尾门禁→可归档、agent-design 团队列表补新成员）、内容硬伤（troubleshooting hero 过期文案、amphoteric 5.3.2 代表产品、synthesis 第8章编号重排）、称呼统一（智能体搭建AI→智能体AI 7文件）、session-20260801 经验索引#16跳号修复 | 约 20 个文件（domains 下 HTML+MD 双格式、根目录 .md、CHANGELOG） |
 | 2026-08-02 | 全量同步部署 | 全部新加内容（工作日志域、精细化工与扩展域、收件箱新页、销售与市场两手册、会话记录/用户画像/交接提示词等 28 页 62 文件）全量上线；此前 3 文件 409 冲突经核对线上=本地（并发竞态）后重传成功；构建 built、--expect 3 项全过 | 全库 62 文件、线上操作 |
 | 2026-08-01 | 部署通道打通 | git push 国内超时 → 改用 GitHub API（Contents API 上传 + POST /pages/builds 触发构建） | —（线上操作） |
