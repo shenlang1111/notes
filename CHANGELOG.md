@@ -42,3 +42,5 @@
 | 2026-08-01 | 规范精简 v3.0→v3.1 | 用户反馈规范太长、重点不突出 → 重写为分层精简版：顶部 8 条铁律速览（含正文节号）+ 分节规则，280 行压到 88 行；细节下沉 CODE_WIKI；派审核 agent 复核（通过），采纳 2 项中级别修复（大改动不豁免部署澄清、CHANGELOG 引用更新）+ 3 项低级别（分类意识/复盘标★★/铁律加节号）；CODE_WIKI 重写 v3.0（承接技术细节）、PROJECT_CONTEXT 重写 v3.0（17 页 5 域） | 知识库维护规范.md、CODE_WIKI.md、PROJECT_CONTEXT.md、CHANGELOG.md |
 | 2026-08-01 | 主 agent 备注 + 清理缓存 | 新增 AGENT_NOTES.md（主 agent 私享速查：重要文件地图/响应四问/常见坑/常用命令/关键信息）；清理本地 .trae-html-share-packages 分享包缓存 19 个 zip（不影响线上） | AGENT_NOTES.md、—（本地缓存清理） |
 | 2026-08-02 | Skill 安装 + 经验沉淀 | 调查 skill marketplace → 3 Agent 并行安装 16 个 skill（元技能/AI 智能体/协作流程/通用工具）→ 审核 Agent 复核通过 → 沉淀到经验页第十一节（HTML+MD 双格式） | session-20260801.html、.md |
+| 2026-08-02 | Skill 使用指南 | 新增 SKILL_GUIDE.md（给所有 AI：16 个 skill 清单 + 调用方式 + 典型场景 + 注意事项）；规范文档关系、PROJECT_CONTEXT 结构、新会话开场话术均加引用/提示（HTML+MD 双格式） | SKILL_GUIDE.md、知识库维护规范.md、PROJECT_CONTEXT.md、session-prompt.html、.md |
+| 2026-08-02 | 思考收件箱运作规则 | inbox 新增第四节"运作规则"（触发规则/状态标签/清箱提醒），让收件箱真正活起来；HTML+MD 双格式同步 | inbox.html、.md |
