@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_updated": "2026-08-01",
+  "last_updated": "2026-08-02",
   "domains": [
     {
       "name": "表面活性剂",
@@ -282,6 +282,21 @@
       "type": "article",
       "file": "domains/思考收件箱/inbox.html",
       "updated": "2026-08-01"
+    },
+    {
+      "id": "inbox-20260802-agent-design",
+      "title": "智能体设计讨论存档",
+      "domain": "思考收件箱",
+      "tags": [
+        "智能体",
+        "懂你档案",
+        "DeepSeek",
+        "设计"
+      ],
+      "category": "AI 协作与日常",
+      "type": "article",
+      "file": "domains/思考收件箱/inbox-20260802-agent-design.html",
+      "updated": "2026-08-02"
     }
   ]
 }
