@@ -48,6 +48,7 @@ updated: 2026-08-02
 | 2026-08-02 | UI 美化 AI | 第四批 UI 优化（用户要求重新设计分块）：首页从 7 个学科分类改为 3 个使用场景分块（知识体系/产品与实战/AI 协作与日志），每块加描述语；主标题"知识库"→"资料库"（v3.0），副标题重写；style.css 加 category-desc 样式；部署验证上线 | index.html、_shared/css/style.css |
 | 2026-08-02 | 智能体 AI | 精细化工源文件修复：章节编号9.4/9.5→9.10/9.11、渗透压机理错误（多元醇膜结构/低盐逻辑）、CD后缀Coco→Lauro同步；天赐学习手册源文件修复：TC-MAB INCI 椰油酰→月桂酰、氨基酸误归两性修正（甜菜碱/CAB→咪唑啉型）；任务板更新2项✅已完成 | 精细化工工艺学核心内容提炼.html、tinci-surfactant-guide.html、team-task-board html+md |
 | 2026-08-02 | 智能体 AI | 全面健康度修复：文档事实修正（session-prompt 铁律数/版本示例、CODE_WIKI/PROJECT_CONTEXT 页面数）、结构修正（market hero+h2+相关页面、sales 相关页面）、收件箱状态更新（inbox 收尾门禁→可归档、agent-design 团队列表）、内容硬伤（troubleshooting hero/amphoteric 5.3.2/synthesis 第8章编号重排）、称呼统一（智能体搭建AI→智能体AI 7文件）、编号跳号修复；部署验证上线 | 约 20 个文件 |
+| 2026-08-02 | 闲聊 AI | 按用户指示登记任务板：智能体方向移交 Claude Code（用户已装好，取编程能力强），主 AI 需出 Claude Code 专属开场提示词 + 确认是否推翻"LLM 用 DeepSeek"拍板 | 思考收件箱/team-task-board html+md |
 
 登记规则：
 - **谁做谁记**：每个 AI 完成一件有留痕价值的事（建页/改内容/部署/修复），顺手在此追加一行
