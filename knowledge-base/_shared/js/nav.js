@@ -27,7 +27,8 @@
     ['市场趋势', 'domains/销售与市场/market.html'],
     ['销售话术', 'domains/销售与市场/sales.html'],
     ['AI 经验', 'domains/会话记录/session-20260801.html'],
-    ['新会话话术', 'domains/会话记录/session-prompt.html']
+    ['新会话话术', 'domains/会话记录/session-prompt.html'],
+    ['收件箱', 'domains/思考收件箱/inbox.html']
   ];
 
   var nav = document.createElement('nav');
