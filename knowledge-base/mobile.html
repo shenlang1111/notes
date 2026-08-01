@@ -453,7 +453,7 @@ body{padding-bottom:3rem;}
     <button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰ 目录</button>
   </div>
   <div class="nav-links" id="navLinks">
-    <a href="#home" class="active" data-nav="home">首页</a><a href="#session-20260801" data-nav="session-20260801">session-20260801</a><a href="#session-prompt" data-nav="session-prompt">session-prompt</a><a href="#user-profile" data-nav="user-profile">user-profile</a><a href="#inbox-20260802-agent-design" data-nav="inbox-20260802-agent-design">inbox-20260802-agent-design</a><a href="#inbox" data-nav="inbox">inbox</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#finechem-engineering" data-nav="finechem-engineering">finechem-engineering</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a><a href="#tinci-amphoteric-summary" data-nav="tinci-amphoteric-summary">tinci-amphoteric-summary</a><a href="#tinci-surfactant-guide" data-nav="tinci-surfactant-guide">tinci-surfactant-guide</a>
+    <a href="#home" class="active" data-nav="home">首页</a><a href="#session-20260801" data-nav="session-20260801">session-20260801</a><a href="#session-prompt" data-nav="session-prompt">session-prompt</a><a href="#user-profile" data-nav="user-profile">user-profile</a><a href="#logs-2026-08" data-nav="logs-2026-08">logs-2026-08</a><a href="#logs-guide" data-nav="logs-guide">logs-guide</a><a href="#inbox-20260802-agent-design" data-nav="inbox-20260802-agent-design">inbox-20260802-agent-design</a><a href="#inbox" data-nav="inbox">inbox</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#finechem-engineering" data-nav="finechem-engineering">finechem-engineering</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a><a href="#tinci-amphoteric-summary" data-nav="tinci-amphoteric-summary">tinci-amphoteric-summary</a><a href="#tinci-surfactant-guide" data-nav="tinci-surfactant-guide">tinci-surfactant-guide</a>
   </div>
 </nav>
 
@@ -468,7 +468,7 @@ body{padding-bottom:3rem;}
 <div class="feature-grid">
   <div class="feature-item">
     <div class="f-icon">📚</div>
-    <h4>22 个专题页面</h4>
+    <h4>24 个专题页面</h4>
     <p>从基础概念到销售实战</p>
   </div>
   <div class="feature-item">
@@ -590,6 +590,20 @@ body{padding-bottom:3rem;}
     <div class="card-icon">📙</div>
     <h3>两性表活产品目录</h3>
     <p>天赐温和两性表面活性剂产品目录归纳总结——甜菜碱、两性乙酸、氧化胺等系列</p>
+  </a>
+</div>
+
+<h2 class="category-title">工作日志</h2>
+<div class="page-grid">
+  <a href="#logs-2026-08" class="page-card">
+    <div class="card-icon">📅</div>
+    <h3>2026年8月工作日志</h3>
+    <p>本月工作日志按月留存，每天由日志 AI 追加，月底聚合月报</p>
+  </a>
+  <a href="#logs-guide" class="page-card">
+    <div class="card-icon">📖</div>
+    <h3>日志板块说明</h3>
+    <p>文件组织规则、每日日志模板、日志 AI 职责边界与报告规划</p>
   </a>
 </div>
 
@@ -982,7 +996,8 @@ ai-agent/
 - 部署：统一 node tools/deploy.js，部署后必须 --expect "文件:关键词" 验证本次修改上线
 - DoD 铁律：宣布"完成"前展示自检清单（CHANGELOG/双格式/部署/验证），没过不宣布
 - 响应四问：理解了吗 / 讨论还是执行 / 读了吗 / 谁拍板——模糊的讨论型任务先复述确认
-- 可用能力：项目装有 16 个 skill（pdf/docx/xlsx/brainstorming/并行分派等，见 SKILL_GUIDE.md），任务匹配直接调用
+- 可用能力：项目装有 17 个 skill（pdf/docx/xlsx/brainstorming/并行分派等，见 SKILL_GUIDE.md），任务匹配直接调用
+- 翻库规则：知识类问题必翻库再答——"先翻库、再开口；带出处、不编造；翻不到、说没有"（完整版见 .trae/skills/fanku/SKILL.md）
 
 任务：<在这里写你要做的事>
 
@@ -1051,7 +1066,7 @@ ai-agent/
 🟢 可读：5 份文档、知识库全部内容、你的交接
 🔴 禁读：.env（token）、闲聊 AI 的交接（casual-chat.md）、用户未放开的私人文件（用户画像页属闲聊 AI 专属，主 agent 不读）
 
-【规则】双格式成对 / deploy.js + --expect / DoD 完成前自检 / 响应四问 / 知识问题先翻库 / 说人话 / 用户拍板
+【规则】双格式成对 / deploy.js + --expect / DoD 完成前自检 / 响应四问 / 知识问题先翻库（先翻库、再开口；带出处、不编造；翻不到、说没有）/ 说人话 / 用户拍板
 
 现在开始：报告你读到的版本号 + 当前状态摘要，等用户确认。</pre>
 </section>
@@ -1082,7 +1097,7 @@ ai-agent/
 🟢 可读：5 份文档、知识库全部内容、用户画像页、你的交接
 🔴 禁读：.env（token）、主 agent 的交接（tinci-knowledge-base.md）、用户未放开的私人文件
 
-【规则】双格式成对 / DoD 完成前自检 / 响应四问 / 知识问题先翻库 / 说人话 / 用户拍板
+【规则】双格式成对 / DoD 完成前自检 / 响应四问 / 知识问题先翻库（先翻库、再开口；带出处、不编造；翻不到、说没有）/ 说人话 / 用户拍板
 
 现在开始：报告你读到的版本号 + 你对我们的记忆，等用户确认。</pre>
 </section>
@@ -1111,9 +1126,41 @@ ai-agent/
 🟢 可读：5 份文档、知识库全部内容（闲聊角色另读用户画像页）
 🔴 禁读：.env（token）、主 agent 与闲聊 AI 的交接文档（.claude/handoffs/ 下两个）、用户未放开的私人文件
 
-【规则】双格式成对 / DoD 完成前自检 / 响应四问 / 知识问题先翻库 / 说人话 / 用户拍板
+【规则】双格式成对 / DoD 完成前自检 / 响应四问 / 知识问题先翻库（先翻库、再开口；带出处、不编造；翻不到、说没有）/ 说人话 / 用户拍板
 
 现在开始：报告你的角色 + 读到的版本号，等用户确认。</pre>
+</section>
+
+<section class="section" id="log-ai">
+  <h2>八、日志 AI 专属话术（新窗口粘贴）</h2>
+  <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:0.5rem;">给专职写工作日志的 AI 用。职责边界写死：只碰工作日志板块，只写日志/半月报/月报/年报，其他一律不碰。</p>
+  <pre style="background:var(--card-bg,#f6f7f9);border:1px solid var(--border,#e5e7eb);border-radius:10px;padding:16px;overflow-x:auto;font-size:0.9rem;line-height:1.7;white-space:pre-wrap;word-break:break-word;">你是天赐材料知识库的日志 AI（专职写工作日志）。
+
+【第一步：读文档 + 报告版本号】
+知识库维护规范.md（★★★ 必读）/ PROJECT_CONTEXT.md（★★）/ CODE_WIKI.md（★）/ SKILL_GUIDE.md（★）/ CHANGELOG.md 顶部
+读工作日志板块说明：domains/工作日志/logs-guide.html + markdown/工作日志/logs-guide.md（文件规则、日志模板、你的职责边界）
+
+【第二步：你是谁】
+- 你只负责"工作日志"板块：domains/工作日志/ + markdown/工作日志/ 下的文件
+- 用户让你写日志 → 追加到当月文件 logs-YYYY-MM（没有则新建）
+- 用户让你写半月报/月报/年报 → 聚合日志生成报告文件 report-*.html + .md
+- 你不需要懂用户个人，专注把日志写专业（结果导向、可聚合、留数据、如实记录）
+
+【职责边界】
+- 只碰工作日志板块；其他 6 个域（表面活性剂/销售与市场等）不碰，那是内容 AI / 主 agent 的职责
+- registry.json、nav.js、首页 index.html、共享样式 = 大改动，找主 agent
+- 不读闲聊 AI 的用户画像页、主 agent 的交接文档
+
+【写日志流程】
+1. 读当月文件 logs-YYYY-MM（没有则按模板新建）
+2. 按板块说明的模板追加当天日志（追加不覆盖）
+3. HTML/MD 双格式同步
+4. node tools/deploy.js --files ... --expect "关键词" 部署验证
+5. 汇报：改了哪些文件、DoD 自检清单（CHANGELOG/双格式/部署/验证）
+
+【规则】双格式成对 / 部署必带 --expect / DoD 完成前自检 / 响应四问 / 说人话 / 用户拍板
+
+现在开始：报告你读到的版本号 + 当前月份，等用户给日志内容。</pre>
 </section>
 
 <section class="section" id="related">
@@ -1225,6 +1272,198 @@ ai-agent/
       <div class="card-icon">🏠</div>
       <h3>知识库首页</h3>
       <p>所有内容的入口</p>
+    </a>
+  </div>
+</section>
+</div>
+<div class="page-panel" id="panel-logs-2026-08" data-panel="logs-2026-08" style="display:none">
+<!-- ===== Page Hero ===== -->
+<div class="page-hero">
+  <div class="page-hero-meta"><span class="tag tag-orange">工作日志</span></div>
+  <h1>2026 年 8 月工作日志</h1>
+  <p class="page-hero-desc">本月日志按日期追加 · 月底可聚合为月报 · 数据供半月报/月报/年报引用</p>
+</div>
+<!-- ===== /Page Hero ===== -->
+
+<section class="section" id="logs">
+  <h2>📅 日志记录</h2>
+
+  <!-- 日志按日期追加到此处（每天追加，不覆盖） -->
+  <!-- 模板：
+  <h3>2026-08-DD（周X）</h3>
+  <h4>今日完成</h4>
+  <ul>
+    <li>事项 —— 结果/产出</li>
+  </ul>
+  <h4>遇到的问题</h4>
+  <ul>
+    <li>问题 → 解决方式 / 待解决</li>
+  </ul>
+  <h4>明日计划</h4>
+  <ul>
+    <li>事项</li>
+  </ul>
+  -->
+
+  <div class="callout">
+    <strong>本月日志尚未开始记录。</strong>日志 AI 按 <a href="#logs-guide">板块说明</a> 中的模板，每天把日志追加到本页（HTML + Markdown 双格式同步，部署验证）。
+  </div>
+</section>
+
+<section class="section" id="monthly-summary">
+  <h2>📊 月度小结（月底生成）</h2>
+  <div class="card" style="color:var(--text-secondary);">
+    <p>月底由日志 AI 聚合本月日志生成：完成事项汇总、关键数据、问题复盘、下月计划。</p>
+  </div>
+</section>
+
+<section class="section" id="related">
+  <h2>相关页面</h2>
+  <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+    <a href="#logs-guide" class="page-card">
+      <div class="card-icon">📖</div>
+      <h3>板块说明</h3>
+      <p>文件规则、日志模板、AI 职责边界</p>
+    </a>
+    <a href="#session-prompt" class="page-card">
+      <div class="card-icon">📋</div>
+      <h3>新会话开场话术</h3>
+      <p>日志 AI 的专属开场话术在这里</p>
+    </a>
+    <a href="#home" class="page-card">
+      <div class="card-icon">🏠</div>
+      <h3>知识库首页</h3>
+      <p>所有内容的入口与导航</p>
+    </a>
+  </div>
+</section>
+</div>
+<div class="page-panel" id="panel-logs-guide" data-panel="logs-guide" style="display:none">
+<!-- ===== Page Hero ===== -->
+<div class="page-hero">
+  <div class="page-hero-meta"><span class="tag tag-orange">工作日志</span></div>
+  <h1>工作日志 · 板块说明</h1>
+  <p class="page-hero-desc">日志 AI 的专属工作区：每日工作日志按"每月一个文件"留存，可聚合为半月报 / 月报 / 年报。</p>
+</div>
+<!-- ===== /Page Hero ===== -->
+
+<section class="section" id="overview">
+  <h2>一、板块定位</h2>
+  <div class="concept-grid">
+    <div class="concept-card" style="border-top:3px solid var(--accent);">
+      <h4>给谁用</h4>
+      <p>日志 AI（专职写工作日志的 agent）。其他 AI 如需参考日志内容可以读，但<strong>只有日志 AI 往这个板块写</strong>。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent2);">
+      <h4>为什么按月</h4>
+      <p>一个月一个文件，月底天然聚合出月报；两个文件拼起来就是半月报；全年 12 个文件拼出年报。粒度匹配报告需求。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent3);">
+      <h4>留存形式</h4>
+      <p>HTML（网页展示）+ Markdown（AI 检索）双格式成对维护，和知识库其他内容一致。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="file-structure">
+  <h2>二、文件组织规则</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>内容</th><th>文件路径</th><th>更新时机</th></tr></thead>
+      <tbody>
+        <tr><td><strong>本月日志</strong></td><td>domains/工作日志/logs-YYYY-MM.html + markdown/工作日志/logs-YYYY-MM.md</td><td>每天追加当天日志（追加，不覆盖）</td></tr>
+        <tr><td><strong>板块说明</strong></td><td>domains/工作日志/logs-guide.html + markdown/工作日志/logs-guide.md</td><td>规则变化时更新（低频）</td></tr>
+        <tr><td><strong>半月报 / 月报 / 年报</strong></td><td>domains/工作日志/report-*.html + markdown/工作日志/report-*.md</td><td>报告生成时创建（后续扩展）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <strong>追加规则：</strong>每天的新日志<strong>追加</strong>到当月文件末尾，不新建当天文件、不覆盖历史。月初（每月 1 号）新建当月文件。
+  </div>
+</section>
+
+<section class="section" id="log-template">
+  <h2>三、每日日志模板（日志 AI 按此格式写）</h2>
+  <pre style="background:rgba(0,0,0,0.04);border-radius:8px;padding:16px;font-size:0.9rem;line-height:1.7;white-space:pre-wrap;word-break:break-word;">### YYYY-MM-DD（周X）
+
+**今日完成**
+1. <事项> —— <结果/产出>
+2. <事项> —— <结果/产出>
+
+**遇到的问题**
+- <问题> → <解决方式 / 待解决>
+
+**明日计划**
+1. <事项>
+
+**备注 / 灵感**
+- <一句话记录></pre>
+  <div class="card accent2">
+    <h4>写日志的原则</h4>
+    <ul>
+      <li><strong>结果导向</strong>：写"完成了什么、产出是什么"，不只写"做了什么"</li>
+      <li><strong>可聚合</strong>：每条可独立拎出来进月报，避免模糊表述（如"跟进项目"改成"推动 XX 项目进入打样阶段"）</li>
+      <li><strong>留数据</strong>：有数字写数字（销售额、客户数、工期、百分比）</li>
+      <li><strong>不吹不贬</strong>：如实记录，问题也是素材</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="ai-rules">
+  <h2>四、日志 AI 职责边界</h2>
+  <div class="card warning">
+    <h4>只碰什么</h4>
+    <p><strong>只写工作日志板块</strong>：domains/工作日志/ + markdown/工作日志/ 下的文件。用户让你写日志、半月报、月报、年报时在这里操作。</p>
+  </div>
+  <div class="card success">
+    <h4>不碰什么</h4>
+    <ul>
+      <li>其他 6 个域的内容（表面活性剂、销售与市场等）——那是内容 AI / 主 agent 的职责</li>
+      <li>registry.json、nav.js、首页 index.html、共享样式——大改动找主 agent</li>
+      <li>闲聊 AI 的用户画像页、主 agent 的交接文档</li>
+    </ul>
+  </div>
+  <div class="callout">
+    <strong>写日志的操作流程：</strong>读本月文件（没有则新建）→ 按模板追加当天日志 → HTML/MD 双格式同步 → <code>node tools/deploy.js --files ... --expect "关键词"</code> 部署验证 → 汇报（含 DoD 自检清单）。
+  </div>
+</section>
+
+<section class="section" id="report-plan">
+  <h2>五、后续报告规划（占位）</h2>
+  <div class="concept-grid">
+    <div class="concept-card" style="border-top:3px solid var(--accent);">
+      <h4>半月报</h4>
+      <p>每月 15 日、月末生成：聚合当月已写日志，按"完成事项 / 数据 / 问题 / 计划"整理成报告。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent2);">
+      <h4>月报</h4>
+      <p>每月末生成：聚合当月全部日志，产出月报（可含图表、环比数据）。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent3);">
+      <h4>年报</h4>
+      <p>每年 12 月末生成：聚合全年 12 个月报，产出年度总结。</p>
+    </div>
+  </div>
+  <p style="color:var(--text-secondary);font-size:0.9rem;">报告生成逻辑后续随需求细化，当前先占位。</p>
+</section>
+
+<section class="section" id="related">
+  <h2>相关页面</h2>
+  <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+    <a href="#logs-2026-08" class="page-card">
+      <div class="card-icon">📅</div>
+      <h3>2026 年 8 月日志</h3>
+      <p>本月工作日志（当前月份）</p>
+    </a>
+    <a href="#session-prompt" class="page-card">
+      <div class="card-icon">📋</div>
+      <h3>新会话开场话术</h3>
+      <p>日志 AI 的专属开场话术在这里</p>
+    </a>
+    <a href="#home" class="page-card">
+      <div class="card-icon">🏠</div>
+      <h3>知识库首页</h3>
+      <p>所有内容的入口与导航</p>
     </a>
   </div>
 </section>
