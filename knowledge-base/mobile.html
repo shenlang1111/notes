@@ -449,6 +449,23 @@ footer .sources a{word-break:break-all;}
   .log-date{font-size:0.78rem;}
   .log-block li{font-size:0.85rem;}
   .week-group-title .wg-days{display:block;}
+  /* —— 移动端表格优化（UI 美化 AI）—— */
+  table{font-size:0.82rem;min-width:380px;}
+  thead th{padding:0.55rem 0.6rem;font-size:0.76rem;}
+  tbody td{padding:0.45rem 0.6rem;}
+  /* snapshot 网格降级为 2 列 */
+  .snapshot{grid-template-columns:repeat(2,1fr);}
+  .snapshot .snap-num{font-size:1.3rem;}
+  /* callout 图标防溢出（移入容器内） */
+  .callout{padding-left:2.5rem;}
+  .callout::before{left:0.8rem;top:0.95rem;}
+  /* stat-grid 移动端也降为 2 列 */
+  .stat-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ============ 平板断点（769-1024px）—— UI 美化 AI ============ */
+@media(min-width:769px) and (max-width:1024px){
+  .snapshot{grid-template-columns:repeat(2,1fr);}
 }
 
 /* ===== 手机版专用 ===== */
