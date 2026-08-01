@@ -128,7 +128,9 @@ function route(){
   showPage(h||'home');
 }
 window.addEventListener('hashchange',route);
-route();
+// 每次打开都从首页开始，避免浏览器恢复上次的 hash 位置
+if(location.hash){ history.replaceState(null,'',location.pathname); }
+showPage('home');
 </script>
 </body>
 </html>
