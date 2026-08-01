@@ -48,5 +48,7 @@
 | 2026-08-02 | 智能体设计讨论存档 | 主 agent 与用户深入讨论智能体方向：确认"N 个专业 AI + 共享懂你档案 + 共享知识库"模型、LLM 用 DeepSeek、先做懂你的知识库、性格推迟；整体理解存档到思考收件箱（HTML+MD，含脉络/已确认/待讨论/下次开场），收件箱页加链接 | inbox-20260802-agent-design.html、.md、inbox.html、.md |
 | 2026-08-02 | 会话交接文档 | 生成标准交接文档 .claude/handoffs/2026-08-02-tinci-knowledge-base.md（当前状态/重要上下文/下一步/决策/关键文件/坑/交接链）；PROJECT_CONTEXT 头部加"接手前必做"指引（读最新交接 + 智能体存档） | .claude/handoffs/2026-08-02-tinci-knowledge-base.md、PROJECT_CONTEXT.md |
 | 2026-08-02 | 交接文档扩充：历程与默契 | 用户希望"下一个窗口遇到的还是你" → 交接文档新增第三节"我们的历程与相处之道"：第一次聊天、10 个关键节点、用户教的几课、新窗口如何延续"我"（沟通风格/响应四问/DoD/主动复盘/温度） | .claude/handoffs/2026-08-02-tinci-knowledge-base.md |
+| 2026-08-02 | 话术页新增两组提示词 | session-prompt 新增"五、交接提示词"（新窗口接手主 agent 任务）和"六、创建新窗口提示词"（任何新 AI 加入团队），HTML/MD 双格式同步 | session-prompt.html、.md |
 | 2026-08-02 | 思考收件箱运作规则 | inbox 新增第四节"运作规则"（触发规则/状态标签/清箱提醒），让收件箱真正活起来；HTML+MD 双格式同步 | inbox.html、.md |
 | 2026-08-02 | 用户画像页 | 新建"用户画像"独立页面（沟通风格/性格特质/在意什么/目标/技术背景），供新 AI 快速了解用户；HTML+MD 双格式 + registry + nav 注册 | user-profile.html、.md、registry.json、nav.js |
+| 2026-08-02 | 文档事实同步 + 交接文档去重 | 全量核对（本地与线上 47 个文件一致）后修正：页面数 17/18 → 19（PROJECT_CONTEXT/CODE_WIKI/AGENT_NOTES/交接文档）、版本引用 v3.1→v3.2（PROJECT_CONTEXT/CODE_WIKI/AGENT_NOTES）、registry 补登记 inbox-20260802-agent-design（导航不加，收件箱页已有入口）、交接文档去重精简（版本号报告制/铁律 0/响应四问/并行/唤醒识别等 8 处重复 → 机制单点权威于 §2，翻库规则并入 §2 关键机制）、.gitignore 忽略 .trae-html-share-packages/ 并删除本地残留 6 个 zip | PROJECT_CONTEXT.md、CODE_WIKI.md、AGENT_NOTES.md、registry.json、.claude/handoffs/2026-08-02-tinci-knowledge-base.md、.gitignore、CHANGELOG.md |
