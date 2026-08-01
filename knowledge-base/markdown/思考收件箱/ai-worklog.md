@@ -44,6 +44,8 @@ updated: 2026-08-02
 | 2026-08-02 | 主 AI | 用户新建"UI 美化 AI"：团队名单登记（第 5 个主窗口 AI）、话术页第九节建 UI 美化 AI 专属话术（职责边界：只动视觉层 style.css/排版，内容与结构归其他 AI） | 思考收件箱/ai-worklog、session-prompt |
 | 2026-08-02 | UI 美化 AI | 首批 UI 优化（style.css 只加不改）：移动端表格优化（字号缩小+padding 减）、snapshot/stat-grid 网格降为 2 列、callout 图标防溢出（移入容器内）、新增平板断点 769-1024px；部署验证上线 | _shared/css/style.css、mobile.html |
 | 2026-08-02 | UI 美化 AI | 第二批 UI 优化（用户授权全权）：①表头 sticky 固定（滚动时表头不跑）②修复两个大文档页 container 嵌套（tinci-surfactant-guide 13 处、tinci-amphoteric-summary 1 处，去双重 max-width 挤压）③全库 30 个 HTML 的 CSS 版本参数统一 v3/v4/v5→v6（解决缓存不一致）；全量部署 64 文件 + 2 项 --expect 验证上线 | _shared/css/style.css、30 个 HTML 页面、tinci-surfactant-guide、tinci-amphoteric-summary、mobile.html |
+| 2026-08-02 | UI 美化 AI | 第三批 UI 优化（用户选 Bento 首页+浮动速跳按钮）：①首页改 Bento 网格布局（重要页面 featured 大卡跨 2 列，次要页面 compact 紧凑卡）②nav.js 加浮动速跳按钮（移动端/平板 ≤1024px 显示，分"知识页""AI 协作/日志"两组，点击展开面板快速跳转）③style.css 加 Bento+float 样式；部署验证上线 | index.html、_shared/css/style.css、_shared/js/nav.js |
+| 2026-08-02 | 智能体 AI | 全面健康度修复：文档事实修正（session-prompt 铁律数/版本示例、CODE_WIKI/PROJECT_CONTEXT 页面数）、结构修正（market hero+h2+相关页面、sales 相关页面）、收件箱状态更新（inbox 收尾门禁→可归档、agent-design 团队列表）、内容硬伤（troubleshooting hero/amphoteric 5.3.2/synthesis 第8章编号重排）、称呼统一（智能体搭建AI→智能体AI 7文件）、编号跳号修复；部署验证上线 | 约 20 个文件 |
 
 登记规则：
 - **谁做谁记**：每个 AI 完成一件有留痕价值的事（建页/改内容/部署/修复），顺手在此追加一行
