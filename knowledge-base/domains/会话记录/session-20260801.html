@@ -30,7 +30,7 @@
         <tr><td>1</td><td>部署不通 / 慢</td><td>走 GitHub API（api.github.com）直连：Contents API 上传 + POST /pages/builds 构建</td></tr>
         <tr><td>2</td><td>部署文件多 / 易漏</td><td>统一 <code>node tools/deploy.js</code> 一键部署，不手动逐个传</td></tr>
         <tr><td>3</td><td>上传报 409</td><td>串行上传（并发度 = 1），GitHub 对同仓库并发写有保护</td></tr>
-        <tr><td>4</td><td>部署是否真生效</td><td>服务器端抓取验证（内容/大小/标记），不看构建状态</td></tr>
+        <tr><td>4</td><td>部署是否真生效</td><td>服务器端抓取验证（内容/大小/标记）+ <code>--expect "文件:关键词"</code> 验证本次修改上线，不只做通用检查</td></tr>
         <tr><td>5</td><td>手机版不同步</td><td>内容变更后必须重新生成 mobile.html（deploy.js 已绑定）</td></tr>
         <tr><td>6</td><td>手机版 footer 重复</td><td>提取内容用配对计数匹配 container，不用 lastIndexOf</td></tr>
         <tr><td>7</td><td>手机版面板块错乱</td><td>面板用 div（不用 section）+ cleanSections 兜底</td></tr>
@@ -42,7 +42,6 @@
         <tr><td>13</td><td>多会话互相覆盖</td><td>改动分级：小改动自理，大改动仅主 agent；改前先读最新版</td></tr>
         <tr><td>14</td><td>质量把关</td><td>关键产出配审核 agent 独立复核，问题修复后才部署</td></tr>
         <tr><td>15</td><td>让 AI 更懂你</td><td>给上下文 / 说要什么 / 大需求拆小步 / 数据给来源</td></tr>
-        <tr><td>16</td><td>部署是否真生效</td><td>验证"本次修改内容"上线：<code>--expect "文件:关键词"</code>，不只做通用检查</td></tr>
         <tr><td>17</td><td>"写了规范不用"</td><td>任务完成定义 DoD：回复"完成"前展示自检清单，未通过不宣布完成</td></tr>
         <tr><td>18</td><td>导航多处维护不同步</td><td>nav.js 共享脚本统一渲染，新增页面只改 nav.js 一处</td></tr>
         <tr><td>19</td><td>多 Agent 并行</td><td>任务拆解避免文件冲突（各 agent 只碰分配的文件），关键产出配审核 agent</td></tr>
@@ -212,7 +211,7 @@
           <tr><td>聊天前端</td><td>HTML + 原生 JS</td><td>单页，类似现有 mobile.html 风格</td></tr>
           <tr><td>API 后端</td><td>Python + FastAPI</td><td>轻量异步框架</td></tr>
           <tr><td>向量检索</td><td>读取 MD 文件 + Embedding API</td><td>不依赖额外向量数据库</td></tr>
-          <tr><td>LLM</td><td>硅基流动 API</td><td>便宜，国内直连</td></tr>
+          <tr><td>LLM</td><td>DeepSeek API</td><td>便宜，国内直连</td></tr>
           <tr><td>人格系统</td><td>一条 system prompt</td><td>从知识库文本提炼说话风格</td></tr>
         </tbody>
       </table>
@@ -305,29 +304,7 @@ ai-agent/
 
   <div class="card accent4" style="margin-top:1rem;">
     <h3>安装的 Skill 清单</h3>
-    <div class="table-wrap" style="margin-top:0.8rem;">
-      <table>
-        <thead><tr><th>分类</th><th>Skill</th><th>用途</th></tr></thead>
-        <tbody>
-          <tr><td><strong>元技能</strong></td><td><code>skill-creator</code></td><td>创建自定义 skill 的元技能</td></tr>
-          <tr><td rowspan="5"><strong>AI 智能体</strong></td><td><code>unified-memory</code></td><td>跨会话统一记忆管理</td></tr>
-          <tr><td><code>ck</code></td><td>持久化项目记忆与知识检索</td></tr>
-          <tr><td><code>autonomous-agent-harness</code></td><td>自主 Agent 运行框架</td></tr>
-          <tr><td><code>brand-voice</code></td><td>品牌语调/风格控制</td></tr>
-          <tr><td><code>agent-architecture-audit</code></td><td>架构审核与诊断</td></tr>
-          <tr><td rowspan="4"><strong>协作流程</strong></td><td><code>writing-plans</code></td><td>写方案</td></tr>
-          <tr><td><code>executing-plans</code></td><td>执行方案</td></tr>
-          <tr><td><code>dispatching-parallel-agents</code></td><td>并行派发多个 Agent</td></tr>
-          <tr><td><code>session-handoff</code></td><td>会话交接文档生成</td></tr>
-          <tr><td rowspan="4"><strong>通用工具</strong></td><td><code>pdf</code></td><td>PDF 处理</td></tr>
-          <tr><td><code>xlsx</code></td><td>Excel 处理</td></tr>
-          <tr><td><code>docx</code></td><td>Word 处理</td></tr>
-          <tr><td><code>brainstorming</code></td><td>头脑风暴</td></tr>
-          <tr><td><code>firecrawl</code></td><td>网页抓取/爬虫</td></tr>
-          <tr><td><code>obsidian</code></td><td>Obsidian 集成</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <p>16 个 skill 清单与调用方式见 SKILL_GUIDE.md（2026-08-02 安装快照，权威清单以 SKILL_GUIDE 为准）</p>
   </div>
 
   <div class="card success" style="margin-top:1rem;">
