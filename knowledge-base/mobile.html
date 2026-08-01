@@ -560,6 +560,8 @@ body{padding-bottom:3rem;}
         <tr><td>21</td><td>内容分类混乱</td><td>日化知识之外内容（AI 经验/日常）独立大类，不混入知识分类</td></tr>
         <tr><td>22</td><td>唤醒识别</td><td>用户说"在别处/其他 AI 讨论过，你去看"→ 先按文件修改时间扫工作目录，识别对方新写入的内容，不直接说"看不到"</td></tr>
         <tr><td>23</td><td>多任务并行</td><td>多步骤任务默认拆给多个子代理并行（各碰各的文件），执行前先声明拆分方案</td></tr>
+        <tr><td>24</td><td>讨论 vs 执行</td><td>用户说"讨论/完善"= 只讨论不执行：先复述理解、给分析，决定权留给用户，不催执行</td></tr>
+        <tr><td>25</td><td>响应前自检</td><td>回复前四问：理解了吗 / 讨论还是执行 / 读了吗 / 谁拍板——减少用户反复提示</td></tr>
       </tbody>
     </table>
   </div>
@@ -656,6 +658,14 @@ body{padding-bottom:3rem;}
     <div class="concept-card" style="border-top:3px solid var(--success);">
       <h4>④ 数据给来源</h4>
       <p>涉及具体数字时说明出处（产品手册/培训材料），AI 总结更准、更敢用。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent4);">
+      <h4>⑤ 先复述，再动手</h4>
+      <p>任务模糊或要讨论时，先一句话复述"我理解你要的是X"，确认后再做，避免理解错返工。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--success);">
+      <h4>⑥ 讨论就只讨论</h4>
+      <p>你说"讨论/完善"时，我只给分析和材料，不推销方案、不催"要不要现在动手"，决定权在你。</p>
     </div>
   </div>
 </section>
