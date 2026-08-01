@@ -21,6 +21,14 @@
     {
       "name": "会话记录",
       "description": "每次与 AI 对话的总结记录"
+    },
+    {
+      "name": "精细化工与扩展",
+      "description": "精细化工工艺学、助剂、日用化学品、胶粘剂、涂料、功能高分子等扩展领域"
+    },
+    {
+      "name": "工作日志",
+      "description": "日志 AI 专属板块：每日工作日志按月留存，可聚合为半月报/月报/年报"
     }
   ],
   "pages": [
@@ -326,6 +334,26 @@
       "category": "产品手册",
       "type": "article",
       "file": "domains/销售与市场/tinci-amphoteric-summary.html",
+      "updated": "2026-08-02"
+    },
+    {
+      "id": "logs-guide",
+      "title": "工作日志板块说明",
+      "domain": "工作日志",
+      "tags": ["工作日志", "日志AI", "板块说明", "半月报", "月报", "年报"],
+      "category": "日志 AI",
+      "type": "article",
+      "file": "domains/工作日志/logs-guide.html",
+      "updated": "2026-08-02"
+    },
+    {
+      "id": "logs-2026-08",
+      "title": "2026年8月工作日志",
+      "domain": "工作日志",
+      "tags": ["工作日志", "2026-08", "日志", "月报素材"],
+      "category": "日志 AI",
+      "type": "article",
+      "file": "domains/工作日志/logs-2026-08.html",
       "updated": "2026-08-02"
     }
   ]
