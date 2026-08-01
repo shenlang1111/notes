@@ -1226,6 +1226,40 @@ ai-agent/
 现在开始：报告你读到的版本号 + 当前月份，等用户给日志内容。</pre>
 </section>
 
+<section class="section" id="ui-ai">
+  <h2>九、UI 美化 AI 专属话术（新窗口粘贴）</h2>
+  <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:0.5rem;">给专职视觉/排版的 AI 用。职责边界写死：只动"视觉层"（样式/排版/卡片），不写正文内容、不动结构。</p>
+  <pre style="background:var(--card-bg,#f6f7f9);border:1px solid var(--border,#e5e7eb);border-radius:10px;padding:16px;overflow-x:auto;font-size:0.9rem;line-height:1.7;white-space:pre-wrap;word-break:break-word;">你是天赐材料知识库的 UI 美化 AI（专职视觉与排版）。
+
+【第一步：读文档 + 报告版本号】
+知识库维护规范.md（★★★ 必读）/ PROJECT_CONTEXT.md（★★）/ CODE_WIKI.md（★ 尤其"共享样式/手机版"章节）/ SKILL_GUIDE.md（★）/ CHANGELOG.md 顶部
+读机制更新页：domains/思考收件箱/mechanism-updates.html（最近新增机制，逐项读并报告）
+
+【第二步：你是谁】
+- 你负责知识库的"视觉层"：_shared/css/style.css、页面排版/卡片/配色/响应式，让界面好看、不堆文字
+- 用户偏好：卡片式布局、非文字墙、清爽；手机优先（mobile.html 单文件，不依赖 WiFi 也能看）
+- 现有风格基线：深青系配色（--accent 系变量）、page-hero 封面、card/page-card/concept-grid/table-wrap 等组件，改动前先通读 style.css 弄清已有类，别重复造轮子
+
+【第三步：职责边界】
+- 可自理：新增 CSS 类（只加不动现有）、页面排版微调（加卡片/改容器/补类）、组件一致性修复
+- 必须找主 AI：分区结构、registry.json、nav.js 导航、tools/ 脚本、批量改动、部署机制本身
+- 内容不自己写：正文/知识内容属于内容 AI 和主 AI，你只做"怎么呈现"，不做"写什么"
+- 大改动先出方案给主 AI/用户拍板，不要直接大规模动工
+
+【第四步：改 UI 流程】
+1. 通读 style.css 找现有类，能复用就不新增
+2. 改样式/页面 → 手机版由 deploy 自动重新生成（build_mobile.js）
+3. node tools/deploy.js --files ... --expect "关键词" 部署验证
+4. 若只改 CSS：style.css + mobile.html 一起部署（deploy 会自动附带）
+5. 汇报：改了哪些文件、DoD 自检清单（CHANGELOG/双格式/部署/验证）
+6. 提醒用户强刷（Ctrl+Shift+R）看效果——浏览器缓存顽固
+
+【规则】双格式成对 / 部署必带 --expect / DoD 完成前自检 / 响应四问 / 说人话 / 用户拍板
+【登记工作记录】干完活到思考收件箱 ai-worklog 追加一行：日期 + 你的名字 + 做了什么 + 涉及位置（其他 AI 靠它知道谁干过什么）
+
+现在开始：报告你读到的版本号 + 当前知识库的视觉基线，等用户给任务。</pre>
+</section>
+
 <section class="section" id="related">
   <h2>相关页面（串联入口）</h2>
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
@@ -1928,7 +1962,7 @@ ai-agent/
 <section class="section" id="team">
   <h2>一、AI 团队名单（名字体系）</h2>
   <div class="callout">
-    <strong>四个主窗口 AI：</strong>主 AI / 闲聊 AI / 智能体 AI / 日志 AI——对应你的四个窗口，各有专属职责。其余子代理（审核/内容/检索等）<strong>都归主 AI 手下</strong>，由主 AI 命名与分派。
+    <strong>五个主窗口 AI：</strong>主 AI / 闲聊 AI / 智能体 AI / 日志 AI / UI 美化 AI——对应你的窗口，各有专属职责。其余子代理（审核/内容/检索等）<strong>都归主 AI 手下</strong>，由主 AI 命名与分派。
   </div>
   <div class="table-wrap">
     <table>
@@ -1938,6 +1972,7 @@ ai-agent/
         <tr><td><strong>闲聊 AI</strong></td><td>主窗口</td><td>交流想法、情感陪伴；懂你档案专属；小改动自理</td></tr>
         <tr><td><strong>智能体 AI</strong></td><td>主窗口</td><td>智能体体系搭建：skill、翻库规则、任务板、健康度盘点</td></tr>
         <tr><td><strong>日志 AI</strong></td><td>主窗口</td><td>写用户的工作日志，后续半月报/月报/年报</td></tr>
+        <tr><td><strong>UI 美化 AI</strong></td><td>主窗口</td><td>知识库视觉层：style.css、页面排版/卡片/配色/响应式，让界面好看不堆文字</td></tr>
         <tr><td><strong>审核 agent</strong></td><td>主 AI 手下</td><td>复核大改动、检查遗漏（并行分派）</td></tr>
         <tr><td><strong>内容 agent</strong></td><td>主 AI 手下</td><td>批量写/改知识库内容（并行分派）</td></tr>
         <tr><td><strong>检索 agent</strong></td><td>主 AI 手下</td><td>翻库检索、盘点数据来源（并行分派）</td></tr>
@@ -1993,6 +2028,11 @@ ai-agent/
           <td>2026-08-02</td><td><span class="tag tag-green">智能体 AI</span></td>
           <td>按新协作机制报到：读完 5 项必读（ai-worklog 名单/任务板/健康度盘点/fanku 翻库/版本号）并逐项报告；确认角色=智能体 AI</td>
           <td>思考收件箱/ai-worklog（本页）</td>
+        </tr>
+        <tr>
+          <td>2026-08-02</td><td><span class="tag tag-orange">主 AI</span></td>
+          <td>用户新建"UI 美化 AI"：团队名单登记（第 5 个主窗口 AI）、话术页第九节建 UI 美化 AI 专属话术（职责边界：只动视觉层 style.css/排版，内容与结构归其他 AI）</td>
+          <td>思考收件箱/ai-worklog、session-prompt</td>
         </tr>
       </tbody>
     </table>
@@ -2335,6 +2375,13 @@ ai-agent/
       <li>结果：评分 B~D（nonionic D / properties C / market C / cationic C）；发现 <strong>8 条硬伤</strong>——已全部修复上线</li>
       <li>遗留：全库 <strong>60+ 处数据无来源</strong> → 已统一标"待核实"，等产品手册/TDS 补真实来源（见任务板）</li>
     </ul>
+    <h4 style="margin-top:1rem;">2026-08-02（第二次盘点，智能体 AI 执行）</h4>
+    <ul>
+      <li>范围：3 个转换生成大页（finechem-engineering / tinci-surfactant-guide / tinci-amphoteric-summary）</li>
+      <li>结果：三页均 <strong>C</strong>（数据来源 D、结构 C）——牌号统计矛盾（23 vs 29）、命名与已核实信息脱节（TC-MAB INCI、GCK30P 旧名、市占率 32.6%/31.8% 矛盾）、章节乱序/内容错位/整段重复、渗透压机理错误、来源清单 MD 丢失</li>
+      <li>处理：硬伤已登记任务板（大改动待主 AI）；共性根因 = 转换脚本生成 + 页面过大（均建议拆分）</li>
+      <li>机制健康结论：无摆设机制；提醒各 AI 养成 ai-worklog 登记习惯、明确 ai-worklog 与 CHANGELOG 边界</li>
+    </ul>
   </div>
 </section>
 
@@ -2515,12 +2562,26 @@ ai-agent/
         <td style="padding:8px;">—</td>
         <td style="padding:8px;">2026-08-02</td>
       </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-purple">🆕 待认领</span></td>
+        <td style="padding:8px;">精细化工页（finechem-engineering）修复：章节编号冲突（两个9.4/9.5）、渗透压机理错误、来源区块补回 MD、实体残留/重复清理；页面过大建议拆分（825行）</td>
+        <td style="padding:8px;">智能体 AI</td>
+        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">2026-08-02</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-purple">🆕 待认领</span></td>
+        <td style="padding:8px;">天赐学习手册（tinci-surfactant-guide）修复：市占率口径矛盾（32.6%/31.8%）、命名对齐已核实信息（GCK95U(P)/AMIN CG30/POLYQUTA 550）、TC-MAB INCI、氨基酸误归两性、章节重排；页面过大建议拆分</td>
+        <td style="padding:8px;">智能体 AI</td>
+        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">2026-08-02</td>
+      </tr>
       <tr>
-        <td style="padding:8px;"><span class="tag tag-teal">🔧 进行中</span></td>
-        <td style="padding:8px;">（示例占位：本板机制刚建立，后续任务在此登记）</td>
+        <td style="padding:8px;"><span class="tag tag-purple">🆕 待认领</span></td>
+        <td style="padding:8px;">两性表活目录（tinci-amphoteric-summary）修复：牌号统计（23→29）、MD内容错位、TC-MAB INCI（Lauro-）、RSPO数量、与 amphoteric 页冲突对齐</td>
+        <td style="padding:8px;">智能体 AI</td>
         <td style="padding:8px;">—</td>
-        <td style="padding:8px;">—</td>
-        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">2026-08-02</td>
       </tr>
     </tbody>
   </table>
