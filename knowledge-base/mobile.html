@@ -376,7 +376,7 @@ body{padding-bottom:3rem;}
     <button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰ 目录</button>
   </div>
   <div class="nav-links" id="navLinks">
-    <a href="#home" class="active" data-nav="home">首页</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a>
+    <a href="#home" class="active" data-nav="home">首页</a><a href="#session-20260801" data-nav="session-20260801">session-20260801</a><a href="#formulation" data-nav="formulation">formulation</a><a href="#advanced" data-nav="advanced">advanced</a><a href="#amphoteric" data-nav="amphoteric">amphoteric</a><a href="#anionic" data-nav="anionic">anionic</a><a href="#applications" data-nav="applications">applications</a><a href="#cationic" data-nav="cationic">cationic</a><a href="#fundamentals" data-nav="fundamentals">fundamentals</a><a href="#nonionic" data-nav="nonionic">nonionic</a><a href="#products" data-nav="products">products</a><a href="#properties" data-nav="properties">properties</a><a href="#synthesis" data-nav="synthesis">synthesis</a><a href="#troubleshooting" data-nav="troubleshooting">troubleshooting</a><a href="#market" data-nav="market">market</a><a href="#sales" data-nav="sales">sales</a>
   </div>
 </nav>
 
@@ -401,6 +401,7 @@ body{padding-bottom:3rem;}
     <a href="#troubleshooting">问题诊断</a>
     <a href="#market">市场趋势</a>
     <a href="#sales">销售话术</a>
+    <a href="#session-20260801">会话记录</a>
   </div>
 </header>
 
@@ -511,12 +512,74 @@ body{padding-bottom:3rem;}
     <h3>市场趋势与竞争</h3>
     <p>全球表活市场格局、天赐竞争定位、行业趋势</p>
   </a>
+  <a href="#session-20260801" class="page-card">
+    <div class="card-icon">📝</div>
+    <h3>会话记录</h3>
+    <p>每次与 AI 对话的总结记录、关键决策与待办</p>
+  </a>
 </div>
 
 <div class="last-updated">
   <p>最后更新：2026年8月1日 · 来源：《精细化工工艺学》（第四版）宋启煌主编 · 天赐材料产品目录</p>
   <p style="margin-top:0.5rem;">💡 <strong>想加新内容？</strong>直接跟 AI 说"我想加卡波的内容"或"补充XX的性能数据"，自动更新到对应页面</p>
 </div>
+</div>
+<div class="page-panel" id="panel-session-20260801" data-panel="session-20260801" style="display:none">
+<!-- ===== Page Hero (auto-generated) ===== -->
+<div class="page-hero">
+  <div class="page-hero-meta"><span class="tag tag-orange">会话记录</span></div>
+  <h1>会话总结 · 2026-08-01</h1>
+  <p class="page-hero-desc">部署通道打通、手机版修复、维护规范建立、多会话协作体系。</p>
+</div>
+<!-- ===== /Page Hero ===== -->
+
+<section class="section" id="overview">
+  <h2>本次会话摘要</h2>
+  <div class="concept-grid">
+    <div class="concept-card" style="border-top:3px solid var(--accent);">
+      <h4>🔧 部署通道</h4>
+      <p>git push 国内超时 → 改用 GitHub API（api.github.com）上传 + 触发构建。加速器时通时断不可靠；国内镜像站（ghproxy）不支持 push，不适用。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent2);">
+      <h4>📱 手机版修复</h4>
+      <p>footer 文案被截入每个面板（extractContainer 用 lastIndexOf 误截）→ 改为配对计数匹配，footer 重复问题消除；面板改用 div + cleanSections；每次打开强制回首页。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent3);">
+      <h4>📋 规范建立</h4>
+      <p>《知识库维护规范》v1.1 落地：内容架构、部署、手机版、会话协作、主 agent 规则、经验速查。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--success);">
+      <h4>🤝 多会话协作</h4>
+      <p>主 agent 负责底层架构与部署；小改动各 agent 自理、大改动归主 agent；一键部署脚本 deploy.js + 本地 .env 管理 Token。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="decisions">
+  <h2>关键决策</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>决策</th><th>原因</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td><strong>部署走 GitHub API</strong></td><td>git push 在加速器关闭时完全不通</td><td>api.github.com 稳定直连，Contents API + pages/builds 全流程可用</td></tr>
+        <tr><td><strong>mobile.html 修复根因定位</strong></td><td>footer 里的 div 导致 lastIndexOf 误截</td><td>配对计数匹配 container，footer 彻底排除</td></tr>
+        <tr><td><strong>缓存用版本参数绕过</strong></td><td>手机/微信浏览器缓存顽固</td><td>入口跳转加 ?v=2，部署后以服务器端抓取验证为准</td></tr>
+        <tr><td><strong>建立主 agent 协作体系</strong></td><td>多对话框同时操作同一文件夹</td><td>改动分级 + 单点部署 + 本地 .env 管 Token，防止互相覆盖</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="todo">
+  <h2>后续待办</h2>
+  <div class="card accent">
+    <ul>
+      <li><strong>资料补充</strong>：用户提供天赐产品手册 / 培训资料等，入库时数据标注来源</li>
+      <li><strong>其他 agent 规则</strong>：由用户后续自行补充到规范</li>
+      <li><strong>UI / 内容分工</strong>：现阶段主 agent 兼任，后续分派给专门 agent</li>
+    </ul>
+  </div>
+</section>
 </div>
 <div class="page-panel" id="panel-formulation" data-panel="formulation" style="display:none">
 <!-- ===== Page Hero (auto-generated) ===== -->
