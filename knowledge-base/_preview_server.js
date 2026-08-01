@@ -22,4 +22,4 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': MIME[path.extname(filePath)] || 'application/octet-stream' });
     res.end(data);
   });
-}).listen(8000, () => console.log('Serving at http://localhost:8000'));
+}).listen(8000, '0.0.0.0', () => console.log('Serving at http://localhost:8000  (手机访问: http://192.168.1.4:8000)'));
