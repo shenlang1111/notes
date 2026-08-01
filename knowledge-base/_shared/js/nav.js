@@ -33,7 +33,9 @@
     ['智能体设计', 'domains/思考收件箱/inbox-20260802-agent-design.html'],
     ['精细化工工艺', 'domains/精细化工与扩展/finechem-engineering.html'],
     ['天赐学习手册', 'domains/销售与市场/tinci-surfactant-guide.html'],
-    ['两性表活目录', 'domains/销售与市场/tinci-amphoteric-summary.html']
+    ['两性表活目录', 'domains/销售与市场/tinci-amphoteric-summary.html'],
+    ['工作日志', 'domains/工作日志/logs-2026-08.html'],
+    ['日志说明', 'domains/工作日志/logs-guide.html']
   ];
 
   var nav = document.createElement('nav');
