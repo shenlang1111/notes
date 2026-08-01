@@ -17,6 +17,10 @@
     {
       "name": "笔记收件箱",
       "description": "零散想法、读书笔记、待整理内容"
+    },
+    {
+      "name": "会话记录",
+      "description": "每次与 AI 对话的总结记录"
     }
   ],
   "pages": [
@@ -216,6 +220,21 @@
       "category": "实战应用",
       "type": "article",
       "file": "domains/销售与市场/sales.html",
+      "updated": "2026-08-01"
+    },
+    {
+      "id": "session-20260801",
+      "title": "会话总结 2026-08-01",
+      "domain": "会话记录",
+      "tags": [
+        "会话记录",
+        "部署",
+        "mobile修复",
+        "规范"
+      ],
+      "category": "扩展阅读",
+      "type": "article",
+      "file": "domains/会话记录/session-20260801.html",
       "updated": "2026-08-01"
     }
   ]
