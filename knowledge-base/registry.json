@@ -395,6 +395,16 @@
       "type": "article",
       "file": "domains/思考收件箱/ai-worklog.html",
       "updated": "2026-08-02"
+    },
+    {
+      "id": "mechanism-updates",
+      "title": "机制更新",
+      "domain": "思考收件箱",
+      "tags": ["AI协作", "机制更新", "广播", "增量必读", "新AI"],
+      "category": "AI 协作与日常",
+      "type": "article",
+      "file": "domains/思考收件箱/mechanism-updates.html",
+      "updated": "2026-08-02"
     }
   ]
 }
