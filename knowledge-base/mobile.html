@@ -792,6 +792,63 @@ ai-agent/
   </div>
 </section>
 
+<section class="section" id="skills">
+  <h2>十一、Skill 安装与多 Agent 协作实践（2026-08-02）</h2>
+
+  <div class="card warning">
+    <p>用户想为 AI 智能体项目安装 Trae IDE 的 skill 扩展能力，通过<strong>多 Agent 并行安装 + 审核 Agent 复核</strong>，一次性完成 16 个 skill 的安装与质量验证。</p>
+  </div>
+
+  <div class="card accent" style="margin-top:1rem;">
+    <h3>背景</h3>
+    <p>在讨论 AI 智能体方案时，用户发现 Trae IDE 有 skill 扩展机制（类似插件），可以让 AI 具备更多能力（如 PDF 处理、记忆管理、自主运行等）。用户希望把这些 skill 装好，辅助后续的 AI 智能体开发。</p>
+  </div>
+
+  <div class="card accent2" style="margin-top:1rem;">
+    <h3>安装流程</h3>
+    <div style="text-align:center;padding:0.8rem;background:var(--bg);border-radius:8px;margin:0.5rem 0;font-family:monospace;font-size:0.9rem;">
+      用户要求装 skill → 调查 skill marketplace → 按类型分 3 组 → 3 个 Agent 并行安装 → 审核 Agent 复核 → 汇报结果
+    </div>
+  </div>
+
+  <div class="card accent4" style="margin-top:1rem;">
+    <h3>安装的 Skill 清单</h3>
+    <div class="table-wrap" style="margin-top:0.8rem;">
+      <table>
+        <thead><tr><th>分类</th><th>Skill</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td><strong>元技能</strong></td><td><code>skill-creator</code></td><td>创建自定义 skill 的元技能</td></tr>
+          <tr><td rowspan="5"><strong>AI 智能体</strong></td><td><code>unified-memory</code></td><td>跨会话统一记忆管理</td></tr>
+          <tr><td><code>ck</code></td><td>持久化项目记忆与知识检索</td></tr>
+          <tr><td><code>autonomous-agent-harness</code></td><td>自主 Agent 运行框架</td></tr>
+          <tr><td><code>brand-voice</code></td><td>品牌语调/风格控制</td></tr>
+          <tr><td><code>agent-architecture-audit</code></td><td>架构审核与诊断</td></tr>
+          <tr><td rowspan="4"><strong>协作流程</strong></td><td><code>writing-plans</code></td><td>写方案</td></tr>
+          <tr><td><code>executing-plans</code></td><td>执行方案</td></tr>
+          <tr><td><code>dispatching-parallel-agents</code></td><td>并行派发多个 Agent</td></tr>
+          <tr><td><code>session-handoff</code></td><td>会话交接文档生成</td></tr>
+          <tr><td rowspan="4"><strong>通用工具</strong></td><td><code>pdf</code></td><td>PDF 处理</td></tr>
+          <tr><td><code>xlsx</code></td><td>Excel 处理</td></tr>
+          <tr><td><code>docx</code></td><td>Word 处理</td></tr>
+          <tr><td><code>brainstorming</code></td><td>头脑风暴</td></tr>
+          <tr><td><code>firecrawl</code></td><td>网页抓取/爬虫</td></tr>
+          <tr><td><code>obsidian</code></td><td>Obsidian 集成</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card success" style="margin-top:1rem;">
+    <h3>经验总结</h3>
+    <ol>
+      <li><strong>多 Agent 并行安装效率高</strong>：3 个 Agent 各装一组，互不冲突，安装 + 审核共 16 个 skill 一次性完成。</li>
+      <li><strong>审核 Agent 不可或缺</strong>：虽然本次 16 个 skill 全部安装正确，但审核机制确保了不会因为安装错误影响后续开发。</li>
+      <li><strong>Skill 体系是 AI 智能体的基础能力</strong>：<code>unified-memory</code> + <code>ck</code> 解决记忆问题，<code>autonomous-agent-harness</code> 提供自主运行框架，<code>dispatching-parallel-agents</code> 实现多 Agent 协作，<code>session-handoff</code> 保障上下文不丢失——这些 skill 联合构成了 AI 智能体的核心底座。</li>
+      <li><strong>记录本次经验</strong>：Skill 安装流程（调查 → 分组 → 并行安装 → 审核 → 汇报）可作为后续安装其他 skill 的标准化流程。</li>
+    </ol>
+  </div>
+</section>
+
 <section class="section" id="related">
   <h2>相关页面（串联入口）</h2>
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
