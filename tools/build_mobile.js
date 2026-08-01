@@ -32,6 +32,34 @@ function extractContainer(html) {
   return html.slice(start + '<div class="container">'.length, end).trim();
 }
 
+// 平衡 section 标签：删除多余的 </section>，末尾补齐缺失的闭合
+function cleanSections(body) {
+  const re = /<section[\s>]|<\/section>/g;
+  let count = 0;
+  const parts = [];
+  let last = 0;
+  let m;
+  while ((m = re.exec(body))) {
+    if (m[0] === '</section>') {
+      if (count === 0) continue; // 多余闭合，跳过
+      count--;
+      parts.push(body.slice(last, m.index));
+      parts.push('</section>');
+      last = m.index + m[0].length;
+    } else {
+      count++;
+      parts.push(body.slice(last, m.index));
+      parts.push(m[0]);
+      last = m.index + m[0].length;
+    }
+  }
+  parts.push(body.slice(last));
+  let out = parts.join('');
+  // 补齐缺失的闭合
+  for (let i = 0; i < count; i++) out += '\n</section>';
+  return out;
+}
+
 // 读取首页内容
 const homeHtml = fs.readFileSync(path.join(KB, 'index.html'), 'utf8');
 let homeBody = extractContainer(homeHtml);
@@ -45,6 +73,8 @@ for (const p of pages) {
   body = body.replace(/\n?\s*<a href="\.\.\/\.\.\/index\.html" class="page-hero-back">← 返回首页<\/a>\s*\n?/g, '\n');
   // 去掉 footer 里的返回首页段落（如果有）
   body = body.replace(/\s*<p><a href="\.\.\/\.\.\/index\.html">返回首页<\/a><\/p>\s*/g, '');
+  // 平衡 section 标签，防止多余闭合破坏合并结构
+  body = cleanSections(body);
   panels[p.id] = body;
 }
 
@@ -54,10 +84,10 @@ const navLinks = [
   ...pages.map(p => `<a href="#${p.id}" data-nav="${p.id}">${p.title}</a>`)
 ].join('');
 
-// 构建面板
-const homePanel = `<section class="page-panel" id="panel-home" data-panel="home">\n${homeBody}\n</section>`;
+// 构建面板（用 div 避免与内容里的 section 冲突）
+const homePanel = `<div class="page-panel" id="panel-home" data-panel="home">\n${homeBody}\n</div>`;
 const pagePanels = pages.map(p =>
-  `<section class="page-panel" id="panel-${p.id}" data-panel="${p.id}" style="display:none">\n${panels[p.id]}\n</section>`
+  `<div class="page-panel" id="panel-${p.id}" data-panel="${p.id}" style="display:none">\n${panels[p.id]}\n</div>`
 ).join('\n');
 
 // 相对链接重写为 hash 导航（html 后缀链接 -> #id）
