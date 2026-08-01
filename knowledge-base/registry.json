@@ -237,6 +237,21 @@
       "type": "article",
       "file": "domains/会话记录/session-20260801.html",
       "updated": "2026-08-01"
+    },
+    {
+      "id": "session-prompt",
+      "title": "新会话开场话术",
+      "domain": "会话记录",
+      "tags": [
+        "AI协作",
+        "话术",
+        "多会话",
+        "协作agent"
+      ],
+      "category": "AI 协作与日常",
+      "type": "article",
+      "file": "domains/会话记录/session-prompt.html",
+      "updated": "2026-08-01"
     }
   ]
 }
