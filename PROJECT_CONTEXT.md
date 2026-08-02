@@ -49,7 +49,7 @@
 │   ├── build_mobile.js              # 生成 mobile.html（合并首页+28 页）
 │   └── deploy.js                    # 一键部署（校验→生成→上传→构建→验证）
 ├── index.html                       # 根入口（跳转到 mobile.html）
-├── 知识库维护规范.md                 # ★ 协作总规则（v3.2，精简版：9 条铁律 + 分节）
+├── 知识库维护规范.md                 # ★ 协作总规则（v3.3，精简版：10 条铁律 + 分节）
 ├── SKILL_GUIDE.md                    # 技能使用指南：项目可用 skill 清单 + 调用方式（★ 推荐）
 ├── CHANGELOG.md                     # 变更日志（每次交流修改的追溯）
 ├── PROJECT_CONTEXT.md               # 本文档
