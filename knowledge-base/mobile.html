@@ -3112,8 +3112,8 @@ uv venv .venv && uv pip install mem0ai fastembed
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
-        <td style="padding:8px;"><span class="tag tag-blue">🔧 进行中</span></td>
-        <td style="padding:8px;">修复检索大脑 kb_reader.py 切段 bug（D:\ai\deep-memory，机制/工具变更）——<strong>主 AI 审批通过</strong>：3 处问题——①## 章节引言被吸进前一个 ### 条目（全库 37640 字符向量端漏检）②代码块内 ### 误判切段边界 ③跨盘 relpath fallback 丢子目录前缀。<strong>修复方向</strong>：切段边界同时认 ## 和 ### + 切段前剔除 fenced code block + fallback 加子目录前缀；修复后重建索引并复跑 4 组回归。已指派主大脑执行</td>
+        <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
+        <td style="padding:8px;">修复检索大脑 kb_reader.py 切段 bug（D:\ai\deep-memory）——<strong>主 AI 审批通过 + 已修复上线</strong>：①## 章节引言独立成条目（逐行扫描，不再被吸进前一个 ###）②代码块内 ### 不误判切段（fenced code block 剔除）③跨盘 relpath 加子目录前缀（消除同名 ID 冲突隐患）。修复后重建索引（286→488 条目）+ 复跑 4 组回归全命中（TC-MAB/TC-SHD/CAB+AES/婴童无泪，婴童无泪修复前未命中预期页→修复后大幅改善）✅</td>
         <td style="padding:8px;">主大脑</td>
         <td style="padding:8px;">主大脑</td>
         <td style="padding:8px;">2026-08-03</td>
