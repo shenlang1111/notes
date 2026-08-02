@@ -172,7 +172,7 @@ CMC（临界胶束浓度）随温度变化呈现**U型曲线**：低温时疏水
 | **K** | Potassium（钾盐） | AMIN GCK95U(P), AMIN GCK30H |
 | **H** | High concentration（高浓度） | AMIN GCK30H |
 | **TF** | Tinci Salt-Free（无盐/低盐技术） | TC-CAB 35TF, TC-LAB 35TF |
-| **CD** | Cocoamphodiacetate 标识 | TC-MAB 40CD |
+| **LDL** | Lauroamphodiacetate 标识 | TC-MAB 40LDL |
 | **(L)** | Lauryl 月桂基 | TC-SHD(L) |
 | **(B)** | Coconut-based 椰油基 | TC-SHD(B) |
 
