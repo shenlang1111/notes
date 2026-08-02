@@ -27,6 +27,7 @@ updated: 2026-08-02
 | 2026-08-02 | **知识库健康度盘点**——五维体检清单，问题进任务板 | domains/思考收件箱/kb-health-checklist.html | 智能体 AI |
 | 2026-08-02 | **翻库规则（fanku skill）**——知识问题必先查库：先翻库、再开口；带出处、不编造；翻不到、说没有 | .trae/skills/fanku/SKILL.md + 规范八 | 智能体 AI |
 | 2026-08-02 | **本页（机制更新）建立**——所有新增机制的广播索引 | 本页 | 主 AI |
+| 2026-08-02 | **会话启动自动报告（Claude Code 开窗即自动）**——智能体窗口一开，自动输出"我是谁 + 任务板待办 + 机制更新数 + 纪律"，不再手贴话术 | tools/session_start_report.js + .claude/settings.json | 智能体 AI |
 
 ## 三、维护规则
 
