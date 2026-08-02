@@ -178,6 +178,9 @@
   <div class="card warning">
     <p>闲聊中讨论的构想：让现有知识库从"高级记录体"进化为<strong>"像你、比你懂得多"</strong>的个人 AI 智能体。</p>
   </div>
+  <div class="card accent2">
+    <p style="margin:0;"><strong>⚠️ 后续进展</strong>：该构想已实际落地推进——2026-08-02 定"双引擎分工"（Trae 主对话 + Claude Code 执行）→ 2026-08-03 用户三次纠正后演进为<strong>"AI 大脑"方向</strong>（代替用户当枢纽的自主系统，自我迭代 + 准确找信息），详见智能体设计存档与大脑蓝图（<code>.claude/handoffs/brain-blueprint-v1.md</code>）。下方选型表为 08-01 当时的讨论方案，其中 LLM 选型已被推翻。</p>
+  </div>
 
   <div class="card accent" style="margin-top:1rem;">
     <h3>现状认知</h3>
@@ -211,7 +214,7 @@
           <tr><td>聊天前端</td><td>HTML + 原生 JS</td><td>单页，类似现有 mobile.html 风格</td></tr>
           <tr><td>API 后端</td><td>Python + FastAPI</td><td>轻量异步框架</td></tr>
           <tr><td>向量检索</td><td>读取 MD 文件 + Embedding API</td><td>不依赖额外向量数据库</td></tr>
-          <tr><td>LLM</td><td>DeepSeek API</td><td>便宜，国内直连</td></tr>
+          <tr><td>LLM</td><td><s>DeepSeek API</s> → <strong>Claude Code</strong></td><td>便宜，国内直连（2026-08-02 已推翻，改用 Claude Code）</td></tr>
           <tr><td>人格系统</td><td>一条 system prompt</td><td>从知识库文本提炼说话风格</td></tr>
         </tbody>
       </table>
