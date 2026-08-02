@@ -2147,8 +2147,8 @@ ai-agent/
         </tr>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
-          <td>澄清审核误判：技术验证员"onnx_models.py 未改（分批是原版自带）"与 git 铁证矛盾——git diff 证实 onnx_models.py 实际改了（25增15删，`encode_batched` 新增完整实现），原版 HEAD 是整批推理；D盘正式版含分批代码。审核员可能拿"改后版本"当基准比对致误判。功能结论（分批规避内存溢出）方向对，但"功劳归属"核实反了。已登记留痕，待主 AI 复核</td>
-          <td>无文件改动（仅澄清登记）、git diff 铁证</td>
+          <td>核实并修正登记：技术验证员复核 onnx_models.py 正确——D盘落地区与原仓库 md5 完全一致（c93fb1b3...），17 个 py 仅 kb_reader.py 不同；分批能力是 deep-memory 原版自带，主大脑之前"改了 onnx_models.py 分批"的登记不实（实际是利用原版分批能力，仅 kb_reader.py 为真实改动）。已修正登记避免误导</td>
+          <td>ai-worklog html+md、CHANGELOG.md、kb_reader.py（真实改动）</td>
         </tr>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">技术验证员</span></td>
