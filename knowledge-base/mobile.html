@@ -2142,8 +2142,8 @@ ai-agent/
       <tbody>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
-          <td>写交接文档 v4（2026-08-03-agent-brain-v4.md）：融合全部历史（agent-knowledge-ops→v3）+ 阶段0技术验证结论 + 阶段1检索大脑正式接入 + 决策记录 + 已知坑 + 下一步；含交接提示词（边界/重点细节/铁律/阅读边界）</td>
-          <td>.claude/handoffs/2026-08-03-agent-brain-v4.md、ai-worklog</td>
+          <td>写瘦身版交接 v5（2026-08-03-agent-brain-v5.md）：合并阶段0/1成果，指针化（提示词归 brain-window-main.md），v3/v4 归档到 archive/；写交接提示词（边界/重点细节/铁律/阅读边界精简版）</td>
+          <td>.claude/handoffs/2026-08-03-agent-brain-v5.md、archive/</td>
         </tr>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
@@ -2273,7 +2273,7 @@ ai-agent/
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">智能体 AI</span></td>
           <td>审核 Claude Code 智能体方向工作记录，按用户指示执行：①规范新增铁律 9"机制变更先审批"（v3.2→v3.3），同步 CODE_WIKI/PROJECT_CONTEXT/AGENT_NOTES 版本号引用（9→10 条铁律）②归档 4 份已融合旧交接至 .claude/handoffs/archive/，v3 交接链与 mechanism-updates 引用同步 ③任务板已完成项描述更新；问题 2/3 用户拍板不动，问题 4 角色=主 AI 审核辅助</td>
-          <td>知识库维护规范.md、CODE_WIKI.md、PROJECT_CONTEXT.md、AGENT_NOTES.md、2026-08-03-agent-brain-v3.md、mechanism-updates html+md、team-task-board html+md、ai-worklog html+md、CHANGELOG.md</td>
+          <td>知识库维护规范.md、CODE_WIKI.md、PROJECT_CONTEXT.md、AGENT_NOTES.md、archive/2026-08-03-agent-brain-v3.md、mechanism-updates html+md、team-task-board html+md、ai-worklog html+md、CHANGELOG.md</td>
         </tr>
       </tbody>
     </table>
@@ -3088,8 +3088,8 @@ uv venv .venv && uv pip install mem0ai fastembed
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
-        <td style="padding:8px;"><span class="tag tag-purple">🆕 待认领</span></td>
-        <td style="padding:8px;">tools/ 建"检索接入脚本"（deep-memory 接入，A 方案）——<strong>主 AI 审批通过（2026-08-03 用户拍板）</strong>：允许在 tools/ 建脚本（只读转换/索引）；<strong>不动库结构</strong>，采用备选方案（改 kb_reader.py 支持递归子目录）</td>
+        <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
+        <td style="padding:8px;">tools/ 建"检索接入脚本"（deep-memory 接入，A 方案）——<strong>主 AI 审批通过（2026-08-03 用户拍板）</strong>：允许在 tools/ 建脚本（只读转换/索引）；<strong>不动库结构</strong>，采用备选方案（改 kb_reader.py 支持递归子目录）✅ 已落地：检索大脑正式接入（D:\ai\deep-memory），4 组真实问句全命中，M2 达成</td>
         <td style="padding:8px;">主大脑</td>
         <td style="padding:8px;">主大脑</td>
         <td style="padding:8px;">2026-08-03</td>
