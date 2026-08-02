@@ -2141,6 +2141,11 @@ ai-agent/
       <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
+          <td>正式接入"检索大脑"（deep-memory）：验收阶段 0 技术验证报告（采纳主选 deep-memory+备选 mem0、改 kb_reader 源码不动库结构、仅标待核实）；临时区适配验证全过（递归读子目录+###切段+剔frontmatter+分批embedding修复内存溢出；4组真实问句全命中）；D 盘 D:\ai\deep-memory 落地（venv/模型/索引，正式库零改动只读）；写 README</td>
+          <td>D:\ai\deep-memory\（skills/venv/hf_cache/ws）、kb_reader.py、onnx_models.py、临时区 brain-verify\ws-kb-mirror</td>
+        </tr>
+        <tr>
           <td>2026-08-02</td><td><span class="tag tag-purple">智能体 AI</span></td>
           <td>建立 fanku 翻库 skill（检索纪律）、团队任务板、知识库健康度盘点页；翻库规则落地到规范与话术</td>
           <td>.trae/skills/fanku/、思考收件箱/team-task-board、kb-health-checklist</td>
@@ -2948,6 +2953,10 @@ uv venv .venv && uv pip install mem0ai fastembed
     <table>
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
+        <tr>
+          <td>2026-08-03</td><td><strong>检索大脑正式接入（deep-memory）</strong>——本地混合检索工具（向量+BM25+重排），检索正式库（只读），替代手工 fanku 自动化；已适配 7 域多级目录+中文专有型号；环境 D 盘 D:\ai\deep-memory，检索走 search.py，结果带"待核实"标注</td>
+          <td>D:\ai\deep-memory\README.md（使用说明）+ 本页广播</td><td><span class="tag tag-purple">主大脑</span></td>
+        </tr>
         <tr>
           <td>2026-08-02</td><td><strong>AI 工作记录（名字体系）</strong>——每个 AI 干完活登记：日期+名字+做了什么+涉及位置</td>
           <td>domains/思考收件箱/ai-worklog.html</td><td><span class="tag tag-orange">主 AI</span></td>
