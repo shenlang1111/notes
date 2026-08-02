@@ -2142,6 +2142,21 @@ ai-agent/
       <tbody>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
+          <td>按用户指示全做：①任务板第一项标 ✅（tools/检索接入脚本已通过改kb_reader源码落地）②deploy.js bug 行同步进HTML ③待核实清单盘点（子代理：md 10页58处，业务数据51处，集中 market.md 32处）④M2检索回归（3命中，婴童无泪命中formulation#无泪原理未命中预期apg）</td>
+          <td>team-task-board html+md、CHANGELOG.md</td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
+          <td>澄清审核误判：技术验证员"onnx_models.py 未改（分批是原版自带）"与 git 铁证矛盾——git diff 证实 onnx_models.py 实际改了（25增15删，`encode_batched` 新增完整实现），原版 HEAD 是整批推理；D盘正式版含分批代码。审核员可能拿"改后版本"当基准比对致误判。功能结论（分批规避内存溢出）方向对，但"功劳归属"核实反了。已登记留痕，待主 AI 复核</td>
+          <td>无文件改动（仅澄清登记）、git diff 铁证</td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-purple">技术验证员</span></td>
+          <td>独立对抗性审核主大脑的检索大脑接入（阶段 1）：对比 diff 证实主大脑实际只改 kb_reader.py（5 项全正确），onnx_models.py 未改（分批是原版自带，登记不实）；独立复跑 4 组真实问句（3 组精确/相关命中，婴童配方问句偏弱）；分批一致性 batch1 vs batch5 最大差异 0.0e+00（属实）；索引 286 条真实存在；出审核报告（功能可采信，登记需修正 1 处）</td>
+          <td>临时目录 brain-verify/reports/audit-retrieval-integration.md、D:\ai\deep-memory\</td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
           <td>写瘦身版交接 v5（2026-08-03-agent-brain-v5.md）：合并阶段0/1成果，指针化（提示词归 brain-window-main.md），v3/v4 归档到 archive/；写交接提示词（边界/重点细节/铁律/阅读边界精简版）</td>
           <td>.claude/handoffs/2026-08-03-agent-brain-v5.md、archive/</td>
         </tr>
