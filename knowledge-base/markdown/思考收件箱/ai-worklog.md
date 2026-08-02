@@ -26,6 +26,13 @@ updated: 2026-08-02
 | 检索 agent | 主 AI 手下 | 翻库检索、盘点数据来源（并行分派） |
 | 其他 | 主 AI 手下 | 临时任务子代理，主 AI 按需命名 |
 
+**大脑体系（Claude Code 窗口）**：主大脑 + 技术验证员——由 Claude Code 运行的专用窗口，专注"AI 大脑"建设。
+
+| 名字 | 身份 | 职责 |
+|---|---|---|
+| 主大脑 | Claude Code 窗口 | 大脑总设计师：定技术路线与架构、验收执行窗口成果、小活兜底 |
+| 技术验证员 | Claude Code 窗口 | 大脑技术选型验证：试跑候选方案、出验证报告 |
+
 > 新增 AI 名字在此登记；子代理归属主 AI，完成任务后由主 AI 统一在此记录。
 
 ## 二、工作记录
@@ -52,6 +59,8 @@ updated: 2026-08-02
 | 2026-08-02 | 智能体 AI | 与用户讨论智能体架构：确认 Trae 为主对话窗口 + Claude Code 为重活执行引擎的双引擎分工；把"瘦上下文/文件即记忆/会话即进程"方案沉淀进智能体设计存档 | 思考收件箱/inbox-20260802-agent-design html+md |
 | 2026-08-02 | 智能体 AI | 落地自动化第一步"开窗即自动"：新建 tools/session_start_report.js（SessionStart 自动报告：身份+任务板待办+机制更新数+纪律）+ .claude/settings.json 配 SessionStart hook；机制更新页广播 | tools/session_start_report.js、.claude/settings.json、mechanism-updates html+md |
 | 2026-08-03 | 智能体 AI | 与用户确认"AI 团队大脑"架构方向（实时互通/只做难的/共享知识库当大脑）；生成完整交接文档 2026-08-03-agent-brain.md（融合上一轮修复执行 + 本轮大脑方向 + 提示词 + 边界 + 重点细节）；登记工作记录 | .claude/handoffs/2026-08-03-agent-brain.md、ai-worklog html+md |
+| 2026-08-03 | 智能体 AI | 用户三次纠正方向后确定"大脑"定位（非难任务执行者，是代替用户当枢纽的自主系统）；技术摸底（deep-memory/mem0/BYO-LLM-WIKI/nmem/agent-knowledge/RAGFlow 现成方案）；建大脑蓝图 v1（四层架构/路线/验收/里程碑）+ 窗口分工模型（主大脑+验证员，改串查并）+ 三份提示词；生成融合版交接 v2 | .claude/handoffs/brain-blueprint-v1.md、brain-window-main.md、brain-window-verifier.md、2026-08-03-agent-brain-v2.md、ai-worklog html+md、CHANGELOG.md |
+| 2026-08-03 | 智能体 AI | 机制广播补齐（大脑蓝图+窗口分工模型，HTML+MD）+ 跨页命名冲突修复（amphoteric TC-SHD 50/B→TC-SHD(L)/(B)；TC-MAB 40CD→40LDL 三处：product-overview 命名表/synthesis/finechem-daily-chem，全 HTML+MD）+ 任务板两性目录项标 ✅；部署上线 --expect 验证通过 | mechanism-updates html+md、amphoteric html+md、tinci-product-overview html+md、synthesis html+md、finechem-daily-chem html+md、team-task-board html+md、ai-worklog html+md、CHANGELOG.md |
 | 2026-08-02 | 智能体 AI | 接替闲聊 AI 任务：Claude Code 移交完成——确认推翻存档"LLM 用 DeepSeek"✅、session-prompt 第十节写入 Claude Code 专属提示词（读写权限/职责边界/规则）✅、存档决策标注修正✅；任务板更新✅ | 会话记录/session-prompt html+md、思考收件箱/team-task-board html+md、inbox-20260802-agent-design、ai-worklog、CHANGELOG |
 
 登记规则：
