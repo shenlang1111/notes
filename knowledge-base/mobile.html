@@ -936,6 +936,9 @@ body{padding-bottom:3rem;}
   <div class="card warning">
     <p>闲聊中讨论的构想：让现有知识库从"高级记录体"进化为<strong>"像你、比你懂得多"</strong>的个人 AI 智能体。</p>
   </div>
+  <div class="card accent2">
+    <p style="margin:0;"><strong>⚠️ 后续进展</strong>：该构想已实际落地推进——2026-08-02 定"双引擎分工"（Trae 主对话 + Claude Code 执行）→ 2026-08-03 用户三次纠正后演进为<strong>"AI 大脑"方向</strong>（代替用户当枢纽的自主系统，自我迭代 + 准确找信息），详见智能体设计存档与大脑蓝图（<code>.claude/handoffs/brain-blueprint-v1.md</code>）。下方选型表为 08-01 当时的讨论方案，其中 LLM 选型已被推翻。</p>
+  </div>
 
   <div class="card accent" style="margin-top:1rem;">
     <h3>现状认知</h3>
@@ -969,7 +972,7 @@ body{padding-bottom:3rem;}
           <tr><td>聊天前端</td><td>HTML + 原生 JS</td><td>单页，类似现有 mobile.html 风格</td></tr>
           <tr><td>API 后端</td><td>Python + FastAPI</td><td>轻量异步框架</td></tr>
           <tr><td>向量检索</td><td>读取 MD 文件 + Embedding API</td><td>不依赖额外向量数据库</td></tr>
-          <tr><td>LLM</td><td>DeepSeek API</td><td>便宜，国内直连</td></tr>
+          <tr><td>LLM</td><td><s>DeepSeek API</s> → <strong>Claude Code</strong></td><td>便宜，国内直连（2026-08-02 已推翻，改用 Claude Code）</td></tr>
           <tr><td>人格系统</td><td>一条 system prompt</td><td>从知识库文本提炼说话风格</td></tr>
         </tbody>
       </table>
@@ -2488,9 +2491,22 @@ uv venv .venv && uv pip install mem0ai fastembed
 <div class="page-hero">
   <div class="page-hero-meta"><span class="tag tag-orange">想法缓冲区</span></div>
   <h1>智能体设计讨论存档</h1>
-  <p class="page-hero-desc">2026-08-02 主 agent 与用户的讨论存档（下午已按用户拍板更新方向；晚已沉淀双引擎分工方案）。状态：[讨论中 → 待验证]。任何 AI 继续聊智能体之前，先读这一份。</p>
+  <p class="page-hero-desc">2026-08-02 主 agent 与用户的讨论存档（下午已按用户拍板更新方向；晚已沉淀双引擎分工方案）。状态：<strong>[已存档 → 方向已演进为大脑蓝图（2026-08-03）]</strong>。任何 AI 继续聊智能体之前，先读这一份 + 大脑蓝图。</p>
 </div>
 <!-- ===== /Page Hero ===== -->
+
+<section class="section" id="update-0803">
+  <h2>📌 最新进展（2026-08-03）：方向演进为"AI 大脑"</h2>
+  <div class="card accent2">
+    <ul>
+      <li><strong>用户三次纠正方向</strong>："你并不需要去改困难的任务，你需要做的是搭建一个大脑……他要学会更新迭代的能力，他要学会准确找到信息的能力。"——下方"双引擎分工方案"已被演进覆盖：Claude Code 不再是"重活执行引擎"，而是<strong>代替用户当枢纽的自主"大脑"</strong>。</li>
+      <li><strong>已落地</strong>：大脑蓝图 v1（四层架构：接入 → 检索 → 记忆 → 进化）+ 窗口分工模型（主大脑统筹 + 技术验证员试跑 + 用户临时传话）+ 三份提示词，详见 <code>.claude/handoffs/brain-blueprint-v1.md</code>。</li>
+      <li><strong>DeepSeek 决策已推翻</strong>（2026-08-02 晚）：改由 Claude Code 承担（后演进出大脑体系），存档"已确认"清单已标注。</li>
+      <li><strong>团队名单更新</strong>：新增大脑体系（主大脑 / 技术验证员，Claude Code 窗口），见 ai-worklog。</li>
+      <li><strong>待验证</strong>：Trae 移动端是否真能写本地共享文件夹（大脑实时互通的物理前提，建监听进程前先验证）。</li>
+    </ul>
+  </div>
+</section>
 
 <section class="section" id="update">
   <h2>⚠️ 方向修正与最新进展（2026-08-02 下午）</h2>
@@ -2692,11 +2708,19 @@ uv venv .venv && uv pip install mem0ai fastembed
 <section class="section" id="now">
   <h2>三、当前内容</h2>
 
+  <h3 style="margin-top:0.5rem;">2026-08-03</h3>
+  <div class="card accent4">
+    <ul>
+      <li><code>[已落地]</code> <strong>AI 大脑方向确定</strong>（2026-08-03 用户三次纠正）：不是"重活执行窗口"，而是代替用户当枢纽的自主系统——自动接想法、找信息、干难活、回写、自我迭代。已落地：大脑蓝图 v1 + 窗口分工模型（主大脑 + 技术验证员）+ 三份提示词，见 <code>.claude/handoffs/brain-blueprint-v1.md</code>。</li>
+      <li><code>[已落地]</code> 铁律更新：机制变更先审批（规范 v3.3，铁律 9，共 10 条）——tools/ 新建脚本、新增机制须先报主 AI 审批，不自我授权。</li>
+    </ul>
+  </div>
+
   <h3 style="margin-top:0.5rem;">2026-08-02</h3>
   <div class="card accent4">
     <ul>
-      <li><code>[可归档]</code> 收尾门禁 #0 已于 2026-08-02 落地到规范 v3.2（铁律速览顶部+DoD 用户检查手段），详见 session-prompt 第一节。</li>
-      <li><code>[讨论中]</code> <a href="#inbox-20260802-agent-design">智能体设计讨论存档</a>：用户想要"住在知识库里的、都认识他的专家团队"（N 个专业 AI + 共享知识库；懂你仅限闲聊 AI）。已落地：翻库规则（fanku skill，2026-08-02）。下一步：团队自治/记忆机制。</li>
+      <li><code>[可归档]</code> 收尾门禁 #0 已于 2026-08-02 落地到规范（铁律速览顶部+DoD 用户检查手段），详见 session-prompt 第一节。</li>
+      <li><code>[已归档]</code> <a href="#inbox-20260802-agent-design">智能体设计讨论存档</a>：用户想要"住在知识库里的、都认识他的专家团队"（N 个专业 AI + 共享知识库；懂你仅限闲聊 AI）。已落地：翻库规则（fanku skill，2026-08-02）。<strong>后续已演进为"AI 大脑"方向（2026-08-03，见上）</strong>，本存档状态已更新。</li>
       <li><code>[未整理]</code> 闲聊 AI 对用户的印象：务实有主见、长线思维、会用人（知道什么时候找哪个 AI）。用户追问"你觉得我是什么样的人"后表示 AI 感觉准但不全面。用户认可与 AI 从"工具"变成了"伙伴"关系。</li>
     </ul>
   </div>
@@ -2850,6 +2874,12 @@ uv venv .venv && uv pip install mem0ai fastembed
       <li>结果：三页均 <strong>C</strong>（数据来源 D、结构 C）——牌号统计矛盾（23 vs 29）、命名与已核实信息脱节（TC-MAB INCI、GCK30P 旧名、市占率 32.6%/31.8% 矛盾）、章节乱序/内容错位/整段重复、渗透压机理错误、来源清单 MD 丢失</li>
       <li>处理：硬伤已登记任务板（大改动待主 AI）；共性根因 = 转换脚本生成 + 页面过大（均建议拆分）</li>
       <li>机制健康结论：无摆设机制；提醒各 AI 养成 ai-worklog 登记习惯、明确 ai-worklog 与 CHANGELOG 边界</li>
+    </ul>
+    <h4 style="margin-top:1rem;">2026-08-02/03（第三次盘点 + 全面修复，智能体 AI 执行）</h4>
+    <ul>
+      <li>范围：全库健康度修复（约 20 文件）+ 3 个转换大页拆分 + 命名冲突修复</li>
+      <li>结果：第二次盘点硬伤<strong>全部修复 ✅</strong>——①精细化工拆 3 页（additives/daily-chem/surfaces）+ 渗透压机理修正 + 章节重排 ②天赐学习手册拆 3 页（product-overview/surfactant-details/market-sales）+ 市占率统一 31.8% + 命名修正 ③两性表活目录原地修复（牌号 23→29、TC-MAB INCI Coco→Lauro、RSPO 5→4）④文档事实/结构/内容硬伤修复（troubleshooting hero、amphoteric 5.3.2、synthesis 第 8 章编号）⑤称呼统一（智能体搭建 AI→智能体 AI）⑥跨页命名冲突修复（TC-SHD 50/B→TC-SHD(L)/(B)、TC-MAB 40CD→40LDL，全库无残留）</li>
+      <li>遗留：全库 <strong>60+ 处"待核实"数值</strong> 待产品手册/TDS 到位后逐条补来源（见任务板，待认领）</li>
     </ul>
   </div>
 </section>
