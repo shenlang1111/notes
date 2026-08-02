@@ -62,6 +62,13 @@
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-orange">⏳ 待主 AI 审批</span></td>
+        <td style="padding:8px;">修复检索大脑 kb_reader.py 切段 bug（D:\ai\deep-memory，机制/工具变更，铁律 12）：独立复核发现 3 处问题——①<strong>## 章节引言被吸进前一个 ### 条目</strong>（全库 37640 字符向量端漏检，含 51 处待核实内容，影响"数据来源补齐"实战）②代码块内 ### 误判切段边界（logs-guide 假条目污染索引）③跨盘 relpath fallback 丢子目录前缀（同名文件 ID 冲突隐患，当前未触发）。<strong>修复方向</strong>：切段边界同时认 ## 和 ###（维护条目缓冲）+ 切段前剔除 fenced code block + fallback 加子目录前缀；修复后重建索引并复跑 4 组回归。发现者：主大脑（独立复核，实跑验证）</td>
+        <td style="padding:8px;">主大脑</td>
+        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
         <td style="padding:8px;">tools/ 建"检索接入脚本"（deep-memory 接入，A 方案）——<strong>主 AI 审批通过（2026-08-03 用户拍板）</strong>：允许在 tools/ 建脚本（只读转换/索引）；<strong>不动库结构</strong>，采用备选方案（改 kb_reader.py 支持递归子目录）✅ 已落地：检索大脑正式接入（D:\ai\deep-memory），4 组真实问句全命中，M2 达成</td>
         <td style="padding:8px;">主大脑</td>
