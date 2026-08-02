@@ -295,4 +295,8 @@ updated: 2026-08-02
 
 ## 十二、Claude Code 技术验证员专属提示词
 
-给大脑体系的技术验证员（Claude Code）用。完整提示词见 `.claude/handoffs/brain-window-verifier.md`，开工前复制粘贴。
+给大脑体系的技术验证员（Claude Code）用。完整提示词见 `.claude/handoffs/brain-window-verifier.md`，开工前整段粘贴。
+
+- **职责**：试跑候选方案（deep-memory / mem0 / BYO-LLM-WIKI 等），对每个候选验证 5 关（可跑性/接入性/检索质量/接入复杂度/自进化能力）
+- **产出**：《技术验证报告》写入思考收件箱，双格式成对，可用 deploy.js 部署上线
+- **边界**：只验不改，报告以外不碰库内容；registry/nav 登记不自行改动
