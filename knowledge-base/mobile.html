@@ -2142,6 +2142,11 @@ ai-agent/
       <tbody>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
+          <td>验证 Trae 移动端写本地共享文件夹：用户从移动端发"测试实时同步"→ 根目录新建 测试实时同步.txt 落盘成功（秒级，fs.watch rename 事件可捕获）→ 阶段 4 接入层物理前提成立；已登记广播</td>
+          <td>根目录 测试实时同步.txt、mechanism-updates、ai-worklog</td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
           <td>按用户指示全做：①任务板第一项标 ✅（tools/检索接入脚本已通过改kb_reader源码落地）②deploy.js bug 行同步进HTML ③待核实清单盘点（子代理：md 10页58处，业务数据51处，集中 market.md 32处）④M2检索回归（3命中，婴童无泪命中formulation#无泪原理未命中预期apg）</td>
           <td>team-task-board html+md、CHANGELOG.md</td>
         </tr>
@@ -2973,6 +2978,10 @@ uv venv .venv && uv pip install mem0ai fastembed
     <table>
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
+        <tr>
+          <td>2026-08-03</td><td><strong>Trae 移动端写本地文件验证通过</strong>——从移动端发消息 → 本地共享文件夹根目录即时新建文件（实测"测试实时同步"落盘成功，秒级）→ 阶段 4 接入大脑（fs.watch 实时监听）的物理前提成立。建监听时需监听整个知识库根目录（含子目录），不能只盯 inbox</td>
+          <td>本页广播（待阶段 4 落地后补使用说明）</td><td><span class="tag tag-purple">主大脑</span></td>
+        </tr>
         <tr>
           <td>2026-08-03</td><td><strong>检索大脑正式接入（deep-memory）</strong>——本地混合检索工具（向量+BM25+重排），检索正式库（只读），替代手工 fanku 自动化；已适配 7 域多级目录+中文专有型号；环境 D 盘 D:\ai\deep-memory，检索走 search.py，结果带"待核实"标注</td>
           <td>D:\ai\deep-memory\README.md（使用说明）+ 本页广播</td><td><span class="tag tag-purple">主大脑</span></td>
