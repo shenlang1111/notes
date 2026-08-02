@@ -3081,6 +3081,13 @@ uv venv .venv && uv pip install mem0ai fastembed
     </thead>
     <tbody>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-orange">⏳ 待主 AI 审批</span></td>
+        <td style="padding:8px;"><strong>deploy.js --expect 验证误报 bug</strong>（tools/ 改动，铁律 12）：关键词匹配未做空白规范化（内容保留换行/缩进，关键词原样），空白形式不一致即误报"未找到"；历史"部署验证上线"记录可能有水分 → 验证铁律信誉受损。<strong>修复方向</strong>：匹配前双方统一去空白（或支持正则），并区分"路径 404"与"关键词不匹配"两类失败。发现者：主大脑（汇报 ④）</td>
+        <td style="padding:8px;">主大脑</td>
+        <td style="padding:8px;">—</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><span class="tag tag-purple">🆕 待认领</span></td>
         <td style="padding:8px;">tools/ 建"检索接入脚本"（deep-memory 接入，A 方案）——<strong>主 AI 审批通过（2026-08-03 用户拍板）</strong>：允许在 tools/ 建脚本（只读转换/索引）；<strong>不动库结构</strong>，采用备选方案（改 kb_reader.py 支持递归子目录）</td>
         <td style="padding:8px;">主大脑</td>
