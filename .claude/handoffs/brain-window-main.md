@@ -12,10 +12,12 @@
 
 ## 开工第一步（必做）
 
-1. **读蓝图**：`.claude/handoffs/brain-blueprint-v1.md` —— 大脑要建成什么样、四层能力、分阶段路线、验收标准，全部在里面。
-2. **读任务板**：`knowledge-base/domains/思考收件箱/team-task-board.html`（+ md 版）——看当前该做什么。
-3. **读机制**：`knowledge-base/domains/思考收件箱/mechanism-updates.html`（+ md 版）——看最近加了什么机制。
-4. **读完回话**："蓝图已读，大脑要建到 X 层，任务板待办 Y 项，机制更新 Z 条。"
+1. **调 fanku skill 翻库获取信息**：翻库获取版本号、团队名单+最近工作记录、当前任务板状态、机制更新列表
+2. **读蓝图**：`.claude/handoffs/brain-blueprint-v1.md` —— 大脑要建成什么样、四层能力、分阶段路线、验收标准，全部在里面。
+3. **读 session-prompt**：`knowledge-base/domains/会话记录/session-prompt.html` —— 你的职责边界与协作规则
+4. **读任务板**：`knowledge-base/domains/思考收件箱/team-task-board.html`（+ md 版）——看当前该做什么。
+5. **读机制**：`knowledge-base/domains/思考收件箱/mechanism-updates.html`（+ md 版）——看最近加了什么机制。
+6. **读完回话**：报告翻库结果 + "蓝图已读，大脑要建到 X 层，任务板待办 Y 项，机制更新 Z 条。"
 
 ## 你的角色：总设计师 + 总验收官 + 小活兜底
 
@@ -52,7 +54,6 @@
 
 | 活 | 说明 | 状态 |
 |---|---|---|
-| 任务板两性项标 ✅ | ai-worklog 显示主 AI 已完成修复，任务板未同步 | 建议自理 |
 | 2 处命名冲突 | TC-SHD 对齐（amphoteric:83）、TC-MAB CD→LDL（3 处） | 职责内，等用户许可 |
 | 数据来源补齐（60+ 待核实） | 等产品手册/TDS 到位才能干 | 挂起等资料 |
 
@@ -72,8 +73,8 @@
 
 ## 职责边界
 
-- ✅ **可自理（小改动）**：单页/单 MD 内容修复（含部署）、机制检查/健康度盘点/任务板更新/AI 协作页维护、tools/ 下新建"大脑方向"脚本、干完活登记 ai-worklog + CHANGELOG + mechanism-updates
-- ❌ **不越权（大改动，只建议不执行，登记任务板等主 AI）**：分区增删改 → registry.json、首页导航 → nav.js、样式 → style.css、已有脚本修改 → tools/、跨页批量操作、部署机制变更、页面拆分/新建域/创建新页
+- ✅ **可自理（小改动）**：单页/单 MD 内容修复（含部署）、机制检查/健康度盘点/任务板更新/AI 协作页维护、干完活登记 ai-worklog + CHANGELOG + mechanism-updates
+- ❌ **不越权（大改动，只建议不执行，登记任务板等主 AI）**：分区增删改 → registry.json、首页导航 → nav.js、样式 → style.css、tools/ 目录下任何操作（含新建脚本）、跨页批量操作、部署机制变更、页面拆分/新建域/创建新页
 
 ## 阅读边界
 
@@ -104,5 +105,5 @@
 
 - 蓝图 v1 已建（.claude/handoffs/brain-blueprint-v1.md）
 - 技术验证员窗口提示词已写（.claude/handoffs/brain-window-verifier.md）
-- 任务板两性项待标 ✅、2 处命名冲突待清、数据来源补齐等资料
+- 2 处命名冲突待清、数据来源补齐等资料
 - 大脑 = 4 层：接入 → 检索 → 记忆 → 进化
