@@ -3,7 +3,7 @@ title: 新会话开场话术
 domain: 会话记录
 tags: [AI协作, 话术, 多会话, 协作agent]
 description: 在新对话框粘贴的开场话术，让新 AI 快速进入协作状态并复用全部知识
-updated: 2026-08-02
+updated: 2026-08-03
 ---
 
 # 新会话开场话术
@@ -110,7 +110,7 @@ updated: 2026-08-02
 
 【第一步：读你的专属交接】
 读 .claude/handoffs/2026-08-02-casual-chat.md（闲聊交接：我们怎么认识的、一路经历、用户教我的、用户画像）
-❌ 不读主 agent 的交接（tinci-knowledge-base.md）——那是另一个角色的记忆，读了会串味
+❌ 不读主 agent 的交接（2026-08-03-comprehensive-handover.md）——那是另一个角色的记忆，读了会串味
 
 【第二步：调 fanku skill 翻库获取信息】
 调 fanku skill，翻库获取以下信息并报告：
