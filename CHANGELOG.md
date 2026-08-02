@@ -8,6 +8,7 @@
 
 | 日期 | 主题 | 修改内容 | 涉及文件 |
 |---|---|---|---|
+| 2026-08-03 | 智能体"大脑"方向确认 + 完整交接文档 | 与用户确认"AI 团队大脑"架构：实时互通（fs.watch 监听，非定时）、只做难的、共享知识库当大脑、AI 自动传消息省人工；生成 2026-08-03-agent-brain.md 交接文档（融合上一轮修复 + 本轮大脑方向 + 交接提示词 + 职责/阅读/留痕边界 + 重点细节）；ai-worklog 登记 | .claude/handoffs/2026-08-03-agent-brain.md、ai-worklog html+md、CHANGELOG.md |
 | 2026-08-02 | 智能体架构自动化落地：会话启动自动报告（开窗即自动） | 按用户批准落地自动化第一步"开窗即自动"：新建 tools/session_start_report.js（SessionStart 自动报告：身份 + 任务板待办 + 机制更新数 + 纪律，只读不改）+ .claude/settings.json 配 SessionStart hook（项目级，不污染其他项目）；机制更新页广播（谁建谁记）；ai-worklog 登记 | tools/session_start_report.js、.claude/settings.json、mechanism-updates html+md、ai-worklog html+md、CHANGELOG.md |
 | 2026-08-02 | 全部 AI 交接/话术翻库改造 | 主 AI 交接（comprehensive-handover）启动步骤改为"调 fanku skill 翻库获取信息"；其他 4 份 handoff 文档同步加翻库步骤；session-prompt 一~十节全部话术改"读文档→调 fanku"；HTML/MD 双格式同步 | comprehensive-handover.md、tinci-knowledge-base.md、casual-chat.md、agent-fix-round2.md、agent-knowledge-ops.md、session-prompt.html、session-prompt.md |
 | 2026-08-02 | 智能体 AI 接替闲聊 AI 任务：Claude Code 移交 | 确认推翻存档"LLM 用 DeepSeek"→改用 Claude Code ✅；session-prompt 追加第十节 Claude Code 专属提示词（读写权限/职责边界/规则）✅；存档决策标注 crossed-out ✅；任务板更新 ✅ | session-prompt html+md、team-task-board html+md、inbox-20260802-agent-design、ai-worklog html+md、CHANGELOG |
