@@ -2156,6 +2156,11 @@ ai-agent/
           <td>ai-worklog html+md、CHANGELOG.md、kb_reader.py（真实改动）</td>
         </tr>
         <tr>
+          <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
+          <td>修复检索大脑 kb_reader.py 切段 bug（主 AI 审批通过后执行）：①## 章节引言独立成条目（split_entries 改逐行扫描，修复全库 37640 字符向量端漏检）②代码块内 ### 不误判切段（fenced code block 剔除）③跨盘 relpath 加子目录前缀（消除同名 ID 冲突隐患）。单测 10 项全过；重建索引（286→488 条目，60.8s）；复跑 4 组回归全命中（婴童无泪修复前未命中预期页→修复后 formulation#无泪原理 + 甜菜碱分类含 MAB 无泪 + 六B 婴童方案）</td>
+          <td>kb_reader.py、chroma_hybrid_db（重建）、test_kb_reader.py（10 项过）、task-board html+md</td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">技术验证员</span></td>
           <td>独立对抗性审核主大脑的检索大脑接入（阶段 1）：对比 diff 证实主大脑实际只改 kb_reader.py（5 项全正确），onnx_models.py 未改（分批是原版自带，登记不实）；独立复跑 4 组真实问句（3 组精确/相关命中，婴童配方问句偏弱）；分批一致性 batch1 vs batch5 最大差异 0.0e+00（属实）；索引 286 条真实存在；出审核报告（功能可采信，登记需修正 1 处）</td>
           <td>临时目录 brain-verify/reports/audit-retrieval-integration.md、D:\ai\deep-memory\</td>
