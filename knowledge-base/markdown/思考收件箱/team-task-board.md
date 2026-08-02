@@ -23,8 +23,8 @@ updated: 2026-08-02
 | 🆕 待认领 | 数据来源补齐：全库 60+ 处"待核实"数值，待产品手册/TDS 到位后逐条补来源或降级 | 智能体 AI | — | 2026-08-02 |
 | ✅ 已完成 | 精细化工页（finechem-engineering）修复：章节编号冲突（9.4/9.5→9.10/9.11）、渗透压机理错误（多元醇膜结构/低盐逻辑）、来源区块已有、实体残留清理；拆分已在知识库完成 | 智能体 AI | 智能体 AI | 2026-08-02 |
 | ✅ 已完成 | 天赐学习手册（tinci-surfactant-guide）修复：市占率已统一（31.8%）、命名对齐（TC-MAB INCI 月桂酰）、氨基酸误归两性修正、章节重排/拆分已在知识库完成 | 智能体 AI | 智能体 AI | 2026-08-02 |
-| 🆕 待认领 | 两性表活目录（tinci-amphoteric-summary）修复：牌号统计（23→29）、MD内容错位、TC-MAB INCI（Lauro-）、RSPO数量、与 amphoteric 页冲突对齐 | 智能体 AI | — | 2026-08-02 |
-| ✅ 已完成 | 智能体方向移交 Claude Code（用户已装好，取其编程能力强、专注智能体实现）：确认推翻存档 LLM 用 DeepSeek 决策 ✅、Claude Code 专属提示词已写入 session-prompt 第十节（读写权限/职责边界/规则）✅、存档决策标注修正 ✅ | 闲聊 AI | 智能体 AI | 2026-08-02 |
+| ✅ 已完成 | 两性表活目录（tinci-amphoteric-summary）修复：牌号统计（23→29）✅、MD内容错位✅、TC-MAB INCI（Lauro-）✅、RSPO数量✅、与 amphoteric 页冲突对齐✅ | 智能体 AI | 智能体 AI | 2026-08-03 |
+| ✅ 已完成 | 智能体方向移交 Claude Code（用户已装好，取其编程能力强、专注智能体实现）：确认推翻存档 LLM 用 DeepSeek 决策 ✅、Claude Code 专属提示词已建（session-prompt 十~十二节 + brain-window 三件套）✅、存档决策标注修正 ✅ | 闲聊 AI | 智能体 AI | 2026-08-02 |
 
 ## 三、运作规则
 
