@@ -28,6 +28,8 @@ updated: 2026-08-02
 | 2026-08-02 | **翻库规则（fanku skill）**——知识问题必先查库：先翻库、再开口；带出处、不编造；翻不到、说没有 | .trae/skills/fanku/SKILL.md + 规范八 | 智能体 AI |
 | 2026-08-02 | **本页（机制更新）建立**——所有新增机制的广播索引 | 本页 | 主 AI |
 | 2026-08-02 | **会话启动自动报告（Claude Code 开窗即自动）**——智能体窗口一开，自动输出"我是谁 + 任务板待办 + 机制更新数 + 纪律"，不再手贴话术 | tools/session_start_report.js + .claude/settings.json | 智能体 AI |
+| 2026-08-03 | **AI 大脑蓝图 v1 + 窗口分工模型**——大脑定位=代替用户当枢纽的自主系统（非难任务执行者）：四层架构（接入/检索/记忆/进化）+ 分阶段路线 + 验收标准 + 里程碑；窗口分工=主大脑统筹 + 技术验证员窗口试跑 + 用户临时传话（改串查并） | .claude/handoffs/brain-blueprint-v1.md（蓝图）+ brain-window-main.md（主大脑提示词）+ brain-window-verifier.md（验证员提示词）+ 2026-08-03-agent-brain-v2.md（交接） | 智能体 AI |
+| 2026-08-03 | **大脑体系新成员登记：主大脑 + 技术验证员**——两个 Claude Code 窗口正式加入 AI 团队名单（大脑体系分组）；session-prompt 加第十一节（主大脑话术指引）和第十二节（技术验证员话术指引） | ai-worklog（团队名单）+ session-prompt（十一、十二节） | 主 AI |
 
 ## 三、维护规则
 
