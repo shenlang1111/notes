@@ -288,3 +288,11 @@ updated: 2026-08-02
 
 现在开始：报告你读到的版本号 + 当前任务板状态，等用户确认。
 ```
+
+## 十一、Claude Code 主大脑专属提示词
+
+给大脑体系的主大脑（Claude Code）用。完整提示词见 `.claude/handoffs/brain-window-main.md`，开工前复制粘贴。
+
+## 十二、Claude Code 技术验证员专属提示词
+
+给大脑体系的技术验证员（Claude Code）用。完整提示词见 `.claude/handoffs/brain-window-verifier.md`，开工前复制粘贴。
