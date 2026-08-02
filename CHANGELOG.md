@@ -8,6 +8,7 @@
 
 | 日期 | 主题 | 修改内容 | 涉及文件 |
 |---|---|---|---|
+| 2026-08-02 | 智能体架构自动化落地：会话启动自动报告（开窗即自动） | 按用户批准落地自动化第一步"开窗即自动"：新建 tools/session_start_report.js（SessionStart 自动报告：身份 + 任务板待办 + 机制更新数 + 纪律，只读不改）+ .claude/settings.json 配 SessionStart hook（项目级，不污染其他项目）；机制更新页广播（谁建谁记）；ai-worklog 登记 | tools/session_start_report.js、.claude/settings.json、mechanism-updates html+md、ai-worklog html+md、CHANGELOG.md |
 | 2026-08-02 | 全部 AI 交接/话术翻库改造 | 主 AI 交接（comprehensive-handover）启动步骤改为"调 fanku skill 翻库获取信息"；其他 4 份 handoff 文档同步加翻库步骤；session-prompt 一~十节全部话术改"读文档→调 fanku"；HTML/MD 双格式同步 | comprehensive-handover.md、tinci-knowledge-base.md、casual-chat.md、agent-fix-round2.md、agent-knowledge-ops.md、session-prompt.html、session-prompt.md |
 | 2026-08-02 | 智能体 AI 接替闲聊 AI 任务：Claude Code 移交 | 确认推翻存档"LLM 用 DeepSeek"→改用 Claude Code ✅；session-prompt 追加第十节 Claude Code 专属提示词（读写权限/职责边界/规则）✅；存档决策标注 crossed-out ✅；任务板更新 ✅ | session-prompt html+md、team-task-board html+md、inbox-20260802-agent-design、ai-worklog html+md、CHANGELOG |
 | 2026-08-02 | 目录清理：删除旧版独立转存 + 一次性临时脚本 | 删除 7 项冗余：①精细化工旧版独立 HTML（已被知识库 3 个拆分页取代）②天赐学习手册 standalone 文件夹（含 mermaid.min.js）③两性表活目录 standalone 文件夹（含 mermaid.min.js）④kb_verify_console_tmp.js ⑤_preview_server.js ⑥convert-new-files.js ⑦restyle-new-pages.js；保留 tools/ 下可复用工具（html2md-new.js、半月报脚本、deploy.js）和 handoffs 交接文档 | 9 文件删除 + 2 空目录清除 |
