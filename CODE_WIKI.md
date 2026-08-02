@@ -47,7 +47,7 @@
 │   ├── build_mobile.js      # 生成 knowledge-base/mobile.html（deploy.js 绑定调用）
 │   └── deploy.js            # 一键部署（成对校验 → 生成 mobile → 串行上传 → 构建 → 验证）
 ├── knowledge-base/          # ★ 知识库本体（详见 §2.2）
-├── 知识库维护规范.md         # 总规则 v3.2（★★★ 必读）
+├── 知识库维护规范.md         # 总规则 v3.3（★★★ 必读）
 ├── PROJECT_CONTEXT.md       # 项目背景与交接（★★）
 ├── CHANGELOG.md             # 修改追溯（☆）
 ├── CODE_WIKI.md             # 本文档：技术维基（★）
