@@ -1389,7 +1389,12 @@ ai-agent/
 
 <section class="section" id="section12">
   <h2>十二、Claude Code 技术验证员专属提示词</h2>
-  <p>给大脑体系的技术验证员（Claude Code）用。完整提示词见 <code>.claude/handoffs/brain-window-verifier.md</code>，开工前复制粘贴。</p>
+  <p>给大脑体系的技术验证员（Claude Code）用。完整提示词见 <code>.claude/handoffs/brain-window-verifier.md</code>，开工前整段粘贴。</p>
+  <ul>
+    <li><strong>职责</strong>：试跑候选方案（deep-memory / mem0 / BYO-LLM-WIKI 等），对每个候选验证 5 关（可跑性/接入性/检索质量/接入复杂度/自进化能力）</li>
+    <li><strong>产出</strong>：《技术验证报告》写入思考收件箱，双格式成对，可用 deploy.js 部署上线</li>
+    <li><strong>边界</strong>：只验不改，报告以外不碰库内容；registry/nav 登记不自行改动</li>
+  </ul>
 </section>
 
 <section class="section" id="related">
