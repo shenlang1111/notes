@@ -50,6 +50,7 @@ updated: 2026-08-02
 | 2026-08-02 | 智能体 AI | 全面健康度修复：文档事实修正（session-prompt 铁律数/版本示例、CODE_WIKI/PROJECT_CONTEXT 页面数）、结构修正（market hero+h2+相关页面、sales 相关页面）、收件箱状态更新（inbox 收尾门禁→可归档、agent-design 团队列表）、内容硬伤（troubleshooting hero/amphoteric 5.3.2/synthesis 第8章编号重排）、称呼统一（智能体搭建AI→智能体AI 7文件）、编号跳号修复；部署验证上线 | 约 20 个文件 |
 | 2026-08-02 | 闲聊 AI | 按用户指示登记任务板：智能体方向移交 Claude Code（用户已装好，取编程能力强），主 AI 需出 Claude Code 专属开场提示词 + 确认是否推翻"LLM 用 DeepSeek"拍板 | 思考收件箱/team-task-board html+md |
 | 2026-08-02 | 智能体 AI | 与用户讨论智能体架构：确认 Trae 为主对话窗口 + Claude Code 为重活执行引擎的双引擎分工；把"瘦上下文/文件即记忆/会话即进程"方案沉淀进智能体设计存档 | 思考收件箱/inbox-20260802-agent-design html+md |
+| 2026-08-02 | 智能体 AI | 落地自动化第一步"开窗即自动"：新建 tools/session_start_report.js（SessionStart 自动报告：身份+任务板待办+机制更新数+纪律）+ .claude/settings.json 配 SessionStart hook；机制更新页广播 | tools/session_start_report.js、.claude/settings.json、mechanism-updates html+md |
 | 2026-08-02 | 智能体 AI | 接替闲聊 AI 任务：Claude Code 移交完成——确认推翻存档"LLM 用 DeepSeek"✅、session-prompt 第十节写入 Claude Code 专属提示词（读写权限/职责边界/规则）✅、存档决策标注修正✅；任务板更新✅ | 会话记录/session-prompt html+md、思考收件箱/team-task-board html+md、inbox-20260802-agent-design、ai-worklog、CHANGELOG |
 
 登记规则：
