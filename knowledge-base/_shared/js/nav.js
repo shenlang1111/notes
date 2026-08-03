@@ -17,6 +17,7 @@
     ['阳离子', 'domains/表面活性剂/cationic.html'],
     ['两性', 'domains/表面活性剂/amphoteric.html'],
     ['非离子', 'domains/表面活性剂/nonionic.html'],
+    ['APG', 'domains/表面活性剂/apg.html'],
     ['物化性质', 'domains/表面活性剂/properties.html'],
     ['合成工艺', 'domains/表面活性剂/synthesis.html'],
     ['应用原理', 'domains/表面活性剂/applications.html'],
