@@ -3390,6 +3390,11 @@ ai-agent/
       <tbody>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-orange">主 AI</span></td>
+          <td><strong>规则修订体系落地（用户拍板"有体系的改"）+ 首批修 5 项</strong>：规范 v3.8 新增十·四规则修订闭环（发现→登记收件箱→主 AI 积 3 条/每周评估→拍板→改+同步→验证）；修掉"铁律 13"残留、投递/回复文件归档规则（根目录 21 个归档）、双格式硬软边界（用户看页=硬门禁）、状态保鲜扩至全知识域、机制页稳定即清理责任人（主 AI 每月）。详见 CHANGELOG</td>
+          <td>知识库维护规范.md（v3.8 十·四）、mechanism-updates html+md、.claude/handoffs/archive/（投递文件归档）</td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-orange">主 AI</span></td>
           <td><strong>回答加工分工拍板 + 10 轮顾客模拟测试</strong>：用户拍板"对问题你反馈，经验你总结"——大脑投递检索片段，主窗口 AI 组织成聪明回答（选型逻辑+判断+话术）；模拟顾客 10 轮投递测试跑通链路（投递✅/检索✅/存档✅/回复✅ 前 8 轮 ~10s），发现 2 缺口：①dispatch.lock 卡死（9/10 轮卡住）②多轮无上下文关联。详见 CHANGELOG</td>
           <td>mechanism-updates html+md、记忆库（main-long）、投递测试记录</td>
         </tr>
@@ -4556,6 +4561,10 @@ uv venv .venv && uv pip install mem0ai fastembed
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>规则修订体系（用户拍板"有体系的改"）</strong>——规则文档发现问题有闭环：<strong>发现</strong>（任何 AI 撞到矛盾/用户指出/审核发现）→ <strong>登记</strong>（思考收件箱 <code>规则问题-&lt;日期&gt;.md</code>，一句话记完即完成，只登记不抢改）→ <strong>评估</strong>（主 AI 积满 3 条或每周统一处理）→ <strong>拍板</strong>（权限/大方向用户定，纯文字修正主 AI 直接改）→ <strong>修改+同步</strong>（CHANGELOG/部署/重灌记忆库/广播）→ <strong>验证</strong>（十·三抽查一致性）。首批 5 项已走通闭环：铁律 13 残留、投递文件归档规则、双格式硬软边界、状态保鲜范围、机制页清理责任。<strong>所有 AI 知悉</strong>：用规则时发现问题 → 一句话记收件箱即可，改权在主 AI</td>
+          <td>知识库维护规范.md（十·四 + v3.8）</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>自动提炼编排器（主大脑任务：自动提炼+分类挂心跳）</strong>——各 AI 负责"存"（mem_chat_save 存对话），大脑负责"炼"：①<strong>新建 tools/evolve_auto.js</strong>（--status 速览 / --dry-run 预演 / --run 自动执行 / --min N 每组最少条数）：扫描 chat-* mid → 按 agent 归组 → 自动 draft（带 target 受众）→ apply 提炼 mid→long；agent 映射 target（brain/verifier/main/casual/agent/log/ui/tester/all）②<strong>心跳 M3 升级</strong>：从"chat≥3 只提醒留人审"改为"待提炼≥3 自动跑 evolve_auto --run"——各 AI 存对话后大脑自动接住提炼分类，无需人工排期③<strong>修 mem_export.py 补 target_agent</strong>：之前 export 丢 metadata 导致"target=无"假象（实际库里已打标）。<strong>所有 AI 知悉</strong>：存对话（mem_chat_save）后，大脑会自动提炼成经验并按受众分类（mem_search --target &lt;受众&gt; 过滤），无需再人工排期提炼</td>
           <td>tools/evolve_auto.js（新）+ tools/brain_heartbeat.js（M3）+ D:\ai\brain-memory\scripts\mem_export.py（target_agent）+ KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
         </tr>
@@ -4687,7 +4696,7 @@ uv venv .venv && uv pip install mem0ai fastembed
       <li><strong>谁建谁记</strong>：新建机制（页面/规则/skill/流程）后，建立者顺手在本页追加一行——并进 DoD 自检，防止"建了没人广播"</li>
       <li><strong>只索引不复制</strong>：每条写"去哪读"指向具体页面，内容留在原页面，避免本页膨胀成第二个话术页</li>
       <li><strong>固定项不进本页</strong>：ai-worklog/团队任务板/健康度/翻库这 4 样是"永久必读"，属于话术页固定项；本页只收增量</li>
-      <li><strong>稳定即摘除</strong>：机制被普遍掌握后，从本页摘除（各 AI 已知道、入口已在话术页），本页保持"最近新增"的短小形态</li>
+      <li><strong>稳定即摘除（2026-08-03 细化）</strong>：条目满足"已广播 ≥3 天 + 话术页/交接已有入口 + 各 AI 已普遍掌握"→ 由<strong>主 AI 每月清理一次</strong>摘除（摘除条目保留在 CHANGELOG 追溯），本页保持"最近新增"的短小形态</li>
     </ul>
   </div>
 </section>
@@ -4818,10 +4827,10 @@ uv venv .venv && uv pip install mem0ai fastembed
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
-        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
-        <td style="padding:8px;"><strong>Trae 对话接入自动存档</strong>——用户负责让 Trae 对话存进 mem0（走统一 <code>mem_chat_save</code>），主大脑负责识别（chat-* 前缀）并自动提炼分类。存=用户，炼=主大脑（2026-08-03 用户拍板分工）</td>
-        <td style="padding:8px;">主大脑</td>
-        <td style="padding:8px;">用户 + 主大脑</td>
+        <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
+        <td style="padding:8px;"><strong>Trae 对话接入自动存档（闲聊 AI 落地，用户拍板"你来落地吧大家都很忙"）</strong>——新增 <code>tools/chat_autosave.js</code>（SessionEnd hook：扫 <code>D:\ai\brain-memory\chat_inbox\chat-&lt;agent&gt;-&lt;日期&gt;.md</code> → 调 <code>mem_chat_save.py</code> 入库 → 归档 archive/）+ settings.json 注册 + 实测通过（casual 摘要入库 mem_search 召回 0.86、文件已归档）。约定：各 AI 对话结束/换话题写摘要文件（存=AI 写文件+钩子自动入库），炼=主大脑 evolve_auto 自动。✅</td>
+        <td style="padding:8px;">闲聊 AI</td>
+        <td style="padding:8px;">闲聊 AI</td>
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
