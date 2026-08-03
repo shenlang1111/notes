@@ -1765,91 +1765,154 @@ ai-agent/
   <nav class="breadcrumb">
     <a href="#home">首页</a>
     <span class="bc-sep">/</span>
-    <span class="bc-current">共享工具与技能索引</span>
+    <span class="bc-current">脚本·技能·Hook 使用规范</span>
   </nav>
   <div class="page-hero-meta"><span class="tag tag-teal">会话记录</span><span class="tag tag-blue">AI 协作</span></div>
-  <h1>共享工具与技能索引</h1>
-  <p class="page-hero-desc">全项目共享的 tools/ 脚本 + skills/ 技能总索引——各 AI 窗口（Claude Code + Trae 端）均可直接调用，不专属任何单一窗口。谁要用工具/技能，先读本页找到入口。</p>
+  <h1>脚本·技能·Hook 使用规范</h1>
+  <p class="page-hero-desc">全项目脚本（tools/ 22 个）+ 技能（skills/ 20 个）+ Hook（3 类）统一使用规范——谁用、怎么用、何时自动触发。脚本/skill/hook 由主 AI 统一管理，其他 AI 可直接调用，改需审批。</p>
 </div>
 <!-- ===== /Page Hero ===== -->
   <details class="toc-nav" open>
     <summary>本页目录</summary>
     <div class="toc-grid">
-      <a href="#sec-1"><span class="toc-num">1</span>核心原则</a>
-      <a href="#sec-2"><span class="toc-num">2</span>共享工具清单</a>
-      <a href="#sec-3"><span class="toc-num">3</span>共享技能</a>
-      <a href="#sec-4"><span class="toc-num">4</span>Python 调用规范</a>
-      <a href="#sec-5"><span class="toc-num">5</span>给各 AI 的提醒</a>
+      <a href="#sec-1"><span class="toc-num">1</span>管理权与使用权</a>
+      <a href="#sec-2"><span class="toc-num">2</span>脚本使用规范</a>
+      <a href="#sec-3"><span class="toc-num">3</span>技能使用规范</a>
+      <a href="#sec-4"><span class="toc-num">4</span>Hook 使用规范</a>
+      <a href="#sec-5"><span class="toc-num">5</span>Python 调用规范</a>
+      <a href="#sec-6"><span class="toc-num">6</span>提醒</a>
     </div>
   </details>
 
 <section class="section" id="sec-1">
-  <h2>一、核心原则</h2>
+  <h2>一、管理权与使用权（先看）</h2>
   <div class="card accent2">
-    <p style="margin:0;"><strong>2026-08-03 用户拍板"改成都能用"</strong>：本项目的<strong>工具与技能是所有 AI 的共享资产</strong>——Claude Code 窗口（主大脑/技术验证员）与 Trae 端窗口（主 AI/闲聊/智能体/日志/UI/测试员）<strong>均可直接调用</strong>，不专属任何单一窗口。本页是总入口。</p>
+    <p style="margin:0;"><strong>2026-08-03 用户拍板</strong>：脚本/skill/hook <strong>统一由主 AI 管理</strong>；本页是全项目使用规范总入口——谁要用工具/技能，先读本页找到调用方式。</p>
   </div>
   <div class="concept-grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
     <div class="concept-card" style="border-top:3px solid var(--accent);">
-      <h4>工具/技能 = 全员共享</h4>
-      <p><code>tools/*.js</code> 与 <code>skills/</code> 是全项目资产，任何 AI 都可调用，不需要"等别人授权"。</p>
+      <h4>管理权在主 AI</h4>
+      <p>脚本（tools/）/ 技能（skills/）/ Hook（.claude/settings.json）统一由主 AI 管理——<strong>新增/修改/删除需报主 AI 审批</strong>（铁律 8），<strong>调用无需审批</strong>。</p>
     </div>
     <div class="concept-card" style="border-top:3px solid var(--accent4);">
-      <h4>技能双目录注册</h4>
-      <p><code>.claude/skills/</code>（Claude Code 认）+ <code>.trae/skills/</code>（Trae 认）<strong>已镜像同步</strong>（2026-08-03），两边都调得到。</p>
+      <h4>使用权全员共享</h4>
+      <p>所有 AI 可直接调用，不专属任何窗口；技能双目录镜像（<code>.claude/skills/</code> = <code>.trae/skills/</code>），两边都调得到。</p>
     </div>
     <div class="concept-card" style="border-top:3px solid var(--accent3);">
-      <h4>Python 走封装</h4>
-      <p>系统 <code>python</code> 因 PATH 含中文用户名乱码失效，一律用 <code>py.cmd</code> 封装（自动指向 venv，绕开中文）。</p>
+      <h4>Python 走封装 + 用前先读</h4>
+      <p>系统 python 因 PATH 含中文乱码失效，一律用 <code>py.cmd</code>；任何技能调用前先 Read 对应 SKILL.md 全文。</p>
     </div>
   </div>
 </section>
 
 <section class="section" id="sec-2">
-  <h2>二、共享工具清单（tools/，git 跟踪全员可用）</h2>
+  <h2>二、脚本使用规范（tools/ 22 个）</h2>
+  <h3 style="margin-top:1rem;">日常核心（4）</h3>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>工具</th><th>用途</th><th>调用命令</th></tr></thead>
+      <thead><tr><th>脚本</th><th>用途</th><th>怎么用</th></tr></thead>
       <tbody>
-        <tr><td><code>deploy.js</code></td><td>一键部署上线（含 mobile 重建 + 线上验证）</td><td><code>node tools/deploy.js --files &lt;清单&gt; --expect "文件:关键词"</code></td></tr>
-        <tr><td><code>build_mobile.js</code></td><td>重新生成手机版</td><td><code>node tools/build_mobile.js</code></td></tr>
-        <tr><td><code>session_start_report.js</code></td><td>开窗自动报告（身份/任务/技能/信箱）</td><td>由 hook 自动触发</td></tr>
-        <tr><td><code>precompact_save.js</code></td><td>压缩前快照落盘</td><td><code>node tools/precompact_save.js</code></td></tr>
-        <tr><td><code>brain_watch.js</code></td><td>接入层实时监听</td><td><code>--daemon</code> 后台 / <code>--status</code> 存活 / <code>--once</code> 快照</td></tr>
+        <tr><td><code>deploy.js</code></td><td>一键部署上线（成对校验→重建 mobile→串行上传→构建→验证）</td><td><code>node tools/deploy.js --files &lt;清单&gt; --expect "文件:关键词"</code></td></tr>
+        <tr><td><code>build_mobile.js</code></td><td>重新生成手机版</td><td><code>node tools/build_mobile.js</code>（deploy 已自动绑定）</td></tr>
+        <tr><td><code>py.cmd</code></td><td>Python 封装（绕开中文乱码）</td><td><code>cmd //c tools\py.cmd &lt;脚本&gt;</code>（先 cd 再相对路径）</td></tr>
+        <tr><td><code>html2md-new.js</code></td><td>HTML→Markdown（双格式生成，过滤 hero/nav/footer）</td><td><code>node tools/html2md-new.js</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 style="margin-top:1rem;">大脑体系（13）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>脚本</th><th>用途</th><th>怎么用</th></tr></thead>
+      <tbody>
+        <tr><td><code>session_start_report.js</code></td><td>开窗自动报告（身份/任务/技能/信箱）</td><td>hook 自动触发（SessionStart）</td></tr>
+        <tr><td><code>precompact_save.js</code></td><td>压缩前快照落盘 KEY_MEMORY⑨</td><td>hook 自动触发；手动 <code>node tools/precompact_save.js</code></td></tr>
+        <tr><td><code>compact_scheduler.js</code></td><td>压缩条件自动检测（完成率/轮数/--force）</td><td><code>--rounds N</code> 检测 / <code>--force</code> 强制 / <code>--quiet</code> 静默</td></tr>
+        <tr><td><code>chat_autosave.js</code></td><td>对话摘要自动存档</td><td>hook 自动触发（SessionEnd）</td></tr>
+        <tr><td><code>brain_watch.js</code></td><td>接入层实时监听（秒级感知新文件）</td><td><code>--daemon</code> 后台 / <code>--once</code> 快照 / <code>--status</code> 存活</td></tr>
         <tr><td><code>brain_msg.js</code></td><td>消息信箱</td><td><code>--list</code> / <code>--peek</code> / <code>--done</code> / <code>--status</code> / <code>--reply</code></td></tr>
-        <tr><td><code>brain_heartbeat.js</code></td><td>自主运行心跳</td><td><code>--once</code> 跑一轮 / <code>--status</code> 速览</td></tr>
-        <tr><td><code>brain_dispatch.js</code></td><td>自动接单执行器</td><td><code>node tools/brain_dispatch.js &lt;消息&gt;</code></td></tr>
-        <tr><td><code>evolve_scan.js</code></td><td>进化层（mid→long 提炼 + skill 生成）</td><td><code>--status</code> / <code>--scan</code> / <code>--draft</code> / <code>--apply</code> / <code>--rollback</code></td></tr>
-        <tr><td><code>compact_scheduler.js</code></td><td>自动压缩调度</td><td><code>node tools/compact_scheduler.js --rounds N</code></td></tr>
-        <tr><td><code>py.cmd</code></td><td>Python 封装（绕开中文乱码）</td><td><code>py.cmd &lt;脚本.py&gt;</code> 或 <code>cmd //c tools\py.cmd</code></td></tr>
+        <tr><td><code>brain_heartbeat.js</code></td><td>自主运行心跳（watch 存活/M2 同步/M3 提醒/M5 派发）</td><td><code>--once</code> 跑一轮 / <code>--status</code> 速览（计划任务每 20 分钟）</td></tr>
+        <tr><td><code>brain_dispatch.js</code></td><td>自动接单执行器（headless 全权接单）</td><td>由 watch/心跳自动派发</td></tr>
+        <tr><td><code>evolve_scan.js</code></td><td>进化层：mid→long 提炼 + skill 草稿</td><td><code>--status</code> / <code>--scan</code> / <code>--draft</code> / <code>--apply</code> / <code>--rollback</code></td></tr>
+        <tr><td><code>evolve_auto.js</code></td><td>自动提炼编排（挂心跳，scan→draft→apply→分类）</td><td><code>--status</code> / <code>--dry-run</code> / <code>--run</code> / <code>--min N</code></td></tr>
+        <tr><td><code>kb_seed_rules.py</code></td><td>规则区灌库（规范/KEY_MEMORY→mem0）</td><td><code>py.cmd tools\kb_seed_rules.py --fix</code> / <code>--key-memory</code></td></tr>
+        <tr><td><code>kb_seed_knowledge.py</code></td><td>知识区灌库（知识页→mem0）</td><td><code>py.cmd tools\kb_seed_knowledge.py --domain &lt;域&gt; --reset</code></td></tr>
+        <tr><td><code>check_compress.js</code></td><td>旧版压缩检测</td><td>已废弃（被 compact_scheduler 取代），备用</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 style="margin-top:1rem;">半月报（2）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>脚本</th><th>用途</th><th>怎么用</th></tr></thead>
+      <tbody>
+        <tr><td><code>build_半月报.py</code></td><td>生成半月报 Excel</td><td><code>py.cmd tools\build_半月报.py</code></td></tr>
+        <tr><td><code>fill_半月报.js</code></td><td>填充实训半月报模板</td><td><code>node tools/fill_半月报.js</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 style="margin-top:1rem;">启动/调试（3）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>脚本</th><th>用途</th><th>怎么用</th></tr></thead>
+      <tbody>
+        <tr><td><code>brain_watch_start.cmd</code></td><td>开机自启 brain_watch --daemon</td><td>启动文件夹自动运行</td></tr>
+        <tr><td><code>_idx_check.js</code></td><td>查看信箱最近消息状态</td><td><code>node tools/_idx_check.js</code>（调试）</td></tr>
+        <tr><td><code>_quick_reply_test.js</code></td><td>快速通道检索实测</td><td>调试用</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
 <section class="section" id="sec-3">
-  <h2>三、共享技能（.claude/skills/ = .trae/skills/ 已镜像）</h2>
+  <h2>三、技能使用规范（skills/ 20 个，双目录镜像）</h2>
   <div class="card warning">
-    <p style="margin:0;">任意技能：调用前<strong>先 Read 对应 SKILL.md 全文</strong>再执行（技能说明即操作指引）。</p>
+    <p style="margin:0;">任意技能：调用前<strong>先 Read 对应 SKILL.md 全文</strong>再执行；技能只是能力增强，不替代规则（双格式/改动分级/DoD 照常）。</p>
   </div>
   <div class="table-wrap">
     <table>
       <thead><tr><th>技能</th><th>用途</th><th>谁常用</th></tr></thead>
       <tbody>
-        <tr><td><code>fanku</code></td><td>翻库检索纪律（知识问题先查库）</td><td>全员（必读）</td></tr>
-        <tr><td><code>记忆库去重与灌库</code></td><td>mem0 去重 + 灌库</td><td>主大脑/主 AI</td></tr>
-        <tr><td><code>unified-memory</code></td><td>统一记忆（mem0+deep-memory 混合）</td><td>全员</td></tr>
+        <tr><td><code>fanku</code></td><td>翻库检索纪律（知识问题先查库，带出处不编造）</td><td>全员（必读）</td></tr>
         <tr><td><code>skill-creator</code></td><td>新建 skill 的方法论</td><td>主 AI</td></tr>
+        <tr><td><code>unified-memory</code></td><td>统一记忆（mem0+deep-memory 混合）</td><td>全员</td></tr>
+        <tr><td><code>ck</code></td><td>持久化项目记忆与知识检索</td><td>按需</td></tr>
+        <tr><td><code>记忆库去重与灌库</code></td><td>mem0 去重 + 灌库</td><td>主大脑/主 AI</td></tr>
         <tr><td><code>身份与技能装备真相</code></td><td>压缩后先确认身份/装备</td><td>主大脑/验证员</td></tr>
         <tr><td><code>自动接单-主大脑域</code></td><td>自动接单快速通道经验</td><td>主大脑</td></tr>
         <tr><td><code>pdf / docx / xlsx</code></td><td>文档/表格处理</td><td>按需</td></tr>
+        <tr><td><code>brainstorming</code></td><td>头脑风暴 / 需求讨论</td><td>按需</td></tr>
+        <tr><td><code>firecrawl</code></td><td>网页抓取 / 搜索</td><td>按需</td></tr>
+        <tr><td><code>obsidian</code></td><td>Obsidian 笔记库集成</td><td>按需</td></tr>
         <tr><td><code>dispatching-parallel-agents</code></td><td>并行子代理分派</td><td>主 AI</td></tr>
+        <tr><td><code>writing-plans / executing-plans</code></td><td>先写方案再执行</td><td>大任务</td></tr>
+        <tr><td><code>session-handoff</code></td><td>会话交接文档生成</td><td>交接时</td></tr>
+        <tr><td><code>autonomous-agent-harness</code></td><td>自主 Agent 运行框架</td><td>按需</td></tr>
+        <tr><td><code>brand-voice</code></td><td>品牌语调 / 风格控制</td><td>按需</td></tr>
+        <tr><td><code>agent-architecture-audit</code></td><td>架构审核与诊断</td><td>主 AI</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
 <section class="section" id="sec-4">
-  <h2>四、Python 调用规范（重要）</h2>
+  <h2>四、Hook 使用规范（.claude/settings.json，3 类自动触发）</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Hook</th><th>触发时机</th><th>执行</th><th>作用</th></tr></thead>
+      <tbody>
+        <tr><td><code>SessionStart</code></td><td>打开/恢复会话</td><td><code>session_start_report.js</code></td><td>自动报告身份/任务板/技能/信箱 + mem_search 回忆</td></tr>
+        <tr><td><code>PreCompact</code></td><td>压缩前</td><td><code>precompact_save.js</code></td><td>状态快照落盘 KEY_MEMORY⑨</td></tr>
+        <tr><td><code>SessionEnd</code></td><td>会话结束</td><td><code>precompact_save.js</code> + <code>compact_scheduler.js --quiet</code> + <code>chat_autosave.js</code></td><td>快照 + 压缩条件检测 + 对话摘要存档</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card warning" style="margin-top:1rem;">
+    <p style="margin:0;">Hook 是自动机制，不需要手动调；<strong>改 hook 配置 = 机制变更，报主 AI 审批</strong>。</p>
+  </div>
+</section>
+
+<section class="section" id="sec-5">
+  <h2>五、Python 调用规范（重要）</h2>
   <div class="card warning">
     <ul>
       <li><strong>系统 <code>python</code> 不可用</strong>：PATH 含中文用户名 <code>浪</code>，GBK 编码乱码 → 命令找不到。</li>
@@ -1860,20 +1923,16 @@ ai-agent/
   </div>
 </section>
 
-<section class="section" id="sec-5">
-  <h2>五、给各 AI 的提醒</h2>
+<section class="section" id="sec-6">
+  <h2>六、提醒</h2>
   <div class="concept-grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
     <div class="concept-card" style="border-top:3px solid var(--accent);">
-      <h4>你不需要等授权</h4>
-      <p>tools/ 与 skills/ 都是共享的，直接调用。</p>
-    </div>
-    <div class="concept-card" style="border-top:3px solid var(--accent4);">
-      <h4>改工具前先问</h4>
-      <p>改 tools/ 脚本是机制变更（铁律 8），先报主 AI 审批；但<strong>调用</strong>工具无需审批。</p>
+      <h4>调用无需审批，改需审批</h4>
+      <p>调用工具/技能直接来；改脚本/skill/hook 先报主 AI 审批（铁律 8）。</p>
     </div>
     <div class="concept-card" style="border-top:3px solid var(--accent3);">
-      <h4>用前先读 SKILL.md</h4>
-      <p>任何技能调用前先 Read 其 SKILL.md 全文。</p>
+      <h4>知识问题先翻库</h4>
+      <p>知识类问题先 fanku 翻库再答，带出处不编造。</p>
     </div>
   </div>
 </section>
@@ -3352,7 +3411,7 @@ ai-agent/
     <table>
       <thead><tr><th>名字</th><th>身份</th><th>职责</th></tr></thead>
       <tbody>
-        <tr><td><strong>主 AI</strong></td><td>主窗口（你）</td><td>统筹、架构、落地、部署、派子代理；<strong>文件自动化（tools/ 脚本）+ skill 管理 + 使用规范书写</strong>；所有改动最终备案</td></tr>
+        <tr><td><strong>主 AI</strong></td><td>主窗口（你）</td><td>统筹、架构、落地、部署、派子代理；<strong>脚本/skill/hook 统一管理 + 文件自动化 + 使用规范书写</strong>；所有改动最终备案</td></tr>
         <tr><td><strong>闲聊 AI</strong></td><td>主窗口</td><td>交流想法、情感陪伴；懂你档案专属；小改动自理</td></tr>
         <tr><td><strong>智能体 AI</strong></td><td>主窗口</td><td>智能体体系搭建：skill、翻库规则、任务板、健康度盘点</td></tr>
         <tr><td><strong>日志 AI</strong></td><td>主窗口</td><td>写用户的工作日志，后续半月报/月报/年报</td></tr>
