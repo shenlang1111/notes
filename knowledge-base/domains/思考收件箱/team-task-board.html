@@ -69,10 +69,17 @@
     </thead>
     <tbody>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
-        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
-        <td style="padding:8px;"><strong>自动接单打磨（自主运行机制遗留 2 项）</strong>——①对"发给非 main agent"的消息路由不完善（投"发给：主大脑"被 headless 当普通消息接，未正确路由到对应 AI）②原投递文件被删时收尾不完整（标 done 但没生成回复文件）。建议：dispatch 增加按 to 路由 + 原文件缺失时用信箱 text 兜底</td>
+        <td style="padding:8px;"><span class="tag tag-green">✅ 已解决</span></td>
+        <td style="padding:8px;"><strong>全项目体检发现 2 个 P0 问题（技术验证员 2026-08-03，主 AI 核实已解决）</strong>：①<strong>页数三处不一致</strong>——已修：KEY_MEMORY 34→35，35 内容页全成对；session-prompt-d 是 MD-only 话术页（合规豁免，非不一致）②<strong>heartbeat 计划任务未真注册</strong>——已核实任务真实注册（PowerShell Ready + LastRunTime 21:10 exit 0 + NextRun 21:30；schtasks 查无是 schtasks 可见性问题，非任务缺失）</td>
+        <td style="padding:8px;">技术验证员</td>
         <td style="padding:8px;">主 AI</td>
-        <td style="padding:8px;">待主 AI</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
+        <td style="padding:8px;"><strong>自动接单打磨（自主运行机制遗留 2 项）</strong>——①对"发给非 main agent"的消息路由不完善（投"发给：主大脑"被 headless 当普通消息接，未正确路由到对应 AI）→ 修复：非 main 消息不标 done、不抢活，原样保留信箱供目标 AI 接单；原文件被删时用信箱 text 重建占位文件 ②原投递文件被删时收尾不完整（标 done 但没生成回复文件）→ 修复：路由跳过时重建占位文件，确保目标 AI 可接单</td>
+        <td style="padding:8px;">主 AI</td>
+        <td style="padding:8px;">主 AI</td>
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
