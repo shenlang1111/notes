@@ -4645,6 +4645,10 @@ uv venv .venv && uv pip install mem0ai fastembed
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-04</td><td><strong>工具优先与查证机制（用户拍板：主动联网 + 入库标数据源）</strong>——做任务/思考第一反应 = 调工具（skill/脚本/hook，见 shared-tools-index，调用免审批），不裸答。<strong>查证三级</strong>：①库优先——mem_search 经验/决策 + fanku 翻知识页，<strong>直接资料 + 经验总结都要翻</strong> ②论据不充分 → <strong>主动联网</strong>（用户拍板：不限定平台，优先数据源好的平台：官方/专业论坛/文献，不等用户要求）③深度思考消化整合，不直接贴资料。<strong>所有 AI 知悉</strong>：联网查到的信息<strong>整理入库并标注数据源</strong>（按内容去向流程，默认追加已有页；遵守数据四档）；原 fanku"不入库"限制已取消</td>
+          <td>知识库维护规范.md（十四 工具优先与查证）+ 规范八 fanku 段</td><td><span class="tag tag-orange">规则设定 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-04</td><td><strong>问题解决机制（用户拍板：项目流水线 8 步）</strong>——项目型任务（多步骤、有交付物）走标准流水线：①拆解需求一句话复述确认 ②需求不明确先问清再动 ③查资料（fanku/记忆库/联网带出处）④给方案讨论不执行 ⑤用户拍板后开工 ⑥拆解子问题，<strong>子问题 >3 自动并行调多个子 agent（各碰各的文件同文件串行）+ 配审核子 agent 独立复核</strong>（不能自己验自己）⑦结束验证可行性 + 找反例 + 回归复检 ⑧概述 + 结论交付用户 → <strong>用户转测试员 QA</strong>（只测不修，问题登记任务板）。<strong>所有 AI 知悉</strong>：自动 = AI 干活时主动分派（非定时脚本）；日常小改动仍走原流程；DoD 门禁不豁免</td>
           <td>知识库维护规范.md（十三 问题解决机制）</td><td><span class="tag tag-orange">规则设定 AI</span></td>
         </tr>
