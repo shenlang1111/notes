@@ -82,6 +82,11 @@
       <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><span class="tag tag-teal">主 AI</span></td>
+          <td><strong>知识库质量体检 + 修复（用户"你改"）</strong>：体检发现并修 4 类——①工作日志 4 文件 6 处失效链接（旧页拆分后链接没跟，含 2 处 xx.html 占位残留，双格式同步）②registry updated 字段 30 处过时批量校准 ③report-2026-07-下半月 补登记 registry + nav 入口 + 首页快照 34→37 ④mobile 重新生成（37 页）。复检：内链 335 个 0 失效、registry↔磁盘 37/37、updated 0 不一致。详见 CHANGELOG</td>
+          <td>工作日志 4 文件（html+md）、registry.json、nav.js、index.html、mobile.html</td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><span class="tag tag-orange">闲聊 AI</span></td>
           <td><strong>落地"Trae 对话接入自动存档"（用户拍板"你来落地吧"）</strong>：新建 tools/chat_autosave.js（SessionEnd hook：扫 D:\ai\brain-memory\chat_inbox\chat-&lt;agent&gt;-&lt;日期&gt;.md → 调 mem_chat_save.py 入库 → 归档 archive/）+ settings.json 注册 + 实测通过（casual 摘要入库召回 0.86、归档成功）。⚠️ 注意：任务板有主 AI 瘦身建议"自动存档改习惯项、不造自动脚本"（🆕 待主 AI 执行清理）——本 hook 是事件触发非定时任务，留/撤待用户+主 AI 定夺</td>
           <td>tools/chat_autosave.js（新）、.claude/settings.json、D:\ai\brain-memory\chat_inbox\（新）、任务板 html+md</td>
