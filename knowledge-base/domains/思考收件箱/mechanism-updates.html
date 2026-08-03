@@ -63,6 +63,10 @@
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-04</td><td><strong>问题解决机制（用户拍板：项目流水线 8 步）</strong>——项目型任务（多步骤、有交付物）走标准流水线：①拆解需求一句话复述确认 ②需求不明确先问清再动 ③查资料（fanku/记忆库/联网带出处）④给方案讨论不执行 ⑤用户拍板后开工 ⑥拆解子问题，<strong>子问题 >3 自动并行调多个子 agent（各碰各的文件同文件串行）+ 配审核子 agent 独立复核</strong>（不能自己验自己）⑦结束验证可行性 + 找反例 + 回归复检 ⑧概述 + 结论交付用户 → <strong>用户转测试员 QA</strong>（只测不修，问题登记任务板）。<strong>所有 AI 知悉</strong>：自动 = AI 干活时主动分派（非定时脚本）；日常小改动仍走原流程；DoD 门禁不豁免</td>
+          <td>知识库维护规范.md（十三 问题解决机制）</td><td><span class="tag tag-orange">规则设定 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-04</td><td><strong>部署分级（用户拍板"除了给我看的知识/经验类，其他都不部署"）</strong>——部署按"谁看"分级（A+B 混合）：①<strong>用户看页改完即部署</strong>（知识内容页 7 域/会话经验/工作日志/思考收件箱/机制更新/健康度盘点/技术验证报告 brain-tech-verification ＋ 载体 index/mobile/registry/nav/style）②<strong>AI 看页默认不部署</strong>（ai-worklog/CHANGELOG/话术页/交接文档/规则问题登记/任务板），本地自读，每月统一部署一次留档。<strong>所有 AI 知悉</strong>：干完活先判断文件属"用户看"还是"AI 看"——用户看页照常 deploy.js + --expect；AI 看页不再每次部署（记忆沉淀/状态保鲜照常）；任务板等双格式页照常都写、不上线（用户拍板）</td>
           <td>知识库维护规范.md（铁律 3 + 三-8 部署分级）</td><td><span class="tag tag-orange">规则设定 AI</span></td>
         </tr>
