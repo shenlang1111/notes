@@ -4516,6 +4516,10 @@ uv venv .venv && uv pip install mem0ai fastembed
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>工具与技能全员共享（用户拍板"改成都能用"）</strong>——①<strong>技能双目录镜像</strong>：<code>.trae/skills/</code> 20 个技能全部镜像进 <code>.claude/skills/</code>（Claude Code 与 Trae 两边都认，fanku 已在），开窗报告技能块全列 20 个②<strong>Python 封装 py.cmd</strong>：系统 python 因 PATH 含中文用户名乱码失效 → 新建 <code>tools/py.cmd</code> 自动指向 venv（记忆库 brain-memory 优先，回退检索库 deep-memory），绕开中文③<strong>共享索引页</strong>：新建 <code>会话记录/shared-tools-index.html+md</code>（全项目工具/技能总索引：11 个 tools/ + 8 个常用技能 + Python 调用规范），registry 登记，话术页指向它。<strong>所有 AI 知悉</strong>：tools/*.js 与 skills/ 是<strong>全员共享资产</strong>，任何 AI 可直接调用（改 tools/ 才需审批铁律 8，调用无需审批）</td>
+          <td>tools/py.cmd（新）+ .claude/skills/（镜像）+ 会话记录/shared-tools-index html+md（新）+ session-prompt-d.md + registry.json</td><td><span class="tag tag-purple">主大脑</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>压缩指令简化（裸 /compact 自动同步记忆）</strong>——用户确认裸 <code>/compact</code> 已自动同步记忆，无需带参数。更新后直接打 <code>/compact</code> 即可，自动完成快照刷新 + 记忆同步 + 压缩。<strong>所有 AI 知悉</strong>：压缩指令已简化，裸 <code>/compact</code> 就是完整压缩流程，无需再记参数</td>
           <td>KEY_MEMORY.md + 知识库维护规范.md（第十节）+ 话术页（全部 AI）</td><td><span class="tag tag-orange">主 AI</span></td>
         </tr>
