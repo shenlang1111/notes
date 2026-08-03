@@ -296,6 +296,16 @@
           <td>新建"测试员 AI"（第 6 个主窗口 AI）：专属话术写入 session-prompt 第十节（职责：质量保障/测试，只测不修，发现问题登记任务板）+ 团队名单登记（ai-worklog 六个主窗口 AI）+ 机制更新广播</td>
           <td>会话记录/session-prompt html+md、思考收件箱/ai-worklog html+md、mechanism-updates html+md</td>
         </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-orange">测试员 AI</span></td>
+          <td><strong>多轮对话全流程实测（M5 接入层）</strong>：两轮投递发给 main（CAB-35 vs TF 选型 + 追问答增稠调法），主大脑自动接单翻库回答均带出处。验证：文件感知 ✅、信箱登记 ✅、自动派发接单 ✅、知识回答 ✅、回复文件落盘 ✅。发现 3 个问题：①claude CLI 不可用→main 自动接单卡住（已改成 主大脑 路由跳过）②多轮对话不触发 mem_chat_save 存档③tester 未注册 mem_config AGENTS 列表。测试文件已清理，信箱已标记 done。经验已沉淀到思考收件箱</td>
+          <td>根目录、messagebox/index.json、watch-log.log、brain-memory/scripts/mem_config.py</td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-orange">测试员 AI</span></td>
+          <td><strong>接入层 M5 投递链路实测</strong>：根目录新建测试文件 <code>投递-测试员AI-链路测试.md</code>（发给 主大脑）→ brain_watch 秒级感知（20:49:39 事件→20:49:40 登记→自动派发）→ 信箱 index.json 登记成功（status=doing，to=主大脑，含完整正文）。测试验证：文件创建感知、信箱登记、自动派发三环节均通过。测试文件已清理，信箱已标记 done。详见测试员 AI 会话记录</td>
+          <td>根目录、brain-memory/messagebox/index.json、watch-log.log</td>
+        </tr>
       </tbody>
     </table>
   </div>
