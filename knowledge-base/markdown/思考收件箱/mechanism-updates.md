@@ -22,6 +22,7 @@ updated: 2026-08-03
 
 | 日期 | 新增机制 | 去哪读 | 谁加的 |
 |---|---|---|---|
+| 2026-08-03 | **记忆库修复 + 对话存档机制（主大脑执行，用户拍板核心）**——①记忆库去重清理（1064→463 点，灌库脚本非幂等导致重复爆炸；去重脚本 dedup_memory.py + 灌库脚本 kb_seed_knowledge.py 加 --reset 幂等 + #### 细切段，重灌 502 条）②**对话存档 mem_chat_save.py**：每轮对话结束 AI 自动存档对话内容（自动切段存 mid 层，source=chat-<agent>-<日期>），用户拍板/有结论/有教训必存；**提炼是后面的阶段，先学会存**。③查对话用 `mem_search --layer mid`（对话=mid，知识=long，分层清晰）。**所有 AI 开工必读**：每轮结束用 mem_chat_save 存档对话 | D:\ai\brain-memory\scripts\mem_chat_save.py（新）+ 规范第十节 + KEY_MEMORY ⑤ | 主大脑 |
 | 2026-08-03 | **压缩续命模式（用户决定）**——用户不再创建新窗口，上下文长了直接压缩，恢复靠记忆机制：mem0 主记忆（自动沉淀默认动作）+ KEY_MEMORY 速查（决策/下一步收尾即更新，不依赖 PreCompact hook）+ 快照保底；**压缩后恢复 = 读 KEY_MEMORY + mem_search + 任务板 + CHANGELOG 再干活**；交接文档降级为公共参考 | KEY_MEMORY.md + 记忆库 mem0 + 规范第十节 | 主 AI |
 | 2026-08-03 | **分层阅读 4 层加固（状态保鲜 DoD 化）**——①DoD 记忆类加"状态保鲜"勾选项（改过 KEY_MEMORY/交接/机制页 → 已重灌库）②知识页改动后跑 kb_seed_knowledge.py --domain 思考收件箱（几秒级）③各 AI 交接/话术开工段统一 4 层说明（casual/agent/log/migration/session-prompt-d）④旧"三层"记忆已清理（删旧写新为 4 层） | 知识库维护规范.md（DoD + 第十节）+ 5 份交接/话术 | 主 AI |
 | 2026-08-03 | **分层阅读 4 层开工（用户拍板）**——库优先/文件兜底：层1 记忆库 mem0（知识/规则/经验/决策，先查）→ 层2 KEY_MEMORY（命令/决策速查）→ 层3 交接+任务板（身份/当前状态）→ 层4 CHANGELOG（最近进展）；新 AI 开工只读 4 处；**状态保鲜** = KEY_MEMORY/交接改动后重灌库（kb_seed_rules.py --key-memory 删旧写新）；**会话档案区频率拍板** = 换话题自动提炼 | 知识库维护规范.md（第十节 + 五-1）+ KEY_MEMORY.md + tools/kb_seed_rules.py + session_start_report.js | 主 AI |
