@@ -65,4 +65,4 @@ updated: 2026-08-03
 - 交接文档：`D:\ai\学习公司产品知识树\.claude\handoffs\2026-08-03-migration-handover.md`（必读）
 - 记忆库在 D 盘之外（D:\ai\brain-memory），脚本路径用绝对路径
 - 改 D 盘文件若工具受限，用命令（Set-Content/Add-Content）
-- 压缩用带参数 /compact，裸 /compact 会跳过 hook
+- 压缩用裸 /compact 即可，自动同步记忆
