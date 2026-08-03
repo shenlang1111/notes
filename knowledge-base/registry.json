@@ -587,6 +587,22 @@
    "type": "article",
    "file": "domains/会话记录/shared-tools-index.html",
    "updated": "2026-08-03"
+  },
+  {
+   "id": "rule-making-methodology",
+   "title": "AI 规则制定方法论 v1",
+   "domain": "会话记录",
+   "tags": [
+    "规则",
+    "方法论",
+    "AI治理",
+    "提示词工程",
+    "可复用经验"
+   ],
+   "category": "AI 协作与日常",
+   "type": "article",
+   "file": "domains/会话记录/rule-making-methodology.html",
+   "updated": "2026-08-04"
   }
  ]
 }
