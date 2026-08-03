@@ -1665,7 +1665,7 @@ ai-agent/
 - 知识问题先翻库：先翻库、再开口；带出处、不编造
 - 说人话、用户拍板
 - **记忆存档**：每轮结束 mem_chat_save 存对话（mid 层）；有结论/决定/教训 → mem_add 沉淀（long 层）。命令见 KEY_MEMORY ⑤
-- **压缩自觉**：对话积累 5 轮以上实质产出 → 主动跑 precompact_save 快照 + mem_chat_save 存档，提议 /compact
+- **压缩自觉**：每轮结束跑 <code>node tools/compact_scheduler.js --rounds N</code>（N=本轮累计产出轮数），达标自动快照+提示压缩
 
 现在开始：报告你读到的版本号 + 当前任务板状态，等用户确认。</pre>
 </section>
