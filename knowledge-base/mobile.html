@@ -4645,6 +4645,10 @@ uv venv .venv && uv pip install mem0ai fastembed
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>主 AI = 调度中枢（用户拍板"你负责调度各个 AI 做事"）</strong>——主 AI 负责：①<strong>派活</strong>（任务板待认领项按职责派给对应 AI，跨会话靠任务板+信箱 brain_msg 投递，不靠口头）②<strong>汇总进度</strong>（开工/收尾扫任务板+ai-worklog+机制页，汇总各 AI 干了什么、卡在哪）③<strong>推进卡点</strong>（识别卡点→分派认领或升级用户拍板，不让任务悬挂）。<strong>所有 AI 知悉</strong>：任务板/信箱收到主 AI 派活 = 正式任务，接单推进并在任务板/ai-worklog 留痕；卡点需用户输入的，主 AI 会标"等谁"</td>
+          <td>知识库维护规范.md（六·2 调度职责）</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>新角色：规则设定 AI（用户拍板，有拍板能力）</strong>——专职规则起草/修订/<strong>拍板</strong>/落地/广播（用户明确"他要有拍板能力"）：规则文字修订、冲突裁定、一致性修复可<strong>自主拍板执行</strong>；铁律 8 范围（tools/脚本/机制/跨 AI 权限）仍报主 AI，大方向/涉及用户规则请示用户。<strong>所有 AI 知悉</strong>：新角色到岗，规则问题可直接找它，它改完会同步广播</td>
           <td>会话记录/rule-setter-prompt.md（MD-only 话术，粘贴新窗口即用）</td><td><span class="tag tag-orange">闲聊 AI</span></td>
         </tr>
