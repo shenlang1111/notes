@@ -48,6 +48,10 @@
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>机制瘦身（规范 v3.6，用户拍板）</strong>——砍"机制养机制"：①铁律 11→10 条（合并收尾门禁+DoD）②<strong>留痕分工</strong>五处定位：CHANGELOG=唯一全量追溯（AI 看）/ ai-worklog=人员一句话（AI 看，细节引用 CHANGELOG）/ mechanism-updates=新机制广播（用户看，稳定即清理）/ team-task-board=任务待办（用户看）/ mem0=结论沉淀 ③<strong>双格式分级</strong>：用户看页（知识/经验/日志/机制/任务板）HTML+MD 成对，AI 看页（ai-worklog 等）可只写 MD——deploy.js checkPairs 加 MD_ONLY_EXEMPT 豁免 ④健康度盘点<strong>产出必带认领人+期限</strong>。依据：闲聊 AI 机制健康度评估（收件箱 [待探讨]）</td>
+          <td>知识库维护规范.md（v3.6）+ KEY_MEMORY.md + tools/deploy.js + CODE_WIKI.md（v3.4）+ ai-worklog + kb-health-checklist</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>记忆入库方案落地（规范 v3.5）</strong>——用户拍板（调查业界后修正）：记忆大脑（mem0）升级为<strong>主记忆</strong>（干完活 mem_add 写、开工/压缩后 mem_search 读，不依赖任何 hook 时机）；KEY_MEMORY 降级为速查一页纸，快照区退二线保底；session_start_report.js 开窗自动回忆最近记忆；压缩统一用<strong>带参数</strong> <code>/compact 保留任务状态/关键决策/下一步</code>（裸 /compact 走 session memory 分支会跳过 PreCompact hook——本次压缩实锤，快照未更新）</td>
           <td>知识库维护规范.md（v3.5 第十节）+ KEY_MEMORY.md + tools/session_start_report.js + CODE_WIKI.md（v3.3 §4.3）</td><td><span class="tag tag-orange">主 AI</span></td>
         </tr>
