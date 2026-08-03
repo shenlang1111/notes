@@ -75,7 +75,7 @@ updated: 2026-08-01
 | --- | --- | --- | --- | --- | --- |
 | **TC-CAB** | 椰油基（Coconut） | C8-C18混合 | 椰油酰胺丙基甜菜碱 | 发泡强、增稠强 | 洗发水主流 |
 | **TC-LAB** | 月桂基（Lauryl） | C12短碳链 | 月桂酰胺丙基甜菜碱 | 低刺激、更温和 | 婴儿洗护、高端洁面 |
-| **TC-MAB** | — | 咪唑啉型 | 月桂基两性醋酸钠 (Disodium Lauroamphodiacetate) | 极温和，弱抑菌 | 婴童产品、温和洗护 |
+| **TC-MAB** | — | 咪唑啉型 | 月桂酰两性基乙酸钠 (Disodium Lauroamphodiacetate) | 极温和，弱抑菌 | 婴童产品、温和洗护 |
 | **TC-SHD** | — | 磺基甜菜碱 | 椰油酰胺丙基羟基磺基甜菜碱 (Cocamidopropyl Hydroxysultaine) | 温和低刺激，耐硬水，pH宽域稳定 | 高端洗护、敏感肌 |
 
 
