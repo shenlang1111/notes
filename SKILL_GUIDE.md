@@ -47,7 +47,7 @@ Skill 是可复用的能力包：一个带 `SKILL.md` 指令的文件夹，定�
 | 用户给 PDF / Word / Excel 资料（培训材料、产品手册、数据表） | `pdf` / `docx` / `xlsx` |
 | 多 Agent 并行分派任务 | `dispatching-parallel-agents` |
 | 会话结束 / 换对话框交接 | `session-handoff` |
-| 跨会话记忆、记得用户说过什么 | `unified-memory` / `ck` |
+| 跨会话记忆、记得用户说过什么 | 记忆大脑 mem0（干完活 `mem_add` 写、开工 `mem_search` 读，见 KEY_MEMORY⑤）；`unified-memory` / `ck` 为通用备选 |
 | 回答知识类问题前先翻知识库（产品/机理/配方/数据/市场） | `fanku` |
 | 给知识库创建新的专属技能 | `skill-creator` |
 | 用户说"我们讨论一下" | `brainstorming` |
