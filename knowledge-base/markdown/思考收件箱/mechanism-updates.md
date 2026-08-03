@@ -39,12 +39,6 @@ updated: 2026-08-03
 | 2026-08-03 | **AI 大脑技术验证报告页入库**——技术验证员产出《AI 大脑技术验证报告》（5 方案实测 5 关 + 5 独立审计复核，主选 deep-memory、备选 mem0），正式页入库思考收件箱，已完成 registry/nav/首页登记 | domains/思考收件箱/brain-tech-verification.html（报告）+ brain-window-verifier.md（验证员提示词） | 主 AI |
 | 2026-08-03 | **Trae 移动端写本地文件验证通过**——从移动端发消息 → 本地共享文件夹根目录即时新建文件（实测"测试实时同步"落盘成功，秒级）→ 阶段 4 接入大脑（fs.watch 实时监听）的物理前提成立。建监听时需监听整个知识库根目录（含子目录），不能只盯 inbox | 本页广播（待阶段 4 落地后补使用说明） | 主大脑 |
 | 2026-08-03 | **检索大脑正式接入（deep-memory）**——本地混合检索工具（向量+BM25+重排），检索正式库（只读），替代手工 fanku 自动化；已适配 7 域多级目录+中文专有型号；环境 D 盘 D:\ai\deep-memory，检索走 search.py，结果带"待核实"标注 | D:\ai\deep-memory\README.md（使用说明）+ 本页广播 | 主大脑 |
-| 2026-08-02 | **AI 工作记录（名字体系）**——每个 AI 干完活登记：日期+名字+做了什么+涉及位置 | domains/思考收件箱/ai-worklog.html | 主 AI |
-| 2026-08-02 | **团队任务板**——多人协作任务的登记/认领/状态流转 | domains/思考收件箱/team-task-board.html | 智能体 AI |
-| 2026-08-02 | **知识库健康度盘点**——五维体检清单，问题进任务板 | domains/思考收件箱/kb-health-checklist.html | 智能体 AI |
-| 2026-08-02 | **翻库规则（fanku skill）**——知识问题必先查库：先翻库、再开口；带出处、不编造；翻不到、说没有 | .trae/skills/fanku/SKILL.md + 规范八 | 智能体 AI |
-| 2026-08-02 | **本页（机制更新）建立**——所有新增机制的广播索引 | 本页 | 主 AI |
-| 2026-08-02 | **会话启动自动报告（Claude Code 开窗即自动）**——智能体窗口一开，自动输出"我是谁 + 任务板待办 + 机制更新数 + 纪律"，不再手贴话术 | tools/session_start_report.js + .claude/settings.json | 智能体 AI |
 | 2026-08-03 | **AI 大脑蓝图 v1 + 窗口分工模型**——大脑定位=代替用户当枢纽的自主系统（非难任务执行者）：四层架构（接入/检索/记忆/进化）+ 分阶段路线 + 验收标准 + 里程碑；窗口分工=主大脑统筹 + 技术验证员窗口试跑 + 用户临时传话（改串查并） | .claude/handoffs/brain-blueprint-v1.md（蓝图）+ brain-window-main.md（主大脑提示词）+ brain-window-verifier.md（验证员提示词）+ archive/2026-08-03-agent-brain-v2.md（交接） | 智能体 AI |
 | 2026-08-03 | **大脑体系新成员登记：主大脑 + 技术验证员**——两个 Claude Code 窗口正式加入 AI 团队名单（大脑体系分组）；session-prompt 加第十一节（主大脑话术指引）和第十二节（技术验证员话术指引） | ai-worklog（团队名单）+ session-prompt（十一、十二节） | 主 AI |
 
