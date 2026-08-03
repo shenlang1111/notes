@@ -80,7 +80,7 @@
       <tbody>
         <tr><td><code>session_start_report.js</code></td><td>开窗自动报告（身份/任务/技能/信箱）</td><td>hook 自动触发（SessionStart）</td></tr>
         <tr><td><code>precompact_save.js</code></td><td>压缩前快照落盘 KEY_MEMORY⑨</td><td>hook 自动触发；手动 <code>node tools/precompact_save.js</code></td></tr>
-        <tr><td><code>compact_scheduler.js</code></td><td>压缩条件自动检测（完成率/轮数/--force）</td><td><code>--rounds N</code> 检测 / <code>--force</code> 强制 / <code>--quiet</code> 静默</td></tr>
+        <tr><td><code>compact_scheduler.js</code></td><td>压缩条件自动检测（已退二线，裸 /compact 替代）</td><td><code>--rounds N</code> 检测 / <code>--force</code> 强制 / <code>--quiet</code> 静默</td></tr>
         <tr><td><code>chat_autosave.js</code></td><td>对话摘要自动存档</td><td>hook 自动触发（SessionEnd）</td></tr>
         <tr><td><code>brain_watch.js</code></td><td>接入层实时监听（秒级感知新文件）</td><td><code>--daemon</code> 后台 / <code>--once</code> 快照 / <code>--status</code> 存活</td></tr>
         <tr><td><code>brain_msg.js</code></td><td>消息信箱</td><td><code>--list</code> / <code>--peek</code> / <code>--done</code> / <code>--status</code> / <code>--reply</code></td></tr>
