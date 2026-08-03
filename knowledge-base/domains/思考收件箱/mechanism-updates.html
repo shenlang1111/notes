@@ -48,6 +48,10 @@
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>记忆库修复 + 对话存档机制（主大脑执行，用户拍板核心）</strong>——①记忆库去重清理（1064→463 点，灌库脚本非幂等导致重复爆炸；去重脚本 dedup_memory.py + 灌库脚本 kb_seed_knowledge.py 加 --reset 幂等 + #### 细切段，重灌 502 条）②<strong>对话存档 mem_chat_save.py</strong>：每轮对话结束 AI 自动存档对话内容（自动切段存 mid 层，source=chat-&lt;agent&gt;-&lt;日期&gt;），用户拍板/有结论/有教训必存；<strong>提炼是后面的阶段，先学会存</strong>。③查对话用 <code>mem_search --layer mid</code>（对话=mid，知识=long，分层清晰）。<strong>所有 AI 开工必读</strong>：每轮结束用 mem_chat_save 存档对话</td>
+          <td>D:\ai\brain-memory\scripts\mem_chat_save.py（新）+ 规范第十节 + KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>压缩续命模式（用户决定）</strong>——用户不再创建新窗口，上下文长了直接压缩，恢复靠记忆机制：mem0 主记忆（自动沉淀默认动作）+ KEY_MEMORY 速查（决策/下一步收尾即更新，不依赖 PreCompact hook）+ 快照保底；<strong>压缩后恢复 = 读 KEY_MEMORY + mem_search + 任务板 + CHANGELOG 再干活</strong>；交接文档降级为公共参考</td>
           <td>KEY_MEMORY.md + 记忆库 mem0 + 规范第十节</td><td><span class="tag tag-orange">主 AI</span></td>
         </tr>
