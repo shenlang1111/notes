@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 大脑技术验证报告 · 天赐材料知识库</title>
-<link rel="stylesheet" href="../../_shared/css/style.css?v=6">
+<link rel="stylesheet" href="../../_shared/css/style.css?v=7">
 </head>
 <body>
 
@@ -14,12 +14,31 @@
 <div class="container">
 <!-- ===== Page Hero ===== -->
 <div class="page-hero">
+  <nav class="breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">AI 大脑技术验证报告</span>
+  </nav>
   <div class="page-hero-meta"><span class="tag tag-orange">AI 协作</span> <span class="tag tag-teal">技术验证</span></div>
   <h1>AI 大脑技术验证报告（阶段 0）</h1>
   <p class="page-hero-desc">5 个候选方案逐一实测 5 关 + 5 份独立对抗性审计复核；主选 deep-memory、备选 mem0。为"AI 大脑"技术选型定方向。</p>
   <a href="../../index.html" class="page-hero-back">← 返回首页</a>
 </div>
 <!-- ===== /Page Hero ===== -->
+  <details class="toc-nav" open>
+    <summary>本页目录</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>路线 A：deep-memory（主</a>
+      <a href="#sec-2"><span class="toc-num">2</span>路线 B：mem0（备选）— 记忆层</a>
+      <a href="#sec-3"><span class="toc-num">3</span>建议技术路线（供主大脑评估、用户拍板</a>
+      <a href="#sec-4"><span class="toc-num">4</span>需用户/主大脑拍板的问题</a>
+      <a href="#sec-5"><span class="toc-num">5</span>AI 工作记录</a>
+      <a href="#sec-6"><span class="toc-num">6</span>团队任务板</a>
+      <a href="#sec-7"><span class="toc-num">7</span>知识库健康度盘点</a>
+      <a href="#sec-8"><span class="toc-num">8</span>机制更新</a>
+    </div>
+  </details>
+
 
 <!-- 一、一句话结论 -->
 <section class="section" id="conclusion">
@@ -80,7 +99,7 @@
 <section class="section" id="steps">
   <h2>四、主选方案接入步骤</h2>
 
-  <h3>路线 A：deep-memory（主选）— 本地免 key 真混合检索 + 自进化</h3>
+  <h3 id="sec-1">路线 A：deep-memory（主选）— 本地免 key 真混合检索 + 自进化</h3>
   <div class="card accent">
     <pre style="background:transparent;margin:0;overflow:auto;"><code># 1) 装 skill 包：deep-memory / chroma-hybrid-search / memory-import / memory-backup
 #    放进项目 .claude/skills/ 或 ~/.claude/skills/
@@ -103,7 +122,7 @@ python -m venv "$HOME\.deep-memory\.venv"
   </div>
   <p><strong>要点</strong>：混合检索（语义 e5-small + BM25 + bge-reranker 重排）+ cold→hot 自进化闭环，均实测跑通、审计复现。概念型问句（如"CAB+AES 协同增稠"）质量高。</p>
 
-  <h3>路线 B：mem0（备选）— 记忆层底座，中文检索实测最佳</h3>
+  <h3 id="sec-2">路线 B：mem0（备选）— 记忆层底座，中文检索实测最佳</h3>
   <div class="card accent2">
     <pre style="background:transparent;margin:0;overflow:auto;"><code># 本地纯离线（免 key）：fastembed 中文模型 + qdrant + Ollama
 export HF_ENDPOINT=https://hf-mirror.com
@@ -141,7 +160,7 @@ uv venv .venv && uv pip install mem0ai fastembed
 <section class="section" id="advice">
   <h2>六、给主大脑的决策建议 + 需用户拍板问题</h2>
 
-  <h3>建议技术路线（供主大脑评估、用户拍板）</h3>
+  <h3 id="sec-3">建议技术路线（供主大脑评估、用户拍板）</h3>
   <div class="card accent">
     <ol>
       <li><strong>阶段 1 检索大脑</strong>：主选 deep-memory 混合检索（本地免 key），优先推荐<mark class="key">改 kb_reader 源码支持递归子目录</mark>（不动库、成本低），而非改库格式。</li>
@@ -151,7 +170,7 @@ uv venv .venv && uv pip install mem0ai fastembed
     </ol>
   </div>
 
-  <h3>需用户/主大脑拍板的问题</h3>
+  <h3 id="sec-4">需用户/主大脑拍板的问题</h3>
   <div class="table-wrap">
     <table>
       <thead><tr><th>#</th><th>问题</th><th>我的建议</th></tr></thead>
@@ -172,27 +191,43 @@ uv venv .venv && uv pip install mem0ai fastembed
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
     <a href="ai-worklog.html" class="page-card">
       <div class="card-icon">📋</div>
-      <h3>AI 工作记录</h3>
+      <h3 id="sec-5">AI 工作记录</h3>
       <p>技术验证员工作留痕</p>
     </a>
     <a href="team-task-board.html" class="page-card">
       <div class="card-icon">📌</div>
-      <h3>团队任务板</h3>
+      <h3 id="sec-6">团队任务板</h3>
       <p>待办 / 认领 / 状态</p>
     </a>
     <a href="kb-health-checklist.html" class="page-card">
       <div class="card-icon">🩺</div>
-      <h3>知识库健康度盘点</h3>
+      <h3 id="sec-7">知识库健康度盘点</h3>
       <p>定期体检清单</p>
     </a>
     <a href="mechanism-updates.html" class="page-card">
       <div class="card-icon">📢</div>
-      <h3>机制更新</h3>
+      <h3 id="sec-8">机制更新</h3>
       <p>新机制广播索引</p>
     </a>
   </div>
 </section>
 
+  <section class="related-pages">
+    <div class="rp-title">相关页面</div>
+    <div class="rp-grid">
+      <a href="inbox.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">思考收件箱</span></a>
+      <a href="inbox-20260802-agent-design.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">智能体设计讨论存档</span></a>
+      <a href="team-task-board.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">团队任务板</span></a>
+      <a href="kb-health-checklist.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">知识库健康度盘点</span></a>
+    </div>
+  </section>
+  <nav class="page-nav">
+    <a href="mechanism-updates.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">机制更新</span>
+    </a>
+    <div></div>
+  </nav>
 </div>
 
 <footer>
