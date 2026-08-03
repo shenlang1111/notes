@@ -33,20 +33,20 @@
 │   ├── index.html                   # 桌面首页（7 大分类导航）
 │   ├── mobile.html                  # 手机版单文件（build_mobile.js 自动生成，勿手改）
 │   ├── registry.json                # 内容注册表（页面元数据索引）
-│   ├── domains/                     # 内容页 HTML（按领域分文件夹，29 个专题页 + 收件箱/日志）
+│   ├── domains/                     # 内容页 HTML（按领域分文件夹，34 个页面）
 │   │   ├── 表面活性剂/              # 11 页（fundamentals/anionic/cationic/amphoteric/nonionic/properties/synthesis/applications/products/advanced/troubleshooting）
 │   │   ├── 日化原料与配方/          # 1 页（formulation）
-│   │   ├── 销售与市场/              # 4 页（market/sales + 天赐学习手册 tinci-surfactant-guide + 两性表活目录 tinci-amphoteric-summary）
+│   │   ├── 销售与市场/              # 6 页（market/sales + 天赐产品手册 tinci-product-overview/surfactant-details/market-sales + 两性表活目录 tinci-amphoteric-summary）
 │   │   ├── 会话记录/                # 3 页（session-20260801 与 AI 的交流经验、session-prompt 新会话开场话术、user-profile 用户画像）
-│   │   ├── 思考收件箱/              # 6 页（inbox 想法缓冲区、inbox-20260802-agent-design 智能体设计存档、ai-worklog AI 工作记录、team-task-board 团队任务板、kb-health-checklist 健康度盘点、mechanism-updates 机制更新）
-│   │   ├── 精细化工与扩展/          # 1 页（finechem-engineering 精细化工工艺学核心提炼）
+│   │   ├── 思考收件箱/              # 7 页（inbox 想法缓冲区、inbox-20260802-agent-design 智能体设计存档、ai-worklog AI 工作记录、team-task-board 团队任务板、kb-health-checklist 健康度盘点、mechanism-updates 机制更新、brain-tech-verification 技术验证报告）
+│   │   ├── 精细化工与扩展/          # 3 页（finechem-additives/daily-chem/surfaces 助剂、日用化学品、涂料胶粘剂）
 │   │   └── 工作日志/                # 3 页（logs-guide 板块说明、logs-2026-07、logs-2026-08 按月的日志模板）
 │   ├── markdown/                    # 内容页 MD 版（AI 检索用，与 HTML 成对维护）
 │   └── _shared/
 │       ├── css/style.css            # 共享样式（青绿系）
 │       └── js/nav.js                # 共享导航脚本（自动渲染顶部导航）
 ├── tools/
-│   ├── build_mobile.js              # 生成 mobile.html（合并首页+28 页）
+│   ├── build_mobile.js              # 生成 mobile.html（动态扫描 domains/，自动包含全部页面）
 │   └── deploy.js                    # 一键部署（校验→生成→上传→构建→验证）
 ├── index.html                       # 根入口（跳转到 mobile.html）
 ├── 知识库维护规范.md                 # ★ 协作总规则（v3.3，精简版：10 条铁律 + 分节）
@@ -67,10 +67,10 @@
 | 基础理论 | 基础概念、物化性质、合成工艺、应用原理 |
 | 四大表面活性剂 | 阴离子、阳离子、两性、非离子 |
 | 实战应用 | 产品对照、配方设计、问题诊断、销售话术 |
-| 扩展阅读 | 新型表活与检测、市场趋势、精细化工工艺学 |
-| 产品手册 | 天赐学习手册、两性表活产品目录（销售培训用书） |
+| 扩展阅读 | 新型表活与检测、市场趋势、精细化工（助剂/日用化学品/涂料与展望） |
+| 产品手册 | 产品总览、产品详解、市场话术、两性表活目录（销售培训用书） |
 | 工作日志 | 日志说明、按月日志（logs-2026-07 / logs-2026-08） |
-| AI 协作与日常 | 与 AI 的交流经验、新会话开场话术、用户画像、思考收件箱、AI 工作记录、机制更新、团队任务板、健康度盘点（日化之外的内容都归此类） |
+| AI 协作与日常 | 与 AI 的交流经验、新会话开场话术、用户画像、思考收件箱、AI 工作记录、机制更新、团队任务板、健康度盘点、技术验证报告（日化之外的内容都归此类） |
 
 ## 双格式规则
 
