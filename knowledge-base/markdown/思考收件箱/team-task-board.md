@@ -20,11 +20,15 @@ updated: 2026-08-03
 
 | 状态 | 任务 | 登记人 | 认领人 | 日期 |
 |---|---|---|---|---|
+| 🆕 待认领 | **分层阅读机制评估**（闲聊 AI 提出，用户认可方向）——"库优先、文件兜底"三层：层1 记忆库 = 知识/规则/经验/决策（默认先查）；层2 KEY_MEMORY = 命令/决策速查（保确定性）；层3 交接+任务板 = 身份/当前状态。意图：新窗口/新 AI 开工不再读全部杂七杂八文档，只读 3 处。实测依据：记忆库召回验证通过（决策/经验/规则均命中，带出处），但确定性信息（命令/路径/版本）与当前状态类（任务板/CHANGELOG 最新）仍需文件兜底；另观察 mem0 会语义合并旧记忆，不保证每条最新。涉及开工流程改 + 灌库机制（KEY_MEMORY/交接是否灌库、状态如何保鲜），属机制变更须主 AI 审批 + 用户拍板 | 闲聊 AI | 待主 AI | 2026-08-03 |
 | ✅ 已完成 | **deploy.js --expect 验证误报 bug**（tools/ 改动，铁律 12）——**主 AI 审批通过 + 已修复**：匹配前双方统一去空白（tNorm.includes(kwNorm)）+ 区分 404 与关键词不匹配。修复已部署上线 ✅ | 主大脑 | 主 AI | 2026-08-03 |
 | ✅ 已完成 | 修复检索大脑 kb_reader.py 切段 bug（D:\ai\deep-memory）——**主 AI 审批通过 + 已修复上线**：①## 章节引言独立成条目（逐行扫描，不再被吸进前一个 ###）②代码块内 ### 不误判切段（fenced code block 剔除）③跨盘 relpath 加子目录前缀（消除同名 ID 冲突隐患）。修复后重建索引（286→488 条目）+ 复跑 4 组回归全命中（TC-MAB/TC-SHD/CAB+AES/婴童无泪，婴童无泪修复前未命中预期页→修复后大幅改善）✅ | 主大脑 | 主大脑 | 2026-08-03 |
 | ✅ 已完成 | tools/ 建"检索接入脚本"（deep-memory 接入，A 方案）——**主 AI 审批通过（2026-08-03 用户拍板）**：允许在 tools/ 建脚本（只读转换/索引）；**不动库结构**，采用备选方案（改 kb_reader.py 支持递归子目录）✅ 已落地：检索大脑正式接入（D:\ai\deep-memory），4 组真实问句全命中，M2 达成 | 主大脑 | 主大脑 | 2026-08-03 |
 | ✅ 已完成 | **阶段 2 记忆大脑落地**（tools/ 性质，铁律 12）——用 mem0 建记忆底座（`D:\ai\brain-memory`）：分层记忆模型已定稿（metadata 打标+作用域，非 memory_type）、技术验证通过（infer=False 免 LLM / 中文命中 0.73 / 跨进程持久化 / 纠错不再犯）、方案定稿 `D:\ai\brain-phase2-verify\phase2-design-v1.md`。**✅ 用户已直接授权（2026-08-03）+ 主 AI 已确认**：已落地完成（建环境 + 写/读/导出脚本 + 灌库 + 验收）——**M3 里程碑达成**（跨会话不丢 + 纠正不再犯），广播 mechanism-updates + 登记 ai-worklog | 主大脑 | 主大脑 | 2026-08-03 |
 | 🔧 进行中 | 数据来源补齐：全库 60+ 处"待核实"数值——**👤 用户自行补充（2026-08-03 用户指示：AI 不用动）**：数据由用户提供后逐条补来源或降级。已盘点分布：数据类 51 处（market.md 32 / tinci-market-sales.md 10 / tinci-surfactant-details.md 5 / 其他 4），描述性 9 处 | 智能体搭建 AI | 用户 | 2026-08-03 |
+| 🆕 待认领 | 内容硬伤-跨页口径统一（健康度盘点 2026-08-03 发现）：①C-FA 三种化学归属并存（牛磺酸/肌氨酸/谷氨酸，涉及 product-overview/synthesis/formulation/anionic/details）②氧化胺归类三页冲突（两性 vs 非离子，amphoteric/overview/fundamentals）③咪唑啉环化温度矛盾（200-250 vs 180-220）+AEEA 双名（amphoteric/synthesis）④HLB W/O 分档 3-6 vs 3-8（properties/overview/finechem-daily-chem）⑤TC-MAB 中文名两套（formulation vs amphoteric/synthesis）⑥NaCl 行业均值三口径（3-5/5/5-7%）。建议：**主 AI 统一口径后跨页修复**（大改动） | 智能体 AI | 主 AI | 2026-08-03 |
+| 🆕 待认领 | 内容硬伤-单页可修（健康度盘点 2026-08-03 发现）：①synthesis.md 章节乱序（8.3 整节排文件末尾）+LAB 双义+8.5.3 子节无编号 ②market.md 16.1 悬在大标题前+第二梯队排序非降序 ③product-overview"形态与形态"标题笔误+牌号数与目录页口径不一 ④fundamentals CPP 表 1/2\<P\<1 概念重叠+1.5/1.5B/1.5C 论证三重复 ⑤formulation 页内用量/pH 多组自相矛盾+12/14 章整段重复。建议：智能体 AI 逐页自理（单页双格式修复） | 智能体 AI | 智能体 AI | 2026-08-03 |
+| 🆕 待认领 | session-prompt-d.md 双格式豁免：D 盘话术仅 MD 无 HTML，deploy checkPairs 持续告警（MD 无对应 HTML）；方案 A=deploy.js MD_ONLY_EXEMPT 加 session-prompt-d.md（tools/ 改动），方案 B=补 HTML。建议：主 AI 审批选一 | 智能体 AI | 主 AI | 2026-08-03 |
 | ✅ 已完成 | 精细化工页（finechem-engineering）修复：章节编号冲突（9.4/9.5→9.10/9.11）、渗透压机理错误（多元醇膜结构/低盐逻辑）、来源区块已有、实体残留清理；拆分已在知识库完成 | 智能体 AI | 智能体 AI | 2026-08-02 |
 | ✅ 已完成 | 天赐学习手册（tinci-surfactant-guide）修复：市占率已统一（31.8%）、命名对齐（TC-MAB INCI 月桂酰）、氨基酸误归两性修正、章节重排/拆分已在知识库完成 | 智能体 AI | 智能体 AI | 2026-08-02 |
 | ✅ 已完成 | 两性表活目录（tinci-amphoteric-summary）修复：牌号统计（23→29）✅、MD内容错位✅、TC-MAB INCI（Lauro-）✅、RSPO数量✅、与 amphoteric 页冲突对齐✅ | 智能体 AI | 智能体 AI | 2026-08-03 |
