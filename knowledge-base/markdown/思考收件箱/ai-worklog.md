@@ -39,6 +39,7 @@ updated: 2026-08-02
 
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
+| 2026-08-03 | 主大脑 | **阶段 2 记忆大脑落地（用户直接授权 + 主 AI 确认）**：①技术验证 mem0 本地免 LLM 全通过（infer=False 写入/中文命中 0.73/跨进程持久化/纠错 delete 删旧写新）②方案定稿（分层=metadata 打标+作用域，非 memory_type 僵尸代码）③建 D:\ai\brain-memory 记忆大脑（venv/scripts 4 个：mem_config/mem_add/mem_search/mem_export/README/ws 记忆库）④全链路验证（写→读→纠错→导出全过）⑤**M3 里程碑达成**（跨会话不丢 + 纠正不再犯）| D:\ai\brain-memory\、phase2-design-v1.md、task-board html+md |
 | 2026-08-03 | 主大脑 | 写瘦身版交接 v5（2026-08-03-agent-brain-v5.md）：合并阶段0/1成果，指针化（提示词归 brain-window-main.md），v3/v4 归档到 archive/；写交接提示词（边界/重点细节/铁律/阅读边界精简版） | .claude/handoffs/archive/2026-08-03-agent-brain-v5.md（已归档）、archive/ |
 | 2026-08-03 | 主 AI | 落地防压缩失忆三层强制：建 KEY_MEMORY.md 速查表 + 写 precompact_save.js（PreCompact 压缩前落盘）+ session_start_report.js 扩展（开窗读回速查表）+ deploy.js 加 CHANGELOG 今日条目门禁 + settings.json 注册 PreCompact hook + AGENT_NOTES 加"承诺必落文件/改完必回读"两坑 | .claude/handoffs/KEY_MEMORY.md、tools/precompact_save.js、session_start_report.js、deploy.js、.claude/settings.json、AGENT_NOTES.md、mechanism-updates html+md |
 | 2026-08-03 | 主大脑 | 正式接入"检索大脑"（deep-memory）：验收阶段 0 技术验证报告（采纳主选 deep-memory+备选 mem0、改 kb_reader 源码不动库结构、仅标待核实）；临时区适配验证全过（递归读子目录+###切段+剔frontmatter+分批embedding修复内存溢出；4组真实问句全命中）；D 盘 D:\ai\deep-memory 落地（venv/模型/索引，正式库零改动只读）；写 README | D:\ai\deep-memory\（skills/venv/hf_cache/ws）、kb_reader.py、onnx_models.py、临时区 brain-verify\ws-kb-mirror |
