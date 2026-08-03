@@ -4182,6 +4182,10 @@ uv venv .venv && uv pip install mem0ai fastembed
           <td>tools/brain_heartbeat.js + brain_dispatch.js（新，头部注释含完整用法）+ 规范十·二 + KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主 AI</span></td>
         </tr>
         <tr>
+          <td>2026-08-03</td><td><strong>验证/审核闭环机制（审核→发现→修复→回归，用户拍板固化）</strong>——大改动/bug修复/迁移/里程碑达成宣布完成前，<strong>派验证 agent + 审核 agent 独立复核</strong>（不能自己验自己）：验证=实测跑通+找反例+对照验收；审核=记录一致性+文档数字+内容硬伤+审批合规。闭环五步：宣布完成→派双 agent→判定修复→回归复检→留痕。核心纪律：独立只读只报不修、修复须 grep 全项目旧路径引用（2026-08-03 复检揪出 heartbeat 残留 C 盘即典型）。<strong>所有 AI 干活适用</strong>：改完可主动提交验证/审核</td>
+          <td>知识库维护规范.md（十·三）+ 记忆库 mem0</td><td><span class="tag tag-purple">主大脑</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>测试员 AI 加入团队（第 6 个主窗口 AI）</strong>——专职质量保障与测试：内容准确性/功能可用性/部署正确性验证，<strong>只测不修</strong>——发现问题登记任务板，不直接改内容。开工流程：调 fanku 翻库获取信息 → 明确测试范围 → 执行测试 → 登记问题 → 修复后验证。<strong>所有 AI 知悉</strong>：团队新增测试员 AI，干完活可提交测试员验证</td>
           <td>会话记录/session-prompt（第十节·测试员 AI 专属话术）+ 思考收件箱/ai-worklog（团队名单）</td><td><span class="tag tag-orange">主 AI</span></td>
         </tr>
