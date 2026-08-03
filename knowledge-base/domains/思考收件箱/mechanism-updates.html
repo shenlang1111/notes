@@ -75,7 +75,7 @@
           <td>tools/brain_heartbeat.js + brain_dispatch.js（新，头部注释含完整用法）+ 规范十·二 + KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主 AI</span></td>
         </tr>
         <tr>
-          <td>2026-08-03</td><td><strong>自动接单兜底升级（测试员建议落地，主大脑执行）</strong>——①claude CLI 不可用时不再盲目 retry×3 标 done（同因失败浪费 + 隐藏"需人工"），改 <strong>probeClaude 探测 + 直接标 <code>needs_human</code></strong>（保留消息，主窗口开窗 <code>brain_msg --list</code> 见 <code>⚠️需人工</code>，人工接单）②自动接单处理完补<strong>对话存档</strong>（chatSave，快速回复 + headless 两路径存 <code>chat-brain-&lt;日期&gt;</code>，符合铁律 13）③<strong>开窗自动查信箱升级</strong>：session_start_report 待处理 &gt;0 直接列出具体消息（发给谁+内容预览），不只条数 ④tester 加入 mem_config AGENTS（tester-ai）。<strong>所有 AI 知悉</strong>：开窗报告信箱块会列出可接单消息；<code>⚠️需人工</code> = claude CLI 不可用需主窗口人工处理</td>
+          <td>2026-08-03</td><td><strong>自动接单兜底升级（测试员建议落地，主大脑执行）</strong>——①claude CLI 不可用时不再盲目 retry×3 标 done（同因失败浪费 + 隐藏"需人工"），改 <strong>probeClaude 探测 + 直接标 <code>needs_human</code></strong>（保留消息，主窗口开窗 <code>brain_msg --list</code> 见 <code>⚠️需人工</code>，人工接单）②自动接单处理完补<strong>对话存档</strong>（chatSave，快速回复 + headless 两路径存 <code>chat-brain-&lt;日期&gt;</code>，符合记忆入库铁律）③<strong>开窗自动查信箱升级</strong>：session_start_report 待处理 &gt;0 直接列出具体消息（发给谁+内容预览），不只条数 ④tester 加入 mem_config AGENTS（tester-ai）。<strong>所有 AI 知悉</strong>：开窗报告信箱块会列出可接单消息；<code>⚠️需人工</code> = claude CLI 不可用需主窗口人工处理</td>
           <td>tools/brain_dispatch.js + brain_msg.js + session_start_report.js + mem_config.py</td><td><span class="tag tag-purple">主大脑</span></td>
         </tr>
         <tr>
@@ -127,7 +127,7 @@
           <td>记忆库 mem0（D:\ai\brain-memory）+ tools/kb_seed_rules.py + kb_seed_knowledge.py + 规范第十节</td><td><span class="tag tag-orange">主 AI</span></td>
         </tr>
         <tr>
-          <td>2026-08-03</td><td><strong>AI 自动沉淀记忆 = 默认动作（用户拍板 B 方案，广播所有 AI）</strong>——话题聊完/干完活有<strong>结论/决定/教训/偏好</strong>就 mem_add 自动存（不等用户提醒，攒 1-2 话题一条，不碎碎念）；<strong>用户拍板决策 = 最高优先级必存</strong>（闲聊 AI 漏存被用户抓出"这一条你没存？"的教训）；落地要低——先跑通"自动存"最小一步，不搞大蓝图；远期"会话档案区"边界待确认暂不落地</td>
+          <td>2026-08-03</td><td><strong>AI 自动沉淀记忆 = 默认动作（用户拍板 B 方案，广播所有 AI）</strong>——话题聊完/干完活有<strong>结论/决定/教训/偏好</strong>就 mem_add 自动存（不等用户提醒，攒 1-2 话题一条，不碎碎念）；<strong>用户拍板决策 = 最高优先级必存</strong>（闲聊 AI 漏存被用户抓出"这一条你没存？"的教训）；落地要低——先跑通"自动存"最小一步，不搞大蓝图；<strong>会话档案区边界已拍板</strong>：全员可查、并入会话记录、换话题自动提炼（规范五-1）</td>
           <td>知识库维护规范.md（第十节）+ 记忆库 mem0</td><td><span class="tag tag-orange">主 AI</span></td>
         </tr>
         <tr>
