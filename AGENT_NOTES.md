@@ -10,8 +10,8 @@
 | PROJECT_CONTEXT.md | 项目背景 / 用户画像 / 当前状态 | 新会话接手、理解用户时 |
 | CODE_WIKI.md | 技术实现细节 / 命令（v3.1） | 改脚本、查 deploy/build_mobile 细节 |
 | CHANGELOG.md | 修改追溯 | 每次改动后记录（DoD 必过项） |
-| knowledge-base/domains/ | 内容页 HTML（19 页） | 改/加内容 |
-| knowledge-base/markdown/ | 内容页 MD（19 个，AI 检索） | 双格式同步 |
+| knowledge-base/domains/ | 内容页 HTML（34 页） | 改/加内容 |
+| knowledge-base/markdown/ | 内容页 MD（34 个，AI 检索） | 双格式同步 |
 | knowledge-base/registry.json | 页面索引（domains + pages） | 新增/删除页面时 |
 | knowledge-base/_shared/js/nav.js | 共享导航（链接清单） | 新增页面只改这里 |
 | knowledge-base/mobile.html | 手机版（build_mobile 生成，勿手改） | 部署后服务器端验证 |
