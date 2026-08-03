@@ -2239,6 +2239,11 @@ ai-agent/
       <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><span class="tag tag-purple">主 AI</span></td>
+          <td><strong>M4 进化大脑落地（用户拍板）</strong>：建进化机制（工具 evolve_scan.js + mem_refine.py + 规范十·一 + 三处留痕），试点跑通闭环——2 条 chat-brain 对话存档提炼 1 条 long 经验（refined-mid-2026-08-03），回滚验证通过，生成 skill 草稿"记忆库去重与灌库"待审批；mem_export.py 补 source 字段。详见 CHANGELOG</td>
+          <td>tools/evolve_scan.js、D:\ai\brain-memory\scripts\mem_refine.py + mem_export.py、知识库维护规范.md、mechanism-updates html+md、KEY_MEMORY</td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><span class="tag tag-orange">闲聊 AI</span></td>
           <td><strong>拍板 4 项落实</strong>：①闲聊 AI 产出部署权限=照旧全部署②会话档案区给谁看=全员可查③结构=并入会话记录（找主 AI 落地，剩频率待定）④收件箱 08-02 用户印象→提炼为"了解用户画像"经验（会话记录第六节+索引 #26）。决策入记忆库 casual/long，收件箱/经验页已部署上线（--expect 通过）。详见 CHANGELOG</td>
           <td>inbox html+md、session-20260801 html+md、记忆库（casual-long）</td>
@@ -3144,6 +3149,10 @@ uv venv .venv && uv pip install mem0ai fastembed
           <td>tools/brain_watch.js + tools/brain_msg.js（新，头部注释含完整用法）+ KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
         </tr>
         <tr>
+          <td>2026-08-03</td><td><strong>进化大脑·M4（自动提炼 + skill 生成，主大脑执行）</strong>——蓝图第 4 层"进化层"落地：①<strong>进化编排器 evolve_scan.js</strong>（node tools/evolve_scan.js --status/--scan/--draft/--apply/--rollback/--journal）：扫描 mid 候选题 → 生成 skill 草稿 → 执行提炼升级 ②<strong>提炼执行器 mem_refine.py</strong>（mem0 原生 update 免 LLM，保 id/agent_id/历史）：mid 层对话存档/经验提炼为 long 层可复用经验（source=refined-mid-&lt;日期&gt;，provenance 留痕）③<strong>审批流（硬门槛）</strong>：skill 草稿落 D:\ai\brain-memory\ws\skill-drafts\（不入库）→ 登记任务板"待审批" → 主 AI 结合 skill-creator 人审 → 通过才落盘 .trae/skills/，不通过留[驳回]标记 ④<strong>回滚</strong>：--rollback 从 mem0_history 恢复原文+layer+source ⑤**mem_export.py 补 source 字段**（之前导出丢 source，无法区分 chat-*/mid）。<strong>触发条件</strong>：干完一类活 / mid 攒够 ≥3 条同主题 / 用户要求固化。所有 AI 开工可用 --scan 看待提炼素材。M4 里程碑达成，四层大脑闭环</td>
+          <td>tools/evolve_scan.js + D:\ai\brain-memory\scripts\mem_refine.py（新，头部注释含完整用法）+ 规范十·一 + KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>记忆库修复 + 对话存档机制（主大脑执行，用户拍板核心）</strong>——①记忆库去重清理（1064→463 点，灌库脚本非幂等导致重复爆炸；去重脚本 dedup_memory.py + 灌库脚本 kb_seed_knowledge.py 加 --reset 幂等 + #### 细切段，重灌 502 条）②<strong>对话存档 mem_chat_save.py</strong>：每轮对话结束 AI 自动存档对话内容（自动切段存 mid 层，source=chat-&lt;agent&gt;-&lt;日期&gt;），用户拍板/有结论/有教训必存；<strong>提炼是后面的阶段，先学会存</strong>。③查对话用 <code>mem_search --layer mid</code>（对话=mid，知识=long，分层清晰）。<strong>所有 AI 开工必读</strong>：每轮结束用 mem_chat_save 存档对话</td>
           <td>D:\ai\brain-memory\scripts\mem_chat_save.py（新）+ 规范第十节 + KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
         </tr>
@@ -3305,6 +3314,13 @@ uv venv .venv && uv pip install mem0ai fastembed
       </tr>
     </thead>
     <tbody>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-blue">🆕 待审批</span></td>
+        <td style="padding:8px;"><strong>M4 进化大脑 skill 草稿审批</strong>——evolve_scan.js 生成的草稿 <code>记忆库去重与灌库</code>（D:\ai\brain-memory\ws\skill-drafts\记忆库去重与灌库\SKILL.md）：记忆库重复爆炸 → 去重 → 灌库幂等化(--reset) → 切段 → 验证。待主 AI 结合 skill-creator 人审（description 触发词/步骤/边界），通过后落盘 .trae/skills/，不通过打[驳回]标记。M4 进化机制已建（工具+规范+试点提炼 2 条对话存档→1 条 long 经验，四层大脑全部达成）</td>
+        <td style="padding:8px;">主 AI</td>
+        <td style="padding:8px;">主 AI</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
         <td style="padding:8px;"><strong>阶段 4 接入大脑 M5（brain_watch 实时监听 + 消息信箱）</strong>——<strong>主 AI 审批（2026-08-03，工具类变更，机制变更先审批铁律）</strong>：tools/ 新建 brain_watch.js + brain_msg.js 经主 AI 审批同意实施（用户口头拍板 + 主 AI 确认，程序上合规）。①brain_watch.js 常驻 fs.watch 监听 D 盘知识库根（含子目录，排除 node_modules/.git/.trae*/.claude/tools/构建产物），秒级感知新文件不靠轮询（蓝图 M5 验收标准）②投递协议（用户拍板）：根目录第一层新建 .md/.txt 即投递消息，watch 自动登记信箱（status=new）；子目录正式库改动只记 watch-log 不当消息。消息协议字段（蓝图第1层：谁发/发给谁/内容/状态）：from=user / to=解析消息头"发给："缺省 main / text=内容预览 / status=new/done/replied ③信箱命令 brain_msg.js：--list 看待处理 / --done 标记已处理 / --peek 预览 / --status 速览 / --reply 结果回写（大脑干完活把结果写回根目录"回复-&lt;原名&gt;.md"，Trae 端可见=结果出得去）④信箱索引存 D:\ai\brain-memory\messagebox\（监听范围外防自触发死循环）⑤session_start_report.js 开窗自动带出【接入层信箱】待处理条数。实测验收全链路通：投递→秒级登记→--list/--peek/--done/--reply 全通过。智能体 AI 审核意见已处理（协议补全 from/to/content + 结果回写 --reply 已落地）。M5 接入层达成，大脑闭环入口打通</td>
