@@ -48,6 +48,10 @@
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>工作根目录迁移至 D 盘（C 盘弃用）</strong>——用户拍板"以后主要在数据库里查"，新根目录 = D:\ai\学习公司产品知识树。所有 AI 开工必读新交接文档（迁移交接，含复制即用交接提示词）+ 新开场话术（D 盘版：查询主入口 = 先查记忆库 mem_search，查不到再翻文件）</td>
+          <td>D:\ai\学习公司产品知识树\.claude\handoffs\2026-08-03-migration-handover.md（交接）+ D:\ai\学习公司产品知识树\knowledge-base\markdown\会话记录\session-prompt-d.md（话术）+ 记忆库 mem0</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>全量入库：记忆库 = 统一查询主入口（用户拍板"以后主要在数据库里查"）</strong>——规则 17 条 + 知识 387 条全部灌入 mem0（metadata.source 带出处）；AI 任何知识/规则/记忆问题<strong>先 mem_search 数据库</strong>（一个口子查所有、带出处），查不到再翻文件；文件保留为源（用户手机看 + 兜底）</td>
           <td>记忆库 mem0（D:\ai\brain-memory）+ tools/kb_seed_rules.py + kb_seed_knowledge.py + 规范第十节</td><td><span class="tag tag-orange">主 AI</span></td>
         </tr>
