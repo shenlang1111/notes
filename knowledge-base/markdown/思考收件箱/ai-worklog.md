@@ -41,6 +41,7 @@ updated: 2026-08-03
 
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
+| 2026-08-03 | 智能体 AI | **机制页清理 + 对话存档 + 远期登记（用户授权直接来）**：①按"稳定即摘除"清理机制页 08-02 旧广播 6 条（HTML+MD 同步；误删"AI 大脑蓝图"已即时恢复）②执行对话存档 mem_chat_save.py（mid 层）③任务板登记"对话存档提炼阶段"待主 AI 排期。详见 CHANGELOG | mechanism-updates html+md、team-task-board html+md、记忆库（chat-agent-2026-08-03） |
 | 2026-08-03 | 主 AI | **跨页口径统一复核收尾 + 首页过时修复**：①复核扫描发现智能体 AI 跨页统一 4 处成对残留并补齐——overview Napure 分组加"肌氨酸"（C-FA 口径）/ amphoteric-summary 氧化胺"pH依赖型两性"改"结构非离子、行业习惯按两性讨论" / surfactant-details CAB-35 NaCl 1.5-2.0%→3-5% / finechem-additives HLB W/O 3-8→3-6（MD+HTML 成对）②首页过时修复：feature 卡 33→34 个专题页面（registry 实际 34 页）+ footer 最后更新 8/2→8/3 ③任务板跨页条目补复核说明。13 文件部署上线（构建 built，--expect 4 项过 + 2 项关键词选误经线上拉取核实 FOUND）。详见 CHANGELOG | 4 对 html+md（product-overview/amphoteric-summary/surfactant-details/finechem-additives）+ knowledge-base/index.html + team-task-board html+md |
 | 2026-08-03 | 智能体 AI | **核验补漏（审核辅助角色）**：用户要求再核验，独立扫描发现上轮跨页统一遗留——①TC-MAB 中文名"月桂基两性醋酸钠"10+ 处残留 → 全库统一"月桂酰两性基乙酸钠"（含派生词，6 对文件约 30 处批量替换）②advanced"行业平均5%"漏改 → 3-5%。残留扫描归零验证。详见 CHANGELOG | 7 对 html+md（amphoteric/sales/products/details/overview/amphoteric-summary/advanced） |
 | 2026-08-03 | 主大脑 | **记忆库修复 + 对话存档机制（用户拍板核心）**：①记忆库去重（灌库脚本非幂等 → 1064 点仅 463 唯一，去重脚本 dedup_memory.py 清理到 463，备份 memory-backup-20260803）②灌库脚本 kb_seed_knowledge.py 幂等化（--reset 删旧灌库知识重灌 + #### 细切段，重灌 502 条）③删 audit_memory 残留 ④新建 mem_chat_save.py 对话存档（每轮结束自动存对话到 mid 层，source=chat-<agent>-<日期>，用户拍板/有结论/有教训必存）⑤规范第十节 + KEY_MEMORY ⑤ + README 补对话存档纪律 ⑥mechanism-updates 广播。验证：--layer mid 精准召回本轮对话存档 | D:\ai\brain-memory\scripts\（dedup_memory.py 新 + mem_chat_save.py 新 + kb_seed_knowledge.py 改）+ 规范第十节 + KEY_MEMORY.md + mechanism-updates html+md |
@@ -95,6 +96,8 @@ updated: 2026-08-03
 | 2026-08-03 | 主大脑 | 写交接文档 v6（2026-08-03-agent-brain-v6.md）：融合 v5 全部内容 + 本轮成果（移动端验证通过/待核实清单盘点/代码独立复核/deploy.js 修复/kb_reader 修复）；用户反馈"整体风格变了，交接要遵循以前那种"→ 按 v3/v4 完整自包含风格重写（14 节，含大脑方向/阶段0/1 详述/边界速查/已知坑/交接链）；brain-window-main.md 当前阶段推进到"阶段1完成+阶段2准备" | .claude/handoffs/2026-08-03-agent-brain-v6.md、brain-window-main.md、CHANGELOG.md |
 | 2026-08-03 | 主大脑 | 验证 Trae 移动端写本地共享文件夹：用户从移动端发"测试实时同步"→ 根目录新建 测试实时同步.txt 落盘成功（秒级，fs.watch rename 事件可捕获）→ 阶段 4 接入层物理前提成立；已登记广播 | 根目录 测试实时同步.txt、mechanism-updates、ai-worklog |
 | 2026-08-03 | 闲聊 AI | 用户问"现在存在的机制还有必要吗"→ 盘点现行机制分级建议（🟢真必要/🟡该合并/🔴存疑），沉淀到收件箱 [待探讨]（供用户转主 AI/智能体 AI 探讨）；同步验证检索大脑（TC-MAB 命中）+ 记忆大脑写读闭环；部署上线 | inbox html+md、CHANGELOG.md、D:\ai\deep-memory、D:\ai\brain-memory |
+| 2026-08-03 | 技术验证员 | 全面检查主大脑工作：C→D 迁移完整（D 盘权威）；--layer 分层过滤修复独立复测通过（mid/long 正确区分）；记忆库 dedup 后 562 唯一 0 重复 100% 带 source；全量入库合理；新增脚本 dedup/mem_chat_save 审核通过。3 处纰漏：①条数写死（"~418"实际 562，建议实时查）②分层失衡（long 548/mid 14，记忆库未真正用起来）③我窗口在 C 盘启动（建议 D 盘） | 临时目录 brain-verify/reports/、D:\ai\brain-memory、D:\ai\学习公司产品知识树 |
+| 2026-08-03 | 技术验证员 | 写技术验证员交接文档 D 盘版（2026-08-03-brain-window-verifier-d.md）：融合全部工作历史（阶段0选型+阶段1审检索+阶段2审记忆+全面检查）+ 审核方法论（五步法/diff原始版本/独立工作区复跑/审核闭环）+ 当前状态 + 下一步 + 交接提示词（含 D 盘环境/记忆库主入口） | .claude/handoffs/2026-08-03-brain-window-verifier-d.md、ai-worklog.md |
 
 登记规则：
 - **谁做谁记**：每个 AI 完成一件有留痕价值的事（建页/改内容/部署/修复），顺手在此追加一行
