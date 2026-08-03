@@ -48,6 +48,10 @@
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>规范升 v3.4：新增铁律 10"防失忆强制"</strong>——KEY_MEMORY.md 为压缩后第一读；承诺/决策/状态即时落文件；deploy 门禁强制 CHANGELOG 今日有条目；改完必回读。新增规范"十、防失忆与关键记忆"节（三层强制详述）</td>
+          <td>知识库维护规范.md（v3.4）+ .claude/handoffs/KEY_MEMORY.md + CODE_WIKI.md（v3.2 §4.3）</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>防压缩失忆三层强制</strong>——①PreCompact hook（tools/precompact_save.js）压缩前自动把任务板/CHANGELOG 状态落盘到 KEY_MEMORY.md 快照区 ②SessionStart 开窗自动读回速查表摘要 ③deploy.js 强制 CHANGELOG 今日有条目才放行。配套 KEY_MEMORY.md（.claude/handoffs/）为压缩后第一读</td>
           <td>.claude/handoffs/KEY_MEMORY.md + .claude/settings.json + tools/precompact_save.js + session_start_report.js + deploy.js</td><td><span class="tag tag-orange">主 AI</span></td>
         </tr>
