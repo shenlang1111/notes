@@ -3066,6 +3066,12 @@ uv venv .venv && uv pip install mem0ai fastembed
       <li>结果：第二次盘点硬伤<strong>全部修复 ✅</strong>——①精细化工拆 3 页（additives/daily-chem/surfaces）+ 渗透压机理修正 + 章节重排 ②天赐学习手册拆 3 页（product-overview/surfactant-details/market-sales）+ 市占率统一 31.8% + 命名修正 ③两性表活目录原地修复（牌号 23→29、TC-MAB INCI Coco→Lauro、RSPO 5→4）④文档事实/结构/内容硬伤修复（troubleshooting hero、amphoteric 5.3.2、synthesis 第 8 章编号）⑤称呼统一（智能体搭建 AI→智能体 AI）⑥跨页命名冲突修复（TC-SHD 50/B→TC-SHD(L)/(B)、TC-MAB 40CD→40LDL，全库无残留）</li>
       <li>遗留：全库 <strong>60+ 处"待核实"数值</strong> 待产品手册/TDS 到位后逐条补来源（见任务板，待认领）</li>
     </ul>
+    <h4 style="margin-top:1rem;">2026-08-03（第四次盘点 · D 盘迁移后，智能体 AI 执行）</h4>
+    <ul>
+      <li>范围：全库结构体检（registry 34 页 ↔ 磁盘 ↔ nav 34 项）+ 内容抽查 8 页（子代理并行）</li>
+      <li>结果：①结构 ✅——双格式 34 对成对、registry/nav 全同步、待核实 61 处与任务板记录一致 ②内容发现硬伤 <strong>12 类</strong>：跨页口径冲突 6 类（C-FA 三归属/氧化胺归类/咪唑啉温度/HLB 分档/TC-MAB 中文名/NaCl 均值）+ 单页问题 5 类（synthesis 章节乱序/market 16.1 悬置/overview 笔误/fundamentals CPP 表/formulation 页内矛盾）③灌库同步：重跑 kb_seed_knowledge（35 MD → 391 条入记忆库）</li>
+      <li>处理：硬伤已登记任务板（跨页→主 AI 统一口径、单页→智能体 AI 认领）；session-prompt-d 双格式豁免已登记报主 AI 审批</li>
+    </ul>
   </div>
 </section>
 
@@ -3136,6 +3142,10 @@ uv venv .venv && uv pip install mem0ai fastembed
         <tr>
           <td>2026-08-03</td><td><strong>部署权限澄清（规范 v3.7，用户拍板"只有专业报告可以部署上线，其他没权限"）</strong>——该限制<strong>仅限大脑体系子 AI</strong>（Claude Code 主大脑/技术验证员：只有专业报告可部署上线，其余产出无权限、需上线先报主 AI 审批）；<strong>主 AI 及各主窗口 AI（闲聊/智能体/日志/UI）本身有部署权</strong>，正式内容照常部署</td>
           <td>知识库维护规范.md（铁律 3 + 三-7 + 五-2）</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><strong>审核辅助机制（用户 08-03 拍板"智能体 AI 兼任主 AI 审核辅助"）</strong>——智能体 AI 定期审核：①工作记录一致性（ai-worklog/CHANGELOG/任务板/机制更新对照）②文档数字一致性（交接/规范/KEY_MEMORY 版本、页数同步）③随机抽 2-3 页内容核对（数据来源/硬伤）。触发=每周或攒够反馈；产出=审核意见进任务板（带认领人+期限）；发现大改动只建议不抢跑</td>
+          <td>智能体 AI 交接（.claude/handoffs/2026-08-03-agent-d-handover.md）+ 任务板 + 记忆库</td><td><span class="tag tag-orange">智能体 AI</span></td>
         </tr>
         <tr>
           <td>2026-08-03</td><td><strong>工作根目录迁移至 D 盘（C 盘弃用）</strong>——用户拍板"以后主要在数据库里查"，新根目录 = D:\ai\学习公司产品知识树。所有 AI 开工必读新交接文档（迁移交接，含复制即用交接提示词）+ 新开场话术（D 盘版：查询主入口 = 先查记忆库 mem_search，查不到再翻文件）</td>
@@ -3339,6 +3349,27 @@ uv venv .venv && uv pip install mem0ai fastembed
         <td style="padding:8px;">数据来源补齐：全库 60+ 处"待核实"数值——<strong>👤 用户自行补充（2026-08-03 用户指示：AI 不用动）</strong>：数据由用户提供后逐条补来源或降级。已盘点分布：数据类 51 处（market.md 32 / tinci-market-sales.md 10 / tinci-surfactant-details.md 5 / 其他 4），描述性 9 处</td>
         <td style="padding:8px;">智能体搭建 AI</td>
         <td style="padding:8px;">用户</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-orange">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>内容硬伤-跨页口径统一（健康度盘点 2026-08-03 发现）</strong>：①C-FA 三种化学归属并存（牛磺酸/肌氨酸/谷氨酸，涉及 product-overview/synthesis/formulation/anionic/details）②氧化胺归类三页冲突（两性 vs 非离子，amphoteric/overview/fundamentals）③咪唑啉环化温度矛盾（200-250 vs 180-220）+AEEA 双名（amphoteric/synthesis）④HLB W/O 分档 3-6 vs 3-8（properties/overview/finechem-daily-chem）⑤TC-MAB 中文名两套（formulation vs amphoteric/synthesis）⑥NaCl 行业均值三口径（3-5/5/5-7%）。建议：<strong>主 AI 统一口径后跨页修复</strong>（大改动）</td>
+        <td style="padding:8px;">智能体 AI</td>
+        <td style="padding:8px;">主 AI</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-orange">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>内容硬伤-单页可修（健康度盘点 2026-08-03 发现）</strong>：①synthesis.md 章节乱序（8.3 整节排文件末尾）+LAB 双义+8.5.3 子节无编号 ②market.md 16.1 悬在大标题前+第二梯队排序非降序 ③product-overview"形态与形态"标题笔误+牌号数与目录页口径不一 ④fundamentals CPP 表 1/2&lt;P&lt;1 概念重叠+1.5/1.5B/1.5C 论证三重复 ⑤formulation 页内用量/pH 多组自相矛盾+12/14 章整段重复。建议：智能体 AI 逐页自理（单页双格式修复）</td>
+        <td style="padding:8px;">智能体 AI</td>
+        <td style="padding:8px;">智能体 AI</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-orange">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>session-prompt-d.md 双格式豁免</strong>：D 盘话术仅 MD 无 HTML，deploy checkPairs 持续告警（MD 无对应 HTML）；方案 A=deploy.js MD_ONLY_EXEMPT 加 session-prompt-d.md（tools/ 改动），方案 B=补 HTML。建议：主 AI 审批选一</td>
+        <td style="padding:8px;">智能体 AI</td>
+        <td style="padding:8px;">主 AI</td>
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
