@@ -679,7 +679,7 @@ body{padding-bottom:3rem;}
 
 <div class="snapshot">
   <div class="snap-card">
-    <div class="snap-num">34</div>
+    <div class="snap-num">37</div>
     <div class="snap-label">专题页面</div>
   </div>
   <div class="snap-card">
@@ -2313,7 +2313,7 @@ ai-agent/
 <div class="toc-grid">
 <a href="javascript:void(0)" onclick="goAnchor('logs-2026-07','sec-1')"><span class="toc-num">1</span>第 1 组7.20（一）– 7.26（日）· 安全与产线认知建立</a>
 <a href="javascript:void(0)" onclick="goAnchor('logs-2026-07','sec-2')"><span class="toc-num">2</span>第 2 组7.27（一）– 8.02（日）· 复盘升华与产品体系</a>
-<a href="javascript:void(0)" onclick="goAnchor('logs-2026-07','sec-3')"><span class="toc-num">3</span>表面活性剂学习手册</a>
+<a href="javascript:void(0)" onclick="goAnchor('logs-2026-07','sec-3')"><span class="toc-num">3</span>产品总览与命名规则</a>
 <a href="javascript:void(0)" onclick="goAnchor('logs-2026-07','sec-4')"><span class="toc-num">4</span>两性表活产品目录归纳</a>
 <a href="javascript:void(0)" onclick="goAnchor('logs-2026-07','sec-5')"><span class="toc-num">5</span>《精细化工工艺学》提炼</a>
 <a href="javascript:void(0)" onclick="goAnchor('logs-2026-07','sec-6')"><span class="toc-num">6</span>2026 年 8 月工作日志</a>
@@ -2605,9 +2605,9 @@ ai-agent/
 <section class="section" id="related">
   <h2>🔗 关联成果（7 月学习的真实沉淀）</h2>
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
-    <a href="../销售与市场/tinci-surfactant-guide.html" class="page-card">
+    <a href="#tinci-product-overview" class="page-card">
       <div class="card-icon">📘</div>
-      <h3 id="sec-3">表面活性剂学习手册</h3>
+      <h3 id="sec-3">产品总览与命名规则</h3>
       <p>原理 → 产品 → 话术全链</p>
     </a>
     <a href="#tinci-amphoteric-summary" class="page-card">
@@ -2615,7 +2615,7 @@ ai-agent/
       <h3 id="sec-4">两性表活产品目录归纳</h3>
       <p>23 个牌号 · 5 大化学类型</p>
     </a>
-    <a href="../精细化工与扩展/finechem-engineering.html" class="page-card">
+    <a href="#finechem-additives" class="page-card">
       <div class="card-icon">📕</div>
       <h3 id="sec-5">《精细化工工艺学》提炼</h3>
       <p>核心章节与销售关联映射</p>
@@ -2771,7 +2771,7 @@ ai-agent/
     <div class="log-block">
       <span class="lb-label">产出 / 成果</span>
       <ul>
-        <li>《XX手册》整理完成 → <a href="../销售与市场/xx.html">知识库成果页</a>（有成果时加链接）</li>
+        <li>《XX手册》整理完成 → 知识库成果页（有成果时加链接）</li>
       </ul>
     </div>
     <div class="log-block issue">
@@ -3026,7 +3026,7 @@ ai-agent/
   <div class="log-block">
     <span class="lb-label">产出 / 成果</span>
     <ul>
-      <li>《XX手册》整理完成 → <a href="../销售与市场/xx.html">知识库成果页</a>（有知识库成果时加链接）</li>
+      <li>《XX手册》整理完成 → 知识库成果页（有知识库成果时加链接）</li>
     </ul>
   </div>
   <div class="log-block issue">
@@ -3292,9 +3292,9 @@ ai-agent/
       <h3>7 月逐日日志</h3>
       <p>9 天的详细记录</p>
     </a>
-    <a href="../销售与市场/tinci-surfactant-guide.html" class="page-card">
+    <a href="#tinci-product-overview" class="page-card">
       <div class="card-icon">📘</div>
-      <h3>表面活性剂学习手册</h3>
+      <h3>产品总览与命名规则</h3>
       <p>原理→产品→话术全链</p>
     </a>
     <a href="#tinci-amphoteric-summary" class="page-card">
@@ -3302,7 +3302,7 @@ ai-agent/
       <h3>两性表活产品目录归纳</h3>
       <p>23 个牌号 · 5 大化学类型</p>
     </a>
-    <a href="../精细化工与扩展/finechem-engineering.html" class="page-card">
+    <a href="#finechem-additives" class="page-card">
       <div class="card-icon">📕</div>
       <h3>《精细化工工艺学》提炼</h3>
       <p>核心章节与销售关联映射</p>
@@ -3388,6 +3388,11 @@ ai-agent/
     <table>
       <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
       <tbody>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-teal">主 AI</span></td>
+          <td><strong>知识库质量体检 + 修复（用户"你改"）</strong>：体检发现并修 4 类——①工作日志 4 文件 6 处失效链接（旧页拆分后链接没跟，含 2 处 xx.html 占位残留，双格式同步）②registry updated 字段 30 处过时批量校准 ③report-2026-07-下半月 补登记 registry + nav 入口 + 首页快照 34→37 ④mobile 重新生成（37 页）。复检：内链 335 个 0 失效、registry↔磁盘 37/37、updated 0 不一致。详见 CHANGELOG</td>
+          <td>工作日志 4 文件（html+md）、registry.json、nav.js、index.html、mobile.html</td>
+        </tr>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-orange">闲聊 AI</span></td>
           <td><strong>落地"Trae 对话接入自动存档"（用户拍板"你来落地吧"）</strong>：新建 tools/chat_autosave.js（SessionEnd hook：扫 D:\ai\brain-memory\chat_inbox\chat-&lt;agent&gt;-&lt;日期&gt;.md → 调 mem_chat_save.py 入库 → 归档 archive/）+ settings.json 注册 + 实测通过（casual 摘要入库召回 0.86、归档成功）。⚠️ 注意：任务板有主 AI 瘦身建议"自动存档改习惯项、不造自动脚本"（🆕 待主 AI 执行清理）——本 hook 是事件触发非定时任务，留/撤待用户+主 AI 定夺</td>
@@ -4565,6 +4570,10 @@ uv venv .venv && uv pip install mem0ai fastembed
     <table>
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
+        <tr>
+          <td>2026-08-03</td><td><strong>对话存档自动化（闲聊 AI 落地，用户拍板"你来落地吧"）</strong>——新建 <code>tools/chat_autosave.js</code>：SessionEnd 钩子自动扫 <code>D:\ai\brain-memory\chat_inbox\chat-&lt;agent&gt;-&lt;日期&gt;.md</code> → 调 mem_chat_save 入库（自动切段）→ 归档 archive/。<strong>所有 AI 知悉</strong>：①<strong>存完整对话记录，不是摘要</strong>（用户 2026-08-03 拍板：每次聊完/每 5 轮，把自上次存档以来的逐轮对话写进 <code>chat_inbox/chat-&lt;agent&gt;-&lt;日期&gt;.md</code>，钩子自动入库；AI 复述为完整覆盖每轮内容，接近原文非逐字）②原 <code>mem_chat_save --text</code> 方式仍可用（钩子是补充不是替代）③提炼交给大脑 evolve_auto（完整记录入库后自动提炼成经验，存=全量原文、炼=自动提炼）</td>
+          <td>tools/chat_autosave.js（新）+ .claude/settings.json + chat_inbox（新目录）</td><td><span class="tag tag-orange">闲聊 AI</span></td>
+        </tr>
         <tr>
           <td>2026-08-03</td><td><strong>规则修订体系（用户拍板"有体系的改"）</strong>——规则文档发现问题有闭环：<strong>发现</strong>（任何 AI 撞到矛盾/用户指出/审核发现）→ <strong>登记</strong>（思考收件箱 <code>规则问题-&lt;日期&gt;.md</code>，一句话记完即完成，只登记不抢改）→ <strong>评估</strong>（主 AI 积满 3 条或每周统一处理）→ <strong>拍板</strong>（权限/大方向用户定，纯文字修正主 AI 直接改）→ <strong>修改+同步</strong>（CHANGELOG/部署/重灌记忆库/广播）→ <strong>验证</strong>（十·三抽查一致性）。首批 5 项已走通闭环：铁律 13 残留、投递文件归档规则、双格式硬软边界、状态保鲜范围、机制页清理责任。<strong>所有 AI 知悉</strong>：用规则时发现问题 → 一句话记收件箱即可，改权在主 AI</td>
           <td>知识库维护规范.md（十·四 + v3.8）</td><td><span class="tag tag-orange">主 AI</span></td>
