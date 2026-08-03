@@ -49,12 +49,14 @@
 │   ├── build_半月报.py       # 生成工作半月报 Excel
 │   ├── fill_半月报.js        # 填充半月报数据
 │   ├── html2md-new.js       # HTML → MD 转换
-│   ├── session_start_report.js  # 开窗自动报告（身份/任务板/记忆回忆）
+│   ├── session_start_report.js  # 开窗自动报告（身份/任务板/记忆回忆/接入层信箱）
 │   ├── precompact_save.js   # 压缩前快照（勿手改快照区）
+│   ├── brain_watch.js       # 接入层：常驻 fs.watch 监听，秒级感知用户投递（阶段4 M5）
+│   ├── brain_msg.js         # 接入层：消息信箱命令（--list/--done/--peek/--status）
 │   ├── kb_seed_knowledge.py # 灌库（知识区：分章切段入 mem0）
 │   └── kb_seed_rules.py     # 灌库（规则区：17 条入 mem0）
 ├── knowledge-base/          # ★ 知识库本体（详见 §2.2）
-├── 知识库维护规范.md         # 总规则 v3.6（★★★ 必读）
+├── 知识库维护规范.md         # 总规则 v3.8（★★★ 必读）
 ├── PROJECT_CONTEXT.md       # 项目背景与交接（★★）
 ├── CHANGELOG.md             # 修改追溯（☆）
 ├── CODE_WIKI.md             # 本文档：技术维基（★）
@@ -69,7 +71,7 @@ knowledge-base/
 ├── index.html               # 桌面首页（v2.0：home-hero + feature-grid 4 卡 + 7 分类 page-grid + last-updated）
 ├── mobile.html              # 手机版离线单文件（★ build_mobile.js 生成，勿手改）
 ├── registry.json            # 内容注册表（domains 数组 + pages 数组）
-├── domains/                 # 内容页 HTML（7 域 34 页）
+├── domains/                 # 内容页 HTML（7 域 35 页）
 │   ├── 表面活性剂/          # fundamentals / anionic / cationic / amphoteric / nonionic / properties / synthesis / applications / products / advanced / troubleshooting（11 页）
 │   ├── 日化原料与配方/      # formulation
 │   ├── 销售与市场/          # market / sales / tinci-product-overview / tinci-surfactant-details / tinci-market-sales / tinci-amphoteric-summary（6 页）
@@ -199,7 +201,7 @@ node tools/deploy.js --files a.html --expect "a.html:关键词"    # 可组合�
 - **precompact_save.js**：压缩前（PreCompact hook）与会话结束（SessionEnd hook）自动执行——读任务板待办/进行中 + CHANGELOG 最新条，覆盖写入 KEY_MEMORY 的 `<!-- SNAPSHOT_BEGIN/END -->` 标记区；可手动跑 `node tools/precompact_save.js` 验证。
 - **session_start_report.js**：SessionStart hook——开窗自动输出身份/任务板待办/机制更新数 + 读回 KEY_MEMORY 决策与快照时间 + **mem_search 最近记忆（记忆大脑回忆）**。
 - **hooks 配置**：`.claude/settings.json`（SessionStart / PreCompact / SessionEnd 三个钩子，均 command 类型调 node 脚本）。
-- **已知实测（2026-08-03）**：裸 `/compact` 走 session memory compact 分支（官方源码行为：无参数时优先 trySessionMemoryCompaction），PreCompact hook **不触发** → 快照不更新（本次压缩实锤）。SessionStart/SessionEnd 通道已验证。**对策：统一用带参数 `/compact 保留任务状态/关键决策/下一步`（走传统压缩路径，hook 才可靠）**；防失忆主力 = 记忆大脑 mem_search（不依赖任何 hook 时机）。
+- **已知实测（2026-08-03）**：裸 `/compact` 走 session memory compact 分支，自动同步记忆（trySessionMemoryCompaction）。**2026-08-03 更新后，裸 `/compact` 即可自动同步记忆，无需带参数。** 防失忆主力 = 记忆大脑 mem_search（不依赖 hook 时机）。
 
 ---
 
