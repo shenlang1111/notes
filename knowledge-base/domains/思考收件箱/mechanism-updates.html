@@ -48,8 +48,8 @@
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
-          <td>2026-08-03</td><td><strong>接入大脑·实时监听 + 消息信箱（阶段4 M5，主大脑执行）</strong>——①<strong>brain_watch.js 实时监听</strong>：常驻 fs.watch 监听 D:\ai\学习公司产品知识树 整棵（含子目录），秒级感知新文件，不靠轮询（蓝图 M5 验收：移动端发 → 文件变 → 大脑感知）②<strong>根目录新建文件即投递</strong>：用户在根目录新建 .md/.txt 即投递一条消息（用户拍板），watch 自动登记进信箱；knowledge-base/ 等子目录改动只记日志不当消息③<strong>信箱命令 brain_msg.js</strong>：大脑 --list 看待处理 / --done 标记已处理 / --peek 预览 / --status 速览④<strong>开窗自动带出</strong>：session_start_report.js 新增【接入层信箱】块，开窗报告显示待处理消息条数⑤信箱索引存 D:\ai\brain-memory\messagebox\（监听范围外防自触发死循环）。<strong>所有 AI 开工必读</strong>：开窗报告看到待处理消息 → brain_msg --list 查看接单</td>
-          <td>tools/brain_watch.js + tools/brain_msg.js（新）+ 规范第十节 + KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
+          <td>2026-08-03</td><td><strong>接入大脑·实时监听 + 消息信箱（阶段4 M5，主大脑执行）</strong>——①<strong>brain_watch.js 实时监听</strong>：常驻 fs.watch 监听 D:\ai\学习公司产品知识树 整棵（含子目录），秒级感知新文件，不靠轮询（蓝图 M5 验收：移动端发 → 文件变 → 大脑感知）②<strong>根目录新建文件即投递</strong>：用户在根目录新建 .md/.txt 即投递一条消息（用户拍板），watch 自动登记进信箱；knowledge-base/ 等子目录改动只记日志不当消息③<strong>信箱命令 brain_msg.js</strong>：大脑 --list 看待处理 / --done 标记已处理 / --peek 预览 / --status 速览 / --reply 结果回写（大脑干完活把结果写回根目录"回复-&lt;原名&gt;.md"，Trae 端可见）④<strong>开窗自动带出</strong>：session_start_report.js 新增【接入层信箱】块，开窗报告显示待处理消息条数⑤信箱索引存 D:\ai\brain-memory\messagebox\（监听范围外防自触发死循环）。<strong>所有 AI 开工必读</strong>：开窗报告看到待处理消息 → brain_msg --list 查看接单</td>
+          <td>tools/brain_watch.js + tools/brain_msg.js（新，头部注释含完整用法）+ KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
         </tr>
         <tr>
           <td>2026-08-03</td><td><strong>记忆库修复 + 对话存档机制（主大脑执行，用户拍板核心）</strong>——①记忆库去重清理（1064→463 点，灌库脚本非幂等导致重复爆炸；去重脚本 dedup_memory.py + 灌库脚本 kb_seed_knowledge.py 加 --reset 幂等 + #### 细切段，重灌 502 条）②<strong>对话存档 mem_chat_save.py</strong>：每轮对话结束 AI 自动存档对话内容（自动切段存 mid 层，source=chat-&lt;agent&gt;-&lt;日期&gt;），用户拍板/有结论/有教训必存；<strong>提炼是后面的阶段，先学会存</strong>。③查对话用 <code>mem_search --layer mid</code>（对话=mid，知识=long，分层清晰）。<strong>所有 AI 开工必读</strong>：每轮结束用 mem_chat_save 存档对话</td>
