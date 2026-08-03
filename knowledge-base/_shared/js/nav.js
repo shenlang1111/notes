@@ -46,6 +46,7 @@
     ['两性表活目录', 'domains/销售与市场/tinci-amphoteric-summary.html'],
     ['工作日志', 'domains/工作日志/logs-2026-08.html'],
     ['7月日志', 'domains/工作日志/logs-2026-07.html'],
+    ['7月复盘', 'domains/工作日志/report-2026-07-下半月.html'],
     ['日志说明', 'domains/工作日志/logs-guide.html']
   ];
 
