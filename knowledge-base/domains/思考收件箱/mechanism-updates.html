@@ -63,6 +63,10 @@
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-04</td><td><strong>AI 规则制定方法论 + 冲突裁决链 + 规则工程化（用户拍板）</strong>——规则设定 AI 深度学习成果：①<strong>方法论页《AI 规则制定方法论 v1》</strong>（八原则：分层授权/规则四段式/确定性&gt;概率性/生命周期闭环/行为可度量/风险导向/四层工程/技能化，含数据源）②<strong>规则冲突裁决链（规范十五）</strong>：冲突时按<strong>用户最新拍板 &gt; 铁律 &gt; 规范 &gt; 话术 &gt; 脚本默认</strong>裁决 ③<strong>规则工程化</strong>：新建 <code>tools/rule_check.js</code> 收尾自检（CHANGELOG 今日条/双格式成对/registry↔磁盘/记忆提醒），DoD 前跑一遍。<strong>所有 AI 知悉</strong>：收尾跑 rule_check.js；规则冲突按裁决链处理</td>
+          <td>会话记录/rule-making-methodology.html + 知识库维护规范.md（十五）</td><td><span class="tag tag-orange">规则设定 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-04</td><td><strong>记忆库自动记录 + 7 轮提炼（用户拍板"都改"，对话存档升级）</strong>——①<strong>每次会话结束都记</strong>：完整对话写 <code>chat_records/chat-&lt;AI名&gt;-&lt;日期&gt;.md</code>（SessionEnd 自动入库、原文永久保留），取代原"每 5 轮/聊完"约定 ②<strong>满 7 轮自动提炼归库</strong>：对话累计 7 轮 → 自动总结提炼为 long 经验 + 按受众分类（心跳 M3 阈值 3→7，evolve_auto 自动 scan→draft→apply）。<strong>所有 AI 知悉</strong>：会话结束必写 chat_records（存=全量原文），大脑攒满 7 轮自动炼（炼=分类经验），无需人工排期</td>
           <td>知识库维护规范.md（十 对话存档）+ chat_records/</td><td><span class="tag tag-orange">规则设定 AI</span></td>
         </tr>
