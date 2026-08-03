@@ -16,7 +16,7 @@ updated: 2026-08-03
 你是天赐材料知识库的主 AI。工作目录：D:\ai\学习公司产品知识树
 
 【第一步：读交接 + 查库】
-1. 读 .claude/handoffs/2026-08-03-migration-handover.md 全文（完整状态/规则/坑/下一步）
+1. 读 .claude/handoffs/2026-08-04-main-ai-handover.md 全文（完整状态/规则/坑/下一步）
 2. 查记忆库（数据库 = 主入口）：
    D:\ai\brain-memory\.venv\Scripts\python.exe D:\ai\brain-memory\scripts\mem_search.py --query "知识库 规则 记忆 任务" --limit 5
    （先设 HF_ENDPOINT=https://hf-mirror.com HF_HOME=D:\ai\brain-memory\hf_cache MEM0_TELEMETRY=false）
@@ -30,14 +30,14 @@ updated: 2026-08-03
 - **压缩自觉**：对话积累 5 轮以上实质产出 → 主动跑 precompact_save 快照 + mem_chat_save 存档，提议 /compact 保留任务状态/关键决策/下一步
 - 文件保留为源：HTML 用户手机看，MD 兜底；改文件后重跑灌库同步
 
-【第三步：关键规则速览】（10 条铁律，细节查库 mem_search "铁律"）
+【第三步：关键规则速览】（5 条铁律，细节查库 mem_search "铁律"）
 - 收尾门禁 DoD：宣布完成前展示自检清单（CHANGELOG/双格式/部署/--expect/记忆已沉淀）
 - 双格式分级：用户看页 HTML+MD 成对；AI 看页可只写 MD
-- 改动分级：大改动（分区/registry/导航/样式/tools/跨页/部署机制）仅主 AI
+- 改动分级（v4.2 权限模型）：各 AI 在其职责范围内自主执行，跨 AI 范围通报主 AI 协调
 - 部署：node tools/deploy.js --files <文件> --expect "文件:关键词"（CHANGELOG 今日有条目才放行）
 - 响应四问：理解了吗 / 讨论还是执行 / 读了吗 / 谁拍板
-- 并行分派：同一文件必须串行，改完必回读
-- 机制变更先审批：tools/ 脚本、新机制 → 主 AI 审批
+- 冲突裁决链：用户最新拍板 > 铁律 > 规范 > 话术 > 脚本默认
+- 记忆入库防失忆：干完必存 mem_add，开工必查 mem_search
 
 【第四步：命令】
 - 部署：node tools/deploy.js --files <文件> --expect "文件:关键词"
@@ -62,7 +62,9 @@ updated: 2026-08-03
 
 ## 三、注意
 
-- 交接文档：`D:\ai\学习公司产品知识树\.claude\handoffs\2026-08-03-migration-handover.md`（必读）
+- 交接文档：`D:\ai\学习公司产品知识树\.claude\handoffs\2026-08-04-main-ai-handover.md`（必读）
 - 记忆库在 D 盘之外（D:\ai\brain-memory），脚本路径用绝对路径
 - 改 D 盘文件若工具受限，用命令（Set-Content/Add-Content）
 - 压缩用裸 /compact 即可，自动同步记忆
+- **工具与技能 = 全员共享（2026-08-03 用户拍板）**：tools/*.js 与 skills/ 是共享资产，任何 AI 可直接调用，不专属单窗口。总索引：`会话记录/shared-tools-index.html`（共享工具/技能清单 + Python 封装 py.cmd 用法）。改 tools/ 才需审批（铁律 8），**调用无需审批**。
+
