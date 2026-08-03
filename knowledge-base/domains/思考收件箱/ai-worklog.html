@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 工作记录 · 天赐材料知识库</title>
-<link rel="stylesheet" href="../../_shared/css/style.css?v=6">
+<link rel="stylesheet" href="../../_shared/css/style.css?v=7">
 </head>
 <body>
 
@@ -14,17 +14,32 @@
 <div class="container">
 <!-- ===== Page Hero ===== -->
 <div class="page-hero">
+  <nav class="breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">AI 工作记录</span>
+  </nav>
   <div class="page-hero-meta"><span class="tag tag-orange">AI 协作</span></div>
   <h1>AI 工作记录</h1>
   <p class="page-hero-desc">每个 AI 干完活在这里登记"我做了什么"，带名字。其他 AI 一看就知道谁干过什么——分工透明，不重复、不丢活。</p>
   <a href="../../index.html" class="page-hero-back">← 返回首页</a>
 </div>
 <!-- ===== /Page Hero ===== -->
+  <details class="toc-nav" open>
+    <summary>本页目录</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>团队任务板</a>
+      <a href="#sec-2"><span class="toc-num">2</span>知识库健康度盘点</a>
+      <a href="#sec-3"><span class="toc-num">3</span>新会话开场话术</a>
+      <a href="#sec-4"><span class="toc-num">4</span>思考收件箱</a>
+    </div>
+  </details>
+
 
 <section class="section" id="team">
   <h2>一、AI 团队名单（名字体系）</h2>
   <div class="callout">
-    <strong>五个主窗口 AI：</strong>主 AI / 闲聊 AI / 智能体 AI / 日志 AI / UI 美化 AI——对应你的窗口，各有专属职责。其余子代理（审核/内容/检索等）<strong>都归主 AI 手下</strong>，由主 AI 命名与分派。
+    <strong>六个主窗口 AI：</strong>主 AI / 闲聊 AI / 智能体 AI / 日志 AI / UI 美化 AI / 测试员 AI——对应你的窗口，各有专属职责。其余子代理（审核/内容/检索等）<strong>都归主 AI 手下</strong>，由主 AI 命名与分派。
   </div>
   <div class="table-wrap">
     <table>
@@ -35,6 +50,7 @@
         <tr><td><strong>智能体 AI</strong></td><td>主窗口</td><td>智能体体系搭建：skill、翻库规则、任务板、健康度盘点</td></tr>
         <tr><td><strong>日志 AI</strong></td><td>主窗口</td><td>写用户的工作日志，后续半月报/月报/年报</td></tr>
         <tr><td><strong>UI 美化 AI</strong></td><td>主窗口</td><td>知识库视觉层：style.css、页面排版/卡片/配色/响应式，让界面好看不堆文字</td></tr>
+        <tr><td><strong>测试员 AI</strong></td><td>主窗口</td><td>质量保障与测试：内容准确性/功能可用性/部署正确性验证，只测不修</td></tr>
         <tr><td><strong>审核 agent</strong></td><td>主 AI 手下</td><td>复核大改动、检查遗漏（并行分派）</td></tr>
         <tr><td><strong>内容 agent</strong></td><td>主 AI 手下</td><td>批量写/改知识库内容（并行分派）</td></tr>
         <tr><td><strong>检索 agent</strong></td><td>主 AI 手下</td><td>翻库检索、盘点数据来源（并行分派）</td></tr>
@@ -65,6 +81,11 @@
     <table>
       <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
       <tbody>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-purple">主 AI</span></td>
+          <td><strong>M4 进化大脑落地（用户拍板）</strong>：建进化机制（工具 evolve_scan.js + mem_refine.py + 规范十·一 + 三处留痕），试点跑通闭环——2 条 chat-brain 对话存档提炼 1 条 long 经验（refined-mid-2026-08-03），回滚验证通过，生成 skill 草稿"记忆库去重与灌库"待审批；mem_export.py 补 source 字段。详见 CHANGELOG</td>
+          <td>tools/evolve_scan.js、D:\ai\brain-memory\scripts\mem_refine.py + mem_export.py、知识库维护规范.md、mechanism-updates html+md、KEY_MEMORY</td>
+        </tr>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-orange">闲聊 AI</span></td>
           <td><strong>拍板 4 项落实</strong>：①闲聊 AI 产出部署权限=照旧全部署②会话档案区给谁看=全员可查③结构=并入会话记录（找主 AI 落地，剩频率待定）④收件箱 08-02 用户印象→提炼为"了解用户画像"经验（会话记录第六节+索引 #26）。决策入记忆库 casual/long，收件箱/经验页已部署上线（--expect 通过）。详见 CHANGELOG</td>
@@ -270,6 +291,11 @@
           <td>审核 Claude Code 智能体方向工作记录，按用户指示执行：①规范新增铁律 9"机制变更先审批"（v3.2→v3.3），同步 CODE_WIKI/PROJECT_CONTEXT/AGENT_NOTES 版本号引用（9→10 条铁律）②归档 4 份已融合旧交接至 .claude/handoffs/archive/，v3 交接链与 mechanism-updates 引用同步 ③任务板已完成项描述更新；问题 2/3 用户拍板不动，问题 4 角色=主 AI 审核辅助</td>
           <td>知识库维护规范.md、CODE_WIKI.md、PROJECT_CONTEXT.md、AGENT_NOTES.md、archive/2026-08-03-agent-brain-v3.md、mechanism-updates html+md、team-task-board html+md、ai-worklog html+md、CHANGELOG.md</td>
         </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-orange">主 AI</span></td>
+          <td>新建"测试员 AI"（第 6 个主窗口 AI）：专属话术写入 session-prompt 第十节（职责：质量保障/测试，只测不修，发现问题登记任务板）+ 团队名单登记（ai-worklog 六个主窗口 AI）+ 机制更新广播</td>
+          <td>会话记录/session-prompt html+md、思考收件箱/ai-worklog html+md、mechanism-updates html+md</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -289,27 +315,46 @@
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
     <a href="team-task-board.html" class="page-card">
       <div class="card-icon">📋</div>
-      <h3>团队任务板</h3>
+      <h3 id="sec-1">团队任务板</h3>
       <p>该做什么：发现问题登记、认领负责</p>
     </a>
     <a href="kb-health-checklist.html" class="page-card">
       <div class="card-icon">🩺</div>
-      <h3>知识库健康度盘点</h3>
+      <h3 id="sec-2">知识库健康度盘点</h3>
       <p>定期体检清单，问题进任务板</p>
     </a>
     <a href="../会话记录/session-prompt.html" class="page-card">
       <div class="card-icon">📋</div>
-      <h3>新会话开场话术</h3>
+      <h3 id="sec-3">新会话开场话术</h3>
       <p>各 AI 的开场与职责边界</p>
     </a>
     <a href="inbox.html" class="page-card">
       <div class="card-icon">📥</div>
-      <h3>思考收件箱</h3>
+      <h3 id="sec-4">思考收件箱</h3>
       <p>想法缓冲区，本页所属域</p>
     </a>
   </div>
 </section>
 
+  <section class="related-pages">
+    <div class="rp-title">相关页面</div>
+    <div class="rp-grid">
+      <a href="inbox.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">思考收件箱</span></a>
+      <a href="inbox-20260802-agent-design.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">智能体设计讨论存档</span></a>
+      <a href="team-task-board.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">团队任务板</span></a>
+      <a href="kb-health-checklist.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">知识库健康度盘点</span></a>
+    </div>
+  </section>
+  <nav class="page-nav">
+    <a href="../工作日志/logs-2026-08.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">2026年8月工作日志</span>
+    </a>
+    <a href="mechanism-updates.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">机制更新</span>
+    </a>
+  </nav>
 </div>
 
 <footer>
