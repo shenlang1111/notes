@@ -1,6 +1,6 @@
 # 天赐材料日化知识库 — 技术维基（CODE_WIKI）
 
-> 版本：v3.1（2026-08-02）· **技术维基（★ 推荐阅读）**：架构 / 目录 / 工具链 / 命令细节，供任何 AI 查技术实现
+> 版本：v3.2（2026-08-03 新增 deploy 门禁 + 防失忆工具 §4.3）· **技术维基（★ 推荐阅读）**：架构 / 目录 / 工具链 / 命令细节，供任何 AI 查技术实现
 > 规则见《知识库维护规范.md》——本文档只承接"怎么做"的技术细节，不重复规则
 >
 > **文档关系**：总规则 → 知识库维护规范.md（★★★ 必读）｜ 项目背景 → PROJECT_CONTEXT.md（★★）｜ 修改追溯 → CHANGELOG.md（☆）｜ 历史经验 → 知识库"与 AI 的交流经验"页（会话记录域）｜ 本文档 = 技术维基（★ 推荐）
@@ -165,8 +165,9 @@ node tools/deploy.js --files a.html --expect "a.html:关键词"    # 可组合�
 
 **硬编码常量**：`REPO = 'shenlang1111/tinci-knowledge-base'`、`BRANCH = 'main'`、`CONCURRENCY = 1`（串行上传——并发写同一仓库会触发 GitHub git 层 409 保护）。
 
-**完整流程**（main 函数，7 步）：
+**完整流程**（main 函数，8 步）：
 
+0.5. **CHANGELOG 门禁**（checkChangelogToday）：部署前读根 `CHANGELOG.md`，校验表格含今日 `| YYYY-MM-DD |` 条目；无 → `process.exit(1)` 拒绝部署——DoD"改必登记"硬约束（2026-08-03 新增，铁律 10）。
 1. **双格式成对校验**（checkPairs）：扫描 domains/markdown，缺对警告（不阻断）。
 2. **重新生成 mobile.html**：`execSync('node tools/build_mobile.js')`——绑定执行，保证手机版与内容同步。
 3. **收集文件**（collectFiles）：
@@ -183,6 +184,14 @@ node tools/deploy.js --files a.html --expect "a.html:关键词"    # 可组合�
    - **`--expect "文件路径:关键词"`**（可多个）：逐个 GET 线上文件，去空白后 `includes(关键词)`，逐条打印 ✅/❌；❌ 提示人工核实。
 
 **parseFlags 严格解析**：`--files` 与 `--expect` 各自收集参数，**遇到下一个 `--` 开头的参数立即停止**——避免 `--files` 把 `--expect` 的参数吞掉、或反之。
+
+### 4.3 防失忆工具（KEY_MEMORY + hooks，2026-08-03）
+
+- **KEY_MEMORY.md**：`.claude/handoffs/KEY_MEMORY.md` = 压缩后第一读速查表（身份/用户/铁律/命令/fanku/决策/快照）。静态区主 AI 手动维护，快照区自动覆盖。
+- **precompact_save.js**：压缩前（PreCompact hook）与会话结束（SessionEnd hook）自动执行——读任务板待办/进行中 + CHANGELOG 最新条，覆盖写入 KEY_MEMORY 的 `<!-- SNAPSHOT_BEGIN/END -->` 标记区；可手动跑 `node tools/precompact_save.js` 验证。
+- **session_start_report.js**：SessionStart hook——开窗自动输出身份/任务板待办/机制更新数 + 读回 KEY_MEMORY 决策与快照时间。
+- **hooks 配置**：`.claude/settings.json`（SessionStart / PreCompact / SessionEnd 三个钩子，均 command 类型调 node 脚本）。
+- **已知待实测**：PreCompact 在 Trae 环境是否真实触发需等一次实际压缩验证；SessionStart/SessionEnd 通道已验证。若 PreCompact 不触发，落盘兜底由 SessionEnd 保证。
 
 ---
 
@@ -236,4 +245,4 @@ DoD 详见《知识库维护规范》七（含用户检查手段）；此处不�
 
 ---
 
-> 文档版本：v3.1 | 最后更新：2026-08-02 | 规则以《知识库维护规范.md》为准；历史经验见知识库"与 AI 的交流经验"页
+> 文档版本：v3.2 | 最后更新：2026-08-03 | 规则以《知识库维护规范.md》为准；历史经验见知识库"与 AI 的交流经验"页
