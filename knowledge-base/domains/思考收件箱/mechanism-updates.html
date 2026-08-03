@@ -63,6 +63,10 @@
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>自主运行机制·心跳 + 自动接单（用户拍板，主 AI 执行）</strong>——大脑从"人工驱动"升级"自主运行"：①<strong>心跳 brain_heartbeat.js</strong>（计划任务 TinciBrainHeartbeat 每 20 分钟跑 --once）：确保 watch 存活 → M2 索引同步（update_db.py 显式传 DEEP_MEMORY_WORKSPACE 修复 P0 路径错位）→ M3 提炼提醒（chat-* ≥3 只提醒留人审）→ M5 信箱派发；只写 watch-log ②<strong>自动接单 brain_dispatch.js</strong>：消息投递进信箱 → 秒级+定时双路派发 → headless claude 全权接单（读库/改库 HTML+MD/提炼/部署，走既有门禁，预算 $2/单封顶）→ 回写"回复-&lt;原名&gt;.md" → 标 done；token 不直接给 headless，白名单无 Bash 逃逸 ③<strong>watch 开机自启</strong>：启动文件夹 brain_watch.vbs + cc-switch 代理 Run 自启 ④brain_watch.js 加"回复-"前缀免疫 + _dispatch_out IGNORE + 新登记触发秒级派发。<strong>所有 AI 知悉</strong>：根目录投消息 → 大脑自动接单回写；干完活登记 ai-worklog（工具不自动写）</td>
+          <td>tools/brain_heartbeat.js + brain_dispatch.js（新，头部注释含完整用法）+ 规范十·二 + KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>测试员 AI 加入团队（第 6 个主窗口 AI）</strong>——专职质量保障与测试：内容准确性/功能可用性/部署正确性验证，<strong>只测不修</strong>——发现问题登记任务板，不直接改内容。开工流程：调 fanku 翻库获取信息 → 明确测试范围 → 执行测试 → 登记问题 → 修复后验证。<strong>所有 AI 知悉</strong>：团队新增测试员 AI，干完活可提交测试员验证</td>
           <td>会话记录/session-prompt（第十节·测试员 AI 专属话术）+ 思考收件箱/ai-worklog（团队名单）</td><td><span class="tag tag-orange">主 AI</span></td>
         </tr>
