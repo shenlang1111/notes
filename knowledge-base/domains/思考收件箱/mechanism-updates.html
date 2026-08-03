@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>机制更新 · 天赐材料知识库</title>
-<link rel="stylesheet" href="../../_shared/css/style.css?v=6">
+<link rel="stylesheet" href="../../_shared/css/style.css?v=7">
 </head>
 <body>
 
@@ -14,11 +14,26 @@
 <div class="container">
 <!-- ===== Page Hero ===== -->
 <div class="page-hero">
+  <nav class="breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">机制更新</span>
+  </nav>
   <div class="page-hero-meta"><span class="tag tag-orange">AI 协作</span></div>
   <h1>机制更新</h1>
   <p class="page-hero-desc">新增协作机制的"更新广播"：谁建了新机制就往这追加一条，新 AI 到岗读这一页，就知道"最近系统加了什么、去哪读"——不用改话术页，也不用我手把手教。</p>
 </div>
 <!-- ===== /Page Hero ===== -->
+  <details class="toc-nav" open>
+    <summary>本页目录</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>新会话开场话术</a>
+      <a href="#sec-2"><span class="toc-num">2</span>AI 工作记录</a>
+      <a href="#sec-3"><span class="toc-num">3</span>团队任务板</a>
+      <a href="#sec-4"><span class="toc-num">4</span>知识库健康度盘点</a>
+    </div>
+  </details>
+
 
 <section class="section" id="what">
   <h2>一、这是什么</h2>
@@ -47,6 +62,10 @@
     <table>
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
+        <tr>
+          <td>2026-08-03</td><td><strong>测试员 AI 加入团队（第 6 个主窗口 AI）</strong>——专职质量保障与测试：内容准确性/功能可用性/部署正确性验证，<strong>只测不修</strong>——发现问题登记任务板，不直接改内容。开工流程：调 fanku 翻库获取信息 → 明确测试范围 → 执行测试 → 登记问题 → 修复后验证。<strong>所有 AI 知悉</strong>：团队新增测试员 AI，干完活可提交测试员验证</td>
+          <td>会话记录/session-prompt（第十节·测试员 AI 专属话术）+ 思考收件箱/ai-worklog（团队名单）</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
         <tr>
           <td>2026-08-03</td><td><strong>接入大脑·实时监听 + 消息信箱（阶段4 M5，主大脑执行）</strong>——①<strong>brain_watch.js 实时监听</strong>：常驻 fs.watch 监听 D:\ai\学习公司产品知识树 整棵（含子目录），秒级感知新文件，不靠轮询（蓝图 M5 验收：移动端发 → 文件变 → 大脑感知）②<strong>根目录新建文件即投递</strong>：用户在根目录新建 .md/.txt 即投递一条消息（用户拍板），watch 自动登记进信箱；knowledge-base/ 等子目录改动只记日志不当消息③<strong>信箱命令 brain_msg.js</strong>：大脑 --list 看待处理 / --done 标记已处理 / --peek 预览 / --status 速览 / --reply 结果回写（大脑干完活把结果写回根目录"回复-&lt;原名&gt;.md"，Trae 端可见）④<strong>开窗自动带出</strong>：session_start_report.js 新增【接入层信箱】块，开窗报告显示待处理消息条数⑤信箱索引存 D:\ai\brain-memory\messagebox\（监听范围外防自触发死循环）。<strong>所有 AI 开工必读</strong>：开窗报告看到待处理消息 → brain_msg --list 查看接单</td>
           <td>tools/brain_watch.js + tools/brain_msg.js（新，头部注释含完整用法）+ KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
@@ -153,27 +172,46 @@
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
     <a href="../会话记录/session-prompt.html" class="page-card">
       <div class="card-icon">📋</div>
-      <h3>新会话开场话术</h3>
+      <h3 id="sec-1">新会话开场话术</h3>
       <p>各 AI 的开场与固定必读（本页是其增量入口）</p>
     </a>
     <a href="ai-worklog.html" class="page-card">
       <div class="card-icon">📝</div>
-      <h3>AI 工作记录</h3>
+      <h3 id="sec-2">AI 工作记录</h3>
       <p>谁做了什么，带名字留痕</p>
     </a>
     <a href="team-task-board.html" class="page-card">
       <div class="card-icon">📋</div>
-      <h3>团队任务板</h3>
+      <h3 id="sec-3">团队任务板</h3>
       <p>该做什么：登记、认领、追踪</p>
     </a>
     <a href="kb-health-checklist.html" class="page-card">
       <div class="card-icon">🩺</div>
-      <h3>知识库健康度盘点</h3>
+      <h3 id="sec-4">知识库健康度盘点</h3>
       <p>定期体检清单</p>
     </a>
   </div>
 </section>
 
+  <section class="related-pages">
+    <div class="rp-title">相关页面</div>
+    <div class="rp-grid">
+      <a href="inbox.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">思考收件箱</span></a>
+      <a href="inbox-20260802-agent-design.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">智能体设计讨论存档</span></a>
+      <a href="team-task-board.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">团队任务板</span></a>
+      <a href="kb-health-checklist.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">知识库健康度盘点</span></a>
+    </div>
+  </section>
+  <nav class="page-nav">
+    <a href="ai-worklog.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">AI 工作记录</span>
+    </a>
+    <a href="brain-tech-verification.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">AI 大脑技术验证报告</span>
+    </a>
+  </nav>
 </div>
 
 <footer>
