@@ -32,7 +32,7 @@
 | **托管** | GitHub Pages（shenlang1111/tinci-knowledge-base，branch=main） |
 | **部署通道** | GitHub API（api.github.com）Contents 上传 + POST /pages/builds |
 | **线上地址** | https://shenlang1111.github.io/tinci-knowledge-base/ |
-| **最后更新** | 2026-08-02 |
+| **最后更新** | 2026-08-03 |
 
 ---
 
