@@ -48,6 +48,10 @@
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>全量入库：记忆库 = 统一查询主入口（用户拍板"以后主要在数据库里查"）</strong>——规则 17 条 + 知识 387 条全部灌入 mem0（metadata.source 带出处）；AI 任何知识/规则/记忆问题<strong>先 mem_search 数据库</strong>（一个口子查所有、带出处），查不到再翻文件；文件保留为源（用户手机看 + 兜底）</td>
+          <td>记忆库 mem0（D:\ai\brain-memory）+ tools/kb_seed_rules.py + kb_seed_knowledge.py + 规范第十节</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>AI 自动沉淀记忆 = 默认动作（用户拍板 B 方案，广播所有 AI）</strong>——话题聊完/干完活有<strong>结论/决定/教训/偏好</strong>就 mem_add 自动存（不等用户提醒，攒 1-2 话题一条，不碎碎念）；<strong>用户拍板决策 = 最高优先级必存</strong>（闲聊 AI 漏存被用户抓出"这一条你没存？"的教训）；落地要低——先跑通"自动存"最小一步，不搞大蓝图；远期"会话档案区"边界待确认暂不落地</td>
           <td>知识库维护规范.md（第十节）+ 记忆库 mem0</td><td><span class="tag tag-orange">主 AI</span></td>
         </tr>
