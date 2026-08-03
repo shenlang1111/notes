@@ -36,6 +36,7 @@
     ['团队任务板', 'domains/思考收件箱/team-task-board.html'],
     ['健康度盘点', 'domains/思考收件箱/kb-health-checklist.html'],
     ['技术验证', 'domains/思考收件箱/brain-tech-verification.html'],
+    ['UI美化经验', 'domains/会话记录/ui-beautification-guide.html'],
     ['助剂与添加剂', 'domains/精细化工与扩展/finechem-additives.html'],
     ['日用化学品', 'domains/精细化工与扩展/finechem-daily-chem.html'],
     ['涂料与展望', 'domains/精细化工与扩展/finechem-surfaces.html'],
@@ -127,4 +128,42 @@
   details.appendChild(panel);
   floatNav.appendChild(details);
   document.body.appendChild(floatNav);
+
+  // —— 回到顶部按钮（UI 美化 AI v4）——
+  var backToTop = document.createElement('button');
+  backToTop.className = 'back-to-top';
+  backToTop.innerHTML = '\u2191';
+  backToTop.setAttribute('aria-label', '回到顶部');
+  backToTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.body.appendChild(backToTop);
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 300) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  // —— 表格滚动阴影检测（UI 美化 AI v4）——
+  document.querySelectorAll('.table-wrap').forEach(function (wrap) {
+    function checkScroll() {
+      if (wrap.scrollWidth > wrap.clientWidth) {
+        wrap.classList.add('scrollable');
+      } else {
+        wrap.classList.remove('scrollable');
+      }
+    }
+    checkScroll();
+    window.addEventListener('resize', checkScroll);
+  });
+
+  // —— TOC 移动端自动折叠（UI 美化 AI v4）——
+  if (window.innerWidth <= 768) {
+    var tocs = document.querySelectorAll('details.toc-nav');
+    for (var i = 0; i < tocs.length; i++) {
+      tocs[i].removeAttribute('open');
+    }
+  }
 })();
