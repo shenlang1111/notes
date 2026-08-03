@@ -22,6 +22,7 @@ updated: 2026-08-03
 
 | 日期 | 新增机制 | 去哪读 | 谁加的 |
 |---|---|---|---|
+| 2026-08-03 | **防压缩失忆三层强制**——①PreCompact hook（tools/precompact_save.js）压缩前自动把任务板/CHANGELOG 状态落盘到 KEY_MEMORY.md 快照区 ②SessionStart 开窗自动读回速查表摘要 ③deploy.js 强制 CHANGELOG 今日有条目才放行。配套 KEY_MEMORY.md（.claude/handoffs/）为压缩后第一读 | .claude/handoffs/KEY_MEMORY.md + .claude/settings.json + tools/precompact_save.js + session_start_report.js + deploy.js | 主 AI |
 | 2026-08-03 | **AI 大脑技术验证报告页入库**——技术验证员产出《AI 大脑技术验证报告》（5 方案实测 5 关 + 5 独立审计复核，主选 deep-memory、备选 mem0），正式页入库思考收件箱，已完成 registry/nav/首页登记 | domains/思考收件箱/brain-tech-verification.html（报告）+ brain-window-verifier.md（验证员提示词） | 主 AI |
 | 2026-08-03 | **Trae 移动端写本地文件验证通过**——从移动端发消息 → 本地共享文件夹根目录即时新建文件（实测"测试实时同步"落盘成功，秒级）→ 阶段 4 接入大脑（fs.watch 实时监听）的物理前提成立。建监听时需监听整个知识库根目录（含子目录），不能只盯 inbox | 本页广播（待阶段 4 落地后补使用说明） | 主大脑 |
 | 2026-08-03 | **检索大脑正式接入（deep-memory）**——本地混合检索工具（向量+BM25+重排），检索正式库（只读），替代手工 fanku 自动化；已适配 7 域多级目录+中文专有型号；环境 D 盘 D:\ai\deep-memory，检索走 search.py，结果带"待核实"标注 | D:\ai\deep-memory\README.md（使用说明）+ 本页广播 | 主大脑 |
