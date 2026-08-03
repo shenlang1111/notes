@@ -82,6 +82,11 @@
       <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
+          <td>用户追问"身份偏差/技能没学会"根因 → 修复：session_start_report 身份中立化（主大脑/验证员共用）、KEY_MEMORY① 角色澄清、fanku 装备进 .claude/skills/、报告+KEY_MEMORY 加技能清单。详见 CHANGELOG</td>
+          <td>tools/session_start_report.js、.claude/skills/fanku、KEY_MEMORY.md</td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">主 AI</span></td>
           <td><strong>M4 进化大脑落地（用户拍板）</strong>：建进化机制（工具 evolve_scan.js + mem_refine.py + 规范十·一 + 三处留痕），试点跑通闭环——2 条 chat-brain 对话存档提炼 1 条 long 经验（refined-mid-2026-08-03），回滚验证通过，生成 skill 草稿"记忆库去重与灌库"待审批；mem_export.py 补 source 字段。详见 CHANGELOG</td>
           <td>tools/evolve_scan.js、D:\ai\brain-memory\scripts\mem_refine.py + mem_export.py、知识库维护规范.md、mechanism-updates html+md、KEY_MEMORY</td>
