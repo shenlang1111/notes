@@ -2146,6 +2146,11 @@ ai-agent/
       <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><span class="tag tag-orange">主 AI</span></td>
+          <td>落地防压缩失忆三层强制：建 KEY_MEMORY.md 速查表 + 写 precompact_save.js（PreCompact 压缩前落盘）+ session_start_report.js 扩展（开窗读回速查表）+ deploy.js 加 CHANGELOG 今日条目门禁 + settings.json 注册 PreCompact hook + AGENT_NOTES 加"承诺必落文件/改完必回读"两坑</td>
+          <td>.claude/handoffs/KEY_MEMORY.md、tools/precompact_save.js、session_start_report.js、deploy.js、.claude/settings.json、AGENT_NOTES.md、mechanism-updates html+md</td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
           <td>写交接文档 v6（2026-08-03-agent-brain-v6.md）：融合 v5 全部内容 + 本轮成果（移动端验证通过/待核实清单盘点/代码独立复核/deploy.js 修复/kb_reader 修复）；用户反馈"整体风格变了，交接要遵循以前那种"→ 按 v3/v4 完整自包含风格重写（14 节，含大脑方向/阶段0/1 详述/边界速查/已知坑/交接链）；brain-window-main.md 当前阶段推进到"阶段1完成+阶段2准备"</td>
           <td>.claude/handoffs/2026-08-03-agent-brain-v6.md、brain-window-main.md、CHANGELOG.md</td>
@@ -2993,6 +2998,10 @@ uv venv .venv && uv pip install mem0ai fastembed
     <table>
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
+        <tr>
+          <td>2026-08-03</td><td><strong>防压缩失忆三层强制</strong>——①PreCompact hook（tools/precompact_save.js）压缩前自动把任务板/CHANGELOG 状态落盘到 KEY_MEMORY.md 快照区 ②SessionStart 开窗自动读回速查表摘要 ③deploy.js 强制 CHANGELOG 今日有条目才放行。配套 KEY_MEMORY.md（.claude/handoffs/）为压缩后第一读</td>
+          <td>.claude/handoffs/KEY_MEMORY.md + .claude/settings.json + tools/precompact_save.js + session_start_report.js + deploy.js</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
         <tr>
           <td>2026-08-03</td><td><strong>AI 大脑技术验证报告页入库</strong>——技术验证员产出《AI 大脑技术验证报告》（5 方案实测 5 关 + 5 独立审计复核，主选 deep-memory、备选 mem0），正式页入库思考收件箱，已完成 registry/nav/首页登记</td>
           <td>domains/思考收件箱/brain-tech-verification.html（报告）+ brain-window-verifier.md（验证员提示词）</td><td><span class="tag tag-orange">主 AI</span></td>
