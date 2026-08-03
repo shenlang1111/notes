@@ -1,6 +1,6 @@
 {
  "version": "1.0",
- "last_updated": "2026-08-03",
+ "last_updated": "2026-08-04",
  "domains": [
   {
    "name": "表面活性剂",
@@ -187,6 +187,21 @@
    "type": "article",
    "file": "domains/表面活性剂/troubleshooting.html",
    "updated": "2026-08-03"
+  },
+  {
+   "id": "apg",
+   "title": "APG（烷基糖苷）——绿色表面活性剂",
+   "domain": "表面活性剂",
+   "tags": [
+    "非离子",
+    "APG",
+    "烷基糖苷",
+    "绿色表活"
+   ],
+   "category": "四大表面活性剂",
+   "type": "article",
+   "file": "domains/表面活性剂/apg.html",
+   "updated": "2026-08-04"
   },
   {
    "id": "formulation",
