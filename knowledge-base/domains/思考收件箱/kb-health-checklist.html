@@ -39,9 +39,9 @@
     </thead>
     <tbody>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
-        <td style="padding:8px;"><strong>① 双格式成对</strong></td>
-        <td style="padding:8px;">HTML/MD 是否成对</td>
-        <td style="padding:8px;">deploy 成对校验无缺对告警</td>
+        <td style="padding:8px;"><strong>① 双格式分级</strong></td>
+        <td style="padding:8px;">用户看页（知识/经验/日志/机制/任务板）HTML/MD 成对；AI 看页（ai-worklog）可只写 MD</td>
+        <td style="padding:8px;">deploy 成对校验无缺对告警（AI 看页豁免）</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><strong>② 数据来源</strong></td>
@@ -77,6 +77,10 @@
     <div class="concept-card" style="border-top:3px solid var(--accent);">
       <h4>执行方式</h4>
       <p>子代理并行读页 → 按五维逐页评分 → 汇总盘点报告。硬伤进任务板，修复后复检关闭。</p>
+    </div>
+    <div class="concept-card" style="border-top:3px solid var(--accent2);">
+      <h4>产出必带认领（2026-08-03 机制瘦身）</h4>
+      <p>盘点发现的每个问题直接进任务板并指定认领人 + 期限，不挂灰；无认领的产出不算完成。</p>
     </div>
     <div class="concept-card" style="border-top:3px solid var(--accent3);">
       <h4>产出</h4>
