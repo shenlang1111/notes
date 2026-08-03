@@ -42,6 +42,8 @@ updated: 2026-08-03
 
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
+| 2026-08-03 | 闲聊 AI | **起草并存"规则设定 AI"话术（用户拍板：他有拍板能力）**：新角色专职规则起草/修订/拍板/落地/广播；拍板权限=规则文字/冲突/一致性自主定，铁律 8 范围报主 AI、大方向请示用户；agent_id 用 main（可申请 rules 身份）；话术存 MD-only（参照 session-prompt-d 先例），已广播 | 会话记录/rule-setter-prompt.md（新）、mechanism-updates html+md |
+| 2026-08-03 | 主 AI | **全量脚本+Skill 体检（用户"都运行一下看看能不能用"）**：Python 记忆脚本 4 个实测通过（mem_search/mem_add/mem_chat_save/mem_export，走 venv 不依赖系统 Python）+ Node 工具 13 个语法全过 + 核心 8 个实跑（compact_scheduler 88%/watch 运行中/心跳正常）+ Skill 20+17 全完整；修复 session-prompt 第十一节压缩规则不同步；清理 D:\tools 垃圾；规范新增"运行环境"条 | session-prompt html+md、知识库维护规范.md、CHANGELOG.md |
 | 2026-08-03 | 主 AI | **知识库质量体检 + 修复（用户"你改"）**：体检发现并修 4 类——①工作日志 4 文件 6 处失效链接（旧页拆分后链接没跟，含 2 处 xx.html 占位残留，双格式同步）②registry updated 字段 30 处过时批量校准 ③report-2026-07-下半月 补登记 registry + nav 入口 + 首页快照 34→37 ④mobile 重新生成（37 页）。复检：内链 335 个 0 失效、registry↔磁盘 37/37、updated 0 不一致。详见 CHANGELOG | 工作日志 4 文件（html+md）、registry.json、nav.js、index.html、mobile.html |
 | 2026-08-03 | 闲聊 AI | **落地"Trae 对话接入自动存档"（用户拍板"你来落地吧"）**：新建 tools/chat_autosave.js（SessionEnd hook：扫 D:\ai\brain-memory\chat_inbox\chat-<agent>-<日期>.md → 调 mem_chat_save.py 入库 → 归档 archive/）+ settings.json 注册 + 实测通过（casual 摘要入库召回 0.86、归档成功）。⚠️ 注意：任务板有主 AI 瘦身建议"自动存档改习惯项、不造自动脚本"（🆕 待主 AI 执行清理）——本 hook 是事件触发非定时任务，留/撤待用户+主 AI 定夺 | tools/chat_autosave.js（新）、.claude/settings.json、D:\ai\brain-memory\chat_inbox\（新）、任务板 html+md |
 | 2026-08-03 | 主 AI | **规则修订体系落地（用户拍板"有体系的改"）+ 首批修 5 项**：规范 v3.8 新增十·四规则修订闭环（发现→登记收件箱→主 AI 积 3 条/每周评估→拍板→改+同步→验证）；修掉"铁律 13"残留、投递/回复文件归档规则（根目录 21 个归档）、双格式硬软边界（用户看页=硬门禁）、状态保鲜扩至全知识域、机制页稳定即清理责任人（主 AI 每月）。详见 CHANGELOG | 知识库维护规范.md（v3.8 十·四）、mechanism-updates html+md、.claude/handoffs/archive/（投递文件归档） |
