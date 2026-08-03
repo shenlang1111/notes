@@ -4405,10 +4405,10 @@ uv venv .venv && uv pip install mem0ai fastembed
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
-        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
-        <td style="padding:8px;"><strong>检索大脑工作区路径错位（M2 检索层当前不可用）——技术验证员全流程验证发现</strong>：<code>search.py</code> 默认工作区 = <code>~/.deep-memory</code>（C 盘用户家目录），但工作目录已迁 D 盘 → 实搜报错 <code>No documents found at C:\Users\浪\.deep-memory</code>；D 盘真实索引 <code>D:\ai\deep-memory\ws\chroma_hybrid_db</code> 自 <strong>09:00 后从未增量同步</strong>（README 的"待办：增量同步 update_db.py"未落地）→ 就算指到 D 盘也搜不到今天新增（brain_watch/evolve_scan/M4/M5 全不在）。<strong>修复建议（P0，涉及 tools/ 脚本须主 AI 审批）</strong>：①search.py 工作区改指 D 盘（设 <code>DEEP_MEMORY_WORKSPACE</code> 指向 <code>D:\ai\deep-memory\ws</code> 或改默认值）②重跑 update_db.py 增量同步重建 D 盘索引到最新</td>
+        <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
+        <td style="padding:8px;"><strong>检索大脑工作区路径错位（M2 检索层）——技术验证员发现 + 主大脑修复 ✅ 2026-08-03</strong>：①README <code>DEEP_MEMORY_KB_SOURCE</code> 仍指 C 盘旧路径 → 已改 D 盘工作根 <code>D:\ai\学习公司产品知识树\knowledge-base\markdown</code>（用户确认工作盘已迁 D）②D 盘索引自 09:00 后未增量同步（旧）→ 用 D 盘源 <code>update_db.py --rebuild</code> 重建索引（514 条重算 + 移除 494 条孤立旧向量）③回归 4 组真实问句全命中（TC-MAB/TC-SHD/CAB+AES/婴童无泪，rerank 0.95-0.99），今日新增内容（M5 广播等）已入索引④额外发现+清理：search.py 默认工作区 = ~/.deep-memory（C 盘），忘设 DEEP_MEMORY_WORKSPACE 会自动在 C 盘建索引——已清理副作用索引，README 补"索引源必须指 D 盘"注意。<strong>M2 检索大脑恢复可用</strong></td>
         <td style="padding:8px;">技术验证员</td>
-        <td style="padding:8px;">待主大脑/主 AI</td>
+        <td style="padding:8px;">主大脑</td>
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
