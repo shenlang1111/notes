@@ -40,6 +40,7 @@ updated: 2026-08-02
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
 | 2026-08-03 | 主大脑 | 写瘦身版交接 v5（2026-08-03-agent-brain-v5.md）：合并阶段0/1成果，指针化（提示词归 brain-window-main.md），v3/v4 归档到 archive/；写交接提示词（边界/重点细节/铁律/阅读边界精简版） | .claude/handoffs/archive/2026-08-03-agent-brain-v5.md（已归档）、archive/ |
+| 2026-08-03 | 主 AI | 落地防压缩失忆三层强制：建 KEY_MEMORY.md 速查表 + 写 precompact_save.js（PreCompact 压缩前落盘）+ session_start_report.js 扩展（开窗读回速查表）+ deploy.js 加 CHANGELOG 今日条目门禁 + settings.json 注册 PreCompact hook + AGENT_NOTES 加"承诺必落文件/改完必回读"两坑 | .claude/handoffs/KEY_MEMORY.md、tools/precompact_save.js、session_start_report.js、deploy.js、.claude/settings.json、AGENT_NOTES.md、mechanism-updates html+md |
 | 2026-08-03 | 主大脑 | 正式接入"检索大脑"（deep-memory）：验收阶段 0 技术验证报告（采纳主选 deep-memory+备选 mem0、改 kb_reader 源码不动库结构、仅标待核实）；临时区适配验证全过（递归读子目录+###切段+剔frontmatter+分批embedding修复内存溢出；4组真实问句全命中）；D 盘 D:\ai\deep-memory 落地（venv/模型/索引，正式库零改动只读）；写 README | D:\ai\deep-memory\（skills/venv/hf_cache/ws）、kb_reader.py、onnx_models.py、临时区 brain-verify\ws-kb-mirror |
 | 2026-08-02 | 智能体 AI | 建立 fanku 翻库 skill（检索纪律）、团队任务板、知识库健康度盘点页；翻库规则落地到规范与话术 | .trae/skills/fanku/、思考收件箱/team-task-board、kb-health-checklist |
 | 2026-08-02 | 主 AI | 搭建"工作日志"板块（logs-guide + logs-2026-08），session-prompt 加日志 AI 专属话术 | domains/工作日志/、session-prompt |
@@ -74,7 +75,7 @@ updated: 2026-08-02
 | 2026-08-03 | 主大脑 | 修复检索大脑 kb_reader.py 切段 bug（主 AI 审批通过后执行）：①## 章节引言独立成条目（split_entries 改逐行扫描，修复全库 37640 字符向量端漏检）②代码块内 ### 不误判切段（fenced code block 剔除）③跨盘 relpath 加子目录前缀（消除同名 ID 冲突隐患）。单测 10 项全过；重建索引（286→488 条目，60.8s）；复跑 4 组回归全命中（婴童无泪修复前未命中预期页→修复后 formulation#无泪原理 + 甜菜碱分类含 MAB 无泪 + 六B 婴童方案） | kb_reader.py、chroma_hybrid_db（重建）、test_kb_reader.py（10 项过）、task-board html+md |
 | 2026-08-03 | 技术验证员 | 按现状更新验证员提示词（brain-window-verifier.md）：顶部加"当前状态"段（阶段0/1已完成+技术路线+验证员角色），开工第一步指向 v6 交接和检索大脑 README 不重复验证，已知坑补 git 误提交/HF 镜像/检索大脑使用注意，补全"做完以后"；主大脑 v6 交接补记"技术验证员独立复核检索大脑接入" | .claude/handoffs/brain-window-verifier.md、2026-08-03-agent-brain-v6.md、ai-worklog.md |
 | 2026-08-03 | 主大脑 | 按用户指示全做：①任务板第一项标 ✅（tools/检索接入脚本已通过改kb_reader源码落地）②deploy.js bug 行同步进HTML ③待核实清单盘点（子代理：md 10页58处，业务数据51处，集中 market.md 32处）④M2检索回归（3命中，婴童无泪命中formulation#无泪原理未命中预期apg） | team-task-board html+md、CHANGELOG.md |
-| 2026-08-03 | 主大脑 | 写交接文档 v6（2026-08-03-agent-brain-v6.md）：融合 v5 全部内容 + 本轮成果（移动端验证通过/待核实清单盘点/代码独立复核/deploy.js 修复/kb_reader 修复）；brain-window-main.md 当前阶段推进到"阶段1完成+阶段2准备" | .claude/handoffs/2026-08-03-agent-brain-v6.md、brain-window-main.md、CHANGELOG.md |
+| 2026-08-03 | 主大脑 | 写交接文档 v6（2026-08-03-agent-brain-v6.md）：融合 v5 全部内容 + 本轮成果（移动端验证通过/待核实清单盘点/代码独立复核/deploy.js 修复/kb_reader 修复）；用户反馈"整体风格变了，交接要遵循以前那种"→ 按 v3/v4 完整自包含风格重写（14 节，含大脑方向/阶段0/1 详述/边界速查/已知坑/交接链）；brain-window-main.md 当前阶段推进到"阶段1完成+阶段2准备" | .claude/handoffs/2026-08-03-agent-brain-v6.md、brain-window-main.md、CHANGELOG.md |
 | 2026-08-03 | 主大脑 | 验证 Trae 移动端写本地共享文件夹：用户从移动端发"测试实时同步"→ 根目录新建 测试实时同步.txt 落盘成功（秒级，fs.watch rename 事件可捕获）→ 阶段 4 接入层物理前提成立；已登记广播 | 根目录 测试实时同步.txt、mechanism-updates、ai-worklog |
 
 登记规则：
