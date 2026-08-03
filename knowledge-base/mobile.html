@@ -135,7 +135,7 @@ ul.feature-list{margin:0.85rem 0;padding:0;list-style:none;}
   border-radius:0 12px 12px 0;padding:0.95rem 1.2rem;margin:1.35rem 0;
   font-size:0.92rem;color:var(--ink);position:relative;
 }
-.callout::before{content:'💡';position:absolute;left:-2.2rem;top:1rem;opacity:0.9;}
+.callout::before{content:'💡';margin-right:0.5rem;opacity:0.9;font-size:1rem;vertical-align:middle;}
 .callout.accent2{background:var(--accent2-soft);border-left-color:var(--accent2);}
 .callout.accent3{background:var(--accent3-soft);border-left-color:var(--accent3);}
 .callout.accent4{background:var(--accent4-soft);border-left-color:var(--accent4);}
@@ -164,17 +164,17 @@ thead th:first-child{border-top-left-radius:0;}
 thead th:last-child{border-top-right-radius:0;}
 tbody td{padding:0.62rem 0.9rem;border-bottom:1px solid var(--rule);color:var(--ink);vertical-align:top;}
 tbody tr:last-child td{border-bottom:none;}
-tbody tr:nth-child(even) td{background:#F6FBFA;}
-tbody tr:hover td{background:var(--accent-soft);}
+tbody tr:nth-child(even) td{background:#F8FBFA;}
+tbody tr:hover td{background:var(--accent-soft);box-shadow:inset 3px 0 0 var(--accent2);}
 
 /* ============ Concept Grid ============ */
 .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;margin:1.35rem 0;}
 .concept-card{
   background:var(--bg2);border:1px solid var(--rule);border-radius:var(--radius);
   padding:1.2rem 1.3rem;box-shadow:var(--shadow-xs);
-  transition:all 0.22s;position:relative;overflow:hidden;
+  transition:all 0.22s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;
 }
-.concept-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--nav-grad);opacity:0;}
+.concept-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--nav-grad);opacity:0;transition:opacity 0.22s cubic-bezier(0.4,0,0.2,1);}
 .concept-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:rgba(20,184,166,0.4);}
 .concept-card:hover::before{opacity:1;}
 .concept-card h4{font-size:0.92rem;font-weight:800;margin-bottom:0.35rem;color:var(--accent);}
@@ -307,10 +307,10 @@ tbody tr:hover td{background:var(--accent-soft);}
 .page-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem;margin:1.6rem 0;}
 .page-card{
   background:var(--bg2);border:1px solid var(--rule);border-radius:var(--radius-lg);
-  padding:1.5rem;text-decoration:none;color:var(--ink);transition:all 0.22s;display:block;
+  padding:1.5rem;text-decoration:none;color:var(--ink);transition:all 0.22s cubic-bezier(0.4,0,0.2,1);display:block;
   box-shadow:var(--shadow-xs);position:relative;overflow:hidden;
 }
-.page-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--nav-grad);opacity:0;transition:opacity 0.22s;}
+.page-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--nav-grad);opacity:0;transition:opacity 0.22s cubic-bezier(0.4,0,0.2,1);}
 .page-card:hover{border-color:rgba(20,184,166,0.45);box-shadow:var(--shadow-lg);transform:translateY(-4px);}
 .page-card:hover::before{opacity:1;}
 .page-card .card-icon{
@@ -518,6 +518,87 @@ thead th{position:sticky;top:0;z-index:10;}
   .float-panel{min-width:180px;max-width:260px;}
 }
 
+/* ============ v4 美化增强 —— UI 美化 AI ============ */
+
+/* 面包屑导航 */
+.breadcrumb{display:flex;align-items:center;gap:0.35rem;flex-wrap:wrap;margin-bottom:0.6rem;position:relative;z-index:1;}
+.breadcrumb a{font-size:0.78rem;color:rgba(255,255,255,0.75);text-decoration:none;transition:color 0.15s;}
+.breadcrumb a:hover{color:#fff;}
+.breadcrumb .bc-sep{font-size:0.7rem;color:rgba(255,255,255,0.4);margin:0 0.1rem;}
+.breadcrumb .bc-current{font-size:0.78rem;color:#fff;font-weight:600;}
+
+/* 上下篇导航 */
+.page-nav{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.5rem 0 1.5rem;}
+.page-nav .nav-link{
+  display:flex;flex-direction:column;gap:0.25rem;padding:1rem 1.2rem;
+  background:var(--bg2);border:1px solid var(--rule);border-radius:var(--radius);
+  text-decoration:none;color:var(--ink);transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:var(--shadow-xs);
+}
+.page-nav .nav-link:hover{border-color:rgba(20,184,166,0.4);box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.page-nav .nav-link.next{text-align:right;}
+.page-nav .nav-label{font-size:0.72rem;color:var(--muted);font-weight:600;letter-spacing:0.04em;}
+.page-nav .nav-title{font-size:0.92rem;font-weight:700;color:var(--accent);}
+.page-nav .nav-link.prev .nav-label::before{content:'← ';}
+.page-nav .nav-link.next .nav-label::after{content:' →';}
+@media(max-width:768px){
+  .page-nav{grid-template-columns:1fr;}
+  .page-nav .nav-link.next{text-align:left;}
+}
+
+/* 回到顶部按钮 */
+.back-to-top{
+  position:fixed;right:1.4rem;bottom:5rem;z-index:150;
+  width:2.6rem;height:2.6rem;border-radius:50%;
+  background:var(--bg2);border:1px solid var(--rule);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;cursor:pointer;
+  box-shadow:var(--shadow-md);
+  opacity:0;visibility:hidden;transform:translateY(0.5rem);
+  transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+.back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0);}
+.back-to-top:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-2px);}
+@media(max-width:768px){
+  .back-to-top{right:1rem;bottom:4.5rem;width:2.4rem;height:2.4rem;}
+}
+
+/* 表格滚动阴影提示 */
+.table-wrap{position:relative;}
+.table-wrap::after{
+  content:'';position:absolute;top:0;right:0;bottom:0;width:1.2rem;
+  background:linear-gradient(90deg, transparent 0%, rgba(11,118,102,0.08) 100%);
+  pointer-events:none;opacity:0;transition:opacity 0.2s;
+}
+.table-wrap.scrollable::after{opacity:1;}
+
+/* 最近更新区块 */
+.recent-updates{margin:1.6rem 0;}
+.recent-updates .ru-title{
+  font-size:0.85rem;font-weight:800;color:var(--accent);letter-spacing:0.1em;
+  margin-bottom:0.8rem;display:flex;align-items:center;gap:0.6rem;
+}
+.recent-updates .ru-title::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--nav-grad);box-shadow:0 0 0 4px rgba(20,184,166,0.15);}
+.recent-updates .ru-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg, var(--accent2) 0%, transparent 100%);opacity:0.3;}
+.recent-updates .ru-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.7rem;}
+.recent-updates .ru-item{
+  display:flex;align-items:center;gap:0.6rem;padding:0.65rem 0.85rem;
+  background:var(--bg2);border:1px solid var(--rule);border-radius:10px;
+  text-decoration:none;color:var(--ink);transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:var(--shadow-xs);
+}
+.recent-updates .ru-item:hover{border-color:rgba(20,184,166,0.4);box-shadow:var(--shadow-sm);transform:translateY(-1px);}
+.recent-updates .ru-date{font-size:0.72rem;font-weight:700;color:var(--accent2);white-space:nowrap;flex-shrink:0;}
+.recent-updates .ru-name{font-size:0.82rem;font-weight:500;line-height:1.4;}
+@media(max-width:768px){
+  .recent-updates .ru-list{grid-template-columns:1fr;}
+}
+
+/* 移动端 callout 修复（配合图标改为内联） */
+@media(max-width:768px){
+  .callout{padding-left:1.2rem;}
+}
+
 /* ===== 手机版专用 ===== */
 .mobile-nav{
   position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.92);
@@ -559,28 +640,58 @@ body{padding-bottom:3rem;}
   <div class="hero-badge">✦ 天赐材料日化资料库 v3.0</div>
   <h1>天赐材料日化资料库</h1>
   <p class="subtitle">表面活性剂原理 × 天赐产品线 × 销售实战 × AI 协作 · 从教材到实战的一站式资料库</p>
+  <div class="quick-bar">
+    <a href="#fundamentals">基础概念</a>
+    <a href="#anionic">阴离子表活</a>
+    <a href="#products">产品速查</a>
+    <a href="#formulation">配方设计</a>
+    <a href="#sales">销售话术</a>
+    <a href="#troubleshooting">客户诊断</a>
+  </div>
 </header>
 
-<div class="feature-grid">
-  <div class="feature-item">
-    <div class="f-icon">📚</div>
-    <h4>34 个专题页面</h4>
-    <p>从基础概念到销售实战</p>
+<div class="snapshot">
+  <div class="snap-card">
+    <div class="snap-num">34</div>
+    <div class="snap-label">专题页面</div>
   </div>
-  <div class="feature-item">
-    <div class="f-icon">🔬</div>
-    <h4>教材+产品</h4>
-    <p>《精细化工工艺学》+ 天赐产品线</p>
+  <div class="snap-card">
+    <div class="snap-num a2">4</div>
+    <div class="snap-label">表活分类</div>
   </div>
-  <div class="feature-item">
-    <div class="f-icon">🔄</div>
-    <h4>持续更新</h4>
-    <p>通过对话即可添加新内容</p>
+  <div class="snap-card">
+    <div class="snap-num a3">7</div>
+    <div class="snap-label">内容分区</div>
   </div>
-  <div class="feature-item">
-    <div class="f-icon">📱</div>
-    <h4>响应式设计</h4>
-    <p>电脑、平板、手机都能看</p>
+  <div class="snap-card">
+    <div class="snap-num">v3.0</div>
+    <div class="snap-label">持续迭代</div>
+  </div>
+</div>
+
+<div class="recent-updates">
+  <div class="ru-title">最近更新</div>
+  <div class="ru-list">
+    <a href="#session-20260801" class="ru-item">
+      <span class="ru-date">08-03</span>
+      <span class="ru-name">与 AI 的交流经验</span>
+    </a>
+    <a href="#inbox-20260802-agent-design" class="ru-item">
+      <span class="ru-date">08-03</span>
+      <span class="ru-name">智能体设计讨论存档</span>
+    </a>
+    <a href="#kb-health-checklist" class="ru-item">
+      <span class="ru-date">08-03</span>
+      <span class="ru-name">知识库健康度盘点</span>
+    </a>
+    <a href="#brain-tech-verification" class="ru-item">
+      <span class="ru-date">08-03</span>
+      <span class="ru-name">AI 大脑技术验证报告</span>
+    </a>
+    <a href="#mechanism-updates" class="ru-item">
+      <span class="ru-date">08-02</span>
+      <span class="ru-name">机制更新</span>
+    </a>
   </div>
 </div>
 
@@ -3149,7 +3260,7 @@ uv venv .venv && uv pip install mem0ai fastembed
           <td>tools/brain_watch.js + tools/brain_msg.js（新，头部注释含完整用法）+ KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
         </tr>
         <tr>
-          <td>2026-08-03</td><td><strong>进化大脑·M4（自动提炼 + skill 生成，主大脑执行）</strong>——蓝图第 4 层"进化层"落地：①<strong>进化编排器 evolve_scan.js</strong>（node tools/evolve_scan.js --status/--scan/--draft/--apply/--rollback/--journal）：扫描 mid 候选题 → 生成 skill 草稿 → 执行提炼升级 ②<strong>提炼执行器 mem_refine.py</strong>（mem0 原生 update 免 LLM，保 id/agent_id/历史）：mid 层对话存档/经验提炼为 long 层可复用经验（source=refined-mid-&lt;日期&gt;，provenance 留痕）③<strong>审批流（硬门槛）</strong>：skill 草稿落 D:\ai\brain-memory\ws\skill-drafts\（不入库）→ 登记任务板"待审批" → 主 AI 结合 skill-creator 人审 → 通过才落盘 .trae/skills/，不通过留[驳回]标记 ④<strong>回滚</strong>：--rollback 从 mem0_history 恢复原文+layer+source ⑤**mem_export.py 补 source 字段**（之前导出丢 source，无法区分 chat-*/mid）。<strong>触发条件</strong>：干完一类活 / mid 攒够 ≥3 条同主题 / 用户要求固化。所有 AI 开工可用 --scan 看待提炼素材。M4 里程碑达成，四层大脑闭环</td>
+          <td>2026-08-03</td><td><strong>进化大脑·M4（自动提炼 + skill 生成，主大脑执行）</strong>——蓝图第 4 层"进化层"落地：①<strong>进化编排器 evolve_scan.js</strong>（node tools/evolve_scan.js --status/--scan/--draft/--apply/--rollback/--journal）：扫描 mid 候选题 → 生成 skill 草稿 → 执行提炼升级 ②<strong>提炼执行器 mem_refine.py</strong>（mem0 原生 update 免 LLM，保 id/agent_id/历史）：mid 层对话存档/经验提炼为 long 层可复用经验（source=refined-mid-&lt;日期&gt;，provenance 留痕）③<strong>审批流（硬门槛）</strong>：skill 草稿落 D:\ai\brain-memory\ws\skill-drafts\（不入库）→ 登记任务板"待审批" → 主 AI 结合 skill-creator 人审 → 通过才落盘 .trae/skills/，不通过留[驳回]标记 ④<strong>回滚</strong>：--rollback 从 mem0_history 恢复原文+layer+source ⑤**mem_export.py 补 source 字段**（之前导出丢 source，无法区分 chat-*/mid）。<strong>触发条件</strong>：干完一类活 / mid 攒够 ≥3 条同主题 / 用户要求固化。所有 AI 开工可用 --scan 看待提炼素材。**首个 skill「记忆库去重与灌库」已审批落盘 .trae/skills/（2026-08-03 主 AI 批）**。M4 里程碑达成，四层大脑闭环</td>
           <td>tools/evolve_scan.js + D:\ai\brain-memory\scripts\mem_refine.py（新，头部注释含完整用法）+ 规范十·一 + KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
         </tr>
         <tr>
@@ -3315,8 +3426,8 @@ uv venv .venv && uv pip install mem0ai fastembed
     </thead>
     <tbody>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
-        <td style="padding:8px;"><span class="tag tag-blue">🆕 待审批</span></td>
-        <td style="padding:8px;"><strong>M4 进化大脑 skill 草稿审批</strong>——evolve_scan.js 生成的草稿 <code>记忆库去重与灌库</code>（D:\ai\brain-memory\ws\skill-drafts\记忆库去重与灌库\SKILL.md）：记忆库重复爆炸 → 去重 → 灌库幂等化(--reset) → 切段 → 验证。待主 AI 结合 skill-creator 人审（description 触发词/步骤/边界），通过后落盘 .trae/skills/，不通过打[驳回]标记。M4 进化机制已建（工具+规范+试点提炼 2 条对话存档→1 条 long 经验，四层大脑全部达成）</td>
+        <td style="padding:8px;"><span class="tag tag-green">✅ 已落地</span></td>
+        <td style="padding:8px;"><strong>M4 进化大脑 skill 草稿审批 ✅ 通过已落盘</strong>——evolve_scan.js 生成的草稿 <code>记忆库去重与灌库</code> 经主 AI 结合 skill-creator 人审通过（description 触发词/6 步骤/边界齐全），已落盘 <code>.trae/skills/记忆库去重与灌库/SKILL.md</code>。M4 进化机制完整闭环：工具（evolve_scan.js + mem_refine.py）+ 规范十·一 + 试点提炼（2 条 chat-brain 对话存档→1 条 long 经验）+ 代码审查修复（回滚排序/防重复提炼/失败留痕）+ skill 审批落盘。四层大脑全部达成</td>
         <td style="padding:8px;">主 AI</td>
         <td style="padding:8px;">主 AI</td>
         <td style="padding:8px;">2026-08-03</td>
@@ -4374,6 +4485,11 @@ uv venv .venv && uv pip install mem0ai fastembed
 <div class="page-panel" id="panel-anionic" data-panel="anionic" style="display:none">
 <!-- ===== Page Hero (auto-generated) ===== -->
 <div class="page-hero">
+  <nav class="breadcrumb">
+    <a href="#home">首页</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">阴离子表面活性剂</span>
+  </nav>
   <div class="page-hero-meta"><span class="tag tag-teal">表面活性剂</span></div>
   <h1>阴离子表面活性剂</h1>
   <p class="page-hero-desc">产量最大、应用最广的一类。磺酸盐、硫酸酯盐、羧酸盐（氨基酸表活、甲基牛磺酸）全解析，含刺激性排序与分子机制。</p>
@@ -4635,6 +4751,17 @@ uv venv .venv && uv pip install mem0ai fastembed
     <p>甲牛贵不是因为"多了一个甲基"，而是整个分子骨架决定了它必须走一条与AES完全不同的合成路线：更贵的起始原料（牛磺酸 vs 脂肪醇）、更长的合成步骤（5步 vs 2步）、更苛刻的反应条件（高压/低温/耐腐蚀）、更复杂的纯化流程（多级萃取/脱色）。这些因素叠加，使得甲牛的单位生产成本远高于AES，属于<strong>精细化工品</strong>而非<strong>大宗日化原料</strong>的定价逻辑。</p>
   </div>
 </section>
+
+<nav class="page-nav">
+  <a href="#fundamentals" class="nav-link prev">
+    <span class="nav-label">上一篇</span>
+    <span class="nav-title">基础概念与原理</span>
+  </a>
+  <a href="#cationic" class="nav-link next">
+    <span class="nav-label">下一篇</span>
+    <span class="nav-title">阳离子表面活性剂</span>
+  </a>
+</nav>
 </div>
 <div class="page-panel" id="panel-applications" data-panel="applications" style="display:none">
 <!-- ===== Page Hero (auto-generated) ===== -->
