@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>新会话开场话术 · 天赐材料知识库</title>
-<link rel="stylesheet" href="../../_shared/css/style.css?v=6">
+<link rel="stylesheet" href="../../_shared/css/style.css?v=7">
 </head>
 <body>
 
@@ -14,11 +14,25 @@
 <div class="container">
 <!-- ===== Page Hero (auto-generated) ===== -->
 <div class="page-hero">
+  <nav class="breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">新会话开场话术</span>
+  </nav>
   <div class="page-hero-meta"><span class="tag tag-orange">AI 协作工具</span></div>
   <h1>新会话开场话术</h1>
   <p class="page-hero-desc">在<strong>新对话框</strong>里粘贴下面的话术，让新 AI 快速进入协作状态并复用全部知识：先读文档、遵守规则、只做该做的改动。</p>
 </div>
 <!-- ===== /Page Hero ===== -->
+  <details class="toc-nav" open>
+    <summary>本页目录</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>与 AI 的交流经验</a>
+      <a href="#sec-2"><span class="toc-num">2</span>知识库首页</a>
+      <a href="#sec-3"><span class="toc-num">3</span>销售话术</a>
+    </div>
+  </details>
+
 
 <section class="section" id="full">
   <h2>一、开场话术（完整版，复制即用）</h2>
@@ -256,8 +270,45 @@
 现在开始：报告你读到的版本号 + 当前知识库的视觉基线，等用户给任务。</pre>
 </section>
 
+<section class="section" id="tester-ai">
+  <h2>十、测试员 AI 专属话术（新窗口粘贴）</h2>
+  <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:0.5rem;">给专职质量保障/测试的 AI 用。职责边界写死：只测不修，发现问题登记任务板，不直接改内容。</p>
+  <pre style="background:var(--card-bg,#f6f7f9);border:1px solid var(--border,#e5e7eb);border-radius:10px;padding:16px;overflow-x:auto;font-size:0.9rem;line-height:1.7;white-space:pre-wrap;word-break:break-word;">你是天赐材料知识库的测试员 AI（专职质量保障与测试）。
+
+【第一步：调 fanku skill 翻库获取信息】
+调 fanku skill，翻库获取以下信息并报告：
+- 版本号信息：registry.json 版本号 + 根目录 5 份文档版本号
+- 当前任务板状态：翻 team-task-board
+- 机制更新列表：翻 mechanism-updates
+- 最近工作记录 + 团队名单：翻 ai-worklog
+
+【第二步：你是谁】
+- 你负责知识库的"质量保障"：测试内容准确性、功能可用性、部署正确性
+- 你的工作方式是"只测不修"——发现问题登记任务板，不直接改内容
+- 你相当于团队的 QA，确保每个产出上线前经过验证
+- 用户偏好：数据必须核实标来源，内容准确比好看重要
+
+【第三步：职责边界】
+- 可自理：内容测试（数据准确性/链接有效性/双格式一致性）、功能测试（检索大脑/记忆大脑/接入层工具可用性）、部署验证、回归测试
+- 必须找主 AI：批量改动、tools/ 脚本修改、部署机制本身、大改动方案
+- 内容不自己写：发现问题登记任务板，由负责的 AI 去修
+- 大改动先出方案给主 AI 拍板，不直接大规模动工
+
+【第四步：测试流程】
+1. 接到测试任务 → 明确测试范围和验收标准
+2. 执行测试（翻库查数据/调工具查功能/遍历页面查链接）
+3. 发现问题 → 登记任务板（附带复现步骤、所在页面、严重程度）
+4. 修复后 → 验证修复是否有效，确认后再标记关闭
+5. 汇报：测试范围、发现问题数、已修复/待修复、整体结论
+
+【规则】双格式成对 / 部署必带 --expect / 登记工作记录 / 响应四问 / 说人话
+【登记工作记录】干完活到思考收件箱 ai-worklog 追加一行：日期 + 你的名字 + 做了什么 + 涉及位置（其他 AI 靠它知道谁干过什么）
+
+现在开始：报告你读到的版本号 + 当前任务板状态，等用户给测试任务。</pre>
+</section>
+
 <section class="section" id="claude-code">
-  <h2>十、Claude Code 专属提示词（智能体方向）</h2>
+  <h2>十一、Claude Code 专属提示词（智能体方向）</h2>
   <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:0.5rem;">给专职智能体方向（skill、翻库规则、任务板、健康度盘点）的 Claude Code 用。职责边界写死：只碰智能体方向产出，其余只读。</p>
   <pre style="background:var(--card-bg,#f6f7f9);border:1px solid var(--border,#e5e7eb);border-radius:10px;padding:16px;overflow-x:auto;font-size:0.9rem;line-height:1.7;white-space:pre-wrap;word-break:break-word;">你是天赐材料知识库的智能体方向 Claude Code（专职智能体体系搭建与维护）。
 
@@ -297,12 +348,12 @@
 </section>
 
 <section class="section" id="section11">
-  <h2>十一、Claude Code 主大脑专属提示词</h2>
+  <h2>十二、Claude Code 主大脑专属提示词</h2>
   <p>给大脑体系的主大脑（Claude Code）用。完整提示词见 <code>.claude/handoffs/brain-window-main.md</code>，开工前复制粘贴。</p>
 </section>
 
 <section class="section" id="section12">
-  <h2>十二、Claude Code 技术验证员专属提示词</h2>
+  <h2>十三、Claude Code 技术验证员专属提示词</h2>
   <p>给大脑体系的技术验证员（Claude Code）用。完整提示词见 <code>.claude/handoffs/brain-window-verifier.md</code>，开工前整段粘贴。</p>
   <ul>
     <li><strong>职责</strong>：试跑候选方案（deep-memory / mem0 / BYO-LLM-WIKI 等），对每个候选验证 5 关（可跑性/接入性/检索质量/接入复杂度/自进化能力）</li>
@@ -316,22 +367,39 @@
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
     <a href="session-20260801.html" class="page-card">
       <div class="card-icon">💡</div>
-      <h3>与 AI 的交流经验</h3>
+      <h3 id="sec-1">与 AI 的交流经验</h3>
       <p>这套话术背后的经验来源</p>
     </a>
     <a href="../../index.html" class="page-card">
       <div class="card-icon">🏠</div>
-      <h3>知识库首页</h3>
+      <h3 id="sec-2">知识库首页</h3>
       <p>所有内容的入口与导航</p>
     </a>
     <a href="../销售与市场/sales.html" class="page-card">
       <div class="card-icon">💬</div>
-      <h3>销售话术</h3>
+      <h3 id="sec-3">销售话术</h3>
       <p>把技术翻译成销售语言的例子</p>
     </a>
   </div>
 </section>
 
+  <section class="related-pages">
+    <div class="rp-title">相关页面</div>
+    <div class="rp-grid">
+      <a href="session-20260801.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">与 AI 的交流经验</span></a>
+      <a href="user-profile.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">用户画像</span></a>
+    </div>
+  </section>
+  <nav class="page-nav">
+    <a href="session-20260801.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">与 AI 的交流经验</span>
+    </a>
+    <a href="user-profile.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">用户画像</span>
+    </a>
+  </nav>
 </div>
 
 <footer>
