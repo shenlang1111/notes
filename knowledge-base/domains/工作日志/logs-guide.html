@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>工作日志 · 板块说明 · 天赐材料知识库</title>
-<link rel="stylesheet" href="../../_shared/css/style.css?v=6">
+<link rel="stylesheet" href="../../_shared/css/style.css?v=7">
 </head>
 <body>
 
@@ -14,12 +14,28 @@
 <div class="container">
 <!-- ===== Page Hero ===== -->
 <div class="page-hero">
+  <nav class="breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">工作日志板块说明</span>
+  </nav>
   <div class="page-hero-meta"><span class="tag tag-orange">工作日志</span></div>
   <h1>工作日志 · 板块说明</h1>
   <p class="page-hero-desc">日志 AI 的专属工作区：每日工作日志按"每月一个文件"留存，可聚合为半月报 / 月报 / 年报。</p>
   <a href="../../index.html" class="page-hero-back">← 返回首页</a>
 </div>
 <!-- ===== /Page Hero ===== -->
+  <details class="toc-nav" open>
+    <summary>本页目录</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>第 1 组8.01（六）– 8.02</a>
+      <a href="#sec-2"><span class="toc-num">2</span>2026 年 8 月日志</a>
+      <a href="#sec-3"><span class="toc-num">3</span>2026 年 7 月日志（补录）</a>
+      <a href="#sec-4"><span class="toc-num">4</span>新会话开场话术</a>
+      <a href="#sec-5"><span class="toc-num">5</span>知识库首页</a>
+    </div>
+  </details>
+
 
 <section class="section" id="overview">
   <h2>一、板块定位</h2>
@@ -60,7 +76,7 @@
   <h2>三、每日日志模板（日志 AI 按此格式写）</h2>
   <p>页面采用<strong>卡片式布局</strong>：按周分组，每天一条 <code>log-card</code>，含日期徽标、类别标签、完成/问题/灵感三块。类别标签：<span class="tag tag-red">安全合规</span> <span class="tag tag-purple">质量认证</span> <span class="tag tag-blue">产线实操</span> <span class="tag tag-green">产品学习</span> <span class="tag tag-orange">知识库</span></p>
   <pre style="background:rgba(0,0,0,0.04);border-radius:8px;padding:16px;font-size:0.9rem;line-height:1.7;white-space:pre-wrap;word-break:break-word;">周分组标题：
-<h3 class="week-group-title"><span class="wg-name">第 1 组</span><span class="wg-days">8.01（六）– 8.02（日）· 一句话主题</span></h3>
+<h3 id="sec-1" class="week-group-title"><span class="wg-name">第 1 组</span><span class="wg-days">8.01（六）– 8.02（日）· 一句话主题</span></h3>
 
 日志卡片（每条日志一份）：
 <div class="log-card">
@@ -150,27 +166,44 @@
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
     <a href="logs-2026-08.html" class="page-card">
       <div class="card-icon">📅</div>
-      <h3>2026 年 8 月日志</h3>
+      <h3 id="sec-2">2026 年 8 月日志</h3>
       <p>本月工作日志（当前月份）</p>
     </a>
     <a href="logs-2026-07.html" class="page-card">
       <div class="card-icon">📅</div>
-      <h3>2026 年 7 月日志（补录）</h3>
+      <h3 id="sec-3">2026 年 7 月日志（补录）</h3>
       <p>上月工作日志 · 补录整理版</p>
     </a>
     <a href="../会话记录/session-prompt.html" class="page-card">
       <div class="card-icon">📋</div>
-      <h3>新会话开场话术</h3>
+      <h3 id="sec-4">新会话开场话术</h3>
       <p>日志 AI 的专属开场话术在这里</p>
     </a>
     <a href="../../index.html" class="page-card">
       <div class="card-icon">🏠</div>
-      <h3>知识库首页</h3>
+      <h3 id="sec-5">知识库首页</h3>
       <p>所有内容的入口与导航</p>
     </a>
   </div>
 </section>
 
+  <section class="related-pages">
+    <div class="rp-title">相关页面</div>
+    <div class="rp-grid">
+      <a href="logs-2026-07.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">2026年7月工作日志（补录）</span></a>
+      <a href="logs-2026-08.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">2026年8月工作日志</span></a>
+    </div>
+  </section>
+  <nav class="page-nav">
+    <a href="../销售与市场/tinci-amphoteric-summary.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">天赐温和两性表面活性剂 — 产品目录归纳总结</span>
+    </a>
+    <a href="logs-2026-07.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">2026年7月工作日志（补录）</span>
+    </a>
+  </nav>
 </div>
 
 <footer>
