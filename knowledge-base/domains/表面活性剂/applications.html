@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>应用原理深度 · 天赐材料知识库</title>
-<link rel="stylesheet" href="../../_shared/css/style.css?v=6">
+<link rel="stylesheet" href="../../_shared/css/style.css?v=7">
 </head>
 <body>
 
@@ -14,17 +14,35 @@
 <div class="container">
 <!-- ===== Page Hero (auto-generated) ===== -->
 <div class="page-hero">
+  <nav class="breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">应用原理深度</span>
+  </nav>
   <div class="page-hero-meta"><span class="tag tag-teal">表面活性剂</span></div>
   <h1>应用原理深度</h1>
   <p class="page-hero-desc">乳化（HLB法/PIT法）、增溶、洗涤去污（卷缩机理）、泡沫理论、复配协同（β参数）、消泡破乳。</p>
   <a href="../../index.html" class="page-hero-back">← 返回首页</a>
 </div>
 <!-- ===== /Page Hero ===== -->
+  <details class="toc-nav" open>
+    <summary>本页目录</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>乳化理论</a>
+      <a href="#sec-2"><span class="toc-num">2</span>增溶作用的四种方式</a>
+      <a href="#sec-3"><span class="toc-num">3</span>洗涤去污的微观五步过程</a>
+      <a href="#sec-4"><span class="toc-num">4</span>泡沫稳定性——Gibbs-Maran</a>
+      <a href="#sec-5"><span class="toc-num">5</span>复配协同效应——正则溶液理论（RST</a>
+      <a href="#sec-6"><span class="toc-num">6</span>消泡机理</a>
+      <a href="#sec-7"><span class="toc-num">7</span>破乳方法</a>
+    </div>
+  </details>
+
 <section class="section" id="s9">
 
 
 
-  <h3>9.1 乳化理论</h3>
+  <h3 id="sec-1">9.1 乳化理论</h3>
   <p>乳液是两种不相溶液体（油和水）通过乳化剂形成的<strong>热力学不稳定但动力学稳定</strong>的分散体系。</p>
 
   <div class="concept-grid">
@@ -47,7 +65,7 @@
     <p>液滴间的总相互作用能 = 范德华引力势能(V_A) + 静电排斥势能(V_R)。当两个液滴靠近时：在较远距离，静电排斥占主导，形成<strong>能量势垒</strong>；在极近距离，范德华引力急剧增大，一旦越过势垒，液滴迅速聚并。势垒高度越大，乳液越稳定。离子型表活通过形成双电层赋予Zeta电位，产生静电排斥。Zeta电位绝对值 > 30mV 为稳定。</p>
   </div>
 
-  <h3>9.2 增溶作用的四种方式</h3>
+  <h3 id="sec-2">9.2 增溶作用的四种方式</h3>
   <div class="table-wrap">
     <table>
       <thead><tr><th>方式</th><th>位置</th><th>被增溶物类型</th><th>增溶量</th></tr></thead>
@@ -61,7 +79,7 @@
   </div>
   <p><strong>增溶量顺序：</strong>PEO链间缠绕 &gt; 栅栏层 &gt; 内核 &gt; 表面吸附。增溶最佳HLB范围：15~18。</p>
 
-  <h3>9.3 洗涤去污的微观五步过程</h3>
+  <h3 id="sec-3">9.3 洗涤去污的微观五步过程</h3>
   <div class="card accent">
     <ol>
       <li><strong>润湿渗透：</strong>表活降低水的表面张力→洗液渗透到污垢与基底之间</li>
@@ -174,7 +192,7 @@
     <div class="diagram-note"><strong>图解：</strong>上排展示洗涤去污的连续过程：①表活降低表面张力，水渗入油污与基底之间；②亲油尾插入油污，油污卷缩脱离；③表活在油滴表面排列，形成O/W乳液；④小油滴被胶束包裹增溶，防止重新沉积；⑤随水流冲走。下排对比O/W和W/O两种乳液类型——你卖的表活主要用在O/W体系（洗发水、沐浴露）。</div>
   </div>
 
-  <h3>9.4 泡沫稳定性——Gibbs-Marangoni效应</h3>
+  <h3 id="sec-4">9.4 泡沫稳定性——Gibbs-Marangoni效应</h3>
   <p>这是泡沫稳定性的<strong>核心机制</strong>。当液膜受到拉伸（局部变薄）时：该区域表活浓度降低→局部表面张力升高→产生表面张力梯度→驱动液体从低表面张力区（膜厚处）向高表面张力区（膜薄处）流动→液膜<strong>自动修复变厚</strong>。这一自修复过程称为Gibbs-Marangoni效应，使液膜具有"弹性"。</p>
 
   <div class="card accent2">
@@ -183,7 +201,7 @@
     <p><strong>初始泡高H₀</strong>（200mL流完即刻测量）→反映<strong>起泡力</strong>；<strong>5分钟泡高H₅</strong>→反映<strong>泡沫稳定性（稳泡力）</strong>。起泡力与稳泡力是两个独立概念——有的表活起泡快但消泡也快，有的起泡慢但泡沫持久。</p>
   </div>
 
-  <h3>9.5 复配协同效应——正则溶液理论（RST）</h3>
+  <h3 id="sec-5">9.5 复配协同效应——正则溶液理论（RST）</h3>
   <p>正则溶液理论是描述混合胶束的<strong>核心定量模型</strong>：</p>
   <div class="formula-box">
     <strong>1/CMC_mix = α₁/(f₁·CMC₁) + α₂/(f₂·CMC₂)</strong><br>
@@ -206,10 +224,10 @@
     <strong>阴离子-非离子协同机理：</strong>非离子表活（如AEO、APG）插入阴离子表活胶束中→拉开阴离子头基间距→降低静电排斥→胶束更易形成→<strong>混合CMC显著降低</strong>。同时，非离子EO链在胶束表面形成水合保护层，增加空间位阻稳定性。这就是为什么AES+6501复配后泡沫更细腻稳定——界面膜中分子排列更致密，表面粘度更高。
   </div>
 
-  <h3>9.6 消泡机理</h3>
+  <h3 id="sec-6">9.6 消泡机理</h3>
   <p>消泡剂通过三种机制作用：<strong>铺展/去润湿</strong>（消泡剂液滴在液膜表面铺展→取代原表活→液膜破裂）、<strong>桥连/拉伸</strong>（消泡剂液滴同时接触液膜两侧→形成油桥→断裂）、<strong>去稳定化</strong>（降低表面弹性→削弱Gibbs-Marangoni自修复效应）。常见消泡剂：有机硅（PDMS）、聚醚、矿物油、高碳醇。</p>
 
-  <h3>9.7 破乳方法</h3>
+  <h3 id="sec-7">9.7 破乳方法</h3>
   <div class="concept-grid">
     <div class="concept-card">
       <h4>化学破乳</h4>
@@ -226,6 +244,25 @@
   </div>
 </section>
 
+  <section class="related-pages">
+    <div class="rp-title">相关页面</div>
+    <div class="rp-grid">
+      <a href="fundamentals.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">基础概念与原理</span></a>
+      <a href="anionic.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">阴离子表面活性剂</span></a>
+      <a href="cationic.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">阳离子表面活性剂</span></a>
+      <a href="amphoteric.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">两性表面活性剂</span></a>
+    </div>
+  </section>
+  <nav class="page-nav">
+    <a href="synthesis.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">合成工艺详解</span>
+    </a>
+    <a href="products.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">天赐产品全对照</span>
+    </a>
+  </nav>
 </div>
 
 <footer>
