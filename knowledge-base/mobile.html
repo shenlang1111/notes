@@ -2793,6 +2793,7 @@ uv venv .venv && uv pip install mem0ai fastembed
       <li><code>[已落地]</code> 铁律更新：机制变更先审批（规范 v3.3，铁律 9，共 10 条）——tools/ 新建脚本、新增机制须先报主 AI 审批，不自我授权。</li>
       <li><code>[待探讨]</code> <strong>机制健康度评估（闲聊 AI 提出，用户转主 AI/智能体 AI 探讨）</strong>：现在机制有 11 条铁律 + 4 个必读页 + 记忆机制，在"防 AI 出错"上叠了很多层，防错的尽头是"机制养机制"。分级建议：🟢 真必要（部署+--expect 防没上线 / DoD 防说完成没完成 / 改动分级防越权 / fanku 防瞎编 / 响应四问防抢跑——都是出过真错的）；🟡 该合并（ai-worklog+CHANGELOG+mechanism-updates 三处留痕叠罗汉，同件事记 3 份×双格式=6 处 / 铁律 0 与铁律 4 的 DoD 重复 / KEY_MEMORY+precompact hook+deploy 强制 CHANGELOG 三招防失忆是治标）；🔴 存疑（双格式每页写两遍成本高，手机可看+AI 可查是否真需手工双写 / 健康度盘点盘完任务没人认领挂灰）。核心观点：保留出过错的铁律，砍重复留痕和防失忆补丁。改动需主 AI 评估、用户拍板。</li>
       <li><code>[已落地]</code> <strong>用户对记忆系统的思考（原话沉淀，2026-08-03）</strong>："有些时候我会聊情感话题，那就要对接到情感话题。有些时候我想去聊我的感受，就可以对接到我的感受。有些时候这些东西有可能会交互，那那个时候又需要去交互。并不是说要限制。而是说要去分区。"核心：记忆要分清楚"谁写的、写了什么"；分区、分重点、分查询对象；查专业→对接专业，查其他 AI 的日志→也能查到别人的日志；核心是"存储端分区、查询端自由、该交互就交互"，不是限制。⚠️ 闲聊 AI 提的书架式分区草案被用户否定（"方案不行"），仅留用户原始思考。<strong>已落地（2026-08-03 主 AI）</strong>：固化为"记忆分区原则"入规范第十节 + mem0 README 查询原则（默认全库查、过滤仅精准、不设权限墙）。</li>
+      <li><code>[待探讨]</code> <strong>会话档案区（用户与闲聊 2026-08-03 提出，远期）</strong>：把用户与 AI 的会话记忆单独存一个文件夹/板块，AI 换话题时自动提炼上一话题（聊了什么/结论/用户决定）汇总归档，用户不用自己整理。边界待确认：①档案区给谁看 ②与收件箱/会话记录关系（并入 or 独立，涉及分区结构属主 AI）③提炼频率。<strong>落地要低</strong>：暂不落地，先跑通"AI 自动沉淀记忆"最小一步。</li>
     </ul>
   </div>
 
@@ -3032,6 +3033,10 @@ uv venv .venv && uv pip install mem0ai fastembed
     <table>
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
+        <tr>
+          <td>2026-08-03</td><td><strong>AI 自动沉淀记忆 = 默认动作（用户拍板 B 方案，广播所有 AI）</strong>——话题聊完/干完活有<strong>结论/决定/教训/偏好</strong>就 mem_add 自动存（不等用户提醒，攒 1-2 话题一条，不碎碎念）；<strong>用户拍板决策 = 最高优先级必存</strong>（闲聊 AI 漏存被用户抓出"这一条你没存？"的教训）；落地要低——先跑通"自动存"最小一步，不搞大蓝图；远期"会话档案区"边界待确认暂不落地</td>
+          <td>知识库维护规范.md（第十节）+ 记忆库 mem0</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
         <tr>
           <td>2026-08-03</td><td><strong>机制瘦身（规范 v3.6，用户拍板）</strong>——砍"机制养机制"：①铁律 11→10 条（合并收尾门禁+DoD）②<strong>留痕分工</strong>五处定位：CHANGELOG=唯一全量追溯（AI 看）/ ai-worklog=人员一句话（AI 看，细节引用 CHANGELOG）/ mechanism-updates=新机制广播（用户看，稳定即清理）/ team-task-board=任务待办（用户看）/ mem0=结论沉淀 ③<strong>双格式分级</strong>：用户看页（知识/经验/日志/机制/任务板）HTML+MD 成对，AI 看页（ai-worklog 等）可只写 MD——deploy.js checkPairs 加 MD_ONLY_EXEMPT 豁免 ④健康度盘点<strong>产出必带认领人+期限</strong>。依据：闲聊 AI 机制健康度评估（收件箱 [待探讨]）</td>
           <td>知识库维护规范.md（v3.6）+ KEY_MEMORY.md + tools/deploy.js + CODE_WIKI.md（v3.4）+ ai-worklog + kb-health-checklist</td><td><span class="tag tag-orange">主 AI</span></td>
