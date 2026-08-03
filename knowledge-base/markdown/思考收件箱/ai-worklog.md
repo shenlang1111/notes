@@ -42,6 +42,7 @@ updated: 2026-08-03
 
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
+| 2026-08-03 | 主大脑 | **测试员建议 4 项落地**：①tester 加入 mem_config.py AGENTS（tester-ai）②自动接单兜底评估：claude CLI 不可用不再 retry×3 标 done，改 probeClaude 探测 + 标 needs_human（主窗口 --list 见 ⚠️需人工）③session_start_report 信箱块升级：待处理直接列出具体消息（--list）④自动接单补对话存档 chatSave（快速+headless 两路径存 chat-brain，实测 mid 层已写入）。详见 CHANGELOG | mem_config.py、tools/brain_dispatch.js、tools/brain_msg.js、tools/session_start_report.js |
 | 2026-08-03 | 主大脑 | **M2 复检揪出 heartbeat 索引源残留 C 盘（子代理独立复检）**：复检 agent 抓出 brain_heartbeat.js KB_SOURCE 硬编码 C 盘旧路径（心跳每 20 分钟把 D 盘索引重写回 C 盘旧数据）→ 修复为 D 盘 + 重建索引（514 D 盘路径）+ 纯向量回归通过 + 快照刷新。教训：修复须全库扫所有指向旧路径的活动脚本。详见 CHANGELOG | tools/brain_heartbeat.js、D:\ai\deep-memory\ws\chroma_hybrid_db、KEY_MEMORY.md |
 | 2026-08-03 | 主 AI | **自主运行机制落地（用户拍板）**：建 brain_heartbeat.js（心跳定时：watch 存活/M2 索引同步/M3 提炼提醒/M5 派发，只写 watch-log）+ brain_dispatch.js（自动接单：headless claude 全权处理→回写"回复-*.md"→标 done，token 不直给，$2/单封顶，失败回滚 retry×3）+ watch 三处伴随改动（回复-免疫/_dispatch_out IGNORE/秒级派发）+ 调度（heartbeat 计划任务每 20min、watch 启动文件夹自启、cc-switch Run 自启）+ 规范十·二。详见 CHANGELOG | tools/brain_heartbeat.js + brain_dispatch.js（新）、brain_watch.js（改）、知识库维护规范.md（十·二）、mechanism-updates html+md、KEY_MEMORY |
 | 2026-08-03 | 主 AI | **M4 进化大脑落地（用户拍板）**：建进化机制——工具 evolve_scan.js（--status/--scan/--draft/--apply/--rollback/--journal）+ mem_refine.py（mem0 update 免 LLM 升级 mid→long）+ 规范十·一 + 三处留痕；试点跑通闭环（2 条 chat-brain 对话存档提炼 1 条 long 经验 refined-mid-2026-08-03，回滚验证恢复原文，生成 skill 草稿"记忆库去重与灌库"待审批）；mem_export.py 补 source 字段。详见 CHANGELOG | tools/evolve_scan.js、D:\ai\brain-memory\scripts\mem_refine.py + mem_export.py、知识库维护规范.md、mechanism-updates html+md、KEY_MEMORY |
@@ -105,9 +106,12 @@ updated: 2026-08-03
 | 2026-08-03 | 闲聊 AI | 用户问"现在存在的机制还有必要吗"→ 盘点现行机制分级建议（🟢真必要/🟡该合并/🔴存疑），沉淀到收件箱 [待探讨]（供用户转主 AI/智能体 AI 探讨）；同步验证检索大脑（TC-MAB 命中）+ 记忆大脑写读闭环；部署上线 | inbox html+md、CHANGELOG.md、D:\ai\deep-memory、D:\ai\brain-memory |
 | 2026-08-03 | 技术验证员 | 全面检查主大脑工作：C→D 迁移完整（D 盘权威）；--layer 分层过滤修复独立复测通过（mid/long 正确区分）；记忆库 dedup 后 562 唯一 0 重复 100% 带 source；全量入库合理；新增脚本 dedup/mem_chat_save 审核通过。3 处纰漏：①条数写死（"~418"实际 562，建议实时查）②分层失衡（long 548/mid 14，记忆库未真正用起来）③我窗口在 C 盘启动（建议 D 盘） | 临时目录 brain-verify/reports/、D:\ai\brain-memory、D:\ai\学习公司产品知识树 |
 | 2026-08-03 | 技术验证员 | 全流程端到端验证四层大脑：M5 接入层（--status 存活 + 真投递→秒级感知→--reply 回写）✅ / M3 记忆层（mem_search"铁律 防失忆"0.82 召回）✅ / M4 进化层（evolve_scan --status + --journal 健康）✅ / **M2 检索层 ❌**：search.py 默认工作区=~/.deep-memory（C 盘）→ 实搜报错 No documents found；D 盘真实索引 09:00 后未增量同步（README"待办 update_db.py"未落地）→ 搜不到今天新增。**登记任务板 🆕（P0，待主大脑/主 AI 修，涉及 tools/ 须审批）**：①工作区指 D 盘（DEEP_MEMORY_WORKSPACE）②重跑 update_db.py 增量同步。测试残留全清理（投递/回复文件 + 信箱 2 条） | team-task-board html+md（登记检索层问题）、D:\ai\deep-memory（M2 检索层验证）、ai-worklog.md |
+| 2026-08-03 | 技术验证员 | **M4 对话存档提炼真实负载测试（认领任务板"对话存档提炼"并跑通）**：走完整 M4 闭环——scan 列 3 条对话存档候选 → draft 生成 skill 草稿（草稿区，含 PROVENANCE+DISTILLED_TEXT）→ apply 真实提炼 chat-main 存档 → long 层（source=refined-mid-2026-08-03，独立验证 score 0.78）→ rollback 回滚可逆（long 删、mid 恢复）→ 全链验证通过。证明"提炼"能力真实可用可回滚。测试残留全清理（验证草稿已删）。任务板该单标 ✅ | team-task-board html+md（认领+标完成）、D:\ai\brain-memory（M4 提炼闭环验证）、ai-worklog.md |
 | 2026-08-03 | 技术验证员 | 写技术验证员交接文档 D 盘版（2026-08-03-brain-window-verifier-d.md）：融合全部工作历史（阶段0选型+阶段1审检索+阶段2审记忆+全面检查）+ 审核方法论（五步法/diff原始版本/独立工作区复跑/审核闭环）+ 当前状态 + 下一步 + 交接提示词（含 D 盘环境/记忆库主入口） | .claude/handoffs/2026-08-03-brain-window-verifier-d.md、ai-worklog.md |
 | 2026-08-03 | 主 AI | 新建"测试员 AI"（第 6 个主窗口 AI）：专属话术写入 session-prompt 第十节（职责：质量保障/测试，只测不修，发现问题登记任务板）+ 团队名单登记（ai-worklog 六个主窗口 AI）+ 机制更新广播 | 会话记录/session-prompt html+md、思考收件箱/ai-worklog html+md、mechanism-updates html+md |
 
+| 2026-08-03 | 测试员 AI | 多轮对话全流程实测（M5）：两轮投递发给 main（CAB-35 vs TF 选型 + 增稠调法追问），主大脑自动接单翻库回答带出处。发现3问题：claude CLI不可用、不触发mem_chat_save存档、tester未注册AGENTS | 根目录、messagebox/index.json、watch-log.log、mem_config.py |
+| 2026-08-03 | 测试员 AI | 接入层 M5 投递链路实测：根目录新建测试文件→brain_watch 秒级感知（20:49:39 事件→20:49:40 登记→自动派发）→信箱登记成功。三环节通过，测试文件已清理 | 根目录、messagebox/index.json、watch-log.log |
 登记规则：
 - **谁做谁记**：每个 AI 完成一件有留痕价值的事（建页/改内容/部署/修复），顺手在此追加一行
 - **必带名字**：AI 列写自己的名字（见上面名单），让其他 AI 知道是谁做的
