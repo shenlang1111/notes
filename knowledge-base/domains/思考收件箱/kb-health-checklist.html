@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>知识库健康度盘点 · 天赐材料知识库</title>
-<link rel="stylesheet" href="../../_shared/css/style.css?v=6">
+<link rel="stylesheet" href="../../_shared/css/style.css?v=7">
 </head>
 <body>
 
@@ -14,11 +14,25 @@
 <div class="container">
 <!-- ===== Page Hero ===== -->
 <div class="page-hero">
+  <nav class="breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">知识库健康度盘点</span>
+  </nav>
   <div class="page-hero-meta"><span class="tag tag-orange">AI 协作</span></div>
   <h1>知识库健康度盘点</h1>
   <p class="page-hero-desc">定期体检清单：双格式 / 数据来源 / 硬伤 / 深度 / 翻库实测五维检查，让"库越用越准"可度量、可追踪。</p>
 </div>
 <!-- ===== /Page Hero ===== -->
+  <details class="toc-nav" open>
+    <summary>本页目录</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>团队任务板</a>
+      <a href="#sec-2"><span class="toc-num">2</span>思考收件箱</a>
+      <a href="#sec-3"><span class="toc-num">3</span>与 AI 的交流经验</a>
+    </div>
+  </details>
+
 
 <section class="section" id="why">
   <h2>一、为什么盘</h2>
@@ -132,22 +146,41 @@
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
     <a href="team-task-board.html" class="page-card">
       <div class="card-icon">📋</div>
-      <h3>团队任务板</h3>
+      <h3 id="sec-1">团队任务板</h3>
       <p>盘点发现的硬伤/缺口在此登记</p>
     </a>
     <a href="inbox.html" class="page-card">
       <div class="card-icon">📥</div>
-      <h3>思考收件箱</h3>
+      <h3 id="sec-2">思考收件箱</h3>
       <p>想法缓冲区，本清单所属域</p>
     </a>
     <a href="../会话记录/session-20260801.html" class="page-card">
       <div class="card-icon">💡</div>
-      <h3>与 AI 的交流经验</h3>
+      <h3 id="sec-3">与 AI 的交流经验</h3>
       <p>经验沉淀仓库</p>
     </a>
   </div>
 </section>
 
+  <section class="related-pages">
+    <div class="rp-title">相关页面</div>
+    <div class="rp-grid">
+      <a href="inbox.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">思考收件箱</span></a>
+      <a href="inbox-20260802-agent-design.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">智能体设计讨论存档</span></a>
+      <a href="team-task-board.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">团队任务板</span></a>
+      <a href="ai-worklog.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">AI 工作记录</span></a>
+    </div>
+  </section>
+  <nav class="page-nav">
+    <a href="team-task-board.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">团队任务板</span>
+    </a>
+    <a href="../精细化工与扩展/finechem-additives.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">精细化工：助剂与添加剂</span>
+    </a>
+  </nav>
 </div>
 
 <footer>
