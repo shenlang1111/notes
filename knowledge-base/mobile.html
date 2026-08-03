@@ -1877,7 +1877,7 @@ ai-agent/
   </nav>
   <div class="page-hero-meta"><span class="tag tag-teal">会话记录</span><span class="tag tag-blue">AI 协作</span></div>
   <h1>脚本·技能·Hook 使用规范</h1>
-  <p class="page-hero-desc">全项目脚本（tools/ 22 个）+ 技能（skills/ 20 个）+ Hook（3 类）统一使用规范——谁用、怎么用、何时自动触发。脚本/skill/hook 由主 AI 统一管理，其他 AI 可直接调用，改需审批。</p>
+  <p class="page-hero-desc">全项目脚本（tools/ 23 个）+ 技能（skills/ 20 个）+ Hook（3 类）统一使用规范——谁用、怎么用、何时自动触发。脚本/skill/hook 由主 AI 统一管理，其他 AI 可直接调用，改需审批。</p>
 </div>
 <!-- ===== /Page Hero ===== -->
   <details class="toc-nav" open>
@@ -1914,8 +1914,8 @@ ai-agent/
 </section>
 
 <section class="section" id="sec-2">
-  <h2>二、脚本使用规范（tools/ 22 个）</h2>
-  <h3 style="margin-top:1rem;">日常核心（4）</h3>
+  <h2>二、脚本使用规范（tools/ 23 个）</h2>
+  <h3 style="margin-top:1rem;">日常核心（5）</h3>
   <div class="table-wrap">
     <table>
       <thead><tr><th>脚本</th><th>用途</th><th>怎么用</th></tr></thead>
@@ -1924,6 +1924,7 @@ ai-agent/
         <tr><td><code>build_mobile.js</code></td><td>重新生成手机版</td><td><code>node tools/build_mobile.js</code>（deploy 已自动绑定）</td></tr>
         <tr><td><code>py.cmd</code></td><td>Python 封装（绕开中文乱码）</td><td><code>cmd //c tools\py.cmd &lt;脚本&gt;</code>（先 cd 再相对路径）</td></tr>
         <tr><td><code>html2md-new.js</code></td><td>HTML→Markdown（双格式生成，过滤 hero/nav/footer）</td><td><code>node tools/html2md-new.js</code></td></tr>
+        <tr><td><code>rule_check.js</code></td><td>规则工程化收尾自检（CHANGELOG/双格式/registry/记忆提醒）</td><td><code>node tools/rule_check.js</code>（DoD 前跑）</td></tr>
       </tbody>
     </table>
   </div>
@@ -4752,6 +4753,10 @@ uv venv .venv && uv pip install mem0ai fastembed
     <table>
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
+        <tr>
+          <td>2026-08-04</td><td><strong>全量脚本/skill 二次体检 + shared-tools-index 修复（主 AI 执行，用户"清理规则脚本"）</strong>——全量二次体检：①Python 脚本 8 个语法全通过（修复 mem_config.py `\s` 转义警告）②Node 脚本 18 个语法全通过 ③skills 双目录 20+20 全齐（SKILL.md 完整）④<strong>shared-tools-index 修复 2 处</strong>：tools 计数 22→23（补 rule_check.js）、日常核心 4→5。<strong>所有 AI 知悉</strong>：shared-tools-index 已更新至 tools/ 23 个，DoD 前记得跑 rule_check.js</td>
+          <td>会话记录/shared-tools-index.html+md + 知识库维护规范.md（文档库总览）</td><td><span class="tag tag-blue">主 AI</span></td>
+        </tr>
         <tr>
           <td>2026-08-04</td><td><strong>AI 规则制定方法论 + 冲突裁决链 + 规则工程化（用户拍板）</strong>——规则设定 AI 深度学习成果：①<strong>方法论页《AI 规则制定方法论 v1》</strong>（八原则：分层授权/规则四段式/确定性&gt;概率性/生命周期闭环/行为可度量/风险导向/四层工程/技能化，含数据源）②<strong>规则冲突裁决链（规范十五）</strong>：冲突时按<strong>用户最新拍板 &gt; 铁律 &gt; 规范 &gt; 话术 &gt; 脚本默认</strong>裁决 ③<strong>规则工程化</strong>：新建 <code>tools/rule_check.js</code> 收尾自检（CHANGELOG 今日条/双格式成对/registry↔磁盘/记忆提醒），DoD 前跑一遍。<strong>所有 AI 知悉</strong>：收尾跑 rule_check.js；规则冲突按裁决链处理</td>
           <td>会话记录/rule-making-methodology.html + 知识库维护规范.md（十五）</td><td><span class="tag tag-orange">规则设定 AI</span></td>
