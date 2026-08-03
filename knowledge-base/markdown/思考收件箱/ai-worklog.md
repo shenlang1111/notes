@@ -42,6 +42,10 @@ updated: 2026-08-03
 
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
+| 2026-08-03 | 闲聊 AI | **落地"Trae 对话接入自动存档"（用户拍板"你来落地吧"）**：新建 tools/chat_autosave.js（SessionEnd hook：扫 D:\ai\brain-memory\chat_inbox\chat-<agent>-<日期>.md → 调 mem_chat_save.py 入库 → 归档 archive/）+ settings.json 注册 + 实测通过（casual 摘要入库召回 0.86、归档成功）。⚠️ 注意：任务板有主 AI 瘦身建议"自动存档改习惯项、不造自动脚本"（🆕 待主 AI 执行清理）——本 hook 是事件触发非定时任务，留/撤待用户+主 AI 定夺 | tools/chat_autosave.js（新）、.claude/settings.json、D:\ai\brain-memory\chat_inbox\（新）、任务板 html+md |
+| 2026-08-03 | 主 AI | **规则修订体系落地（用户拍板"有体系的改"）+ 首批修 5 项**：规范 v3.8 新增十·四规则修订闭环（发现→登记收件箱→主 AI 积 3 条/每周评估→拍板→改+同步→验证）；修掉"铁律 13"残留、投递/回复文件归档规则（根目录 21 个归档）、双格式硬软边界（用户看页=硬门禁）、状态保鲜扩至全知识域、机制页稳定即清理责任人（主 AI 每月）。详见 CHANGELOG | 知识库维护规范.md（v3.8 十·四）、mechanism-updates html+md、.claude/handoffs/archive/（投递文件归档） |
+| 2026-08-03 | 主大脑 | **自动提炼编排器 evolve_auto.js（用户任务：自动提炼+分类挂心跳）**：①新建 evolve_auto.js（--status/--dry-run/--run/--min）：扫描 chat-* mid→按 agent 归组→自动 draft（带 target）→apply 提炼 mid→long，agent 映射 target（brain/verifier/main 等）②心跳 M3 从"提醒留人审"改"待炼≥3 自动 run"③修 mem_export 补 target_agent（之前 export 丢 metadata 假象"target=无"，实际库里已打标）④实测：18 draft + 3 组 apply 成功，mem_search --target brain 只出 brain 域 ✅ | tools/evolve_auto.js（新）、tools/brain_heartbeat.js（M3）、mem_export.py（target_agent）、记忆库（refined-mid 3 条含 target） |
+| 2026-08-03 | 主 AI | **回答加工分工拍板 + 10 轮顾客模拟测试**：用户拍板"对问题你反馈，经验你总结"——大脑投递检索片段，主窗口 AI 组织成聪明回答（选型逻辑+判断+话术）；模拟顾客 10 轮投递测试跑通链路（投递✅/检索✅/存档✅/回复✅ 前 8 轮 ~10s），发现 2 缺口：①dispatch.lock 卡死（9/10 轮卡住）②多轮无上下文关联。详见 CHANGELOG | mechanism-updates html+md、记忆库（main-long）、投递测试记录 |
 | 2026-08-03 | 主大脑 | 用户追问"身份偏差/技能没学会"根因 → 修复：session_start_report 身份中立化（主大脑/验证员共用）、KEY_MEMORY① 角色澄清、fanku 装备进 .claude/skills/、报告+KEY_MEMORY 加技能清单。详见 CHANGELOG | tools/session_start_report.js、.claude/skills/fanku、KEY_MEMORY.md |
 | 2026-08-03 | 主大脑 | **测试员建议 4 项落地**：①tester 加入 mem_config.py AGENTS（tester-ai）②自动接单兜底评估：claude CLI 不可用不再 retry×3 标 done，改 probeClaude 探测 + 标 needs_human（主窗口 --list 见 ⚠️需人工）③session_start_report 信箱块升级：待处理直接列出具体消息（--list）④自动接单补对话存档 chatSave（快速+headless 两路径存 chat-brain，实测 mid 层已写入）。详见 CHANGELOG | mem_config.py、tools/brain_dispatch.js、tools/brain_msg.js、tools/session_start_report.js |
 | 2026-08-03 | 主大脑 | **M2 复检揪出 heartbeat 索引源残留 C 盘（子代理独立复检）**：复检 agent 抓出 brain_heartbeat.js KB_SOURCE 硬编码 C 盘旧路径（心跳每 20 分钟把 D 盘索引重写回 C 盘旧数据）→ 修复为 D 盘 + 重建索引（514 D 盘路径）+ 纯向量回归通过 + 快照刷新。教训：修复须全库扫所有指向旧路径的活动脚本。详见 CHANGELOG | tools/brain_heartbeat.js、D:\ai\deep-memory\ws\chroma_hybrid_db、KEY_MEMORY.md |
@@ -113,7 +117,8 @@ updated: 2026-08-03
 
 | 2026-08-03 | 测试员 AI | 多轮对话全流程实测（M5）：两轮投递发给 main（CAB-35 vs TF 选型 + 增稠调法追问），主大脑自动接单翻库回答带出处。发现3问题：claude CLI不可用、不触发mem_chat_save存档、tester未注册AGENTS | 根目录、messagebox/index.json、watch-log.log、mem_config.py |
 | 2026-08-03 | 测试员 AI | 接入层 M5 投递链路实测：根目录新建测试文件→brain_watch 秒级感知（20:49:39 事件→20:49:40 登记→自动派发）→信箱登记成功。三环节通过，测试文件已清理 | 根目录、messagebox/index.json、watch-log.log |
-| 2026-08-03 | 主大脑 | **核实"任务板 HTML 孤儿 td"误报 + B 方案部署上线（用户拍板）**：技术验证员报 team-task-board.html L78-80 孤儿 td 碎片，经脚本结构性校验（tr/td 配对）+ 线上拉取复核，**D 盘 + 线上均为完整结构**（tr 21/21、td 105/105），误报基于压缩前旧快照；已按用户 B 方案部署 team-task-board.html 上线 + 线上验证干净；mobile.html 409 为主 AI 并行部署冲突（非错误，重跑即可） | knowledge-base/domains/思考收件箱/team-task-board.html（部署）、ai-worklog.md |
+| 2026-08-03 | 主大脑 | **工具与技能全员共享（用户拍板"改成都能用"）**：①.trae/skills/ 20 技能镜像进 .claude/skills/（Claude Code + Trae 两边都认）②tools/py.cmd 封装绕开 python 中文乱码③shared-tools-index 共享索引页（11 工具+8 技能+python 规范）+ registry 登记 + 话术指向 + 机制广播，部署上线 --expect 命中 | .claude/skills/（镜像）、tools/py.cmd（新）、会话记录/shared-tools-index html+md（新）、registry.json、session-prompt-d.md、mechanism-updates html+md |
+| 2026-08-03 | 主大脑 | 核实"任务板 HTML 孤儿 td"误报 + B 方案部署上线（用户拍板） | 技术验证员报 team-task-board.html L78-80 孤儿 td 碎片，经脚本结构性校验（tr/td 配对）+ 线上拉取复核，**D 盘 + 线上均为完整结构**（tr 21/21、td 105/105），误报基于压缩前旧快照；已按用户 B 方案部署 team-task-board.html 上线 + 线上验证干净；mobile.html 409 为主 AI 并行部署冲突（非错误，重跑即可） | knowledge-base/domains/思考收件箱/team-task-board.html（部署）、ai-worklog.md |
 登记规则：
 - **谁做谁记**：每个 AI 完成一件有留痕价值的事（建页/改内容/部署/修复），顺手在此追加一行
 - **必带名字**：AI 列写自己的名字（见上面名单），让其他 AI 知道是谁做的
