@@ -113,6 +113,7 @@ updated: 2026-08-03
 
 | 2026-08-03 | 测试员 AI | 多轮对话全流程实测（M5）：两轮投递发给 main（CAB-35 vs TF 选型 + 增稠调法追问），主大脑自动接单翻库回答带出处。发现3问题：claude CLI不可用、不触发mem_chat_save存档、tester未注册AGENTS | 根目录、messagebox/index.json、watch-log.log、mem_config.py |
 | 2026-08-03 | 测试员 AI | 接入层 M5 投递链路实测：根目录新建测试文件→brain_watch 秒级感知（20:49:39 事件→20:49:40 登记→自动派发）→信箱登记成功。三环节通过，测试文件已清理 | 根目录、messagebox/index.json、watch-log.log |
+| 2026-08-03 | 主大脑 | **核实"任务板 HTML 孤儿 td"误报 + B 方案部署上线（用户拍板）**：技术验证员报 team-task-board.html L78-80 孤儿 td 碎片，经脚本结构性校验（tr/td 配对）+ 线上拉取复核，**D 盘 + 线上均为完整结构**（tr 21/21、td 105/105），误报基于压缩前旧快照；已按用户 B 方案部署 team-task-board.html 上线 + 线上验证干净；mobile.html 409 为主 AI 并行部署冲突（非错误，重跑即可） | knowledge-base/domains/思考收件箱/team-task-board.html（部署）、ai-worklog.md |
 登记规则：
 - **谁做谁记**：每个 AI 完成一件有留痕价值的事（建页/改内容/部署/修复），顺手在此追加一行
 - **必带名字**：AI 列写自己的名字（见上面名单），让其他 AI 知道是谁做的
