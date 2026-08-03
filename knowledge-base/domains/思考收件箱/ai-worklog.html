@@ -45,9 +45,9 @@
     <table>
       <thead><tr><th>名字</th><th>身份</th><th>职责</th></tr></thead>
       <tbody>
-        <tr><td><strong>主 AI</strong></td><td>主窗口（你）</td><td>统筹、架构、落地、部署、派子代理；<strong>脚本/skill/hook 统一管理 + 文件自动化 + 使用规范书写</strong>；所有改动最终备案</td></tr>
+        <tr><td><strong>主 AI</strong></td><td>主窗口（你）</td><td>统筹、架构、落地、部署、派子代理；所有改动最终备案</td></tr>
         <tr><td><strong>闲聊 AI</strong></td><td>主窗口</td><td>交流想法、情感陪伴；懂你档案专属；小改动自理</td></tr>
-        <tr><td><strong>智能体 AI</strong></td><td>主窗口</td><td>智能体体系搭建：skill、翻库规则、任务板、健康度盘点</td></tr>
+        <tr><td><strong>智能体 AI</strong></td><td>主窗口</td><td>智能体体系搭建：skill、翻库规则、任务板、健康度盘点；<strong>脚本/skill/hook 统一管理 + 文件自动化 + 使用规范书写</strong>（2026-08-03 用户拍板）</td></tr>
         <tr><td><strong>日志 AI</strong></td><td>主窗口</td><td>写用户的工作日志，后续半月报/月报/年报</td></tr>
         <tr><td><strong>UI 美化 AI</strong></td><td>主窗口</td><td>知识库视觉层：style.css、页面排版/卡片/配色/响应式，让界面好看不堆文字</td></tr>
         <tr><td><strong>测试员 AI</strong></td><td>主窗口</td><td>质量保障与测试：内容准确性/功能可用性/部署正确性验证，只测不修</td></tr>
@@ -82,8 +82,8 @@
       <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
       <tbody>
         <tr>
-          <td>2026-08-03</td><td><span class="tag tag-teal">主 AI</span></td>
-          <td><strong>脚本/skill/hook 统一管理 + 使用规范文档（用户拍板）</strong>：shared-tools-index 升级为《脚本·技能·Hook 使用规范》（工具 22/技能 20/Hook 3 类，HTML+MD 双格式）；SKILL_GUIDE 技能清单 17→20 补齐；主 AI 职责登记（脚本/skill/hook 统一管理）。详见 CHANGELOG</td>
+          <td>2026-08-03</td><td><span class="tag tag-blue">智能体 AI</span></td>
+          <td><strong>脚本/skill/hook 统一管理 + 使用规范文档（用户拍板）</strong>：shared-tools-index 升级为《脚本·技能·Hook 使用规范》（工具 22/技能 20/Hook 3 类，HTML+MD 双格式）；SKILL_GUIDE 技能清单 17→20 补齐；职责登记（脚本/skill/hook 统一管理）。详见 CHANGELOG</td>
           <td>shared-tools-index html+md、SKILL_GUIDE.md、ai-worklog html+md</td>
         </tr>
         <tr>
@@ -107,7 +107,7 @@
           <td>tools/chat_autosave.js（新）、.claude/settings.json、D:\ai\brain-memory\chat_inbox\（新）、任务板 html+md</td>
         </tr>
         <tr>
-          <td>2026-08-03</td><td><span class="tag tag-orange">主 AI</span></td>
+          <td>2026-08-03</td><td><span class="tag tag-blue">智能体 AI</span></td>
           <td><strong>规则修订体系落地（用户拍板"有体系的改"）+ 首批修 5 项</strong>：规范 v3.8 新增十·四规则修订闭环（发现→登记收件箱→主 AI 积 3 条/每周评估→拍板→改+同步→验证）；修掉"铁律 13"残留、投递/回复文件归档规则（根目录 21 个归档）、双格式硬软边界（用户看页=硬门禁）、状态保鲜扩至全知识域、机制页稳定即清理责任人（主 AI 每月）。详见 CHANGELOG</td>
           <td>知识库维护规范.md（v3.8 十·四）、mechanism-updates html+md、.claude/handoffs/archive/（投递文件归档）</td>
         </tr>
