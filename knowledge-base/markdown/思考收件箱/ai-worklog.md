@@ -41,6 +41,7 @@ updated: 2026-08-03
 
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
+| 2026-08-03 | 主 AI | **C盘→D盘迁移收尾**：写迁移交接文档（2026-08-03-migration-handover.md，8 节含"新窗口复制即用"交接提示词）+ D 盘版开场话术（session-prompt-d.md，查询主入口=先查记忆库，含新旧版对比）；两份已复制到 D:\ai\学习公司产品知识树 对应路径，C 盘弃用 | .claude/handoffs/2026-08-03-migration-handover.md、knowledge-base/markdown/会话记录/session-prompt-d.md、D:\ai\学习公司产品知识树\（同路径两份） |
 | 2026-08-03 | 主 AI | **全量入库记忆库（mem0 为中心，用户拍板）**：规则 17 条 + 知识 387 条灌库（35 MD 分章带出处），mem_search 加 source，混合检索验证通过。详见 CHANGELOG | tools/kb_seed_rules.py、kb_seed_knowledge.py（新）、mem_search.py、记忆库 |
 | 2026-08-03 | 主 AI | **机制瘦身落地（规范 v3.6）**——用户拍板（依据闲聊 AI 机制健康度评估）：铁律 11→10 合并 DoD；留痕分工五处定位；双格式分级（用户看/AI 看，deploy checkPairs 加 MD_ONLY_EXEMPT 豁免）；健康度盘点产出必带认领。详见 CHANGELOG | 知识库维护规范.md、KEY_MEMORY.md、tools/deploy.js、AGENT_NOTES.md、PROJECT_CONTEXT.md、CODE_WIKI.md、ai-worklog html+md、kb-health-checklist html+md、mechanism-updates html+md |
 | 2026-08-03 | 主 AI | **记忆入库方案落地（规范 v3.5）**——用户拍板（调查业界后修正：官方 Auto Memory 未在本项目生效，mem0 记忆大脑才是治本）：①session_start_report.js 加 mem_search 自动回忆（开窗报告实测通过，自动带出 TC-MAB/TC-SHD 记忆）②规范 v3.5：铁律 10 改写"记忆入库防失忆"、第十节重写（记忆大脑写/读 + 压缩后恢复三步 + 带参数 /compact 原因）、DoD 加"记忆已沉淀"③KEY_MEMORY 降级速查（命令区加 mem0 写/读、决策加记忆入库拍板）④AGENT_NOTES/PROJECT_CONTEXT/CODE_WIKI 版本同步 ⑤mechanism-updates 广播 | 知识库维护规范.md、KEY_MEMORY.md、tools/session_start_report.js、AGENT_NOTES.md、PROJECT_CONTEXT.md、CODE_WIKI.md、mechanism-updates html+md、CHANGELOG.md |
