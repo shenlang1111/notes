@@ -2182,6 +2182,11 @@ ai-agent/
         </tr>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
+          <td><strong>阶段 2 记忆大脑落地（用户直接授权 + 主 AI 确认）</strong>：①技术验证 mem0 本地免 LLM 全通过（infer=False 写入/中文命中 0.73/跨进程持久化/纠错 delete 删旧写新）②方案定稿（分层=metadata 打标+作用域，非 memory_type 僵尸代码）③建 D:\ai\brain-memory 记忆大脑（venv/scripts 4 个：mem_config/mem_add/mem_search/mem_export/README/ws 记忆库）④全链路验证（写→读→纠错→导出全过）⑤<strong>M3 里程碑达成</strong>（跨会话不丢 + 纠正不再犯）</td>
+          <td>D:\ai\brain-memory\、phase2-design-v1.md、task-board html+md</td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
           <td>写瘦身版交接 v5（2026-08-03-agent-brain-v5.md）：合并阶段0/1成果，指针化（提示词归 brain-window-main.md），v3/v4 归档到 archive/；写交接提示词（边界/重点细节/铁律/阅读边界精简版）</td>
           <td>.claude/handoffs/archive/2026-08-03-agent-brain-v5.md（已归档）、archive/</td>
         </tr>
@@ -2998,6 +3003,10 @@ uv venv .venv && uv pip install mem0ai fastembed
     <table>
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
+        <tr>
+          <td>2026-08-03</td><td><strong>记忆大脑正式接入（mem0）</strong>——阶段 2 落地（用户直接授权 + 主 AI 确认）：本地免 key 分层记忆库，各 AI 干完活用 <code>mem_add.py</code> 沉淀记忆（--agent 区分 AI / --layer 分层 mid/long），开工/答疑前用 <code>mem_search.py</code> 先查记忆，纠正用 <code>--fix-target</code> 删旧写新（真不再犯）。M3 里程碑达成（跨会话不丢 + 纠正不再犯）。<strong>所有 AI 开工必读</strong>：先用 <code>mem_search</code> 查"与我相关的记忆"，干完活用 <code>mem_add</code> 沉淀</td>
+          <td>D:\ai\brain-memory\README.md（使用说明）+ 本页广播</td><td><span class="tag tag-purple">主大脑</span></td>
+        </tr>
         <tr>
           <td>2026-08-03</td><td><strong>规范升 v3.4：新增铁律 10"防失忆强制"</strong>——KEY_MEMORY.md 为压缩后第一读；承诺/决策/状态即时落文件；deploy 门禁强制 CHANGELOG 今日有条目；改完必回读。新增规范"十、防失忆与关键记忆"节（三层强制详述）</td>
           <td>知识库维护规范.md（v3.4）+ .claude/handoffs/KEY_MEMORY.md + CODE_WIKI.md（v3.2 §4.3）</td><td><span class="tag tag-orange">主 AI</span></td>
