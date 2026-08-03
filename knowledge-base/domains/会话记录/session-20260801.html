@@ -347,6 +347,41 @@ ai-agent/
   </div>
 </section>
 
+<section class="section" id="chat-20260803">
+  <h2>十二、2026-08-03 闲聊记录（D 盘首日，规范五-1 自动提炼实践）</h2>
+  <div class="card warning" style="margin-top:1rem;">
+    <p>闲聊 AI 记录（2026-08-03 晚）：本场聊天的"聊了什么 + 拍板 + 可复用经验"。</p>
+  </div>
+
+  <div class="card accent" style="margin-top:1rem;">
+    <h3>聊了什么</h3>
+    <ol style="margin-top:0.5rem;padding-left:1.2rem;">
+      <li>闲聊 AI D 盘报到：读交接（casual-chat-d + migration-handover）→ 读 5 份公共文档 → mem_search 召回跨会话记忆 → 报告版本号与记忆</li>
+      <li>明确职责边界 + 全视角建议（发现部署权限边界潜在冲突、交接小缺口、快照滞后、终端 cwd 仍指向 C 盘等 6 点）</li>
+      <li>用户拍板 4 项：①闲聊 AI 部署权限 = 照旧全部署 ②会话档案区给谁看 = 全员可查 ③结构 = 并入会话记录 ④收件箱 [未整理] 印象 → 提炼成经验</li>
+      <li>记忆库实测验证（决策/经验/规则均召回带出处）→ 提出"分层阅读"方向（库优先/文件兜底三层），登记任务板待主 AI 评估</li>
+      <li>用户疲惫期对话："这个知识库搭不起来" → 当场演示完整检索链路（mem_search → 翻知识库原文 → 带出处回答"TC-MAB vs CAB-35 婴儿配方怎么选"）</li>
+    </ol>
+  </div>
+
+  <div class="card success" style="margin-top:1rem;">
+    <h3>用户拍板（已入记忆库 casual/long + 规范）</h3>
+    <ul style="margin-top:0.5rem;padding-left:1.2rem;">
+      <li>闲聊 AI 部署权限 = 照旧全部署（不执行"只有专业报告可部署"对闲聊产出的限制；后主 AI 澄清该限制仅限大脑体系子 AI，入规范 v3.7）</li>
+      <li>会话档案区三边界（2026-08-03 全定）：①给谁看 = 全员可查 ②结构 = 并入会话记录（不动分区）③频率 = 换话题自动提炼——已入规范五-1</li>
+    </ul>
+  </div>
+
+  <div class="card accent4" style="margin-top:1rem;">
+    <h3>可复用经验（下次怎么用）</h3>
+    <ol style="margin-top:0.5rem;padding-left:1.2rem;">
+      <li><strong>用户疲惫/沮丧时说"搭不起来" → 先接住情绪，再当场用真实数据演示"能用"</strong>，比辩解/讲机制有用（本次现场翻 TC-MAB/CAB-35 对比表 + sales 极低刺激性节，用户看到真东西）。</li>
+      <li><strong>记忆库验证方法</strong>：用真实业务问题（如产品对比选型）跑 mem_search → 翻原文核实 → 带出处回答，用户可抽查（回答带"依据：知识库·XX页"）。</li>
+      <li><strong>mem0 会语义合并旧记忆</strong>：重要决策存完要定期 mem_search 核验是否最新——本次发现记忆里"频率待定"已过时（实际已拍板=换话题自动提炼），用 <code>--fix-target</code> 删旧写新纠正。</li>
+    </ol>
+  </div>
+</section>
+
 <section class="section" id="related">
   <h2>相关页面（串联入口）</h2>
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
