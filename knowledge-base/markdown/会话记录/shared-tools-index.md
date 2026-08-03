@@ -2,8 +2,8 @@
 title: 脚本·技能·Hook 使用规范
 domain: 会话记录
 tags: [AI协作, 工具, 技能, Hook, 全员共享, 使用规范]
-description: 全项目脚本（tools/ 22 个）+ 技能（skills/ 20 个）+ Hook（3 类）统一使用规范——谁用、怎么用、何时自动触发。脚本/skill/hook 由主 AI 统一管理，其他 AI 可直接调用，改需审批。
-updated: 2026-08-03
+description: 全项目脚本（tools/ 23 个）+ 技能（skills/ 20 个）+ Hook（3 类）统一使用规范——谁用、怎么用、何时自动触发。脚本/skill/hook 由主 AI 统一管理，其他 AI 可直接调用，改需审批。
+updated: 2026-08-04
 ---
 
 # 脚本·技能·Hook 使用规范
@@ -17,9 +17,9 @@ updated: 2026-08-03
 3. **Python 走封装**：系统 python 因 PATH 含中文乱码失效，一律用 `py.cmd`（自动指向 venv）
 4. **用前先读**：任何技能调用前先 Read 对应 SKILL.md 全文
 
-## 二、脚本使用规范（tools/ 22 个）
+## 二、脚本使用规范（tools/ 23 个）
 
-### 日常核心（4）
+### 日常核心（5）
 
 | 脚本 | 用途 | 怎么用 |
 |---|---|---|
@@ -27,6 +27,7 @@ updated: 2026-08-03
 | `build_mobile.js` | 重新生成手机版 | `node tools/build_mobile.js`（deploy 已自动绑定） |
 | `py.cmd` | Python 封装（绕开中文乱码） | `cmd //c tools\py.cmd <脚本>`（先 cd 再相对路径） |
 | `html2md-new.js` | HTML→Markdown（双格式生成，过滤 hero/nav/footer） | `node tools/html2md-new.js` |
+| `rule_check.js` | 规则工程化收尾自检（CHANGELOG/双格式/registry/记忆提醒） | `node tools/rule_check.js`（DoD 前跑） |
 
 ### 大脑体系（13）
 
@@ -34,7 +35,7 @@ updated: 2026-08-03
 |---|---|---|
 | `session_start_report.js` | 开窗自动报告（身份/任务/技能/信箱） | hook 自动触发（SessionStart） |
 | `precompact_save.js` | 压缩前快照落盘 KEY_MEMORY⑨ | hook 自动触发；手动 `node tools/precompact_save.js` |
-| `compact_scheduler.js` | 压缩条件自动检测（完成率/轮数/--force） | `--rounds N` 检测 / `--force` 强制 / `--quiet` 静默 |
+| `compact_scheduler.js` | 压缩条件自动检测（已退二线，裸 /compact 替代） | `--rounds N` 检测 / `--force` 强制 / `--quiet` 静默 |
 | `chat_autosave.js` | 对话摘要自动存档 | hook 自动触发（SessionEnd） |
 | `brain_watch.js` | 接入层实时监听（秒级感知新文件） | `--daemon` 后台 / `--once` 快照 / `--status` 存活 |
 | `brain_msg.js` | 消息信箱 | `--list` / `--peek` / `--done` / `--status` / `--reply` |
