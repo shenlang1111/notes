@@ -455,6 +455,16 @@
       "type": "article",
       "file": "domains/思考收件箱/brain-tech-verification.html",
       "updated": "2026-08-03"
+    },
+    {
+      "id": "ui-beautification-guide",
+      "title": "UI 美化可复用经验 v1",
+      "domain": "会话记录",
+      "tags": ["UI美化", "CSS组件", "批处理脚本", "审核基准", "可复用经验"],
+      "category": "AI 协作与日常",
+      "type": "article",
+      "file": "domains/会话记录/ui-beautification-guide.html",
+      "updated": "2026-08-03"
     }
   ]
 }
