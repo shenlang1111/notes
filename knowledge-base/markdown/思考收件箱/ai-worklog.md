@@ -42,6 +42,7 @@ updated: 2026-08-03
 
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
+| 2026-08-03 | 主大脑 | 用户追问"身份偏差/技能没学会"根因 → 修复：session_start_report 身份中立化（主大脑/验证员共用）、KEY_MEMORY① 角色澄清、fanku 装备进 .claude/skills/、报告+KEY_MEMORY 加技能清单。详见 CHANGELOG | tools/session_start_report.js、.claude/skills/fanku、KEY_MEMORY.md |
 | 2026-08-03 | 主大脑 | **测试员建议 4 项落地**：①tester 加入 mem_config.py AGENTS（tester-ai）②自动接单兜底评估：claude CLI 不可用不再 retry×3 标 done，改 probeClaude 探测 + 标 needs_human（主窗口 --list 见 ⚠️需人工）③session_start_report 信箱块升级：待处理直接列出具体消息（--list）④自动接单补对话存档 chatSave（快速+headless 两路径存 chat-brain，实测 mid 层已写入）。详见 CHANGELOG | mem_config.py、tools/brain_dispatch.js、tools/brain_msg.js、tools/session_start_report.js |
 | 2026-08-03 | 主大脑 | **M2 复检揪出 heartbeat 索引源残留 C 盘（子代理独立复检）**：复检 agent 抓出 brain_heartbeat.js KB_SOURCE 硬编码 C 盘旧路径（心跳每 20 分钟把 D 盘索引重写回 C 盘旧数据）→ 修复为 D 盘 + 重建索引（514 D 盘路径）+ 纯向量回归通过 + 快照刷新。教训：修复须全库扫所有指向旧路径的活动脚本。详见 CHANGELOG | tools/brain_heartbeat.js、D:\ai\deep-memory\ws\chroma_hybrid_db、KEY_MEMORY.md |
 | 2026-08-03 | 主 AI | **自主运行机制落地（用户拍板）**：建 brain_heartbeat.js（心跳定时：watch 存活/M2 索引同步/M3 提炼提醒/M5 派发，只写 watch-log）+ brain_dispatch.js（自动接单：headless claude 全权处理→回写"回复-*.md"→标 done，token 不直给，$2/单封顶，失败回滚 retry×3）+ watch 三处伴随改动（回复-免疫/_dispatch_out IGNORE/秒级派发）+ 调度（heartbeat 计划任务每 20min、watch 启动文件夹自启、cc-switch Run 自启）+ 规范十·二。详见 CHANGELOG | tools/brain_heartbeat.js + brain_dispatch.js（新）、brain_watch.js（改）、知识库维护规范.md（十·二）、mechanism-updates html+md、KEY_MEMORY |
