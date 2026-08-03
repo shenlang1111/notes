@@ -93,6 +93,8 @@ function checkPairs() {
   const warns = [];
   const domainsDir = path.join(KB, 'domains');
   const mdDir = path.join(KB, 'markdown');
+  // AI 看页豁免：只写 MD 也允许（铁律 1 双格式分级，2026-08-03 机制瘦身）
+  const MD_ONLY_EXEMPT = ['ai-worklog.md', 'session-prompt-d.md'];
   if (!fs.existsSync(domainsDir) || !fs.existsSync(mdDir)) return warns;
   for (const domain of fs.readdirSync(domainsDir)) {
     const d = path.join(domainsDir, domain);
@@ -108,6 +110,7 @@ function checkPairs() {
     if (!fs.statSync(d).isDirectory()) continue;
     for (const f of fs.readdirSync(d)) {
       if (!f.endsWith('.md')) continue;
+      if (MD_ONLY_EXEMPT.includes(f)) continue;
       if (!fs.existsSync(path.join(domainsDir, domain, f.replace('.md', '.html'))))
         warns.push('MD 无对应 HTML: ' + domain + '/' + f);
     }
