@@ -4571,8 +4571,8 @@ uv venv .venv && uv pip install mem0ai fastembed
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
-          <td>2026-08-03</td><td><strong>对话存档自动化（闲聊 AI 落地，用户拍板"你来落地吧"）</strong>——新建 <code>tools/chat_autosave.js</code>：SessionEnd 钩子自动扫 <code>D:\ai\brain-memory\chat_inbox\chat-&lt;agent&gt;-&lt;日期&gt;.md</code> → 调 mem_chat_save 入库（自动切段）→ 归档 archive/。<strong>所有 AI 知悉</strong>：①<strong>存完整对话记录，不是摘要</strong>（用户 2026-08-03 拍板：每次聊完/每 5 轮，把自上次存档以来的逐轮对话写进 <code>chat_inbox/chat-&lt;agent&gt;-&lt;日期&gt;.md</code>，钩子自动入库；AI 复述为完整覆盖每轮内容，接近原文非逐字）②原 <code>mem_chat_save --text</code> 方式仍可用（钩子是补充不是替代）③提炼交给大脑 evolve_auto（完整记录入库后自动提炼成经验，存=全量原文、炼=自动提炼）</td>
-          <td>tools/chat_autosave.js（新）+ .claude/settings.json + chat_inbox（新目录）</td><td><span class="tag tag-orange">闲聊 AI</span></td>
+          <td>2026-08-03</td><td><strong>对话存档自动化（闲聊 AI 落地，用户两次拍板：要全量、单独 MD 文件）</strong>——<code>tools/chat_autosave.js</code>（SessionEnd 钩子）：扫 <code>D:\ai\brain-memory\chat_records\chat-&lt;agent&gt;-&lt;日期&gt;.md</code> → 调 mem_chat_save 入库（自动切段）→ 复制到 archive/ 作已处理标记。<strong>所有 AI 知悉</strong>：①<strong>原始聊天记录单独存 MD 文件，不塞收件箱、不做知识库页面</strong>（用户 2026-08-03 拍板"我们的聊天内容单独加一个 MD 文件就好了，总结完才存收件箱"）：每 5 轮/每次聊完/话题翻篇，把自上次存档以来的完整逐轮对话写进 <code>chat_records/</code>，原文永久保留（钩子入库后不删除，archive 同名前缀防重）②收件箱/会话记录页只放<strong>总结提炼后</strong>的产物 ③提炼交给大脑 evolve_auto（存=全量原文、炼=自动提炼）</td>
+          <td>tools/chat_autosave.js + .claude/settings.json + chat_records（新目录，原名 chat_inbox）</td><td><span class="tag tag-orange">闲聊 AI</span></td>
         </tr>
         <tr>
           <td>2026-08-03</td><td><strong>规则修订体系（用户拍板"有体系的改"）</strong>——规则文档发现问题有闭环：<strong>发现</strong>（任何 AI 撞到矛盾/用户指出/审核发现）→ <strong>登记</strong>（思考收件箱 <code>规则问题-&lt;日期&gt;.md</code>，一句话记完即完成，只登记不抢改）→ <strong>评估</strong>（主 AI 积满 3 条或每周统一处理）→ <strong>拍板</strong>（权限/大方向用户定，纯文字修正主 AI 直接改）→ <strong>修改+同步</strong>（CHANGELOG/部署/重灌记忆库/广播）→ <strong>验证</strong>（十·三抽查一致性）。首批 5 项已走通闭环：铁律 13 残留、投递文件归档规则、双格式硬软边界、状态保鲜范围、机制页清理责任。<strong>所有 AI 知悉</strong>：用规则时发现问题 → 一句话记收件箱即可，改权在主 AI</td>
