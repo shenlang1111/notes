@@ -41,6 +41,7 @@ updated: 2026-08-03
 
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
+| 2026-08-03 | 闲聊 AI | **拍板 4 项落实**：①闲聊 AI 产出部署权限=照旧全部署②会话档案区给谁看=全员可查③结构=并入会话记录（找主 AI 落地，剩频率待定）④收件箱 08-02 用户印象→提炼为"了解用户画像"经验（会话记录第六节+索引 #26）。决策入记忆库 casual/long，收件箱/经验页已部署上线（--expect 通过）。详见 CHANGELOG | inbox html+md、session-20260801 html+md、记忆库（casual-long） |
 | 2026-08-03 | 主 AI | **C盘→D盘迁移收尾**：写迁移交接文档（2026-08-03-migration-handover.md，8 节含"新窗口复制即用"交接提示词）+ D 盘版开场话术（session-prompt-d.md，查询主入口=先查记忆库，含新旧版对比）；两份已复制到 D:\ai\学习公司产品知识树 对应路径，C 盘弃用 | .claude/handoffs/2026-08-03-migration-handover.md、knowledge-base/markdown/会话记录/session-prompt-d.md、D:\ai\学习公司产品知识树\（同路径两份） |
 | 2026-08-03 | 主 AI | **全量入库记忆库（mem0 为中心，用户拍板）**：规则 17 条 + 知识 387 条灌库（35 MD 分章带出处），mem_search 加 source，混合检索验证通过。详见 CHANGELOG | tools/kb_seed_rules.py、kb_seed_knowledge.py（新）、mem_search.py、记忆库 |
 | 2026-08-03 | 主 AI | **机制瘦身落地（规范 v3.6）**——用户拍板（依据闲聊 AI 机制健康度评估）：铁律 11→10 合并 DoD；留痕分工五处定位；双格式分级（用户看/AI 看，deploy checkPairs 加 MD_ONLY_EXEMPT 豁免）；健康度盘点产出必带认领。详见 CHANGELOG | 知识库维护规范.md、KEY_MEMORY.md、tools/deploy.js、AGENT_NOTES.md、PROJECT_CONTEXT.md、CODE_WIKI.md、ai-worklog html+md、kb-health-checklist html+md、mechanism-updates html+md |
