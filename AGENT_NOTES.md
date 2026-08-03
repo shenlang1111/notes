@@ -6,13 +6,14 @@
 
 | 文件 | 作用 | 什么时候用 |
 |---|---|---|
-| 知识库维护规范.md | 总规则 v3.4（11 条铁律 + 分节） | 每次动手前、被用户指出问题后必读 |
+| 知识库维护规范.md | 总规则 v3.8（10 条铁律 + 分节） | 每次动手前、被用户指出问题后必读 |
 | KEY_MEMORY.md（.claude/handoffs/） | 关键记忆速查表（铁律/命令/决策/压缩前快照） | 压缩/新会话后第一读；决策变化时即时更新 |
+| 记忆大脑（D:\ai\brain-memory） | mem0 语义记忆库（M3 达成）——干完活 mem_add 写、开工 mem_search 读 | 每次干完活沉淀关键结论；开工前回忆跨会话经验 |
 | PROJECT_CONTEXT.md | 项目背景 / 用户画像 / 当前状态 | 新会话接手、理解用户时 |
 | CODE_WIKI.md | 技术实现细节 / 命令（v3.1） | 改脚本、查 deploy/build_mobile 细节 |
 | CHANGELOG.md | 修改追溯 | 每次改动后记录（DoD 必过项） |
-| knowledge-base/domains/ | 内容页 HTML（34 页） | 改/加内容 |
-| knowledge-base/markdown/ | 内容页 MD（34 个，AI 检索） | 双格式同步 |
+| knowledge-base/domains/ | 内容页 HTML（35 页） | 改/加内容 |
+| knowledge-base/markdown/ | 内容页 MD（35 个，AI 检索） | 双格式同步 |
 | knowledge-base/registry.json | 页面索引（domains + pages） | 新增/删除页面时 |
 | knowledge-base/_shared/js/nav.js | 共享导航（链接清单） | 新增页面只改这里 |
 | knowledge-base/mobile.html | 手机版（build_mobile 生成，勿手改） | 部署后服务器端验证 |
@@ -30,8 +31,9 @@
 
 ## 我的常见坑（别再犯）
 
-- **★ 承诺必落文件**：口头承诺/用户拍板/进行中状态 → 即时写 KEY_MEMORY.md（决策区）或任务板/CHANGELOG；只在对话里的承诺 = 压缩即蒸发，等于没承诺（2026-08-03 用户拍板三层强制）
+- **★ 承诺必落文件/库**：口头承诺/用户拍板/进行中状态 → 即时写 KEY_MEMORY.md（决策区）或任务板/CHANGELOG，干完活关键结论 mem_add 写记忆库；只在对话里的承诺 = 压缩即蒸发，等于没承诺（2026-08-03 用户拍板记忆入库方案）
 - **★ 改完必回读**：并行编辑同一文件会互相覆盖；编辑回执显示"成功" ≠ 磁盘正确，宣布完成前回读实际文件确认
+- **★ 压缩**：直接打 `/compact` 即可，自动同步记忆
 - **★ 方案有明确建议就执行，别等逐条拍板**：用户说"先给方案再调整"= 给了建议就该落地；只有真二选一的决策才停下来问（2026-08-02 被点名"只说不做"）
 - 用户说"在别处 / 和另一个 AI 聊过，你去看"→ 第一步按 LastWriteTime 扫共享文件夹，**不说"看不到"**
 - ≥3 个独立步骤/文件的任务 → 默认拆子代理并行（各碰各的文件）；**同一文件编辑必须串行**（并行会互相覆盖）
@@ -47,6 +49,8 @@
 - 部署 + 验证本次修改：`node tools/deploy.js --expect "文件路径:关键词"`
 - 只部署指定文件：`node tools/deploy.js --files 文件路径`（自动附带 mobile.html）
 - 重新生成手机版：`node tools/build_mobile.js`
+- 写记忆（干完活）：`D:\ai\brain-memory\.venv\Scripts\python.exe D:\ai\brain-memory\scripts\mem_add.py --text "一句结论" --agent main --layer long`（纠错加 --fix-target "旧错误句"）
+- 读记忆（开工前）：`D:\ai\brain-memory\.venv\Scripts\python.exe D:\ai\brain-memory\scripts\mem_search.py --query "关键词" --limit 3`（先设 HF_ENDPOINT/HF_HOME/MEM0_TELEMETRY=false 环境变量）
 - 线上站点：https://shenlang1111.github.io/tinci-knowledge-base/
 
 ## 关键信息
