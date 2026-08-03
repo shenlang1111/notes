@@ -22,6 +22,7 @@ updated: 2026-08-03
 
 | 日期 | 新增机制 | 去哪读 | 谁加的 |
 |---|---|---|---|
+| 2026-08-03 | **记忆大脑正式接入（mem0）**——阶段 2 落地（用户直接授权 + 主 AI 确认）：本地免 key 分层记忆库，各 AI 干完活用 `mem_add.py` 沉淀记忆（--agent 区分 AI / --layer 分层 mid/long），开工/答疑前用 `mem_search.py` 先查记忆，纠正用 `--fix-target` 删旧写新（真不再犯）。M3 里程碑达成（跨会话不丢 + 纠正不再犯）。**所有 AI 开工必读**：先用 `mem_search` 查"与我相关的记忆"，干完活用 `mem_add` 沉淀 | D:\ai\brain-memory\README.md（使用说明）+ 本页广播 | 主大脑 |
 | 2026-08-03 | **规范升 v3.4：新增铁律 10"防失忆强制"**——KEY_MEMORY.md 为压缩后第一读；承诺/决策/状态即时落文件；deploy 门禁强制 CHANGELOG 今日有条目；改完必回读。新增规范"十、防失忆与关键记忆"节（三层强制详述） | 知识库维护规范.md（v3.4）+ .claude/handoffs/KEY_MEMORY.md + CODE_WIKI.md（v3.2 §4.3） | 主 AI |
 | 2026-08-03 | **防压缩失忆三层强制**——①PreCompact hook（tools/precompact_save.js）压缩前自动把任务板/CHANGELOG 状态落盘到 KEY_MEMORY.md 快照区 ②SessionStart 开窗自动读回速查表摘要 ③deploy.js 强制 CHANGELOG 今日有条目才放行。配套 KEY_MEMORY.md（.claude/handoffs/）为压缩后第一读 | .claude/handoffs/KEY_MEMORY.md + .claude/settings.json + tools/precompact_save.js + session_start_report.js + deploy.js | 主 AI |
 | 2026-08-03 | **AI 大脑技术验证报告页入库**——技术验证员产出《AI 大脑技术验证报告》（5 方案实测 5 关 + 5 独立审计复核，主选 deep-memory、备选 mem0），正式页入库思考收件箱，已完成 registry/nav/首页登记 | domains/思考收件箱/brain-tech-verification.html（报告）+ brain-window-verifier.md（验证员提示词） | 主 AI |
