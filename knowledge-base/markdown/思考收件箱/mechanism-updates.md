@@ -22,6 +22,7 @@ updated: 2026-08-03
 
 | 日期 | 新增机制 | 去哪读 | 谁加的 |
 |---|---|---|---|
+| 2026-08-03 | **工作根目录迁移至 D 盘（C 盘弃用）**——用户拍板"以后主要在数据库里查"，新根目录 = D:\ai\学习公司产品知识树。所有 AI 开工必读新交接文档（迁移交接，含复制即用交接提示词）+ 新开场话术（D 盘版：查询主入口 = 先查记忆库 mem_search，查不到再翻文件） | D:\ai\学习公司产品知识树\.claude\handoffs\2026-08-03-migration-handover.md（交接）+ D:\ai\学习公司产品知识树\knowledge-base\markdown\会话记录\session-prompt-d.md（话术）+ 记忆库 mem0 | 主 AI |
 | 2026-08-03 | **全量入库：记忆库 = 统一查询主入口（用户拍板"以后主要在数据库里查"）**——规则 17 条 + 知识 387 条全部灌入 mem0（metadata.source 带出处）；AI 任何知识/规则/记忆问题**先 mem_search 数据库**（一个口子查所有、带出处），查不到再翻文件；文件保留为源（用户手机看 + 兜底） | 记忆库 mem0（D:\ai\brain-memory）+ tools/kb_seed_rules.py + kb_seed_knowledge.py + 规范第十节 | 主 AI |
 | 2026-08-03 | **AI 自动沉淀记忆 = 默认动作（用户拍板 B 方案，广播所有 AI）**——话题聊完/干完活有**结论/决定/教训/偏好**就 mem_add 自动存（不等用户提醒，攒 1-2 话题一条，不碎碎念）；**用户拍板决策 = 最高优先级必存**（闲聊 AI 漏存被用户抓出"这一条你没存？"的教训）；落地要低——先跑通"自动存"最小一步，不搞大蓝图；远期"会话档案区"边界待确认暂不落地 | 知识库维护规范.md（第十节）+ 记忆库 mem0 | 主 AI |
 | 2026-08-03 | **机制瘦身（规范 v3.6，用户拍板）**——砍"机制养机制"：①铁律 11→10 条（合并收尾门禁+DoD）②**留痕分工**五处定位：CHANGELOG=唯一全量追溯（AI 看）/ ai-worklog=人员一句话（AI 看，细节引用 CHANGELOG）/ mechanism-updates=新机制广播（用户看，稳定即清理）/ team-task-board=任务待办（用户看）/ mem0=结论沉淀 ③**双格式分级**：用户看页（知识/经验/日志/机制/任务板）HTML+MD 成对，AI 看页（ai-worklog 等）可只写 MD——deploy.js checkPairs 加 MD_ONLY_EXEMPT 豁免 ④健康度盘点**产出必带认领人+期限**（不挂灰）。依据：闲聊 AI 机制健康度评估（收件箱 [待探讨]） | 知识库维护规范.md（v3.6）+ KEY_MEMORY.md + tools/deploy.js + CODE_WIKI.md（v3.4）+ ai-worklog + kb-health-checklist | 主 AI |
