@@ -81,6 +81,7 @@ updated: 2026-08-03
 | 2026-08-03 | 主大脑 | 按用户指示全做：①任务板第一项标 ✅（tools/检索接入脚本已通过改kb_reader源码落地）②deploy.js bug 行同步进HTML ③待核实清单盘点（子代理：md 10页58处，业务数据51处，集中 market.md 32处）④M2检索回归（3命中，婴童无泪命中formulation#无泪原理未命中预期apg） | team-task-board html+md、CHANGELOG.md |
 | 2026-08-03 | 主大脑 | 写交接文档 v6（2026-08-03-agent-brain-v6.md）：融合 v5 全部内容 + 本轮成果（移动端验证通过/待核实清单盘点/代码独立复核/deploy.js 修复/kb_reader 修复）；用户反馈"整体风格变了，交接要遵循以前那种"→ 按 v3/v4 完整自包含风格重写（14 节，含大脑方向/阶段0/1 详述/边界速查/已知坑/交接链）；brain-window-main.md 当前阶段推进到"阶段1完成+阶段2准备" | .claude/handoffs/2026-08-03-agent-brain-v6.md、brain-window-main.md、CHANGELOG.md |
 | 2026-08-03 | 主大脑 | 验证 Trae 移动端写本地共享文件夹：用户从移动端发"测试实时同步"→ 根目录新建 测试实时同步.txt 落盘成功（秒级，fs.watch rename 事件可捕获）→ 阶段 4 接入层物理前提成立；已登记广播 | 根目录 测试实时同步.txt、mechanism-updates、ai-worklog |
+| 2026-08-03 | 闲聊 AI | 用户问"现在存在的机制还有必要吗"→ 盘点现行机制分级建议（🟢真必要/🟡该合并/🔴存疑），沉淀到收件箱 [待探讨]（供用户转主 AI/智能体 AI 探讨）；同步验证检索大脑（TC-MAB 命中）+ 记忆大脑写读闭环；部署上线 | inbox html+md、CHANGELOG.md、D:\ai\deep-memory、D:\ai\brain-memory |
 
 登记规则：
 - **谁做谁记**：每个 AI 完成一件有留痕价值的事（建页/改内容/部署/修复），顺手在此追加一行
