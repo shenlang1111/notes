@@ -3389,6 +3389,11 @@ ai-agent/
       <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><span class="tag tag-orange">闲聊 AI</span></td>
+          <td><strong>落地"Trae 对话接入自动存档"（用户拍板"你来落地吧"）</strong>：新建 tools/chat_autosave.js（SessionEnd hook：扫 D:\ai\brain-memory\chat_inbox\chat-&lt;agent&gt;-&lt;日期&gt;.md → 调 mem_chat_save.py 入库 → 归档 archive/）+ settings.json 注册 + 实测通过（casual 摘要入库召回 0.86、归档成功）。⚠️ 注意：任务板有主 AI 瘦身建议"自动存档改习惯项、不造自动脚本"（🆕 待主 AI 执行清理）——本 hook 是事件触发非定时任务，留/撤待用户+主 AI 定夺</td>
+          <td>tools/chat_autosave.js（新）、.claude/settings.json、D:\ai\brain-memory\chat_inbox\（新）、任务板 html+md</td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><span class="tag tag-orange">主 AI</span></td>
           <td><strong>规则修订体系落地（用户拍板"有体系的改"）+ 首批修 5 项</strong>：规范 v3.8 新增十·四规则修订闭环（发现→登记收件箱→主 AI 积 3 条/每周评估→拍板→改+同步→验证）；修掉"铁律 13"残留、投递/回复文件归档规则（根目录 21 个归档）、双格式硬软边界（用户看页=硬门禁）、状态保鲜扩至全知识域、机制页稳定即清理责任人（主 AI 每月）。详见 CHANGELOG</td>
           <td>知识库维护规范.md（v3.8 十·四）、mechanism-updates html+md、.claude/handoffs/archive/（投递文件归档）</td>
