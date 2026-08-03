@@ -37,8 +37,11 @@ updated: 2026-08-03
 
 ## 二、工作记录
 
+> **留痕分工（2026-08-03 机制瘦身）**：本页 = 人员一句话（谁 + 何时 + 干了什么），**细节引用 CHANGELOG 不复制长文**；记忆大脑 mem0 记"结论是什么"，与这里"谁干了"互补不重复。AI 看为主，可只写 MD。
+
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
+| 2026-08-03 | 主 AI | **机制瘦身落地（规范 v3.6）**——用户拍板（依据闲聊 AI 机制健康度评估）：铁律 11→10 合并 DoD；留痕分工五处定位；双格式分级（用户看/AI 看，deploy checkPairs 加 MD_ONLY_EXEMPT 豁免）；健康度盘点产出必带认领。详见 CHANGELOG | 知识库维护规范.md、KEY_MEMORY.md、tools/deploy.js、AGENT_NOTES.md、PROJECT_CONTEXT.md、CODE_WIKI.md、ai-worklog html+md、kb-health-checklist html+md、mechanism-updates html+md |
 | 2026-08-03 | 主 AI | **记忆入库方案落地（规范 v3.5）**——用户拍板（调查业界后修正：官方 Auto Memory 未在本项目生效，mem0 记忆大脑才是治本）：①session_start_report.js 加 mem_search 自动回忆（开窗报告实测通过，自动带出 TC-MAB/TC-SHD 记忆）②规范 v3.5：铁律 10 改写"记忆入库防失忆"、第十节重写（记忆大脑写/读 + 压缩后恢复三步 + 带参数 /compact 原因）、DoD 加"记忆已沉淀"③KEY_MEMORY 降级速查（命令区加 mem0 写/读、决策加记忆入库拍板）④AGENT_NOTES/PROJECT_CONTEXT/CODE_WIKI 版本同步 ⑤mechanism-updates 广播 | 知识库维护规范.md、KEY_MEMORY.md、tools/session_start_report.js、AGENT_NOTES.md、PROJECT_CONTEXT.md、CODE_WIKI.md、mechanism-updates html+md、CHANGELOG.md |
 | 2026-08-03 | 主大脑 | **修复记忆大脑 --layer 分层过滤 bug（技术验证员复核发现）**：复现确认 filters["metadata"]={"layer":...} 报 ValueError（Unsupported filter operator）→ 查源码 + dump payload 证实 mem0 2.0.15 把 metadata 嵌套 dict **扁平化展开成 payload 顶层字段** → 修复为 filters["layer"]="long" 顶层字段过滤。验证：--layer long 命中 2 条、--layer mid 返回空（正确区分层）。另修 2 处：mem_export 补 --collection 参数（与其他脚本一致）；用 --fix-target 修正库内 TC-MAB INCI 拼写错误记忆（Lauroampho diacetate）。README 补"写入前核对事实"规范。回归测试全通过 | D:\ai\brain-memory\scripts\（mem_search/mem_export.py）、README.md、记忆库数据 |
 | 2026-08-03 | 主大脑 | **阶段 2 记忆大脑落地（用户直接授权 + 主 AI 确认）**：①技术验证 mem0 本地免 LLM 全通过（infer=False 写入/中文命中 0.73/跨进程持久化/纠错 delete 删旧写新）②方案定稿（分层=metadata 打标+作用域，非 memory_type 僵尸代码）③建 D:\ai\brain-memory 记忆大脑（venv/scripts 4 个：mem_config/mem_add/mem_search/mem_export/README/ws 记忆库）④全链路验证（写→读→纠错→导出全过）⑤**M3 里程碑达成**（跨会话不丢 + 纠正不再犯）| D:\ai\brain-memory\、phase2-design-v1.md、task-board html+md |
