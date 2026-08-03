@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>工作日志 · 板块说明 · 天赐材料知识库</title>
-<link rel="stylesheet" href="../../_shared/css/style.css?v=6">
+<link rel="stylesheet" href="../../_shared/css/style.css?v=7">
 </head>
 <body>
 
@@ -14,12 +14,28 @@
 <div class="container">
 <!-- ===== Page Hero ===== -->
 <div class="page-hero">
+  <nav class="breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">工作日志板块说明</span>
+  </nav>
   <div class="page-hero-meta"><span class="tag tag-orange">工作日志</span></div>
   <h1>工作日志 · 板块说明</h1>
   <p class="page-hero-desc">日志 AI 的专属工作区：每日工作日志按"每月一个文件"留存，可聚合为半月报 / 月报 / 年报。</p>
   <a href="../../index.html" class="page-hero-back">← 返回首页</a>
 </div>
 <!-- ===== /Page Hero ===== -->
+  <details class="toc-nav" open>
+    <summary>本页目录</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>第 1 组8.01（六）– 8.02</a>
+      <a href="#sec-2"><span class="toc-num">2</span>2026 年 8 月日志</a>
+      <a href="#sec-3"><span class="toc-num">3</span>2026 年 7 月日志（补录）</a>
+      <a href="#sec-4"><span class="toc-num">4</span>新会话开场话术</a>
+      <a href="#sec-5"><span class="toc-num">5</span>知识库首页</a>
+    </div>
+  </details>
+
 
 <section class="section" id="overview">
   <h2>一、板块定位</h2>
@@ -60,7 +76,7 @@
   <h2>三、每日日志模板（日志 AI 按此格式写）</h2>
   <p>页面采用<strong>卡片式布局</strong>：按周分组，每天一条 <code>log-card</code>，含日期徽标、类别标签、完成/问题/灵感三块。类别标签：<span class="tag tag-red">安全合规</span> <span class="tag tag-purple">质量认证</span> <span class="tag tag-blue">产线实操</span> <span class="tag tag-green">产品学习</span> <span class="tag tag-orange">知识库</span></p>
   <pre style="background:rgba(0,0,0,0.04);border-radius:8px;padding:16px;font-size:0.9rem;line-height:1.7;white-space:pre-wrap;word-break:break-word;">周分组标题：
-<h3 class="week-group-title"><span class="wg-name">第 1 组</span><span class="wg-days">8.01（六）– 8.02（日）· 一句话主题</span></h3>
+<h3 id="sec-1" class="week-group-title"><span class="wg-name">第 1 组</span><span class="wg-days">8.01（六）– 8.02（日）· 一句话主题</span></h3>
 
 日志卡片（每条日志一份）：
 <div class="log-card">
@@ -127,73 +143,22 @@
 </section>
 
 <section class="section" id="report-plan">
-  <h2>五、报告写作指南（日志 AI 经验沉淀）</h2>
-
-  <h3 style="margin-bottom:0.5rem;">5.1 三类报告的核心区别</h3>
-  <div class="card" style="padding:1rem;overflow-x:auto;">
-    <table class="data-table" style="width:100%;border-collapse:collapse;">
-      <thead><tr style="background:#2E75B6;color:#fff;">
-        <th style="padding:6px;text-align:left;border:1px solid #B4C6E7;">类型</th>
-        <th style="padding:6px;text-align:left;border:1px solid #B4C6E7;">核心</th>
-        <th style="padding:6px;text-align:left;border:1px solid #B4C6E7;">重点</th>
-        <th style="padding:6px;text-align:left;border:1px solid #B4C6E7;">读者关注</th>
-      </tr></thead>
-      <tbody>
-        <tr style="background:#D6E4F0;"><td style="padding:6px;border:1px solid #B4C6E7;">周报</td><td style="padding:6px;border:1px solid #B4C6E7;">进度和问题</td><td style="padding:6px;border:1px solid #B4C6E7;">本周完成、卡在哪、下周推进</td><td style="padding:6px;border:1px solid #B4C6E7;">进展是否正常</td></tr>
-        <tr><td style="padding:6px;border:1px solid #B4C6E7;">月报/半月报</td><td style="padding:6px;border:1px solid #B4C6E7;">结果和变化</td><td style="padding:6px;border:1px solid #B4C6E7;">本月结果、关键变化、问题原因、下月重点</td><td style="padding:6px;border:1px solid #B4C6E7;">做成了什么、和上月比有什么变化</td></tr>
-        <tr style="background:#D6E4F0;"><td style="padding:6px;border:1px solid #B4C6E7;">年报</td><td style="padding:6px;border:1px solid #B4C6E7;">成果和复盘</td><td style="padding:6px;border:1px solid #B4C6E7;">做成了什么、方法是否有效、以后怎么改进</td><td style="padding:6px;border:1px solid #B4C6E7;">全年价值、可复用的经验</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3 style="margin-top:1.5rem;margin-bottom:0.5rem;">5.2 月报/半月报的标准结构</h3>
-  <div class="card" style="padding:1rem;">
-    <pre style="background:#f5f5f5;padding:1rem;border-radius:6px;font-size:0.9rem;line-height:1.7;">一、本月关键结果（3-5 个核心成果，含数据）
-二、主要变化与进展（对比月初/上月的差异，分维度）
-三、存在问题与原因分析（不止列问题，要分析根因）
-四、经验沉淀（什么方法有效、为什么有效、后续可复用）
-五、下月重点（按优先级 P0/P1/P2 排列，含目标）
-附录：学习时间线（可选，按日期罗列，供核对）</pre>
-  </div>
-
-  <h3 style="margin-top:1.5rem;margin-bottom:0.5rem;">5.3 写作原则</h3>
-  <div class="card" style="padding:1rem;">
-    <ul>
-      <li><strong>结果导向</strong>：写"达成了什么结果"，不写"做了什么"——把"我学了 XX"改成"完成 XX 培训，掌握 XX 技能"</li>
-      <li><strong>数据量化</strong>：有数字写数字（天数、数量、百分比），但不编造</li>
-      <li><strong>合并同类</strong>：把 4 周周报合并成 3-5 个关键结果，不逐天罗列</li>
-      <li><strong>变化对比</strong>：和上个月/上一期比，有什么变化</li>
-      <li><strong>问题+方案</strong>：提出问题同时给出解决思路，不止列问题</li>
-      <li><strong>经验沉淀</strong>：不只是"做了什么"，还要"什么方法有效、为什么有效"</li>
-    </ul>
-  </div>
-
-  <h3 style="margin-top:1.5rem;margin-bottom:0.5rem;">5.4 常见错误（避免）</h3>
-  <div class="card warning" style="padding:1rem;">
-    <ol>
-      <li>写成流水账（领导看不到重点）</li>
-      <li>只有过程没有结果（只写"沟通了需求"，不写"确认了哪些需求"）</li>
-      <li>缺少数据支撑（能量化的尽量量化）</li>
-      <li>只写问题不写下一步（提出问题要同步给处理计划）</li>
-      <li>把 4 周周报拼在一起当月报（月报要做合并和提炼）</li>
-    </ol>
-  </div>
-
-  <h3 style="margin-top:1.5rem;margin-bottom:0.5rem;">5.5 后续报告规划</h3>
+  <h2>五、后续报告规划（占位）</h2>
   <div class="concept-grid">
     <div class="concept-card" style="border-top:3px solid var(--accent);">
       <h4>半月报</h4>
-      <p>每月 15 日、月末生成：聚合当月已写日志，按"关键结果→变化→问题→经验→下月重点"结构整理。</p>
+      <p>每月 15 日、月末生成：聚合当月已写日志，按"完成事项 / 数据 / 问题 / 计划"整理成报告。</p>
     </div>
     <div class="concept-card" style="border-top:3px solid var(--accent2);">
       <h4>月报</h4>
-      <p>每月末生成：聚合当月全部日志，加入环比数据、经验沉淀，结构更完整。</p>
+      <p>每月末生成：聚合当月全部日志，产出月报（可含图表、环比数据）。</p>
     </div>
     <div class="concept-card" style="border-top:3px solid var(--accent3);">
       <h4>年报</h4>
-      <p>每年 12 月末生成：聚合全年 12 个月报，产出年度总结，重点在成果和方法。</p>
+      <p>每年 12 月末生成：聚合全年 12 个月报，产出年度总结。</p>
     </div>
   </div>
+  <p style="color:var(--text-secondary);font-size:0.9rem;">报告生成逻辑后续随需求细化，当前先占位。</p>
 </section>
 
 <section class="section" id="related">
@@ -201,27 +166,44 @@
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
     <a href="logs-2026-08.html" class="page-card">
       <div class="card-icon">📅</div>
-      <h3>2026 年 8 月日志</h3>
+      <h3 id="sec-2">2026 年 8 月日志</h3>
       <p>本月工作日志（当前月份）</p>
     </a>
     <a href="logs-2026-07.html" class="page-card">
       <div class="card-icon">📅</div>
-      <h3>2026 年 7 月日志（补录）</h3>
+      <h3 id="sec-3">2026 年 7 月日志（补录）</h3>
       <p>上月工作日志 · 补录整理版</p>
     </a>
     <a href="../会话记录/session-prompt.html" class="page-card">
       <div class="card-icon">📋</div>
-      <h3>新会话开场话术</h3>
+      <h3 id="sec-4">新会话开场话术</h3>
       <p>日志 AI 的专属开场话术在这里</p>
     </a>
     <a href="../../index.html" class="page-card">
       <div class="card-icon">🏠</div>
-      <h3>知识库首页</h3>
+      <h3 id="sec-5">知识库首页</h3>
       <p>所有内容的入口与导航</p>
     </a>
   </div>
 </section>
 
+  <section class="related-pages">
+    <div class="rp-title">相关页面</div>
+    <div class="rp-grid">
+      <a href="logs-2026-07.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">2026年7月工作日志（补录）</span></a>
+      <a href="logs-2026-08.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">2026年8月工作日志</span></a>
+    </div>
+  </section>
+  <nav class="page-nav">
+    <a href="../销售与市场/tinci-amphoteric-summary.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">天赐温和两性表面活性剂 — 产品目录归纳总结</span>
+    </a>
+    <a href="logs-2026-07.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">2026年7月工作日志（补录）</span>
+    </a>
+  </nav>
 </div>
 
 <footer>
