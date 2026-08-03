@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>团队任务板 · 天赐材料知识库</title>
-<link rel="stylesheet" href="../../_shared/css/style.css?v=6">
+<link rel="stylesheet" href="../../_shared/css/style.css?v=7">
 </head>
 <body>
 
@@ -14,11 +14,25 @@
 <div class="container">
 <!-- ===== Page Hero ===== -->
 <div class="page-hero">
+  <nav class="breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">团队任务板</span>
+  </nav>
   <div class="page-hero-meta"><span class="tag tag-orange">AI 协作</span></div>
   <h1>团队任务板</h1>
   <p class="page-hero-desc">AI 团队共享任务板：谁发现问题谁登记，谁认领谁负责，完成即更新状态。让"该做的事"不靠口头转达，有记录、有去向、可追踪。</p>
 </div>
 <!-- ===== /Page Hero ===== -->
+  <details class="toc-nav" open>
+    <summary>本页目录</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>思考收件箱</a>
+      <a href="#sec-2"><span class="toc-num">2</span>知识库健康度盘点</a>
+      <a href="#sec-3"><span class="toc-num">3</span>智能体设计存档</a>
+    </div>
+  </details>
+
 
 <section class="section" id="what">
   <h2>一、这是什么</h2>
@@ -66,6 +80,13 @@
         <td style="padding:8px;"><strong>阶段 4 接入大脑 M5（brain_watch 实时监听 + 消息信箱）</strong>——<strong>主 AI 审批（2026-08-03，工具类变更，机制变更先审批铁律）</strong>：tools/ 新建 brain_watch.js + brain_msg.js 经主 AI 审批同意实施（用户口头拍板 + 主 AI 确认，程序上合规）。①brain_watch.js 常驻 fs.watch 监听 D 盘知识库根（含子目录，排除 node_modules/.git/.trae*/.claude/tools/构建产物），秒级感知新文件不靠轮询（蓝图 M5 验收标准）②投递协议（用户拍板）：根目录第一层新建 .md/.txt 即投递消息，watch 自动登记信箱（status=new）；子目录正式库改动只记 watch-log 不当消息。消息协议字段（蓝图第1层：谁发/发给谁/内容/状态）：from=user / to=解析消息头"发给："缺省 main / text=内容预览 / status=new/done/replied ③信箱命令 brain_msg.js：--list 看待处理 / --done 标记已处理 / --peek 预览 / --status 速览 / --reply 结果回写（大脑干完活把结果写回根目录"回复-&lt;原名&gt;.md"，Trae 端可见=结果出得去）④信箱索引存 D:\ai\brain-memory\messagebox\（监听范围外防自触发死循环）⑤session_start_report.js 开窗自动带出【接入层信箱】待处理条数。实测验收全链路通：投递→秒级登记→--list/--peek/--done/--reply 全通过。智能体 AI 审核意见已处理（协议补全 from/to/content + 结果回写 --reply 已落地）。M5 接入层达成，大脑闭环入口打通</td>
         <td style="padding:8px;">主大脑</td>
         <td style="padding:8px;">主大脑</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>检索大脑工作区路径错位（M2 检索层当前不可用）——技术验证员全流程验证发现</strong>：<code>search.py</code> 默认工作区 = <code>~/.deep-memory</code>（C 盘用户家目录），但工作目录已迁 D 盘 → 实搜报错 <code>No documents found at C:\Users\浪\.deep-memory</code>；D 盘真实索引 <code>D:\ai\deep-memory\ws\chroma_hybrid_db</code> 自 <strong>09:00 后从未增量同步</strong>（README 的"待办：增量同步 update_db.py"未落地）→ 就算指到 D 盘也搜不到今天新增（brain_watch/evolve_scan/M4/M5 全不在）。<strong>修复建议（P0，涉及 tools/ 脚本须主 AI 审批）</strong>：①search.py 工作区改指 D 盘（设 <code>DEEP_MEMORY_WORKSPACE</code> 指向 <code>D:\ai\deep-memory\ws</code> 或改默认值）②重跑 update_db.py 增量同步重建 D 盘索引到最新</td>
+        <td style="padding:8px;">技术验证员</td>
+        <td style="padding:8px;">待主大脑/主 AI</td>
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
@@ -195,22 +216,41 @@
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
     <a href="inbox.html" class="page-card">
       <div class="card-icon">📥</div>
-      <h3>思考收件箱</h3>
+      <h3 id="sec-1">思考收件箱</h3>
       <p>想法缓冲区，本板所属域</p>
     </a>
     <a href="kb-health-checklist.html" class="page-card">
       <div class="card-icon">🩺</div>
-      <h3>知识库健康度盘点</h3>
+      <h3 id="sec-2">知识库健康度盘点</h3>
       <p>定期体检清单，发现问题进任务板</p>
     </a>
     <a href="inbox-20260802-agent-design.html" class="page-card">
       <div class="card-icon">🤖</div>
-      <h3>智能体设计存档</h3>
+      <h3 id="sec-3">智能体设计存档</h3>
       <p>团队愿景与分工讨论记录</p>
     </a>
   </div>
 </section>
 
+  <section class="related-pages">
+    <div class="rp-title">相关页面</div>
+    <div class="rp-grid">
+      <a href="inbox.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">思考收件箱</span></a>
+      <a href="inbox-20260802-agent-design.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">智能体设计讨论存档</span></a>
+      <a href="kb-health-checklist.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">知识库健康度盘点</span></a>
+      <a href="ai-worklog.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">AI 工作记录</span></a>
+    </div>
+  </section>
+  <nav class="page-nav">
+    <a href="inbox-20260802-agent-design.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">智能体设计讨论存档</span>
+    </a>
+    <a href="kb-health-checklist.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">知识库健康度盘点</span>
+    </a>
+  </nav>
 </div>
 
 <footer>
