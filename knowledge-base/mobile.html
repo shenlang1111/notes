@@ -3956,6 +3956,11 @@ ai-agent/
           <td><strong>CHANGELOG 补全同步</strong>：今日(8/4)的12条改动记录被清空，根据对话记录和文件修改时间重新补全，涵盖规范v4.0~v4.2、权限模型、规则AI体系、知识库修缮、工具更新等</td>
           <td>CHANGELOG.md</td>
         </tr>
+        <tr>
+          <td>2026-08-04</td><td><span class="tag tag-orange">测试员 AI</span></td>
+          <td><strong>全链路健康度检查</strong>：线上站点访问、部署链路 deploy.js、记忆大脑 mem0、检索大脑 deep-memory、核心工具脚本、知识库内容完整性——6 项全通过。发现 P3：registry 41 页 vs 磁盘 40 页差异（kb-maintain-spec 为根目录 .md，不计入 domains/HTML）。结论：知识库整体运行正常</td>
+          <td>线上站点、mem0 记忆库、deep-memory 检索库、tools/deploy.js</td>
+        </tr>
       </tbody>
     </table>
   </div>
