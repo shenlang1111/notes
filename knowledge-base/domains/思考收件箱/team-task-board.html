@@ -56,7 +56,7 @@
     <tbody>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
-        <td style="padding:8px;"><strong>阶段 4 接入大脑 M5（brain_watch 实时监听 + 消息信箱，用户拍板）</strong>——①brain_watch.js 常驻 fs.watch 监听 D 盘知识库根（含子目录，排除 node_modules/.git/.trae*/.claude/tools/构建产物），秒级感知新文件不靠轮询（蓝图 M5 验收标准）②投递协议（用户拍板）：根目录第一层新建 .md/.txt 即投递消息，watch 自动登记信箱（status=new）；子目录正式库改动只记 watch-log 不当消息 ③信箱命令 brain_msg.js：--list 看待处理 / --done 标记已处理 / --peek 预览 / --status 速览 ④信箱索引存 D:\ai\brain-memory\messagebox\（监听范围外防自触发死循环）⑤session_start_report.js 开窗自动带出【接入层信箱】待处理条数。实测验收全链路通：投递测试文件 → 秒级登记信箱 → --list/--peek/--done 全通过，开窗报告带出"待处理消息 1 条"。M5 接入层达成，大脑闭环入口打通</td>
+        <td style="padding:8px;"><strong>阶段 4 接入大脑 M5（brain_watch 实时监听 + 消息信箱）</strong>——<strong>主 AI 审批（2026-08-03，工具类变更，机制变更先审批铁律）</strong>：tools/ 新建 brain_watch.js + brain_msg.js 经主 AI 审批同意实施（用户口头拍板 + 主 AI 确认，程序上合规）。①brain_watch.js 常驻 fs.watch 监听 D 盘知识库根（含子目录，排除 node_modules/.git/.trae*/.claude/tools/构建产物），秒级感知新文件不靠轮询（蓝图 M5 验收标准）②投递协议（用户拍板）：根目录第一层新建 .md/.txt 即投递消息，watch 自动登记信箱（status=new）；子目录正式库改动只记 watch-log 不当消息。消息协议字段（蓝图第1层：谁发/发给谁/内容/状态）：from=user / to=解析消息头"发给："缺省 main / text=内容预览 / status=new/done/replied ③信箱命令 brain_msg.js：--list 看待处理 / --done 标记已处理 / --peek 预览 / --status 速览 / --reply 结果回写（大脑干完活把结果写回根目录"回复-&lt;原名&gt;.md"，Trae 端可见=结果出得去）④信箱索引存 D:\ai\brain-memory\messagebox\（监听范围外防自触发死循环）⑤session_start_report.js 开窗自动带出【接入层信箱】待处理条数。实测验收全链路通：投递→秒级登记→--list/--peek/--done/--reply 全通过。智能体 AI 审核意见已处理（协议补全 from/to/content + 结果回写 --reply 已落地）。M5 接入层达成，大脑闭环入口打通</td>
         <td style="padding:8px;">主大脑</td>
         <td style="padding:8px;">主大脑</td>
         <td style="padding:8px;">2026-08-03</td>
