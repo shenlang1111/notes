@@ -3248,6 +3248,11 @@ ai-agent/
           <td>新建"测试员 AI"（第 6 个主窗口 AI）：专属话术写入 session-prompt 第十节（职责：质量保障/测试，只测不修，发现问题登记任务板）+ 团队名单登记（ai-worklog 六个主窗口 AI）+ 机制更新广播</td>
           <td>会话记录/session-prompt html+md、思考收件箱/ai-worklog html+md、mechanism-updates html+md</td>
         </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-orange">测试员 AI</span></td>
+          <td><strong>接入层 M5 投递链路实测</strong>：根目录新建测试文件 <code>投递-测试员AI-链路测试.md</code>（发给 cici）→ brain_watch 秒级感知（20:49:39 事件→20:49:40 登记→自动派发）→ 信箱 index.json 登记成功（status=doing，to=cici，含完整正文）。测试验证：文件创建感知、信箱登记、自动派发三环节均通过。测试文件已清理，信箱已标记 done。详见测试员 AI 会话记录</td>
+          <td>根目录、brain-memory/messagebox/index.json、watch-log.log</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -4404,6 +4409,13 @@ uv venv .venv && uv pip install mem0ai fastembed
       </tr>
     </thead>
     <tbody>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>自动接单打磨（自主运行机制遗留 2 项）</strong>——①对"发给非 main agent"的消息路由不完善（投"发给：cici"被 headless 当普通消息接，未正确路由到对应 AI）②原投递文件被删时收尾不完整（标 done 但没生成回复文件）。建议：dispatch 增加按 to 路由 + 原文件缺失时用信箱 text 兜底</td>
+        <td style="padding:8px;">主 AI</td>
+        <td style="padding:8px;">待主 AI</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><span class="tag tag-green">✅ 已落地</span></td>
         <td style="padding:8px;"><strong>M4 进化大脑 skill 草稿审批 ✅ 通过已落盘</strong>——evolve_scan.js 生成的草稿 <code>记忆库去重与灌库</code> 经主 AI 结合 skill-creator 人审通过（description 触发词/6 步骤/边界齐全），已落盘 <code>.trae/skills/记忆库去重与灌库/SKILL.md</code>。M4 进化机制完整闭环：工具（evolve_scan.js + mem_refine.py）+ 规范十·一 + 试点提炼（2 条 chat-brain 对话存档→1 条 long 经验）+ 代码审查修复（回滚排序/防重复提炼/失败留痕）+ skill 审批落盘。四层大脑全部达成</td>
