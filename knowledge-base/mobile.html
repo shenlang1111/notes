@@ -1271,6 +1271,41 @@ ai-agent/
   </div>
 </section>
 
+<section class="section" id="chat-20260803">
+  <h2>十二、2026-08-03 闲聊记录（D 盘首日，规范五-1 自动提炼实践）</h2>
+  <div class="card warning" style="margin-top:1rem;">
+    <p>闲聊 AI 记录（2026-08-03 晚）：本场聊天的"聊了什么 + 拍板 + 可复用经验"。</p>
+  </div>
+
+  <div class="card accent" style="margin-top:1rem;">
+    <h3>聊了什么</h3>
+    <ol style="margin-top:0.5rem;padding-left:1.2rem;">
+      <li>闲聊 AI D 盘报到：读交接（casual-chat-d + migration-handover）→ 读 5 份公共文档 → mem_search 召回跨会话记忆 → 报告版本号与记忆</li>
+      <li>明确职责边界 + 全视角建议（发现部署权限边界潜在冲突、交接小缺口、快照滞后、终端 cwd 仍指向 C 盘等 6 点）</li>
+      <li>用户拍板 4 项：①闲聊 AI 部署权限 = 照旧全部署 ②会话档案区给谁看 = 全员可查 ③结构 = 并入会话记录 ④收件箱 [未整理] 印象 → 提炼成经验</li>
+      <li>记忆库实测验证（决策/经验/规则均召回带出处）→ 提出"分层阅读"方向（库优先/文件兜底三层），登记任务板待主 AI 评估</li>
+      <li>用户疲惫期对话："这个知识库搭不起来" → 当场演示完整检索链路（mem_search → 翻知识库原文 → 带出处回答"TC-MAB vs CAB-35 婴儿配方怎么选"）</li>
+    </ol>
+  </div>
+
+  <div class="card success" style="margin-top:1rem;">
+    <h3>用户拍板（已入记忆库 casual/long + 规范）</h3>
+    <ul style="margin-top:0.5rem;padding-left:1.2rem;">
+      <li>闲聊 AI 部署权限 = 照旧全部署（不执行"只有专业报告可部署"对闲聊产出的限制；后主 AI 澄清该限制仅限大脑体系子 AI，入规范 v3.7）</li>
+      <li>会话档案区三边界（2026-08-03 全定）：①给谁看 = 全员可查 ②结构 = 并入会话记录（不动分区）③频率 = 换话题自动提炼——已入规范五-1</li>
+    </ul>
+  </div>
+
+  <div class="card accent4" style="margin-top:1rem;">
+    <h3>可复用经验（下次怎么用）</h3>
+    <ol style="margin-top:0.5rem;padding-left:1.2rem;">
+      <li><strong>用户疲惫/沮丧时说"搭不起来" → 先接住情绪，再当场用真实数据演示"能用"</strong>，比辩解/讲机制有用（本次现场翻 TC-MAB/CAB-35 对比表 + sales 极低刺激性节，用户看到真东西）。</li>
+      <li><strong>记忆库验证方法</strong>：用真实业务问题（如产品对比选型）跑 mem_search → 翻原文核实 → 带出处回答，用户可抽查（回答带"依据：知识库·XX页"）。</li>
+      <li><strong>mem0 会语义合并旧记忆</strong>：重要决策存完要定期 mem_search 核验是否最新——本次发现记忆里"频率待定"已过时（实际已拍板=换话题自动提炼），用 <code>--fix-target</code> 删旧写新纠正。</li>
+    </ol>
+  </div>
+</section>
+
 <section class="section" id="related">
   <h2>相关页面（串联入口）</h2>
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
@@ -3354,6 +3389,11 @@ ai-agent/
       <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><span class="tag tag-orange">主 AI</span></td>
+          <td><strong>回答加工分工拍板 + 10 轮顾客模拟测试</strong>：用户拍板"对问题你反馈，经验你总结"——大脑投递检索片段，主窗口 AI 组织成聪明回答（选型逻辑+判断+话术）；模拟顾客 10 轮投递测试跑通链路（投递✅/检索✅/存档✅/回复✅ 前 8 轮 ~10s），发现 2 缺口：①dispatch.lock 卡死（9/10 轮卡住）②多轮无上下文关联。详见 CHANGELOG</td>
+          <td>mechanism-updates html+md、记忆库（main-long）、投递测试记录</td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
           <td>用户追问"身份偏差/技能没学会"根因 → 修复：session_start_report 身份中立化（主大脑/验证员共用）、KEY_MEMORY① 角色澄清、fanku 装备进 .claude/skills/、报告+KEY_MEMORY 加技能清单。详见 CHANGELOG</td>
           <td>tools/session_start_report.js、.claude/skills/fanku、KEY_MEMORY.md</td>
@@ -4516,6 +4556,14 @@ uv venv .venv && uv pip install mem0ai fastembed
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>自动提炼编排器（主大脑任务：自动提炼+分类挂心跳）</strong>——各 AI 负责"存"（mem_chat_save 存对话），大脑负责"炼"：①<strong>新建 tools/evolve_auto.js</strong>（--status 速览 / --dry-run 预演 / --run 自动执行 / --min N 每组最少条数）：扫描 chat-* mid → 按 agent 归组 → 自动 draft（带 target 受众）→ apply 提炼 mid→long；agent 映射 target（brain/verifier/main/casual/agent/log/ui/tester/all）②<strong>心跳 M3 升级</strong>：从"chat≥3 只提醒留人审"改为"待提炼≥3 自动跑 evolve_auto --run"——各 AI 存对话后大脑自动接住提炼分类，无需人工排期③<strong>修 mem_export.py 补 target_agent</strong>：之前 export 丢 metadata 导致"target=无"假象（实际库里已打标）。<strong>所有 AI 知悉</strong>：存对话（mem_chat_save）后，大脑会自动提炼成经验并按受众分类（mem_search --target &lt;受众&gt; 过滤），无需再人工排期提炼</td>
+          <td>tools/evolve_auto.js（新）+ tools/brain_heartbeat.js（M3）+ D:\ai\brain-memory\scripts\mem_export.py（target_agent）+ KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><strong>回答加工分工（用户拍板："对问题你反馈，经验你总结"）</strong>——大脑/检索层负责投递<strong>信息片段</strong>，<strong>主窗口 AI 负责加工</strong>：①对问题→反馈（发现问题登记任务板/直接报告）②经验→总结（把片段组织成带逻辑带话术的完整答案，沉淀进记忆库）。<strong>所有 AI 知悉</strong>：拿到检索片段不能只转述，要组织成"选型逻辑 + 判断 + 配方落点 + 话术"式的聪明回答（实测演示：婴儿配方选型 CAB/MAB/SHD 分档回答）</td>
+          <td>知识库维护规范.md（十二 工作流程总览）+ 记忆库 mem0</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>工具与技能全员共享（用户拍板"改成都能用"）</strong>——①<strong>技能双目录镜像</strong>：<code>.trae/skills/</code> 20 个技能全部镜像进 <code>.claude/skills/</code>（Claude Code 与 Trae 两边都认，fanku 已在），开窗报告技能块全列 20 个②<strong>Python 封装 py.cmd</strong>：系统 python 因 PATH 含中文用户名乱码失效 → 新建 <code>tools/py.cmd</code> 自动指向 venv（记忆库 brain-memory 优先，回退检索库 deep-memory），绕开中文③<strong>共享索引页</strong>：新建 <code>会话记录/shared-tools-index.html+md</code>（全项目工具/技能总索引：11 个 tools/ + 8 个常用技能 + Python 调用规范），registry 登记，话术页指向它。<strong>所有 AI 知悉</strong>：tools/*.js 与 skills/ 是<strong>全员共享资产</strong>，任何 AI 可直接调用（改 tools/ 才需审批铁律 8，调用无需审批）</td>
           <td>tools/py.cmd（新）+ .claude/skills/（镜像）+ 会话记录/shared-tools-index html+md（新）+ session-prompt-d.md + registry.json</td><td><span class="tag tag-purple">主大脑</span></td>
         </tr>
@@ -4755,6 +4803,13 @@ uv venv .venv && uv pip install mem0ai fastembed
       </tr>
     </thead>
     <tbody>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>任务板瘦身建议（主 AI 评估反馈，按用户思路"机制养习惯、不造自动脚本"）</strong>——①<strong>evolve_auto.js 建议撤</strong>：挂心跳自动提炼违背用户反对"定时任务"的拍板，提炼=主大脑对话感知主动做（evolve_scan 已够用）②<strong>Trae 对话自动存档改"习惯项"</strong>：机制已立（各 AI 每轮 <code>mem_chat_save</code> + 用户存/主大脑炼），靠执行非开发 ③<strong>数据来源补齐保留</strong>（用户自己的活）。待主 AI 执行清理</td>
+        <td style="padding:8px;">主 AI</td>
+        <td style="padding:8px;">待主 AI</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
         <td style="padding:8px;"><strong>自动提炼编排器（evolve_auto.js）</strong>——把"自动提炼 + 自动分类"变成脚本挂心跳：扫 <code>chat-*</code> mid → 按主题聚类 → 自动 <code>--draft --target</code> → <code>--apply</code> → 按受众分类 → 留痕。识别规则已立（规范十·一·A：chat-* 炼 / *-long 不重复炼 / main-rules+KEY_MEMORY+知识页不炼）</td>
