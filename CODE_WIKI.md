@@ -1,6 +1,6 @@
 # 天赐材料日化知识库 — 技术维基（CODE_WIKI）
 
-> 版本：v3.2（2026-08-03 新增 deploy 门禁 + 防失忆工具 §4.3）· **技术维基（★ 推荐阅读）**：架构 / 目录 / 工具链 / 命令细节，供任何 AI 查技术实现
+> 版本：v3.4（2026-08-03 双格式分级：deploy checkPairs 加 AI 看页 MD-only 豁免）· **技术维基（★ 推荐阅读）**：架构 / 目录 / 工具链 / 命令细节，供任何 AI 查技术实现
 > 规则见《知识库维护规范.md》——本文档只承接"怎么做"的技术细节，不重复规则
 >
 > **文档关系**：总规则 → 知识库维护规范.md（★★★ 必读）｜ 项目背景 → PROJECT_CONTEXT.md（★★）｜ 修改追溯 → CHANGELOG.md（☆）｜ 历史经验 → 知识库"与 AI 的交流经验"页（会话记录域）｜ 本文档 = 技术维基（★ 推荐）
@@ -28,7 +28,7 @@
 | **项目名称** | 天赐材料日化知识库 |
 | **项目类型** | 静态 HTML 知识库（多页面 + 手机版单文件） |
 | **技术栈** | HTML5 + CSS3 + 原生 JS；Node.js（≥18，内置 fetch）用于构建/部署脚本 |
-| **内容规模** | 7 个内容域 · 29 个页面 · HTML/MD 双格式成对 |
+| **内容规模** | 7 个内容域 · 34 个页面 · HTML/MD 双格式成对 |
 | **托管** | GitHub Pages（shenlang1111/tinci-knowledge-base，branch=main） |
 | **部署通道** | GitHub API（api.github.com）Contents 上传 + POST /pages/builds |
 | **线上地址** | https://shenlang1111.github.io/tinci-knowledge-base/ |
@@ -44,10 +44,17 @@
 学习公司产品知识树/
 ├── index.html               # 根入口：meta refresh + location.replace 双跳转 → knowledge-base/mobile.html?v=2
 ├── tools/
+│   ├── deploy.js            # 一键部署（成对校验 → 生成 mobile → 串行上传 → 构建 → 验证）
 │   ├── build_mobile.js      # 生成 knowledge-base/mobile.html（deploy.js 绑定调用）
-│   └── deploy.js            # 一键部署（成对校验 → 生成 mobile → 串行上传 → 构建 → 验证）
+│   ├── build_半月报.py       # 生成工作半月报 Excel
+│   ├── fill_半月报.js        # 填充半月报数据
+│   ├── html2md-new.js       # HTML → MD 转换
+│   ├── session_start_report.js  # 开窗自动报告（身份/任务板/记忆回忆）
+│   ├── precompact_save.js   # 压缩前快照（勿手改快照区）
+│   ├── kb_seed_knowledge.py # 灌库（知识区：分章切段入 mem0）
+│   └── kb_seed_rules.py     # 灌库（规则区：17 条入 mem0）
 ├── knowledge-base/          # ★ 知识库本体（详见 §2.2）
-├── 知识库维护规范.md         # 总规则 v3.3（★★★ 必读）
+├── 知识库维护规范.md         # 总规则 v3.6（★★★ 必读）
 ├── PROJECT_CONTEXT.md       # 项目背景与交接（★★）
 ├── CHANGELOG.md             # 修改追溯（☆）
 ├── CODE_WIKI.md             # 本文档：技术维基（★）
@@ -122,7 +129,7 @@ knowledge-base/
 
 - 成对关系：`domains/<域>/<页>.html` ↔ `markdown/<域>/<页>.md`，**必须同步维护，缺一告警**。
 - 职责分工：HTML 给用户看；MD 给 AI 检索——MD 头部带元信息 `title` / `domain` / `tags` / `description`（以及 updated），AI 可据此定位内容。
-- 成对校验：deploy.js 的 `checkPairs()` 双向扫描两个目录（HTML 无对应 MD / MD 无对应 HTML 都报），**警告不阻断部署**，但需确认。
+- 成对校验：deploy.js 的 `checkPairs()` 双向扫描两个目录（HTML 无对应 MD / MD 无对应 HTML 都报），**警告不阻断部署**，但需确认。**分级豁免（2026-08-03）**：`MD_ONLY_EXEMPT=['ai-worklog.md']` 允许 AI 看页只写 MD（铁律 1 双格式分级）。
 
 ### 3.4 mobile.html（手机版离线单文件）
 
@@ -168,7 +175,7 @@ node tools/deploy.js --files a.html --expect "a.html:关键词"    # 可组合�
 **完整流程**（main 函数，8 步）：
 
 0.5. **CHANGELOG 门禁**（checkChangelogToday）：部署前读根 `CHANGELOG.md`，校验表格含今日 `| YYYY-MM-DD |` 条目；无 → `process.exit(1)` 拒绝部署——DoD"改必登记"硬约束（2026-08-03 新增，铁律 10）。
-1. **双格式成对校验**（checkPairs）：扫描 domains/markdown，缺对警告（不阻断）。
+1. **双格式成对校验**（checkPairs）：扫描 domains/markdown，缺对警告（不阻断）；**AI 看页豁免**（`MD_ONLY_EXEMPT` 清单）只写 MD 不告警。
 2. **重新生成 mobile.html**：`execSync('node tools/build_mobile.js')`——绑定执行，保证手机版与内容同步。
 3. **收集文件**（collectFiles）：
    - 全量：根 `index.html` + 递归 knowledge-base/，扩展名限 `html|md|json|css|js`，**排除 `_preview_server.js`**；
@@ -185,13 +192,14 @@ node tools/deploy.js --files a.html --expect "a.html:关键词"    # 可组合�
 
 **parseFlags 严格解析**：`--files` 与 `--expect` 各自收集参数，**遇到下一个 `--` 开头的参数立即停止**——避免 `--files` 把 `--expect` 的参数吞掉、或反之。
 
-### 4.3 防失忆工具（KEY_MEMORY + hooks，2026-08-03）
+### 4.3 记忆与防失忆工具（记忆大脑 mem0 + KEY_MEMORY + hooks，2026-08-03）
 
+- **记忆大脑（mem0）**：`D:\ai\brain-memory`，本地免 LLM 语义记忆库（fastembed 中文 + qdrant，M3 达成）。脚本 `scripts/{mem_config,mem_add,mem_search,mem_export}.py`。写：干完活 `mem_add.py --text "一句结论" --agent <谁> --layer mid|long`（纠错加 `--fix-target` 删旧写新）；读：开工 `mem_search.py --query "关键词" --limit 3`。需先设 `HF_ENDPOINT=https://hf-mirror.com HF_HOME=D:\ai\brain-memory\hf_cache MEM0_TELEMETRY=false`。完整用法见 `D:\ai\brain-memory\README.md`。
 - **KEY_MEMORY.md**：`.claude/handoffs/KEY_MEMORY.md` = 压缩后第一读速查表（身份/用户/铁律/命令/fanku/决策/快照）。静态区主 AI 手动维护，快照区自动覆盖。
 - **precompact_save.js**：压缩前（PreCompact hook）与会话结束（SessionEnd hook）自动执行——读任务板待办/进行中 + CHANGELOG 最新条，覆盖写入 KEY_MEMORY 的 `<!-- SNAPSHOT_BEGIN/END -->` 标记区；可手动跑 `node tools/precompact_save.js` 验证。
-- **session_start_report.js**：SessionStart hook——开窗自动输出身份/任务板待办/机制更新数 + 读回 KEY_MEMORY 决策与快照时间。
+- **session_start_report.js**：SessionStart hook——开窗自动输出身份/任务板待办/机制更新数 + 读回 KEY_MEMORY 决策与快照时间 + **mem_search 最近记忆（记忆大脑回忆）**。
 - **hooks 配置**：`.claude/settings.json`（SessionStart / PreCompact / SessionEnd 三个钩子，均 command 类型调 node 脚本）。
-- **已知待实测**：PreCompact 在 Trae 环境是否真实触发需等一次实际压缩验证；SessionStart/SessionEnd 通道已验证。若 PreCompact 不触发，落盘兜底由 SessionEnd 保证。
+- **已知实测（2026-08-03）**：裸 `/compact` 走 session memory compact 分支（官方源码行为：无参数时优先 trySessionMemoryCompaction），PreCompact hook **不触发** → 快照不更新（本次压缩实锤）。SessionStart/SessionEnd 通道已验证。**对策：统一用带参数 `/compact 保留任务状态/关键决策/下一步`（走传统压缩路径，hook 才可靠）**；防失忆主力 = 记忆大脑 mem_search（不依赖任何 hook 时机）。
 
 ---
 
