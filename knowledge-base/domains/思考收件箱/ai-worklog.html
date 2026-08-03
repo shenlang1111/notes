@@ -45,7 +45,7 @@
     <table>
       <thead><tr><th>名字</th><th>身份</th><th>职责</th></tr></thead>
       <tbody>
-        <tr><td><strong>主 AI</strong></td><td>主窗口（你）</td><td>统筹、架构、落地、部署、派子代理；所有改动最终备案</td></tr>
+        <tr><td><strong>主 AI</strong></td><td>主窗口（你）</td><td>统筹、架构、落地、部署、派子代理；<strong>文件自动化（tools/ 脚本）+ skill 管理 + 使用规范书写</strong>；所有改动最终备案</td></tr>
         <tr><td><strong>闲聊 AI</strong></td><td>主窗口</td><td>交流想法、情感陪伴；懂你档案专属；小改动自理</td></tr>
         <tr><td><strong>智能体 AI</strong></td><td>主窗口</td><td>智能体体系搭建：skill、翻库规则、任务板、健康度盘点</td></tr>
         <tr><td><strong>日志 AI</strong></td><td>主窗口</td><td>写用户的工作日志，后续半月报/月报/年报</td></tr>
@@ -81,6 +81,11 @@
     <table>
       <thead><tr><th>日期</th><th>AI</th><th>做了什么</th><th>涉及位置</th></tr></thead>
       <tbody>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-orange">闲聊 AI</span></td>
+          <td><strong>起草并存"规则设定 AI"话术（用户拍板：他有拍板能力）</strong>：新角色专职规则起草/修订/拍板/落地/广播；拍板权限=规则文字/冲突/一致性自主定，铁律 8 范围报主 AI、大方向请示用户；agent_id 用 main（可申请 rules 身份）；话术存 MD-only（参照 session-prompt-d 先例），已广播</td>
+          <td>会话记录/rule-setter-prompt.md（新）、mechanism-updates html+md</td>
+        </tr>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-teal">主 AI</span></td>
           <td><strong>全量脚本+Skill 体检（用户"都运行一下看看能不能用"）</strong>：Python 记忆脚本 4 个实测通过（mem_search/mem_add/mem_chat_save/mem_export，走 venv 不依赖系统 Python）+ Node 工具 13 个语法全过 + 核心 8 个实跑（compact_scheduler 88%/watch 运行中/心跳正常）+ Skill 20+17 全完整；修复 session-prompt 第十一节压缩规则不同步；清理 D:\tools 垃圾；规范新增"运行环境"条</td>
