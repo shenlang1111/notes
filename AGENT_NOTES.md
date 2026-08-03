@@ -52,4 +52,4 @@
 - 仓库：`shenlang1111/tinci-knowledge-base`（分支 main）
 - Token：`.env` 里 `GH_TOKEN=`（GitHub API 通道，国内直连稳定）
 - 部署通道：GitHub API（Contents 上传 + POST /pages/builds）；git push 仅备选
-- 内容 5 域：表面活性剂 / 日化原料与配方 / 销售与市场 / 会话记录 / 思考收件箱
+- 内容 7 域：表面活性剂 / 日化原料与配方 / 销售与市场 / 会话记录 / 思考收件箱 / 精细化工与扩展 / 工作日志
