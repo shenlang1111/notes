@@ -169,6 +169,7 @@ DoD 自检清单（双格式/CHANGELOG/部署/--expect/记忆沉淀/留痕）逐
 - **PowerShell 中文乱码**：UTF-8 经 PS5 管道丢字，查库结果以写文件/Read 为准
 - **并行编辑覆盖**：同一文件必须串行，改完必回读实际文件
 - **Python 走 venv**：`D:\ai\brain-memory\.venv\Scripts\python.exe`，不依赖系统 Python
+- **搜索范围注意**：默认只搜工作目录 `D:\ai\学习公司产品知识树`，根目录 `D:\ai\` 下的文件（brain-memory/、deep-memory/、根目录文件）需手动指定路径
 
 ## 7. 文档库总览
 
