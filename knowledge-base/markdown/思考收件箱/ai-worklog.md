@@ -3,7 +3,7 @@ title: AI 工作记录
 domain: 思考收件箱
 tags: [AI协作, 工作记录, 名字体系, 分工, 留痕]
 description: 每个 AI 干完活登记"我做了什么"带名字，其他 AI 一看就知道谁干过什么。含 AI 团队名字体系（主 AI/闲聊 AI/智能体 AI/日志 AI + 主 AI 手下的子代理）。
-updated: 2026-08-02
+updated: 2026-08-03
 ---
 
 # AI 工作记录
@@ -39,6 +39,7 @@ updated: 2026-08-02
 
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
+| 2026-08-03 | 主 AI | **记忆入库方案落地（规范 v3.5）**——用户拍板（调查业界后修正：官方 Auto Memory 未在本项目生效，mem0 记忆大脑才是治本）：①session_start_report.js 加 mem_search 自动回忆（开窗报告实测通过，自动带出 TC-MAB/TC-SHD 记忆）②规范 v3.5：铁律 10 改写"记忆入库防失忆"、第十节重写（记忆大脑写/读 + 压缩后恢复三步 + 带参数 /compact 原因）、DoD 加"记忆已沉淀"③KEY_MEMORY 降级速查（命令区加 mem0 写/读、决策加记忆入库拍板）④AGENT_NOTES/PROJECT_CONTEXT/CODE_WIKI 版本同步 ⑤mechanism-updates 广播 | 知识库维护规范.md、KEY_MEMORY.md、tools/session_start_report.js、AGENT_NOTES.md、PROJECT_CONTEXT.md、CODE_WIKI.md、mechanism-updates html+md、CHANGELOG.md |
 | 2026-08-03 | 主大脑 | **修复记忆大脑 --layer 分层过滤 bug（技术验证员复核发现）**：复现确认 filters["metadata"]={"layer":...} 报 ValueError（Unsupported filter operator）→ 查源码 + dump payload 证实 mem0 2.0.15 把 metadata 嵌套 dict **扁平化展开成 payload 顶层字段** → 修复为 filters["layer"]="long" 顶层字段过滤。验证：--layer long 命中 2 条、--layer mid 返回空（正确区分层）。另修 2 处：mem_export 补 --collection 参数（与其他脚本一致）；用 --fix-target 修正库内 TC-MAB INCI 拼写错误记忆（Lauroampho diacetate）。README 补"写入前核对事实"规范。回归测试全通过 | D:\ai\brain-memory\scripts\（mem_search/mem_export.py）、README.md、记忆库数据 |
 | 2026-08-03 | 主大脑 | **阶段 2 记忆大脑落地（用户直接授权 + 主 AI 确认）**：①技术验证 mem0 本地免 LLM 全通过（infer=False 写入/中文命中 0.73/跨进程持久化/纠错 delete 删旧写新）②方案定稿（分层=metadata 打标+作用域，非 memory_type 僵尸代码）③建 D:\ai\brain-memory 记忆大脑（venv/scripts 4 个：mem_config/mem_add/mem_search/mem_export/README/ws 记忆库）④全链路验证（写→读→纠错→导出全过）⑤**M3 里程碑达成**（跨会话不丢 + 纠正不再犯）| D:\ai\brain-memory\、phase2-design-v1.md、task-board html+md |
 | 2026-08-03 | 技术验证员 | 独立对抗性审核阶段 2 记忆大脑：方案设计（分层=metadata+作用域、纠错=删旧写新、memory_type 僵尸代码判断）✅ 正确；独立复跑全链路（审计工作区）——写入/中文检索 0.76/跨进程持久化/**纠错删旧写新全通过**/导出（agent_id 取到）✅；**发现 1 个功能 bug：mem_search --layer 分层过滤必崩**（metadata 传法错，ValueError: Unsupported filter operator）；2 处建议（mem_export 缺 --collection、记忆库有 INCI 拼写错误记忆）。结论：记忆大脑主体可采信、M3 核心成立，分层过滤需修复 | 临时目录 brain-verify/reports/audit-memory-brain.md、D:\ai\brain-memory\ |
