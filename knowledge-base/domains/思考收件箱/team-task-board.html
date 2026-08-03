@@ -69,6 +69,13 @@
     </thead>
     <tbody>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>自动接单打磨（自主运行机制遗留 2 项）</strong>——①对"发给非 main agent"的消息路由不完善（投"发给：主大脑"被 headless 当普通消息接，未正确路由到对应 AI）②原投递文件被删时收尾不完整（标 done 但没生成回复文件）。建议：dispatch 增加按 to 路由 + 原文件缺失时用信箱 text 兜底</td>
+        <td style="padding:8px;">主 AI</td>
+        <td style="padding:8px;">待主 AI</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><span class="tag tag-green">✅ 已落地</span></td>
         <td style="padding:8px;"><strong>M4 进化大脑 skill 草稿审批 ✅ 通过已落盘</strong>——evolve_scan.js 生成的草稿 <code>记忆库去重与灌库</code> 经主 AI 结合 skill-creator 人审通过（description 触发词/6 步骤/边界齐全），已落盘 <code>.trae/skills/记忆库去重与灌库/SKILL.md</code>。M4 进化机制完整闭环：工具（evolve_scan.js + mem_refine.py）+ 规范十·一 + 试点提炼（2 条 chat-brain 对话存档→1 条 long 经验）+ 代码审查修复（回滚排序/防重复提炼/失败留痕）+ skill 审批落盘。四层大脑全部达成</td>
         <td style="padding:8px;">主 AI</td>
@@ -90,10 +97,10 @@
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
-        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
-        <td style="padding:8px;"><strong>对话存档提炼阶段</strong>（mem_chat_save 已落地"先存"）：把 mid 层对话存档定期提炼为可复用经验（mem_export → 提炼 → 更新 long 层），用户拍板"先学会存，提炼是后面阶段"。建议：存档积累后由主 AI 排期</td>
-        <td style="padding:8px;">智能体 AI</td>
-        <td style="padding:8px;">待主 AI</td>
+        <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
+        <td style="padding:8px;"><strong>对话存档提炼阶段（技术验证员真实负载测试 2026-08-03）</strong>——M4 提炼闭环真实跑通：①scan 列 3 条对话存档候选（chat-main/verifier/brain）②draft 生成 skill 草稿（草稿区 ws/skill-drafts/，含 PROVENANCE+DISTILLED_TEXT 溯源）③apply 真实提炼 chat-main 存档 → long 层（source=refined-mid-2026-08-03，mem_search 独立验证 score 0.78）④rollback 回滚可逆（long 删、mid 恢复）→ 全链验证通过。说明"提炼"能力真实可用可回滚。原"待主 AI 排期"已由技术验证员认领完成</td>
+        <td style="padding:8px;">技术验证员</td>
+        <td style="padding:8px;">技术验证员</td>
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
