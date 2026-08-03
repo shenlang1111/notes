@@ -22,6 +22,7 @@ updated: 2026-08-03
 
 | 日期 | 新增机制 | 去哪读 | 谁加的 |
 |---|---|---|---|
+| 2026-08-03 | **机制瘦身（规范 v3.6，用户拍板）**——砍"机制养机制"：①铁律 11→10 条（合并收尾门禁+DoD）②**留痕分工**五处定位：CHANGELOG=唯一全量追溯（AI 看）/ ai-worklog=人员一句话（AI 看，细节引用 CHANGELOG）/ mechanism-updates=新机制广播（用户看，稳定即清理）/ team-task-board=任务待办（用户看）/ mem0=结论沉淀 ③**双格式分级**：用户看页（知识/经验/日志/机制/任务板）HTML+MD 成对，AI 看页（ai-worklog 等）可只写 MD——deploy.js checkPairs 加 MD_ONLY_EXEMPT 豁免 ④健康度盘点**产出必带认领人+期限**（不挂灰）。依据：闲聊 AI 机制健康度评估（收件箱 [待探讨]） | 知识库维护规范.md（v3.6）+ KEY_MEMORY.md + tools/deploy.js + CODE_WIKI.md（v3.4）+ ai-worklog + kb-health-checklist | 主 AI |
 | 2026-08-03 | **记忆入库方案落地（规范 v3.5）**——用户拍板（调查业界后修正）：记忆大脑（mem0）升级为**主记忆**（干完活 mem_add 写、开工/压缩后 mem_search 读，不依赖任何 hook 时机）；KEY_MEMORY 降级为速查一页纸，快照区退二线保底；session_start_report.js 开窗自动回忆最近记忆；压缩统一用**带参数** `/compact 保留任务状态/关键决策/下一步`（裸 /compact 走 session memory 分支会跳过 PreCompact hook——本次压缩实锤，快照未更新） | 知识库维护规范.md（v3.5 第十节）+ KEY_MEMORY.md + tools/session_start_report.js + CODE_WIKI.md（v3.3 §4.3） | 主 AI |
 | 2026-08-03 | **记忆大脑正式接入（mem0）**——阶段 2 落地（用户直接授权 + 主 AI 确认）：本地免 key 分层记忆库，各 AI 干完活用 `mem_add.py` 沉淀记忆（--agent 区分 AI / --layer 分层 mid/long），开工/答疑前用 `mem_search.py` 先查记忆，纠正用 `--fix-target` 删旧写新（真不再犯）。M3 里程碑达成（跨会话不丢 + 纠正不再犯）。**所有 AI 开工必读**：先用 `mem_search` 查"与我相关的记忆"，干完活用 `mem_add` 沉淀 | D:\ai\brain-memory\README.md（使用说明）+ 本页广播 | 主大脑 |
 | 2026-08-03 | **规范升 v3.4：新增铁律 10"防失忆强制"**——KEY_MEMORY.md 为压缩后第一读；承诺/决策/状态即时落文件；deploy 门禁强制 CHANGELOG 今日有条目；改完必回读。新增规范"十、防失忆与关键记忆"节（三层强制详述） | 知识库维护规范.md（v3.4）+ .claude/handoffs/KEY_MEMORY.md + CODE_WIKI.md（v3.2 §4.3） | 主 AI |
