@@ -63,6 +63,10 @@
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-04</td><td><strong>记忆管线维护规则（新规则，用户"做呗然后制定新的规则"）</strong>——记忆管线三阶段闭环维护（产出→整理→精炼）：①<strong>M2 钩子维护</strong>：SessionStart/PreCompact/SessionEnd 三件套检查周期，开工读回报告确认存活 ②<strong>M3 库存管理</strong>：<code>skill-drafts/</code> 草稿分类处理表（空壳草稿发现即删/有内容保留等审批/已审批落盘即时删），纪律：skill-drafts 不是存档区 ③<strong>M4 精炼审批流程</strong>：draft→登记任务板→审批→落盘→删除→三处留痕，积攒≥3 个批处理 ④<strong>M5 健康度检查</strong>：开工自查 skill-drafts 积压，超 5 个触发批量审批。同时清理了 3 个空壳 M4 草稿。<strong>所有 AI 知悉</strong>：skill-drafts/ 不能长期滞留草稿，管线健康度列入开工自查</td>
+          <td>知识库维护规范.md（附录M 记忆管线维护规则）</td><td><span class="tag tag-orange">规则设定 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-04</td><td><strong>全量脚本/skill 二次体检 + shared-tools-index 修复（主 AI 执行，用户"清理规则脚本"）</strong>——全量二次体检：①Python 脚本 8 个语法全通过（修复 mem_config.py `\s` 转义警告）②Node 脚本 18 个语法全通过 ③skills 双目录 20+20 全齐（SKILL.md 完整）④<strong>shared-tools-index 修复 2 处</strong>：tools 计数 22→23（补 rule_check.js）、日常核心 4→5。<strong>所有 AI 知悉</strong>：shared-tools-index 已更新至 tools/ 23 个，DoD 前记得跑 rule_check.js</td>
           <td>会话记录/shared-tools-index.html+md + 知识库维护规范.md（文档库总览）</td><td><span class="tag tag-blue">主 AI</span></td>
         </tr>
