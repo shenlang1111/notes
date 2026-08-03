@@ -99,6 +99,11 @@
         </tr>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
+          <td><strong>修复记忆大脑 --layer 分层过滤 bug（技术验证员复核发现）</strong>：复现确认 filters["metadata"]={"layer":...} 报 ValueError（Unsupported filter operator）→ 查源码 + dump payload 证实 mem0 2.0.15 把 metadata 嵌套 dict <strong>扁平化展开成 payload 顶层字段</strong> → 修复为 filters["layer"]="long" 顶层字段过滤。验证：--layer long 命中 2 条、--layer mid 返回空（正确区分层）。另修 2 处：mem_export 补 --collection 参数（与其他脚本一致）；用 --fix-target 修正库内 TC-MAB INCI 拼写错误记忆（Lauroampho diacetate）。README 补"写入前核对事实"规范。回归测试全通过</td>
+          <td>D:\ai\brain-memory\scripts\（mem_search/mem_export.py）、README.md、记忆库数据</td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-purple">主大脑</span></td>
           <td><strong>阶段 2 记忆大脑落地（用户直接授权 + 主 AI 确认）</strong>：①技术验证 mem0 本地免 LLM 全通过（infer=False 写入/中文命中 0.73/跨进程持久化/纠错 delete 删旧写新）②方案定稿（分层=metadata 打标+作用域，非 memory_type 僵尸代码）③建 D:\ai\brain-memory 记忆大脑（venv/scripts 4 个：mem_config/mem_add/mem_search/mem_export/README/ws 记忆库）④全链路验证（写→读→纠错→导出全过）⑤<strong>M3 里程碑达成</strong>（跨会话不丢 + 纠正不再犯）</td>
           <td>D:\ai\brain-memory\、phase2-design-v1.md、task-board html+md</td>
         </tr>
