@@ -64,6 +64,11 @@
       <tbody>
         <tr>
           <td>2026-08-03</td><td><span class="tag tag-orange">主 AI</span></td>
+          <td><strong>记忆入库方案落地（规范 v3.5）</strong>——用户拍板（调查业界后修正：官方 Auto Memory 未在本项目生效，mem0 记忆大脑才是治本）：①session_start_report.js 加 mem_search 自动回忆（开窗报告实测通过，自动带出 TC-MAB/TC-SHD 记忆）②规范 v3.5：铁律 10 改写"记忆入库防失忆"、第十节重写（记忆大脑写/读 + 压缩后恢复三步 + 带参数 /compact 原因）、DoD 加"记忆已沉淀"③KEY_MEMORY 降级速查（命令区加 mem0 写/读、决策加记忆入库拍板）④AGENT_NOTES/PROJECT_CONTEXT/CODE_WIKI 版本同步 ⑤mechanism-updates 广播</td>
+          <td>知识库维护规范.md、KEY_MEMORY.md、tools/session_start_report.js、AGENT_NOTES.md、PROJECT_CONTEXT.md、CODE_WIKI.md、mechanism-updates html+md、CHANGELOG.md</td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><span class="tag tag-orange">主 AI</span></td>
           <td>落地防压缩失忆三层强制：建 KEY_MEMORY.md 速查表 + 写 precompact_save.js（PreCompact 压缩前落盘）+ session_start_report.js 扩展（开窗读回速查表）+ deploy.js 加 CHANGELOG 今日条目门禁 + settings.json 注册 PreCompact hook + AGENT_NOTES 加"承诺必落文件/改完必回读"两坑</td>
           <td>.claude/handoffs/KEY_MEMORY.md、tools/precompact_save.js、session_start_report.js、deploy.js、.claude/settings.json、AGENT_NOTES.md、mechanism-updates html+md</td>
         </tr>
