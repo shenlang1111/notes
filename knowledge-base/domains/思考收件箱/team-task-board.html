@@ -70,16 +70,23 @@
     <tbody>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>任务板瘦身建议（主 AI 评估反馈，按用户思路"机制养习惯、不造自动脚本"）</strong>——①<strong>evolve_auto.js 建议撤</strong>：挂心跳自动提炼违背用户反对"定时任务"的拍板，提炼=主大脑对话感知主动做（evolve_scan 已够用）②<strong>Trae 对话自动存档改"习惯项"</strong>：机制已立（各 AI 每轮 <code>mem_chat_save</code> + 用户存/主大脑炼），靠执行非开发 ③<strong>数据来源补齐保留</strong>（用户自己的活）。待主 AI 执行清理</td>
+        <td style="padding:8px;">主 AI</td>
+        <td style="padding:8px;">待主 AI</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
         <td style="padding:8px;"><strong>自动提炼编排器（evolve_auto.js）</strong>——把"自动提炼 + 自动分类"变成脚本挂心跳：扫 <code>chat-*</code> mid → 按主题聚类 → 自动 <code>--draft --target</code> → <code>--apply</code> → 按受众分类 → 留痕。识别规则已立（规范十·一·A：chat-* 炼 / *-long 不重复炼 / main-rules+KEY_MEMORY+知识页不炼）</td>
         <td style="padding:8px;">主大脑</td>
         <td style="padding:8px;">主大脑</td>
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
-        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
-        <td style="padding:8px;"><strong>Trae 对话接入自动存档</strong>——用户负责让 Trae 对话存进 mem0（走统一 <code>mem_chat_save</code>），主大脑负责识别（chat-* 前缀）并自动提炼分类。存=用户，炼=主大脑（2026-08-03 用户拍板分工）</td>
-        <td style="padding:8px;">主大脑</td>
-        <td style="padding:8px;">用户 + 主大脑</td>
+        <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
+        <td style="padding:8px;"><strong>Trae 对话接入自动存档（闲聊 AI 落地，用户拍板"你来落地吧大家都很忙"）</strong>——新增 <code>tools/chat_autosave.js</code>（SessionEnd hook：扫 <code>D:\ai\brain-memory\chat_inbox\chat-&lt;agent&gt;-&lt;日期&gt;.md</code> → 调 <code>mem_chat_save.py</code> 入库 → 归档 archive/）+ settings.json 注册 + 实测通过（casual 摘要入库 mem_search 召回 0.86、文件已归档）。约定：各 AI 对话结束/换话题写摘要文件（存=AI 写文件+钩子自动入库），炼=主大脑 evolve_auto 自动。✅</td>
+        <td style="padding:8px;">闲聊 AI</td>
+        <td style="padding:8px;">闲聊 AI</td>
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
