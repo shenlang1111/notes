@@ -225,6 +225,25 @@ function parseFlags(args) {
   return out;
 }
 
+// ---------- 0.5 CHANGELOG 门禁（DoD 强制：改必登记，不登记拒绝部署） ----------
+function checkChangelogToday() {
+  const clPath = path.join(ROOT, 'CHANGELOG.md');
+  if (!fs.existsSync(clPath)) {
+    console.error('❌ CHANGELOG.md 不存在，拒绝部署（DoD：任何修改必须先登记再部署）');
+    process.exit(1);
+  }
+  const txt = fs.readFileSync(clPath, 'utf8');
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  const today = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  if (!txt.includes('| ' + today + ' |')) {
+    console.error('❌ CHANGELOG 门禁未过：今日（' + today + '）无登记条目，拒绝部署。');
+    console.error('   请在 CHANGELOG.md 顶部表格登记本次修改（日期 + 主题 + 修改内容 + 涉及文件），再重新部署。');
+    process.exit(1);
+  }
+  console.log('✅ CHANGELOG 门禁通过（今日已登记）');
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const parsed = parseFlags(args);
@@ -240,6 +259,9 @@ async function main() {
   } else {
     console.log('✅ 双格式成对校验通过');
   }
+
+  // 0.5 CHANGELOG 门禁（强制登记，不登记拒绝部署）
+  checkChangelogToday();
 
   // 1. 重新生成 mobile.html
   console.log('🔄 重新生成 mobile.html ...');
