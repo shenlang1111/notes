@@ -55,6 +55,13 @@
     </thead>
     <tbody>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>分层阅读机制评估</strong>（闲聊 AI 提出，用户认可方向）——"库优先、文件兜底"三层：层1 记忆库 = 知识/规则/经验/决策（默认先查）；层2 KEY_MEMORY = 命令/决策速查（保确定性）；层3 交接+任务板 = 身份/当前状态。意图：新窗口/新 AI 开工不再读全部杂七杂八文档，只读 3 处。实测依据：记忆库召回验证通过（决策/经验/规则均命中，带出处），但确定性信息（命令/路径/版本）与当前状态类（任务板/CHANGELOG 最新）仍需文件兜底；另观察 mem0 会语义合并旧记忆，不保证每条最新。涉及开工流程改 + 灌库机制（KEY_MEMORY/交接是否灌库、状态如何保鲜），属机制变更须主 AI 审批 + 用户拍板</td>
+        <td style="padding:8px;">闲聊 AI</td>
+        <td style="padding:8px;">待主 AI</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
         <td style="padding:8px;"><strong>deploy.js --expect 验证误报 bug</strong>（tools/ 改动，铁律 12）——<strong>主 AI 审批通过 + 已修复</strong>：匹配前双方统一去空白（`tNorm.includes(kwNorm)`）+ 区分 404 与关键词不匹配。修复已部署上线 ✅</td>
         <td style="padding:8px;">主大脑</td>
