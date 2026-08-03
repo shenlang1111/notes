@@ -63,6 +63,18 @@
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>规则修订体系（用户拍板"有体系的改"）</strong>——规则文档发现问题有闭环：<strong>发现</strong>（任何 AI 撞到矛盾/用户指出/审核发现）→ <strong>登记</strong>（思考收件箱 <code>规则问题-&lt;日期&gt;.md</code>，一句话记完即完成，只登记不抢改）→ <strong>评估</strong>（主 AI 积满 3 条或每周统一处理）→ <strong>拍板</strong>（权限/大方向用户定，纯文字修正主 AI 直接改）→ <strong>修改+同步</strong>（CHANGELOG/部署/重灌记忆库/广播）→ <strong>验证</strong>（十·三抽查一致性）。首批 5 项已走通闭环：铁律 13 残留、投递文件归档规则、双格式硬软边界、状态保鲜范围、机制页清理责任。<strong>所有 AI 知悉</strong>：用规则时发现问题 → 一句话记收件箱即可，改权在主 AI</td>
+          <td>知识库维护规范.md（十·四 + v3.8）</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><strong>自动提炼编排器（主大脑任务：自动提炼+分类挂心跳）</strong>——各 AI 负责"存"（mem_chat_save 存对话），大脑负责"炼"：①<strong>新建 tools/evolve_auto.js</strong>（--status 速览 / --dry-run 预演 / --run 自动执行 / --min N 每组最少条数）：扫描 chat-* mid → 按 agent 归组 → 自动 draft（带 target 受众）→ apply 提炼 mid→long；agent 映射 target（brain/verifier/main/casual/agent/log/ui/tester/all）②<strong>心跳 M3 升级</strong>：从"chat≥3 只提醒留人审"改为"待提炼≥3 自动跑 evolve_auto --run"——各 AI 存对话后大脑自动接住提炼分类，无需人工排期③<strong>修 mem_export.py 补 target_agent</strong>：之前 export 丢 metadata 导致"target=无"假象（实际库里已打标）。<strong>所有 AI 知悉</strong>：存对话（mem_chat_save）后，大脑会自动提炼成经验并按受众分类（mem_search --target &lt;受众&gt; 过滤），无需再人工排期提炼</td>
+          <td>tools/evolve_auto.js（新）+ tools/brain_heartbeat.js（M3）+ D:\ai\brain-memory\scripts\mem_export.py（target_agent）+ KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主大脑</span></td>
+        </tr>
+        <tr>
+          <td>2026-08-03</td><td><strong>回答加工分工（用户拍板："对问题你反馈，经验你总结"）</strong>——大脑/检索层负责投递<strong>信息片段</strong>，<strong>主窗口 AI 负责加工</strong>：①对问题→反馈（发现问题登记任务板/直接报告）②经验→总结（把片段组织成带逻辑带话术的完整答案，沉淀进记忆库）。<strong>所有 AI 知悉</strong>：拿到检索片段不能只转述，要组织成"选型逻辑 + 判断 + 配方落点 + 话术"式的聪明回答（实测演示：婴儿配方选型 CAB/MAB/SHD 分档回答）</td>
+          <td>知识库维护规范.md（十二 工作流程总览）+ 记忆库 mem0</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>工具与技能全员共享（用户拍板"改成都能用"）</strong>——①<strong>技能双目录镜像</strong>：<code>.trae/skills/</code> 20 个技能全部镜像进 <code>.claude/skills/</code>（Claude Code 与 Trae 两边都认，fanku 已在），开窗报告技能块全列 20 个②<strong>Python 封装 py.cmd</strong>：系统 python 因 PATH 含中文用户名乱码失效 → 新建 <code>tools/py.cmd</code> 自动指向 venv（记忆库 brain-memory 优先，回退检索库 deep-memory），绕开中文③<strong>共享索引页</strong>：新建 <code>会话记录/shared-tools-index.html+md</code>（全项目工具/技能总索引：11 个 tools/ + 8 个常用技能 + Python 调用规范），registry 登记，话术页指向它。<strong>所有 AI 知悉</strong>：tools/*.js 与 skills/ 是<strong>全员共享资产</strong>，任何 AI 可直接调用（改 tools/ 才需审批铁律 8，调用无需审批）</td>
           <td>tools/py.cmd（新）+ .claude/skills/（镜像）+ 会话记录/shared-tools-index html+md（新）+ session-prompt-d.md + registry.json</td><td><span class="tag tag-purple">主大脑</span></td>
         </tr>
@@ -186,7 +198,7 @@
       <li><strong>谁建谁记</strong>：新建机制（页面/规则/skill/流程）后，建立者顺手在本页追加一行——并进 DoD 自检，防止"建了没人广播"</li>
       <li><strong>只索引不复制</strong>：每条写"去哪读"指向具体页面，内容留在原页面，避免本页膨胀成第二个话术页</li>
       <li><strong>固定项不进本页</strong>：ai-worklog/团队任务板/健康度/翻库这 4 样是"永久必读"，属于话术页固定项；本页只收增量</li>
-      <li><strong>稳定即摘除</strong>：机制被普遍掌握后，从本页摘除（各 AI 已知道、入口已在话术页），本页保持"最近新增"的短小形态</li>
+      <li><strong>稳定即摘除（2026-08-03 细化）</strong>：条目满足"已广播 ≥3 天 + 话术页/交接已有入口 + 各 AI 已普遍掌握"→ 由<strong>主 AI 每月清理一次</strong>摘除（摘除条目保留在 CHANGELOG 追溯），本页保持"最近新增"的短小形态</li>
     </ul>
   </div>
 </section>
