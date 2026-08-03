@@ -2536,6 +2536,30 @@ ai-agent/
   <div class="callout accent2">
     <strong>每天一两句就够了。</strong> 例如：<span class="tip-example">"今天跟李增兵学了脱异丙醇塔回流控制，卡在温度梯度没吃透"</span> —— 剩下的整理、归类、归档交给我。
   </div>
+
+  <div class="log-card">
+    <div class="log-card-head">
+      <span class="log-date">08-03 <span class="dow">周一</span></span>
+      <span class="log-tags"><span class="tag tag-blue">UI 美化</span></span>
+    </div>
+    <div class="log-block">
+      <span class="lb-label">今日完成</span>
+      <ul>
+        <li>全站 UI 美化 v4 —— 调研业界方案（Docusaurus/Stripe Docs）后，12 项改动覆盖首页+34 个内容页+全局 CSS/JS</li>
+        <li>首页增强 —— Hero 加 quick-bar 快捷入口、统计快照替代静态特性卡、"最近更新"区块</li>
+        <li>内容页阅读导航 —— 34 页全加面包屑+本页目录 TOC+相关页面推荐+上下篇导航</li>
+        <li>批处理脚本 —— batch-enhance.mjs 读 registry 一次性给 34 页注入 5 项增强，3 秒完成</li>
+        <li>经验沉淀 —— 新建"UI 美化可复用经验 v1"页面（CSS 组件库+脚本用法+审核基准+工作流程）</li>
+      </ul>
+    </div>
+    <div class="log-block idea">
+      <span class="lb-label">灵感</span>
+      <ul>
+        <li>脚本优先于手改——超过 3 个文件的重复改动先写脚本，可复现可回滚可审计</li>
+        <li>UI 审核基准 5 层 20 项——任何 UI 前后都可用 checklist 审核，达标线量化</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <!-- ===== 日志记录 ===== -->
@@ -4378,6 +4402,13 @@ uv venv .venv && uv pip install mem0ai fastembed
         <td style="padding:8px;"><strong>阶段 4 接入大脑 M5（brain_watch 实时监听 + 消息信箱）</strong>——<strong>主 AI 审批（2026-08-03，工具类变更，机制变更先审批铁律）</strong>：tools/ 新建 brain_watch.js + brain_msg.js 经主 AI 审批同意实施（用户口头拍板 + 主 AI 确认，程序上合规）。①brain_watch.js 常驻 fs.watch 监听 D 盘知识库根（含子目录，排除 node_modules/.git/.trae*/.claude/tools/构建产物），秒级感知新文件不靠轮询（蓝图 M5 验收标准）②投递协议（用户拍板）：根目录第一层新建 .md/.txt 即投递消息，watch 自动登记信箱（status=new）；子目录正式库改动只记 watch-log 不当消息。消息协议字段（蓝图第1层：谁发/发给谁/内容/状态）：from=user / to=解析消息头"发给："缺省 main / text=内容预览 / status=new/done/replied ③信箱命令 brain_msg.js：--list 看待处理 / --done 标记已处理 / --peek 预览 / --status 速览 / --reply 结果回写（大脑干完活把结果写回根目录"回复-&lt;原名&gt;.md"，Trae 端可见=结果出得去）④信箱索引存 D:\ai\brain-memory\messagebox\（监听范围外防自触发死循环）⑤session_start_report.js 开窗自动带出【接入层信箱】待处理条数。实测验收全链路通：投递→秒级登记→--list/--peek/--done/--reply 全通过。智能体 AI 审核意见已处理（协议补全 from/to/content + 结果回写 --reply 已落地）。M5 接入层达成，大脑闭环入口打通</td>
         <td style="padding:8px;">主大脑</td>
         <td style="padding:8px;">主大脑</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>检索大脑工作区路径错位（M2 检索层当前不可用）——技术验证员全流程验证发现</strong>：<code>search.py</code> 默认工作区 = <code>~/.deep-memory</code>（C 盘用户家目录），但工作目录已迁 D 盘 → 实搜报错 <code>No documents found at C:\Users\浪\.deep-memory</code>；D 盘真实索引 <code>D:\ai\deep-memory\ws\chroma_hybrid_db</code> 自 <strong>09:00 后从未增量同步</strong>（README 的"待办：增量同步 update_db.py"未落地）→ 就算指到 D 盘也搜不到今天新增（brain_watch/evolve_scan/M4/M5 全不在）。<strong>修复建议（P0，涉及 tools/ 脚本须主 AI 审批）</strong>：①search.py 工作区改指 D 盘（设 <code>DEEP_MEMORY_WORKSPACE</code> 指向 <code>D:\ai\deep-memory\ws</code> 或改默认值）②重跑 update_db.py 增量同步重建 D 盘索引到最新</td>
+        <td style="padding:8px;">技术验证员</td>
+        <td style="padding:8px;">待主大脑/主 AI</td>
         <td style="padding:8px;">2026-08-03</td>
       </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
