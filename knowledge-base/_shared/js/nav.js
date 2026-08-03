@@ -35,6 +35,7 @@
     ['机制更新', 'domains/思考收件箱/mechanism-updates.html'],
     ['团队任务板', 'domains/思考收件箱/team-task-board.html'],
     ['健康度盘点', 'domains/思考收件箱/kb-health-checklist.html'],
+    ['技术验证', 'domains/思考收件箱/brain-tech-verification.html'],
     ['助剂与添加剂', 'domains/精细化工与扩展/finechem-additives.html'],
     ['日用化学品', 'domains/精细化工与扩展/finechem-daily-chem.html'],
     ['涂料与展望', 'domains/精细化工与扩展/finechem-surfaces.html'],
