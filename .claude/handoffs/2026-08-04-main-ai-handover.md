@@ -130,6 +130,7 @@ DoD 自检清单（双格式/CHANGELOG/部署/--expect/记忆沉淀/留痕/状�
 - **409 并发冲突**：多人同时部署时 mobile.html 会 409，核对后重试即可
 - **Token 安全**：.env 已 gitignore，不硬编码不在对话传
 - **shared-tools-index 计数 23 个**：tools/ 实际 23 个文件（含 rule_check.js），已同步修复
+- **搜索范围注意**：默认只搜工作目录 `D:\ai\学习公司产品知识树`，根目录 `D:\ai\` 下的文件（brain-memory/、deep-memory/、根目录文件）需手动指定路径
 
 ## 【7. 调度清单（当前 AI 团队，压缩后别忘）】
 
