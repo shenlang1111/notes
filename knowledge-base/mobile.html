@@ -3140,6 +3140,10 @@ uv venv .venv && uv pip install mem0ai fastembed
       <thead><tr><th>日期</th><th>新增机制</th><th>去哪读</th><th>谁加的</th></tr></thead>
       <tbody>
         <tr>
+          <td>2026-08-03</td><td><strong>分层阅读 4 层加固（状态保鲜 DoD 化）</strong>——①DoD 记忆类加"状态保鲜"勾选项（改过 KEY_MEMORY/交接/机制页 → 已重灌库）②知识页改动后跑 kb_seed_knowledge.py --domain 思考收件箱（几秒级）③各 AI 交接/话术开工段统一 4 层说明（casual/agent/log/migration/session-prompt-d）④旧"三层"记忆已清理（删旧写新为 4 层）</td>
+          <td>知识库维护规范.md（DoD + 第十节）+ 5 份交接/话术</td><td><span class="tag tag-orange">主 AI</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>分层阅读 4 层开工（用户拍板）</strong>——库优先/文件兜底：层1 记忆库 mem0（知识/规则/经验/决策，先查）→ 层2 KEY_MEMORY（命令/决策速查）→ 层3 交接+任务板（身份/当前状态）→ 层4 CHANGELOG（最近进展）；新 AI 开工只读 4 处；<strong>状态保鲜</strong> = KEY_MEMORY/交接改动后重灌库（kb_seed_rules.py --key-memory 删旧写新）；<strong>会话档案区频率拍板</strong> = 换话题自动提炼</td>
           <td>知识库维护规范.md（第十节 + 五-1）+ KEY_MEMORY.md + tools/kb_seed_rules.py + session_start_report.js</td><td><span class="tag tag-orange">主 AI</span></td>
         </tr>
@@ -3313,6 +3317,13 @@ uv venv .venv && uv pip install mem0ai fastembed
       </tr>
     </thead>
     <tbody>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>分层阅读 4 层验收实测</strong>：新窗口/新 AI 按 4 层流程开工（开窗报告 → 层1 记忆库 → 层2 KEY_MEMORY → 层3 交接+任务板 → 层4 CHANGELOG），验证 30 秒能恢复状态；跑通后广播全团队</td>
+        <td style="padding:8px;">主 AI</td>
+        <td style="padding:8px;">待闲聊 AI/主大脑</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><span class="tag tag-green">✅ 已完成</span></td>
         <td style="padding:8px;"><strong>分层阅读 4 层开工落地</strong>（闲聊 AI 提出、用户拍板 2026-08-03：4 层 = 记忆库/KEY_MEMORY/交接+任务板/CHANGELOG；状态保鲜 = 改动后重灌库）——主 AI 已落地：规范第十节"分层阅读 4 层开工"（取代压缩后恢复三步）+ 五-1 会话档案区三边界拍板 + KEY_MEMORY 加分层阅读说明 + 灌库脚本 kb_seed_rules.py --key-memory（删旧写新）+ 开窗报告 session_start_report.js 加层4 CHANGELOG</td>
