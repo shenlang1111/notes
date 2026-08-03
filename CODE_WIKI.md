@@ -59,15 +59,17 @@
 
 ```
 knowledge-base/
-├── index.html               # 桌面首页（v2.0：home-hero + feature-grid 4 卡 + 5 分类 page-grid + last-updated）
+├── index.html               # 桌面首页（v2.0：home-hero + feature-grid 4 卡 + 7 分类 page-grid + last-updated）
 ├── mobile.html              # 手机版离线单文件（★ build_mobile.js 生成，勿手改）
 ├── registry.json            # 内容注册表（domains 数组 + pages 数组）
-├── domains/                 # 内容页 HTML（5 域 19 页）
+├── domains/                 # 内容页 HTML（7 域 34 页）
 │   ├── 表面活性剂/          # fundamentals / anionic / cationic / amphoteric / nonionic / properties / synthesis / applications / products / advanced / troubleshooting（11 页）
 │   ├── 日化原料与配方/      # formulation
-│   ├── 销售与市场/          # market / sales
+│   ├── 销售与市场/          # market / sales / tinci-product-overview / tinci-surfactant-details / tinci-market-sales / tinci-amphoteric-summary（6 页）
 │   ├── 会话记录/            # session-20260801 / session-prompt / user-profile
-│   └── 思考收件箱/          # inbox / inbox-20260802-agent-design
+│   ├── 思考收件箱/          # inbox / inbox-20260802-agent-design / ai-worklog / team-task-board / kb-health-checklist / mechanism-updates / brain-tech-verification（7 页）
+│   ├── 精细化工与扩展/      # finechem-additives / finechem-daily-chem / finechem-surfaces（3 页）
+│   └── 工作日志/            # logs-guide / logs-2026-07 / logs-2026-08（3 页）
 ├── markdown/                # 与 domains 一一成对的 MD（AI 检索用，含元信息）
 ├── _shared/
 │   ├── css/style.css        # 共享样式（青绿系，CSS 变量设计令牌）
