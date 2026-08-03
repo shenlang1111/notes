@@ -37,6 +37,7 @@
     ['健康度盘点', 'domains/思考收件箱/kb-health-checklist.html'],
     ['技术验证', 'domains/思考收件箱/brain-tech-verification.html'],
     ['UI美化经验', 'domains/会话记录/ui-beautification-guide.html'],
+    ['规则方法论', 'domains/会话记录/rule-making-methodology.html'],
     ['助剂与添加剂', 'domains/精细化工与扩展/finechem-additives.html'],
     ['日用化学品', 'domains/精细化工与扩展/finechem-daily-chem.html'],
     ['涂料与展望', 'domains/精细化工与扩展/finechem-surfaces.html'],
