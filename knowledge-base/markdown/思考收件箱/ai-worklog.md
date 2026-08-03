@@ -16,7 +16,7 @@ updated: 2026-08-03
 
 | 名字 | 身份 | 职责 |
 |---|---|---|
-| 主 AI | 主窗口 | 统筹、架构、落地、部署、派子代理；**文件自动化（tools/ 脚本）+ skill 管理 + 使用规范书写**；所有改动最终备案 |
+| 主 AI | 主窗口 | 统筹、架构、落地、部署、派子代理；**脚本/skill/hook 统一管理 + 文件自动化 + 使用规范书写**；所有改动最终备案 |
 | 闲聊 AI | 主窗口 | 交流想法、情感陪伴；懂你档案专属；小改动自理 |
 | 智能体 AI | 主窗口 | 智能体体系搭建：skill、翻库规则、任务板、健康度盘点 |
 | 日志 AI | 主窗口 | 写用户的工作日志，后续半月报/月报/年报 |
@@ -42,6 +42,7 @@ updated: 2026-08-03
 
 | 日期 | AI | 做了什么 | 涉及位置 |
 |---|---|---|---|
+| 2026-08-03 | 主 AI | **脚本/skill/hook 统一管理 + 使用规范文档（用户拍板）**：shared-tools-index 升级为《脚本·技能·Hook 使用规范》（工具 22/技能 20/Hook 3 类，HTML+MD 双格式）；SKILL_GUIDE 技能清单 17→20 补齐；主 AI 职责登记（脚本/skill/hook 统一管理）。详见 CHANGELOG | shared-tools-index html+md、SKILL_GUIDE.md、ai-worklog html+md |
 | 2026-08-03 | 闲聊 AI | **起草并存"规则设定 AI"话术（用户拍板：他有拍板能力）**：新角色专职规则起草/修订/拍板/落地/广播；拍板权限=规则文字/冲突/一致性自主定，铁律 8 范围报主 AI、大方向请示用户；agent_id 用 main（可申请 rules 身份）；话术存 MD-only（参照 session-prompt-d 先例），已广播 | 会话记录/rule-setter-prompt.md（新）、mechanism-updates html+md |
 | 2026-08-03 | 主 AI | **全量脚本+Skill 体检（用户"都运行一下看看能不能用"）**：Python 记忆脚本 4 个实测通过（mem_search/mem_add/mem_chat_save/mem_export，走 venv 不依赖系统 Python）+ Node 工具 13 个语法全过 + 核心 8 个实跑（compact_scheduler 88%/watch 运行中/心跳正常）+ Skill 20+17 全完整；修复 session-prompt 第十一节压缩规则不同步；清理 D:\tools 垃圾；规范新增"运行环境"条 | session-prompt html+md、知识库维护规范.md、CHANGELOG.md |
 | 2026-08-03 | 主 AI | **知识库质量体检 + 修复（用户"你改"）**：体检发现并修 4 类——①工作日志 4 文件 6 处失效链接（旧页拆分后链接没跟，含 2 处 xx.html 占位残留，双格式同步）②registry updated 字段 30 处过时批量校准 ③report-2026-07-下半月 补登记 registry + nav 入口 + 首页快照 34→37 ④mobile 重新生成（37 页）。复检：内链 335 个 0 失效、registry↔磁盘 37/37、updated 0 不一致。详见 CHANGELOG | 工作日志 4 文件（html+md）、registry.json、nav.js、index.html、mobile.html |
