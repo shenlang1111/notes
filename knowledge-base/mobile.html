@@ -4195,6 +4195,10 @@ uv venv .venv && uv pip install mem0ai fastembed
           <td>tools/brain_heartbeat.js + brain_dispatch.js（新，头部注释含完整用法）+ 规范十·二 + KEY_MEMORY ⑤</td><td><span class="tag tag-purple">主 AI</span></td>
         </tr>
         <tr>
+          <td>2026-08-03</td><td><strong>自动接单兜底升级（测试员建议落地，主大脑执行）</strong>——①claude CLI 不可用时不再盲目 retry×3 标 done（同因失败浪费 + 隐藏"需人工"），改 <strong>probeClaude 探测 + 直接标 <code>needs_human</code></strong>（保留消息，主窗口开窗 <code>brain_msg --list</code> 见 <code>⚠️需人工</code>，人工接单）②自动接单处理完补<strong>对话存档</strong>（chatSave，快速回复 + headless 两路径存 <code>chat-brain-&lt;日期&gt;</code>，符合铁律 13）③<strong>开窗自动查信箱升级</strong>：session_start_report 待处理 &gt;0 直接列出具体消息（发给谁+内容预览），不只条数 ④tester 加入 mem_config AGENTS（tester-ai）。<strong>所有 AI 知悉</strong>：开窗报告信箱块会列出可接单消息；<code>⚠️需人工</code> = claude CLI 不可用需主窗口人工处理</td>
+          <td>tools/brain_dispatch.js + brain_msg.js + session_start_report.js + mem_config.py</td><td><span class="tag tag-purple">主大脑</span></td>
+        </tr>
+        <tr>
           <td>2026-08-03</td><td><strong>验证/审核闭环机制（审核→发现→修复→回归，用户拍板固化）</strong>——大改动/bug修复/迁移/里程碑达成宣布完成前，<strong>派验证 agent + 审核 agent 独立复核</strong>（不能自己验自己）：验证=实测跑通+找反例+对照验收；审核=记录一致性+文档数字+内容硬伤+审批合规。闭环五步：宣布完成→派双 agent→判定修复→回归复检→留痕。核心纪律：独立只读只报不修、修复须 grep 全项目旧路径引用（2026-08-03 复检揪出 heartbeat 残留 C 盘即典型）。<strong>所有 AI 干活适用</strong>：改完可主动提交验证/审核</td>
           <td>知识库维护规范.md（十·三）+ 记忆库 mem0</td><td><span class="tag tag-purple">主大脑</span></td>
         </tr>
