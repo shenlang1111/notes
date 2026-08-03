@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_updated": "2026-08-02",
+  "last_updated": "2026-08-03",
   "domains": [
     {
       "name": "表面活性剂",
@@ -445,6 +445,16 @@
       "type": "article",
       "file": "domains/思考收件箱/mechanism-updates.html",
       "updated": "2026-08-02"
+    },
+    {
+      "id": "brain-tech-verification",
+      "title": "AI 大脑技术验证报告",
+      "domain": "思考收件箱",
+      "tags": ["AI协作", "技术验证", "大脑", "选型", "deep-memory"],
+      "category": "AI 协作与日常",
+      "type": "article",
+      "file": "domains/思考收件箱/brain-tech-verification.html",
+      "updated": "2026-08-03"
     }
   ]
 }
