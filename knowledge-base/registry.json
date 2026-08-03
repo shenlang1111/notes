@@ -618,6 +618,38 @@
    "type": "article",
    "file": "domains/会话记录/rule-making-methodology.html",
    "updated": "2026-08-04"
+  },
+  {
+   "id": "rule-setter-prompt",
+   "title": "规则设定 AI 开场话术（D 盘版）",
+   "domain": "会话记录",
+   "tags": [
+    "规则",
+    "话术",
+    "拍板",
+    "规则设定"
+   ],
+   "category": "AI 协作与日常",
+   "type": "article",
+   "file": "domains/会话记录/rule-setter-prompt.html",
+   "updated": "2026-08-04"
+  },
+  {
+   "id": "kb-maintain-spec",
+   "title": "知识库维护规范 v4.0",
+   "domain": "会话记录",
+   "tags": [
+    "规范",
+    "铁律",
+    "工作流程",
+    "机制库",
+    "规则",
+    "DoD"
+   ],
+   "category": "AI 协作与日常",
+   "type": "reference",
+   "file": "知识库维护规范.md",
+   "updated": "2026-08-04"
   }
  ]
 }
