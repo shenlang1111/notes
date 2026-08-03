@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>思考收件箱 · 天赐材料知识库</title>
-<link rel="stylesheet" href="../../_shared/css/style.css?v=6">
+<link rel="stylesheet" href="../../_shared/css/style.css?v=7">
 </head>
 <body>
 
@@ -14,11 +14,29 @@
 <div class="container">
 <!-- ===== Page Hero (auto-generated) ===== -->
 <div class="page-hero">
+  <nav class="breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">思考收件箱</span>
+  </nav>
   <div class="page-hero-meta"><span class="tag tag-orange">想法缓冲区</span></div>
   <h1>思考收件箱</h1>
   <p class="page-hero-desc">想法的缓冲区：零散想法、闲聊半成品、待整理内容先放在这里，整理成可复用经验后移到"与 AI 的交流经验"。</p>
 </div>
 <!-- ===== /Page Hero ===== -->
+  <details class="toc-nav" open>
+    <summary>本页目录</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>2026-08-03</a>
+      <a href="#sec-2"><span class="toc-num">2</span>2026-08-02</a>
+      <a href="#sec-3"><span class="toc-num">3</span>与 AI 的交流经验</a>
+      <a href="#sec-4"><span class="toc-num">4</span>知识库首页</a>
+      <a href="#sec-5"><span class="toc-num">5</span>新会话开场话术</a>
+      <a href="#sec-6"><span class="toc-num">6</span>团队任务板</a>
+      <a href="#sec-7"><span class="toc-num">7</span>知识库健康度盘点</a>
+    </div>
+  </details>
+
 
 <section class="section" id="what">
   <h2>一、这是什么</h2>
@@ -58,7 +76,7 @@
 <section class="section" id="now">
   <h2>三、当前内容</h2>
 
-  <h3 style="margin-top:0.5rem;">2026-08-03</h3>
+  <h3 id="sec-1" style="margin-top:0.5rem;">2026-08-03</h3>
   <div class="card accent4">
     <ul>
       <li><code>[已落地]</code> <strong>AI 大脑方向确定</strong>（2026-08-03 用户三次纠正）：不是"重活执行窗口"，而是代替用户当枢纽的自主系统——自动接想法、找信息、干难活、回写、自我迭代。已落地：大脑蓝图 v1 + 窗口分工模型（主大脑 + 技术验证员）+ 三份提示词，见 <code>.claude/handoffs/brain-blueprint-v1.md</code>。</li>
@@ -69,7 +87,7 @@
     </ul>
   </div>
 
-  <h3 style="margin-top:0.5rem;">2026-08-02</h3>
+  <h3 id="sec-2" style="margin-top:0.5rem;">2026-08-02</h3>
   <div class="card accent4">
     <ul>
       <li><code>[可归档]</code> 收尾门禁 #0 已于 2026-08-02 落地到规范（铁律速览顶部+DoD 用户检查手段），详见 session-prompt 第一节。</li>
@@ -112,32 +130,51 @@
   <div class="page-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
     <a href="../会话记录/session-20260801.html" class="page-card">
       <div class="card-icon">💡</div>
-      <h3>与 AI 的交流经验</h3>
+      <h3 id="sec-3">与 AI 的交流经验</h3>
       <p>成品经验仓库，收件箱整理后移到这里</p>
     </a>
     <a href="../../index.html" class="page-card">
       <div class="card-icon">🏠</div>
-      <h3>知识库首页</h3>
+      <h3 id="sec-4">知识库首页</h3>
       <p>所有内容的入口与导航</p>
     </a>
     <a href="../会话记录/session-prompt.html" class="page-card">
       <div class="card-icon">📋</div>
-      <h3>新会话开场话术</h3>
+      <h3 id="sec-5">新会话开场话术</h3>
       <p>让新 AI 快速复用知识</p>
     </a>
     <a href="team-task-board.html" class="page-card">
       <div class="card-icon">📋</div>
-      <h3>团队任务板</h3>
+      <h3 id="sec-6">团队任务板</h3>
       <p>AI 团队任务中转站</p>
     </a>
     <a href="kb-health-checklist.html" class="page-card">
       <div class="card-icon">🩺</div>
-      <h3>知识库健康度盘点</h3>
+      <h3 id="sec-7">知识库健康度盘点</h3>
       <p>定期体检，问题进任务板</p>
     </a>
   </div>
 </section>
 
+  <section class="related-pages">
+    <div class="rp-title">相关页面</div>
+    <div class="rp-grid">
+      <a href="inbox-20260802-agent-design.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">智能体设计讨论存档</span></a>
+      <a href="team-task-board.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">团队任务板</span></a>
+      <a href="kb-health-checklist.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">知识库健康度盘点</span></a>
+      <a href="ai-worklog.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">AI 工作记录</span></a>
+    </div>
+  </section>
+  <nav class="page-nav">
+    <a href="../会话记录/user-profile.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">用户画像</span>
+    </a>
+    <a href="inbox-20260802-agent-design.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">智能体设计讨论存档</span>
+    </a>
+  </nav>
 </div>
 
 <footer>
