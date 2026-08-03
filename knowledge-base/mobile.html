@@ -3208,30 +3208,6 @@ uv venv .venv && uv pip install mem0ai fastembed
           <td>D:\ai\deep-memory\README.md（使用说明）+ 本页广播</td><td><span class="tag tag-purple">主大脑</span></td>
         </tr>
         <tr>
-          <td>2026-08-02</td><td><strong>AI 工作记录（名字体系）</strong>——每个 AI 干完活登记：日期+名字+做了什么+涉及位置</td>
-          <td>domains/思考收件箱/ai-worklog.html</td><td><span class="tag tag-orange">主 AI</span></td>
-        </tr>
-        <tr>
-          <td>2026-08-02</td><td><strong>团队任务板</strong>——多人协作任务的登记/认领/状态流转</td>
-          <td>domains/思考收件箱/team-task-board.html</td><td><span class="tag tag-purple">智能体 AI</span></td>
-        </tr>
-        <tr>
-          <td>2026-08-02</td><td><strong>知识库健康度盘点</strong>——五维体检清单，问题进任务板</td>
-          <td>domains/思考收件箱/kb-health-checklist.html</td><td><span class="tag tag-purple">智能体 AI</span></td>
-        </tr>
-        <tr>
-          <td>2026-08-02</td><td><strong>翻库规则（fanku skill）</strong>——知识问题必先查库：先翻库、再开口；带出处、不编造；翻不到、说没有</td>
-          <td>.trae/skills/fanku/SKILL.md + 规范八</td><td><span class="tag tag-purple">智能体 AI</span></td>
-        </tr>
-        <tr>
-          <td>2026-08-02</td><td><strong>本页（机制更新）建立</strong>——所有新增机制的广播索引</td>
-          <td>本页</td><td><span class="tag tag-orange">主 AI</span></td>
-        </tr>
-        <tr>
-          <td>2026-08-02</td><td><strong>会话启动自动报告（Claude Code 开窗即自动）</strong>——智能体窗口一开，自动输出"我是谁 + 任务板待办 + 机制更新数 + 纪律"，不再手贴话术</td>
-          <td>tools/session_start_report.js + .claude/settings.json</td><td><span class="tag tag-purple">智能体 AI</span></td>
-        </tr>
-        <tr>
           <td>2026-08-03</td><td><strong>AI 大脑蓝图 v1 + 窗口分工模型</strong>——大脑定位=代替用户当枢纽的自主系统（非难任务执行者）：四层架构（接入/检索/记忆/进化）+ 分阶段路线 + 验收标准 + 里程碑；窗口分工=主大脑统筹 + 技术验证员窗口试跑 + 用户临时传话（改串查并）</td>
           <td>.claude/handoffs/brain-blueprint-v1.md（蓝图）+ brain-window-main.md（主大脑提示词）+ brain-window-verifier.md（验证员提示词）+ archive/2026-08-03-agent-brain-v2.md（交接）</td><td><span class="tag tag-purple">智能体 AI</span></td>
         </tr>
@@ -3325,6 +3301,13 @@ uv venv .venv && uv pip install mem0ai fastembed
       </tr>
     </thead>
     <tbody>
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
+        <td style="padding:8px;"><strong>对话存档提炼阶段</strong>（mem_chat_save 已落地"先存"）：把 mid 层对话存档定期提炼为可复用经验（mem_export → 提炼 → 更新 long 层），用户拍板"先学会存，提炼是后面阶段"。建议：存档积累后由主 AI 排期</td>
+        <td style="padding:8px;">智能体 AI</td>
+        <td style="padding:8px;">待主 AI</td>
+        <td style="padding:8px;">2026-08-03</td>
+      </tr>
       <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
         <td style="padding:8px;"><span class="tag tag-blue">🆕 待认领</span></td>
         <td style="padding:8px;"><strong>分层阅读 4 层验收实测</strong>：新窗口/新 AI 按 4 层流程开工（开窗报告 → 层1 记忆库 → 层2 KEY_MEMORY → 层3 交接+任务板 → 层4 CHANGELOG），验证 30 秒能恢复状态；跑通后广播全团队</td>
