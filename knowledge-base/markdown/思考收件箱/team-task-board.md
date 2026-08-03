@@ -22,6 +22,8 @@ updated: 2026-08-03
 |---|---|---|---|---|
 | 🔧 进行中 | **任务板瘦身建议（主 AI 强制派活：主 AI 执行清理）**——按用户思路"机制养习惯、不造自动脚本"：①**evolve_auto.js 建议撤**：挂心跳自动提炼违背用户反对"定时任务"的拍板，提炼=主大脑对话感知主动做（evolve_scan 已够用）②**Trae 对话自动存档改"习惯项"**：机制已立（各 AI 每轮 mem_chat_save + 用户存/主大脑炼），靠执行非开发 ③**数据来源补齐保留**（用户自己的活） | 主 AI | 主 AI | 2026-08-03 |
 | 🔧 进行中 | **自动提炼编排器（evolve_auto.js）去留拍板（与瘦身建议冲突，主 AI 强制合并处理）**——该待办建议"挂心跳自动提炼"，与瘦身建议"撤 evolve_auto"冲突 → 主 AI 调度合并：**等用户一句话拍板**（撤=归档 evolve_auto.js + 心跳改回提醒；留=保留现状），拍板后立即执行 | 主大脑 | 主 AI | 2026-08-03 |
+| ✅ 已完成 | **全量交接文档格式修复 + 内容补齐（智能体 AI 执行）** ——扫描 `.claude/handoffs/` 下所有活跃交接文档，修复 3 类问题：①P0 缺失（UI美化AI 无交接、规则设定AI 交接在知识库目录非 handoff 格式）②P0 断链（智能体AI/测试员AI/闲聊AI 引用已过时 `2026-08-03-migration-handover.md`）③P1 格式不完整（日志AI缺铁律5条+文档库总览、闲聊AI 格式不符标准模板）。新建/迁移/修复后，确保模板统一（交接提示词→现状→铁律→命令→坑→文档库→交接链）。✅ | 智能体 AI | 智能体 AI | 2026-08-04 |
+| 🆕 待认领 | **知识库维护规范 v4.2 重建（主 AI 强制派活：规则设定 AI 执行）**——当前磁盘文件为 v3.7（10 铁律），v4.2 内容在 `2026-08-04-main-ai-handover.md` 中有记录但未写入规范本体。基于 handoff 中的 v4.2 摘要（5 铁律/三层结构/权限模型/文档库总览7类），重写 `知识库维护规范.md`，同步更新 AGENT_NOTES.md/PROJECT_CONTEXT.md 的版本号引用 | 主 AI | 规则设定 AI | 2026-08-04 |
 | ✅ 已完成 | **Trae 对话接入自动存档（闲聊 AI 落地，用户拍板"你来落地吧大家都很忙"）**——新增 `tools/chat_autosave.js`（SessionEnd hook：扫 `D:\ai\brain-memory\chat_inbox\chat-<agent>-<日期>.md` → 调 `mem_chat_save.py` 入库 → 归档 archive/）+ settings.json 注册 + 实测通过（casual 摘要入库 mem_search 召回 0.86、文件已归档）。约定：各 AI 对话结束/换话题写摘要文件（存=AI 写文件+钩子自动入库），炼=主大脑 evolve_auto 自动。✅ | 闲聊 AI | 闲聊 AI | 2026-08-03 |
 | ✅ 已解决 | **全项目体检发现 2 个 P0 问题（技术验证员 2026-08-03，主 AI 核实已解决）**：①**页数三处不一致**——KEY_MEMORY ④ 说"7 域 34 页"、registry.json 实际 35 页、磁盘 md 实际 36 页；差的那页=session-prompt-d.md（磁盘有、registry 没登记）。建议：统一数字（35/36）+ registry 补登记 session-prompt-d ②**heartbeat 计划任务未真注册**——mechanism-updates 登记"计划任务 TinciBrainHeartbeat 每 20 分钟"，但 schtasks /Query 全量 399 个任务查不到 brain/heartbeat/Tinci；brain_heartbeat.js --status 上次心跳 21:10 是手动跑过的痕迹，非计划任务自动。若定时任务没真注册，心跳是"死"的（watch 死了不会自动拉起、索引不会自动同步）。建议：确认并补注册计划任务 | 技术验证员 | 待主大脑/主 AI | 2026-08-03 |
 | ✅ 核实：①页数已修（KEY_MEMORY 34→35，35 内容页全成对；session-prompt-d 是 MD-only 话术页合规豁免，非不一致）②heartbeat 计划任务真实注册（PowerShell Ready + LastRunTime 21:10 exit 0 + NextRun 21:30，schtasks 查无是 schtasks 可见性问题非任务缺失） | 主 AI | 主 AI | 2026-08-03 |
@@ -45,6 +47,7 @@ updated: 2026-08-03
 | ✅ 已完成 | 天赐学习手册（tinci-surfactant-guide）修复：市占率已统一（31.8%）、命名对齐（TC-MAB INCI 月桂酰）、氨基酸误归两性修正、章节重排/拆分已在知识库完成 | 智能体 AI | 智能体 AI | 2026-08-02 |
 | ✅ 已完成 | 两性表活目录（tinci-amphoteric-summary）修复：牌号统计（23→29）✅、MD内容错位✅、TC-MAB INCI（Lauro-）✅、RSPO数量✅、与 amphoteric 页冲突对齐✅ | 智能体 AI | 智能体 AI | 2026-08-03 |
 | ✅ 已完成 | 智能体方向移交 Claude Code（用户已装好，取其编程能力强、专注智能体实现）：确认推翻存档 LLM 用 DeepSeek 决策 ✅、Claude Code 专属提示词已建（session-prompt 十~十二节 + brain-window 三件套）✅、存档决策标注修正 ✅ | 闲聊 AI | 智能体 AI | 2026-08-02 |
+| ✅ 已完成 | **全量交接文档修复（智能体 AI 执行）**：①修复断链（3 文件 7 处 migration→main-ai）②新建 UI 美化 AI 交接 ③规则设定 AI 话术→标准 handoff 格式 ④日志 AI 补铁律 5 条+文档库总览 ⑤闲聊 AI 重写加标准章节（铁律/命令/坑/文档库总览） | 智能体 AI | 智能体 AI | 2026-08-04 |
 
 ## 三、运作规则
 
