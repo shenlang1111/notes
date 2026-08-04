@@ -478,5 +478,6 @@ footer p{color:rgba(255,255,255,0.6);line-height:1.7;}
     margin-left:0;z-index:100;
   }
   .site-nav .nav-links.open{display:flex;}
-  .site-nav .nav-links a{padding:0.7rem 0.8rem;border-radius:10px;font-size:0.9rem;}
+  .site-nav .nav-links a{padding:0.7rem 0.8rem;border-radius:10px;font-size:0.92rem;color:var(--tinci-foreground);font-weight:600;}
+  .site-nav .nav-links a:hover,.site-nav .nav-links a.active{color:var(--tinci-primary);background:var(--tinci-primary-50);}
 }
