@@ -2,6 +2,7 @@
    天赐材料日化知识库 · 全站共享脚本
    1) 主题切换（light/dark，localStorage 记忆）
    2) 移动端导航（汉堡菜单）
+   3) 站内搜索（小节级定位 + 多词 AND + 同义词联想 + 搜索历史 + 跳转高亮）
    ======================================== */
 (function () {
   /* ---------- 1) 主题切换 ---------- */
@@ -68,7 +69,7 @@
     if (!links.contains(e.target) && !toggle.contains(e.target)) close();
   });
 
-  /* ---------- 3) 站内搜索（静态索引 search-index.json + 即时过滤） ---------- */
+  /* ---------- 3) 站内搜索 ---------- */
   var scriptEl2 = document.currentScript ||
     document.querySelector('script[src*="site.js"]');
   var base = '';
@@ -76,6 +77,23 @@
     base = decodeURIComponent(scriptEl2.src.replace(/site\.js[?#]?.*$/, ''));
   }
 
+  // 同义词联想表（销售场景常用说法 → 页面里出现的词）
+  var SYNONYMS = {
+    '温和': ['无盐', '低盐', '低刺激'],
+    '无盐': ['低盐', '低刺激', '温和', '无氯'],
+    '增稠': ['粘度', '高粘度', '凝胶'],
+    '透明': ['清澈', '透光', '无沉淀'],
+    '泡沫': ['起泡', '稳泡', '发泡'],
+    '气味': ['低气味', '味道'],
+    '防腐': ['无防腐', '清洁标签'],
+    '婴童': ['婴儿', '儿童', '宝宝'],
+    '成本': ['性价比', '便宜', '价格'],
+    '进口': ['替代', '国产'],
+    '绿色': ['RSPO', 'ESG', '可持续', '认证'],
+    '认证': ['RSPO', 'ESG', '可持续']
+  };
+
+  var HISTORY_KEY = 'tinci-search-history';
   var index = null;
   var searchBtn = document.createElement('button');
   searchBtn.type = 'button';
@@ -86,13 +104,23 @@
 
   var panel = document.createElement('div');
   panel.className = 'search-panel';
+  var box = document.createElement('div');
+  box.className = 'search-box';
+  var icon = document.createElement('span');
+  icon.className = 'search-box-icon';
+  icon.textContent = '🔍';
   var input = document.createElement('input');
   input.type = 'text';
   input.className = 'search-input';
   input.placeholder = '搜牌号 / 关键词 / 场景… 如：无盐、增稠、CAB';
+  box.appendChild(icon);
+  box.appendChild(input);
+  var history = document.createElement('div');
+  history.className = 'search-history';
   var results = document.createElement('div');
   results.className = 'search-results';
-  panel.appendChild(input);
+  panel.appendChild(box);
+  panel.appendChild(history);
   panel.appendChild(results);
   document.body.appendChild(panel);
 
@@ -109,56 +137,135 @@
 
   function snippet(text, q) {
     if (!text) return '';
-    var i = text.toLowerCase().indexOf(q);
+    var i = text.toLowerCase().indexOf(q.toLowerCase());
     if (i < 0) return text.slice(0, 40);
     var start = Math.max(0, i - 12);
     return (start > 0 ? '…' : '') + text.slice(start, i + q.length + 18) + '…';
   }
 
+  /* ---------- 搜索历史 ---------- */
+  function getHistory() {
+    try {
+      var h = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+      return Array.isArray(h) ? h : [];
+    } catch (e) { return []; }
+  }
+  function addHistory(w) {
+    w = (w || '').trim();
+    if (!w) return;
+    var h = getHistory().filter(function (x) { return x !== w; });
+    h.unshift(w);
+    if (h.length > 10) h = h.slice(0, 10);
+    try { localStorage.setItem(HISTORY_KEY, JSON.stringify(h)); } catch (e) {}
+  }
+  function showHistory() {
+    var h = getHistory();
+    if (!h.length) return;
+    history.innerHTML = '';
+    var label = document.createElement('div');
+    label.className = 'search-history-label';
+    label.textContent = '搜索历史';
+    var clear = document.createElement('button');
+    clear.type = 'button';
+    clear.className = 'search-history-clear';
+    clear.textContent = '清空';
+    clear.addEventListener('click', function () {
+      try { localStorage.removeItem(HISTORY_KEY); } catch (e) {}
+      history.innerHTML = '';
+    });
+    label.appendChild(clear);
+    history.appendChild(label);
+    for (var i = 0; i < h.length; i++) {
+      (function (w) {
+        var c = document.createElement('button');
+        c.type = 'button';
+        c.className = 'search-history-chip';
+        c.textContent = w;
+        c.addEventListener('click', function () {
+          input.value = w;
+          ensureIndex(function () { render(w); });
+          input.focus();
+        });
+        history.appendChild(c);
+      })(h[i]);
+    }
+  }
+
+  /* ---------- 核心检索：多词 AND + 同义词联想 + 小节定位 ---------- */
+  function partVariants(parts) {
+    return parts.map(function (p) {
+      var v = [p.toLowerCase()];
+      var syn = SYNONYMS[p];
+      if (syn) {
+        for (var i = 0; i < syn.length; i++) {
+          var s = syn[i].toLowerCase();
+          if (v.indexOf(s) < 0) v.push(s);
+        }
+      }
+      return v;
+    });
+  }
+  function matchHay(hay, pv) {
+    for (var pi = 0; pi < pv.length; pi++) {
+      var ok = false;
+      for (var vi = 0; vi < pv[pi].length; vi++) {
+        if (hay.indexOf(pv[pi][vi]) >= 0) { ok = true; break; }
+      }
+      if (!ok) return false;
+    }
+    return true;
+  }
+  // 原始词命中加分（同义词命中不加分，保证原词优先）
+  function scoreOrigin(hay, parts) {
+    var s = 0;
+    for (var i = 0; i < parts.length; i++) {
+      if (hay.indexOf(parts[i].toLowerCase()) >= 0) s += 1;
+    }
+    return s;
+  }
+
   function render(q) {
     results.innerHTML = '';
-    q = (q || '').trim().toLowerCase();
-    if (!q || !index) return;
+    q = (q || '').trim();
+    if (!q) { showHistory(); return; }
+    if (!index) return;
+    var parts = q.split(/\s+/);
+    var pv = partVariants(parts);
     var items = [];
     var seenUrl = {};
     for (var i = 0; i < index.length; i++) {
       var p = index[i];
       var tl = (p.title || '').toLowerCase();
+      var dl = (p.desc || '').toLowerCase();
       var tl2 = (p.text || '').toLowerCase();
-      // 页面标题 / 描述命中
-      if (tl.indexOf(q) >= 0) {
-        items.push({ url: p.url, pageTitle: p.title, score: 6 });
-      } else if (p.desc && p.desc.toLowerCase().indexOf(q) >= 0) {
-        items.push({ url: p.url, pageTitle: p.title, score: 3 });
+      // 页面级命中
+      if (matchHay(tl, pv)) {
+        items.push({ url: p.url, pageTitle: p.title, score: 6 + scoreOrigin(tl, parts) });
+      } else if (matchHay(dl, pv)) {
+        items.push({ url: p.url, pageTitle: p.title, score: 3 + scoreOrigin(dl, parts) });
+      } else if (matchHay(tl2, pv)) {
+        items.push({ url: p.url, pageTitle: p.title, score: 1 + scoreOrigin(tl2, parts) });
       }
-      // 小节命中（正文具体位置，带锚点跳转）
+      // 小节级命中（带锚点）
       var secs = p.sections || [];
       for (var j = 0; j < secs.length; j++) {
         var sec = secs[j];
         var st = (sec.title || '').toLowerCase();
-        var stx = (sec.text || '').toLowerCase();
-        var hit = false;
-        var score = 0;
-        if (st.indexOf(q) >= 0) { hit = true; score = 5; }
-        else if (stx.indexOf(q) >= 0) { hit = true; score = 4; }
-        if (hit) {
-          if (tl.indexOf(q) >= 0) score += 1;
-          items.push({
-            url: p.url + '#' + sec.id,
-            pageTitle: p.title,
-            secTitle: sec.title,
-            snippet: snippet(sec.text, q),
-            score: score
-          });
-        }
-      }
-      // 页面正文兜底（无小节命中时也能找到）
-      if (tl2.indexOf(q) >= 0) {
-        items.push({ url: p.url, pageTitle: p.title, score: 1 });
+        var haySec = (st + ' ' + (sec.text || '')).toLowerCase();
+        if (!matchHay(haySec, pv)) continue;
+        var score = matchHay(st, pv) ? 5 : 4;
+        score += scoreOrigin(haySec, parts);
+        if (matchHay(tl, pv)) score += 1;
+        items.push({
+          url: p.url + '#' + sec.id,
+          pageTitle: p.title,
+          secTitle: sec.title,
+          snippet: snippet(sec.text, q),
+          score: score
+        });
       }
     }
     items.sort(function (a, b) { return b.score - a.score; });
-    // 同 url 去重（保留最高分）
     var finalItems = [];
     for (var k = 0; k < items.length; k++) {
       if (!seenUrl[items[k].url]) {
@@ -189,10 +296,64 @@
         : h.pageTitle;
       a.appendChild(ti);
       a.appendChild(sb);
+      // 记住搜索词（跳转高亮）+ 记入历史
+      (function (kw) {
+        a.addEventListener('click', function () {
+          try { sessionStorage.setItem('tinci-hl', kw); } catch (e) {}
+          addHistory(kw);
+        });
+      })(q);
       results.appendChild(a);
     }
   }
 
+  /* ---------- 4) 跳转后命中词短暂高亮（支持多词） ---------- */
+  function applyHighlight() {
+    var kw = null;
+    try { kw = sessionStorage.getItem('tinci-hl'); sessionStorage.removeItem('tinci-hl'); } catch (e) {}
+    if (!kw) return;
+    var parts = kw.trim().split(/\s+/);
+    if (!parts.length) return;
+    var pl = parts.map(function (p) { return p.toLowerCase(); });
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var pending = [];
+    var n;
+    while ((n = walker.nextNode())) {
+      if (!n.nodeValue || !n.nodeValue.trim()) continue;
+      var pp = n.parentNode;
+      if (pp && pp.closest && pp.closest('script,style,nav,footer,.search-panel')) continue;
+      var lower = n.nodeValue.toLowerCase();
+      for (var i = 0; i < pl.length; i++) {
+        if (lower.indexOf(pl[i]) >= 0) { pending.push(n); break; }
+      }
+    }
+    if (!pending.length) return;
+    for (var j = 0; j < pending.length; j++) {
+      var node = pending[j];
+      var text = node.nodeValue;
+      var lower2 = text.toLowerCase();
+      var bestIdx = -1, bestLen = 0;
+      for (var k = 0; k < pl.length; k++) {
+        var ix = lower2.indexOf(pl[k]);
+        if (ix >= 0 && (bestIdx < 0 || ix < bestIdx)) { bestIdx = ix; bestLen = parts[k].length; }
+      }
+      if (bestIdx < 0) continue;
+      var mark = document.createElement('mark');
+      mark.className = 'search-hl';
+      mark.textContent = text.substr(bestIdx, bestLen);
+      node.parentNode.insertBefore(document.createTextNode(text.substr(0, bestIdx)), node);
+      node.parentNode.insertBefore(mark, node);
+      node.parentNode.insertBefore(document.createTextNode(text.substr(bestIdx + bestLen)), node);
+      node.parentNode.removeChild(node);
+    }
+    var marks = document.querySelectorAll('mark.search-hl');
+    setTimeout(function () {
+      for (var j2 = 0; j2 < marks.length; j2++) marks[j2].classList.add('fade');
+    }, 3000);
+  }
+  applyHighlight();
+
+  /* ---------- 面板开关 ---------- */
   function openSearch() {
     panel.classList.add('open');
     input.focus();
@@ -202,6 +363,7 @@
     panel.classList.remove('open');
     input.value = '';
     results.innerHTML = '';
+    history.innerHTML = '';
   }
 
   searchBtn.addEventListener('click', function () {
@@ -214,6 +376,7 @@
   input.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
       var first = results.querySelector('.search-item');
+      addHistory(input.value);
       if (first) location.href = first.getAttribute('href');
     }
   });
