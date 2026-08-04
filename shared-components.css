@@ -471,8 +471,6 @@ footer p{color:rgba(255,255,255,0.6);line-height:1.7;}
     display:none;position:absolute;top:100%;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0.25rem;
     background:var(--tinci-card);
-    background:color-mix(in srgb, var(--tinci-card) 96%, transparent);
-    backdrop-filter:blur(16px);
     border-bottom:1px solid var(--tinci-border);
     padding:0.7rem 1.1rem 0.9rem;box-shadow:var(--tinci-shadow-md);
     margin-left:0;z-index:100;
