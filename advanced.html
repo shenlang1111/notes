@@ -123,8 +123,8 @@
 }
 
     </style>
-    <script src="vendor/tailwind.browser.js?v=5"></script>
-    <script src="vendor/lucide.min.js?v=5"></script>
+    <script src="vendor/tailwind.browser.js?v=6"></script>
+    <script src="vendor/lucide.min.js?v=6"></script>
     <style type="text/tailwindcss">
   @theme inline {
     --color-background: var(--tinci-background);
@@ -240,7 +240,7 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="shared-components.css?v=5">
+    <link rel="stylesheet" href="shared-components.css?v=6">
 </head>
 <body class="min-h-screen font-sans antialiased">
     <main>
@@ -563,6 +563,37 @@
     </div>
   </section>
 
+  <!-- ============ 上下篇导航 ============ -->
+  <nav class="page-nav">
+    <a href="properties.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">核心物化性质</span>
+    </a>
+    <a href="troubleshooting.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">排故诊断</span>
+    </a>
+  </nav>
+
+  <!-- ============ 相关页面推荐 ============ -->
+  <div class="related-pages">
+    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-grid">
+      <a href="properties.html" class="rp-card">
+        <span class="rp-icon">📊</span>
+        <span class="rp-name">核心物化性质<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">CMC、HLB、Krafft 点、浊点四大参数</small></span>
+      </a>
+      <a href="applications.html" class="rp-card">
+        <span class="rp-icon">📊</span>
+        <span class="rp-name">应用原理<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">复配协同的理论基础</small></span>
+      </a>
+      <a href="products.html" class="rp-card">
+        <span class="rp-icon">🏭</span>
+        <span class="rp-name">产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">新型表活与天赐产品线的对应</small></span>
+      </a>
+    </div>
+  </div>
+
 </div>
 
 <footer>
@@ -575,7 +606,7 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
     </main>
-    <script src="site.js?v=5"></script>
+    <script src="site.js?v=6"></script>
     <script>lucide.createIcons();</script>
 </body>
 </html>

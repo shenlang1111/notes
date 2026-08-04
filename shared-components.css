@@ -479,3 +479,41 @@ footer p{color:rgba(255,255,255,0.6);line-height:1.7;}
   .site-nav .nav-links a{padding:0.7rem 0.8rem;border-radius:10px;font-size:0.92rem;color:var(--tinci-foreground);font-weight:600;}
   .site-nav .nav-links a:hover,.site-nav .nav-links a.active{color:var(--tinci-primary);background:var(--tinci-primary-50);}
 }
+
+/* ============ 站内搜索 ============ */
+.search-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:2.4rem;height:2.4rem;flex-shrink:0;margin-left:0.4rem;
+  background:var(--tinci-primary-50);border:1px solid var(--tinci-border);
+  border-radius:10px;color:var(--tinci-primary);font-size:1rem;line-height:1;
+  cursor:pointer;transition:background 0.18s,transform 0.18s;
+}
+.search-btn:hover{background:var(--tinci-primary-100);transform:translateY(-1px);}
+.search-panel{
+  position:fixed;top:74px;right:1.5rem;width:min(520px,calc(100vw - 2.2rem));
+  background:var(--tinci-card);border:1px solid var(--tinci-border);
+  border-radius:var(--tinci-radius-large);box-shadow:var(--tinci-shadow-lg);
+  padding:0.85rem;z-index:300;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity 0.18s,transform 0.18s,visibility 0.18s;
+}
+.search-panel.open{opacity:1;visibility:visible;transform:none;}
+.search-input{
+  width:100%;padding:0.62rem 0.9rem;font-size:0.95rem;font-family:var(--tinci-font-sans);
+  background:var(--tinci-surface-2);color:var(--tinci-foreground);
+  border:1px solid var(--tinci-border);border-radius:10px;outline:none;
+  transition:border-color 0.15s;
+}
+.search-input:focus{border-color:var(--tinci-teal);}
+.search-results{margin-top:0.55rem;max-height:min(60vh,420px);overflow-y:auto;}
+.search-item{display:block;padding:0.5rem 0.7rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+.search-item:hover{background:var(--tinci-primary-50);}
+.search-item-title{font-size:0.9rem;font-weight:700;color:var(--tinci-foreground);}
+.search-item-sections{font-size:0.76rem;color:var(--tinci-muted-foreground);margin-top:0.12rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.search-empty{padding:0.9rem;font-size:0.85rem;color:var(--tinci-muted-foreground);text-align:center;}
+@media(max-width:768px){
+  .search-panel{top:64px;right:1.1rem;left:1.1rem;width:auto;}
+}
+.dark .search-btn{background:rgba(20,184,166,0.14);}
+.dark .search-btn:hover{background:rgba(20,184,166,0.24);}
+.dark .search-item:hover{background:rgba(20,184,166,0.16);}

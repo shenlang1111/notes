@@ -123,8 +123,8 @@
 }
 
     </style>
-    <script src="vendor/tailwind.browser.js?v=5"></script>
-    <script src="vendor/lucide.min.js?v=5"></script>
+    <script src="vendor/tailwind.browser.js?v=6"></script>
+    <script src="vendor/lucide.min.js?v=6"></script>
     <style type="text/tailwindcss">
   @theme inline {
     --color-background: var(--tinci-background);
@@ -240,7 +240,7 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="shared-components.css?v=5">
+    <link rel="stylesheet" href="shared-components.css?v=6">
 </head>
 <body class="min-h-screen font-sans antialiased">
     <main>
@@ -502,8 +502,39 @@
     </ol>
     <div class="callout">
       <p>注：本文数据标注"~"为近似值，具体数值以产品TDS或最新文献为准。更多数据来源待补充。</p>
-    </div>
+      </div>
   </section>
+
+  <!-- ============ 上下篇导航 ============ -->
+  <nav class="page-nav">
+    <a href="nonionic.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">非离子表面活性剂</span>
+    </a>
+    <a href="synthesis.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">合成工艺</span>
+    </a>
+  </nav>
+
+  <!-- ============ 相关页面推荐 ============ -->
+  <div class="related-pages">
+    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-grid">
+      <a href="nonionic.html" class="rp-card">
+        <span class="rp-icon">📚</span>
+        <span class="rp-name">非离子表面活性剂<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">APG 的所属大类——产量第二大的类别</small></span>
+      </a>
+      <a href="properties.html" class="rp-card">
+        <span class="rp-icon">📊</span>
+        <span class="rp-name">核心物化性质<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">CMC、HLB、Krafft 点、浊点</small></span>
+      </a>
+      <a href="products.html" class="rp-card">
+        <span class="rp-icon">🏭</span>
+        <span class="rp-name">产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">TC-APG 系列与 6 大系列选型</small></span>
+      </a>
+    </div>
+  </div>
 
 </div>
 
@@ -517,7 +548,7 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
     </main>
-    <script src="site.js?v=5"></script>
+    <script src="site.js?v=6"></script>
     <script>lucide.createIcons();</script>
 </body>
 </html>

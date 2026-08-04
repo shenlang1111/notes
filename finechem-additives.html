@@ -123,8 +123,8 @@
 }
 
     </style>
-    <script src="vendor/tailwind.browser.js?v=5"></script>
-    <script src="vendor/lucide.min.js?v=5"></script>
+    <script src="vendor/tailwind.browser.js?v=6"></script>
+    <script src="vendor/lucide.min.js?v=6"></script>
     <style type="text/tailwindcss">
   @theme inline {
     --color-background: var(--tinci-background);
@@ -240,7 +240,7 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="shared-components.css?v=5">
+    <link rel="stylesheet" href="shared-components.css?v=6">
 </head>
 <body class="min-h-screen font-sans antialiased">
     <main>
@@ -745,6 +745,37 @@
     </ul>
   </section>
 
+  <!-- ============ 上下篇导航 ============ -->
+  <nav class="page-nav">
+    <a href="theory.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">表面活性剂理论</span>
+    </a>
+    <a href="finechem-daily-chem.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">日化产品体系</span>
+    </a>
+  </nav>
+
+  <!-- ============ 相关页面推荐 ============ -->
+  <div class="related-pages">
+    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-grid">
+      <a href="finechem-daily-chem.html" class="rp-card">
+        <span class="rp-icon">🔬</span>
+        <span class="rp-name">日化产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">化妆品原料与剂型——精细化工主战场</small></span>
+      </a>
+      <a href="finechem-surfaces.html" class="rp-card">
+        <span class="rp-icon">🔬</span>
+        <span class="rp-name">涂料、胶粘剂与展望<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">表活的非日化应用延伸</small></span>
+      </a>
+      <a href="products.html" class="rp-card">
+        <span class="rp-icon">🏭</span>
+        <span class="rp-name">产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">6 大系列选型指南</small></span>
+      </a>
+    </div>
+  </div>
+
 </div>
 
 <footer>
@@ -757,7 +788,7 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
     </main>
-    <script src="site.js?v=5"></script>
+    <script src="site.js?v=6"></script>
     <script>lucide.createIcons();</script>
 </body>
 </html>

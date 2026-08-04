@@ -123,8 +123,8 @@
 }
 
     </style>
-    <script src="vendor/tailwind.browser.js?v=5"></script>
-    <script src="vendor/lucide.min.js?v=5"></script>
+    <script src="vendor/tailwind.browser.js?v=6"></script>
+    <script src="vendor/lucide.min.js?v=6"></script>
     <style type="text/tailwindcss">
   @theme inline {
     --color-background: var(--tinci-background);
@@ -240,7 +240,7 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="shared-components.css?v=5">
+    <link rel="stylesheet" href="shared-components.css?v=6">
 </head>
 <body class="min-h-screen font-sans antialiased">
     <main>
@@ -522,6 +522,37 @@
     <p>加入NaCl/CaCl₂→压缩双电层→降低Zeta电位→静电排斥减弱→液滴聚并。高价离子（Ca²⁺、Al³⁺）效果更显著。</p>
   </section>
 
+  <!-- ============ 上下篇导航 ============ -->
+  <nav class="page-nav">
+    <a href="synthesis.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">合成工艺</span>
+    </a>
+    <a href="formulation.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">配方设计</span>
+    </a>
+  </nav>
+
+  <!-- ============ 相关页面推荐 ============ -->
+  <div class="related-pages">
+    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-grid">
+      <a href="formulation.html" class="rp-card">
+        <span class="rp-icon">🧪</span>
+        <span class="rp-name">配方设计<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">五大相 · 三剂型——应用原理落到配方</small></span>
+      </a>
+      <a href="properties.html" class="rp-card">
+        <span class="rp-icon">📊</span>
+        <span class="rp-name">核心物化性质<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">CMC、HLB 与功能表现的关联</small></span>
+      </a>
+      <a href="fundamentals.html" class="rp-card">
+        <span class="rp-icon">📖</span>
+        <span class="rp-name">基础概念与原理<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">胶束与 CPP——功能背后的结构基础</small></span>
+      </a>
+    </div>
+  </div>
+
 </div>
 
 <footer>
@@ -534,7 +565,7 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
     </main>
-    <script src="site.js?v=5"></script>
+    <script src="site.js?v=6"></script>
     <script>lucide.createIcons();</script>
 </body>
 </html>
