@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配方设计</title>
+    <style id="theme-vars">
+/* ========================================
+   天赐材料日化知识库 · Design Tokens
+   设计语言：深青渐变 × 暖白底 · 精致卡片
+   参照旧知识库 style.css v3，适配 Solo Design token 规范
+   ======================================== */
+
+:root {
+  /* === Brand Primary — 深青色系 (单一品牌色) === */
+  --tinci-primary-50: #E6F5F1;
+  --tinci-primary-100: #CBE8E2;
+  --tinci-primary-200: #99D1C5;
+  --tinci-primary-300: #66BAA8;
+  --tinci-primary-400: #33A38B;
+  --tinci-primary-500: #0B7666;
+  --tinci-primary-600: #0A5F52;
+  --tinci-primary-700: #084840;
+  --tinci-primary-800: #063130;
+  --tinci-primary-900: #042020;
+
+  /* === Bright Teal — 主色浅色变体 (同色系) === */
+  --tinci-teal: #14B8A6;
+  --tinci-teal-soft: #E9FAF6;
+  --tinci-teal-50: #E9FAF6;
+  --tinci-teal-100: #BFF0E6;
+  --tinci-teal-200: #80E1CD;
+  --tinci-teal-300: #41D2B5;
+  --tinci-teal-400: #14B8A6;
+  --tinci-teal-500: #0E9488;
+  --tinci-teal-600: #0B7666;
+
+  /* === Semantic Aliases (required by apply-html-head-contract) === */
+  --tinci-background: #F5FAF8;
+  --tinci-foreground: #0F2E2A;
+  --tinci-card: #FFFFFF;
+  --tinci-card-foreground: #0F2E2A;
+  --tinci-popover: #FFFFFF;
+  --tinci-popover-foreground: #0F2E2A;
+  --tinci-primary: #0B7666;
+  --tinci-primary-foreground: #FFFFFF;
+  --tinci-secondary: #E6F5F1;
+  --tinci-secondary-foreground: #0B7666;
+  --tinci-muted: #E6F5F1;
+  --tinci-muted-foreground: #5B7A74;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #FFFFFF;
+  --tinci-border: #E2EFEB;
+  --tinci-input: #E2EFEB;
+  --tinci-ring: #14B8A6;
+
+  /* === Radius Scale === */
+  --tinci-radius-small: 4px;
+  --tinci-radius-medium: 8px;
+  --tinci-radius-large: 14px;
+  --tinci-radius-full: 9999px;
+
+  /* === Typography === */
+  --tinci-font-sans: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --tinci-font-mono: "JetBrains Mono", "SF Mono", "Consolas", monospace;
+  --tinci-font-heading: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --tinci-font-body: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+
+  /* === Surface Depth === */
+  --tinci-surface: #FFFFFF;
+  --tinci-surface-2: #F8FBFA;
+  --tinci-ink: #0F2E2A;
+  --tinci-ink-2: #5B7A74;
+  --tinci-ink-3: #8FA8A2;
+  --tinci-line: #E2EFEB;
+
+  /* === Gradients (same-hue, for hero/nav only) === */
+  --tinci-nav-grad: linear-gradient(135deg, #0B7666 0%, #14B8A6 100%);
+  --tinci-hero-grad: linear-gradient(135deg, #0A4A42 0%, #0F766E 50%, #14B8A6 110%);
+
+  /* === State Colors (semantic only) === */
+  --state-success: #059669;
+  --state-success-soft: #E9F8EE;
+  --state-warning: #D97706;
+  --state-warning-soft: #FEF5E7;
+  --state-error: #DC2626;
+  --state-error-soft: #FEE2E2;
+  --state-info: #0B7666;
+  --state-info-soft: #E6F5F1;
+
+  /* === Shadows (alpha <= 0.05 for static; deeper for floating only) === */
+  --tinci-shadow-xs: 0 1px 2px rgba(11,118,102,0.04), 0 1px 3px rgba(11,118,102,0.04);
+  --tinci-shadow-sm: 0 2px 6px rgba(11,118,102,0.05);
+  --tinci-shadow-md: 0 8px 24px -6px rgba(11,118,102,0.12), 0 2px 8px -2px rgba(11,118,102,0.06);
+  --tinci-shadow-lg: 0 16px 40px -8px rgba(11,118,102,0.16), 0 4px 12px -4px rgba(11,118,102,0.08);
+}
+
+/* === Dark Mode === */
+.dark {
+  --tinci-background: #0B1F1C;
+  --tinci-foreground: #E2EFEB;
+  --tinci-card: #14302B;
+  --tinci-card-foreground: #E2EFEB;
+  --tinci-popover: #14302B;
+  --tinci-popover-foreground: #E2EFEB;
+  --tinci-primary: #14B8A6;
+  --tinci-primary-foreground: #042020;
+  --tinci-secondary: #1A3A35;
+  --tinci-secondary-foreground: #66BAA8;
+  --tinci-muted: #1A3A35;
+  --tinci-muted-foreground: #8FA8A2;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #042020;
+  --tinci-border: #1F3D38;
+  --tinci-input: #1F3D38;
+  --tinci-ring: #14B8A6;
+  --tinci-surface: #14302B;
+  --tinci-surface-2: #1A3A35;
+  --tinci-ink: #E2EFEB;
+  --tinci-ink-2: #8FA8A2;
+  --tinci-ink-3: #5B7A74;
+  --tinci-line: #1F3D38;
+}
+
+    </style>
+    <script src="vendor/tailwind.browser.js"></script>
+    <script src="vendor/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--tinci-background);
+    --color-foreground: var(--tinci-foreground);
+    --color-card: var(--tinci-card);
+    --color-card-foreground: var(--tinci-card-foreground);
+    --color-popover: var(--tinci-popover);
+    --color-popover-foreground: var(--tinci-popover-foreground);
+    --color-primary: var(--tinci-primary);
+    --color-primary-foreground: var(--tinci-primary-foreground);
+    --color-secondary: var(--tinci-secondary);
+    --color-secondary-foreground: var(--tinci-secondary-foreground);
+    --color-muted: var(--tinci-muted);
+    --color-muted-foreground: var(--tinci-muted-foreground);
+    --color-accent: var(--tinci-accent);
+    --color-accent-foreground: var(--tinci-accent-foreground);
+    --color-border: var(--tinci-border);
+    --color-input: var(--tinci-input);
+    --color-ring: var(--tinci-ring);
+    --radius-sm: var(--tinci-radius-small);
+    --radius-md: var(--tinci-radius-medium);
+    --radius-lg: var(--tinci-radius-large);
+  }
+  @layer base {
+    body { background: var(--tinci-background); color: var(--tinci-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--tinci-background); }
+      .text-background { color: var(--tinci-background); }
+      .border-background { border-color: var(--tinci-background); }
+      .ring-background { --tw-ring-color: var(--tinci-background); }
+      .bg-foreground { background-color: var(--tinci-foreground); }
+      .text-foreground { color: var(--tinci-foreground); }
+      .border-foreground { border-color: var(--tinci-foreground); }
+      .ring-foreground { --tw-ring-color: var(--tinci-foreground); }
+      .bg-card { background-color: var(--tinci-card); }
+      .text-card { color: var(--tinci-card); }
+      .border-card { border-color: var(--tinci-card); }
+      .ring-card { --tw-ring-color: var(--tinci-card); }
+      .bg-card-foreground { background-color: var(--tinci-card-foreground); }
+      .text-card-foreground { color: var(--tinci-card-foreground); }
+      .border-card-foreground { border-color: var(--tinci-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--tinci-card-foreground); }
+      .bg-popover { background-color: var(--tinci-popover); }
+      .text-popover { color: var(--tinci-popover); }
+      .border-popover { border-color: var(--tinci-popover); }
+      .ring-popover { --tw-ring-color: var(--tinci-popover); }
+      .bg-popover-foreground { background-color: var(--tinci-popover-foreground); }
+      .text-popover-foreground { color: var(--tinci-popover-foreground); }
+      .border-popover-foreground { border-color: var(--tinci-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--tinci-popover-foreground); }
+      .bg-primary { background-color: var(--tinci-primary); }
+      .text-primary { color: var(--tinci-primary); }
+      .border-primary { border-color: var(--tinci-primary); }
+      .ring-primary { --tw-ring-color: var(--tinci-primary); }
+      .bg-primary-foreground { background-color: var(--tinci-primary-foreground); }
+      .text-primary-foreground { color: var(--tinci-primary-foreground); }
+      .border-primary-foreground { border-color: var(--tinci-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--tinci-primary-foreground); }
+      .bg-secondary { background-color: var(--tinci-secondary); }
+      .text-secondary { color: var(--tinci-secondary); }
+      .border-secondary { border-color: var(--tinci-secondary); }
+      .ring-secondary { --tw-ring-color: var(--tinci-secondary); }
+      .bg-secondary-foreground { background-color: var(--tinci-secondary-foreground); }
+      .text-secondary-foreground { color: var(--tinci-secondary-foreground); }
+      .border-secondary-foreground { border-color: var(--tinci-secondary-foreground); }
+      .ring-secondary-foreground { --tw-ring-color: var(--tinci-secondary-foreground); }
+      .bg-muted { background-color: var(--tinci-muted); }
+      .text-muted { color: var(--tinci-muted); }
+      .border-muted { border-color: var(--tinci-muted); }
+      .ring-muted { --tw-ring-color: var(--tinci-muted); }
+      .bg-muted-foreground { background-color: var(--tinci-muted-foreground); }
+      .text-muted-foreground { color: var(--tinci-muted-foreground); }
+      .border-muted-foreground { border-color: var(--tinci-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--tinci-muted-foreground); }
+      .bg-accent { background-color: var(--tinci-accent); }
+      .text-accent { color: var(--tinci-accent); }
+      .border-accent { border-color: var(--tinci-accent); }
+      .ring-accent { --tw-ring-color: var(--tinci-accent); }
+      .bg-accent-foreground { background-color: var(--tinci-accent-foreground); }
+      .text-accent-foreground { color: var(--tinci-accent-foreground); }
+      .border-accent-foreground { border-color: var(--tinci-accent-foreground); }
+      .ring-accent-foreground { --tw-ring-color: var(--tinci-accent-foreground); }
+      .bg-border { background-color: var(--tinci-border); }
+      .text-border { color: var(--tinci-border); }
+      .border-border { border-color: var(--tinci-border); }
+      .ring-border { --tw-ring-color: var(--tinci-border); }
+      .bg-input { background-color: var(--tinci-input); }
+      .text-input { color: var(--tinci-input); }
+      .border-input { border-color: var(--tinci-input); }
+      .ring-input { --tw-ring-color: var(--tinci-input); }
+      .bg-ring { background-color: var(--tinci-ring); }
+      .text-ring { color: var(--tinci-ring); }
+      .border-ring { border-color: var(--tinci-ring); }
+      .ring-ring { --tw-ring-color: var(--tinci-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <link rel="stylesheet" href="shared-components.css">
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+<nav class="site-nav">
+  <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
+  <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
+    <a href="index.html">首页</a><a href="theory.html">理论</a><a href="products.html">产品</a><a href="formulation.html" class="active">配方</a><a href="sales.html">销售</a><a href="market.html">市场</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ============ Page Hero ============ -->
+  <section class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">配方</span>
+    </div>
+    <h1>配方设计</h1>
+    <p class="page-hero-desc">五大相、三剂型、无硫酸盐方案——从理论到实操的配方设计体系。理解配方架构，才能从"卖原料的"变成"帮客户优化配方的顾问"。</p>
+    <div class="page-hero-meta">
+      <span class="tag">实战应用</span>
+      <span class="tag">配方设计</span>
+    </div>
+  </section>
+
+  <!-- ============ TOC ============ -->
+  <details class="toc-nav" open>
+    <summary>本页目录 · 八大章节</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>配方五大相体系</a>
+      <a href="#sec-2"><span class="toc-num">2</span>三大剂型配方对比</a>
+      <a href="#sec-3"><span class="toc-num">3</span>无硫酸盐配方方案</a>
+      <a href="#sec-4"><span class="toc-num">4</span>洗发水/沐浴露/洁面配方详解</a>
+      <a href="#sec-5"><span class="toc-num">5</span>氨基酸洁面膏配方设计</a>
+      <a href="#sec-6"><span class="toc-num">6</span>透明配方与增稠挑战</a>
+      <a href="#sec-7"><span class="toc-num">7</span>婴童配方设计</a>
+      <a href="#sec-8"><span class="toc-num">8</span>配方设计流程</a>
+    </div>
+  </details>
+
+  <!-- ============ 章节一：配方五大相体系 ============ -->
+  <section class="section" id="sec-1">
+    <h2>一、配方五大相体系</h2>
+    <p>日化清洁产品的配方由<strong>五大相</strong>构成，每一相承担明确功能。理解五大相的角色分工，是配方设计的起点——其中<strong>表活相是配方"心脏"</strong>，决定清洁、起泡、温和性等核心性能。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>配方相</th><th>占比</th><th>作用</th><th>典型成分</th><th>天赐对应产品</th></tr></thead>
+        <tbody>
+          <tr><td><strong>① 水相（溶剂）</strong></td><td>60-85%</td><td>所有水溶性成分的载体</td><td>去离子水、甘油、丙二醇、丁二醇</td><td>—</td></tr>
+          <tr><td><strong>② 表活相（清洁）</strong></td><td>8-20%</td><td>提供清洁、起泡、乳化功能，<strong>配方的核心功能相</strong></td><td>AES、CAB、APG、氨基酸表活</td><td><strong>Napure、AMIN、TC-CAB/LAB/SHD/MAB/CAO</strong></td></tr>
+          <tr><td><strong>③ 调理相（功能）</strong></td><td>1-5%</td><td>护发/护肤，改善洗后感和梳理性</td><td>PQ-10、瓜尔胶、硅油、泛醇、甘油</td><td>聚季铵盐系列</td></tr>
+          <tr><td><strong>④ 防腐相</strong></td><td>0.5-1.5%</td><td>防止微生物滋生变质</td><td>苯氧乙醇、苯甲酸钠、多元醇</td><td>—</td></tr>
+          <tr><td><strong>⑤ 香精相</strong></td><td>0.1-1.0%</td><td>嗅觉体验，掩盖原料气味</td><td>香精、精油</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>表活相深度解析——配方的"心脏"</h3>
+    <p>表活相是配方的核心功能相，由三类表活分工协作：<strong>主表活定清洁力基调，辅表活调温和与泡沫，增效表活补性能短板</strong>。配方用量为行业经验参考值，以产品 TDS 与实测为准。</p>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h4>主表活 — 清洁主力</h4>
+        <p><strong>阴离子表活</strong>，占表活总量的<strong>50-70%</strong>。AES（月桂醇聚醚硫酸酯钠）是洗发水/沐浴露最常用主表活，去污力强、泡沫丰富；氨基酸表活在高端洁面中替代 AES 做主力。典型添加量：12-18%（以 70% 活性物计，随配方与活性物基准调整）。</p>
+      </div>
+      <div class="concept-card">
+        <h4>辅表活 — 降刺激+增泡</h4>
+        <p><strong>两性离子表活</strong>，占表活总量的<strong>20-40%</strong>。CAB（椰油酰胺丙基甜菜碱）是最经典辅表活，三大作用：<mark class="key">降低主表活刺激性、增加泡沫细腻度和稳定性、协同增稠</mark>。典型添加量：3-8%。</p>
+      </div>
+      <div class="concept-card">
+        <h4>增效表活 — 温和+稳定</h4>
+        <p><strong>非离子表活</strong>，占表活总量的<strong>5-15%</strong>。APG（烷基糖苷）降低 CMC、改善低温稳定性、提升冲洗清爽感；CMEA/CDEA（6501）增稠稳泡；氨基酸表活提供极致温和性和丝滑洗感。</p>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>销售实战衔接：</strong>典型添加量起点——主表活 12-18%、辅表活 3-8%、增效表活 1-5%。客户说"降成本"→ 调表活相比例（部分氨基酸换 CAB+APG，成本降温和不减）；客户说"提升品质"→ 升级辅表活（标准 CAB → 无盐 TF 版，或加 3-5% 氨基酸表活提升洗后肤感）。<mark class="key">理解表活相分工，你就是"帮客户优化配方的顾问"，而不是"卖原料的"。</mark>
+    </div>
+  </section>
+
+  <!-- ============ 章节二：三大剂型配方对比 ============ -->
+  <section class="section" id="sec-2">
+    <h2>二、三大剂型配方对比</h2>
+    <p>洁面膏、沐浴露、洗发水是日化清洁三大主力剂型，配方逻辑根本不同。洗发水重清洁起泡加调理，沐浴露重温和保湿与肤感，洁面膏重温和与剂型质感。下表对比三者配方框架与天赐产品推荐。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>剂型</th><th>总表活%</th><th>主表活</th><th>辅表活</th><th>增稠</th><th>pH</th><th>天赐推荐</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>洗发水</strong><br><span class="tag tag-blue">清洁主力</span></td>
+            <td>15-26%</td>
+            <td>AES 12-18%<br>（去污强、泡丰富）</td>
+            <td>CAB 3-8%<br>（增泡稳泡）</td>
+            <td>NaCl 盐曲线 0.5-2%<br>CMEA 1-2%</td>
+            <td>5.5-6.5<br>（匹配头皮）</td>
+            <td>TC-CAB-35<br>TC-CAB-35TF</td>
+          </tr>
+          <tr>
+            <td><strong>沐浴露</strong><br><span class="tag tag-green">温和保湿</span></td>
+            <td>12-20%</td>
+            <td>AES 8-12%<br>（防过度脱脂）</td>
+            <td>CAB 4-8%<br>（偏降刺激）</td>
+            <td>NaCl + CMEA<br>甘油 3-8%</td>
+            <td>5.0-6.0<br>（更偏酸）</td>
+            <td>TC-CAB-35<br>谷氨酸二钠</td>
+          </tr>
+          <tr>
+            <td><strong>洁面膏</strong><br><span class="tag tag-purple">温和高端</span></td>
+            <td>25-40%</td>
+            <td>甘氨酸钾 20-30%<br>（结晶膏化）</td>
+            <td>CAB 3-5%<br>MAB 3-6%</td>
+            <td>结晶膏化<br>甘油 8-15%</td>
+            <td>5.8-6.3<br>（质子化析出）</td>
+            <td>TC-CAB-35TF<br>TC-MAB-40LDL</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>配方黄金比例（参考范围）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>配方类型</th><th>主表活</th><th>辅表活</th><th>增效表活</th><th>关键比例</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>大众洗发水</td><td>AES 12-18%</td><td>CAB 3-8%</td><td>CMEA 1-2%</td><td>AES:CAB ≈ 2:1~3:1</td></tr>
+          <tr><td>温和沐浴露</td><td>AES 8-12%</td><td>CAB 4-8%</td><td>APG 2-4%</td><td>APG:总阴离子 ≈ 1:3~1:4</td></tr>
+          <tr><td>氨基酸洁面</td><td>甘氨酸钾 20-30%</td><td>CAB 3-5%</td><td>谷氨酸钠 5-10%</td><td>甘氨酸:谷氨酸 ≈ 2:1~3:1</td></tr>
+          <tr><td>婴童二合一</td><td>氨基酸表活 6-12%</td><td>CAB 5-8%</td><td>APG 3-5%</td><td>总活性物 ≤15%</td></tr>
+          <tr><td>无硫酸盐透明</td><td>氨基酸表活 10-18%</td><td>CAB 5-10%</td><td>APG 3-6%</td><td>阴:两性 ≈ 1:0.7~1:1</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout accent2">
+      <strong>销售实战：</strong>客户说"降成本" → 调表活相比例（部分氨基酸换 CAB+APG，成本降温和不减）；客户说"提升品质" → 升级辅表活（标准 CAB → 无盐 TC-CAB-35TF，或加 3-5% 氨基酸表活提升洗后肤感）。<mark class="key">配方知识是销售差异化最有力的武器。</mark>
+    </div>
+  </section>
+
+  <!-- ============ 章节三：无硫酸盐配方方案 ============ -->
+  <section class="section" id="sec-3">
+    <h2>三、无硫酸盐配方方案</h2>
+    <p>无硫酸盐 = 无 SLS/SLES，是高端洗护标配。消费者对"无硫酸盐"认知度持续提升，氨基酸、APG 等温和表活替代 AES 成为主流趋势。中国无硫酸盐表活产能达<strong>18.3万吨</strong>，同比增长<strong>16.7%</strong>。</p>
+
+    <div class="callout accent4">
+      <strong>行业趋势：</strong>无硫酸盐是当前日化清洁产品最大升级方向。但无硫酸盐配方面临<strong>三大挑战——增稠困难、泡沫不足、成本高</strong>。根因是氨基酸表活加盐直接析出（无盐曲线）、单体起泡力低于 AES、单价是 AES 的 3-8 倍。<mark class="key">解决核心是 CAB 协同增稠 + APG 补偿泡沫 + 三角复配降成本。</mark>
+    </div>
+
+    <h3>无硫酸盐黄金三角</h3>
+    <div class="formula-box">氨基酸 : CAB : APG ≈ 50 : 35 : 15　——　市场最成熟的无硫酸盐配方框架</div>
+
+    <h3>三大无硫酸盐方案</h3>
+    <div class="concept-grid">
+      <div class="card accent">
+        <h4>方案一 · 氨基酸表活（温和高端）</h4>
+        <p><strong>定位：</strong>高端洁面、敏感肌洗护，极致温和与丝滑洗感。</p>
+        <p><strong>适用人群：</strong>敏感肌、高端定位、婴童洗护。</p>
+        <p><strong>成本：</strong>高（氨基酸单价是 AES 的 3-8 倍）。</p>
+        <p><strong>温和性：</strong>★☆☆☆☆（刺激性最低梯队）。</p>
+        <p><strong>推荐天赐产品：</strong>Napure 系列（肌氨酸钠 C-FA）、谷氨酸二钠 CG30W、甘氨酸钾 GCK30P。</p>
+      </div>
+      <div class="card accent2">
+        <h4>方案二 · 甜菜碱复配（性价比）</h4>
+        <p><strong>定位：</strong>大众温和洗护，以 CAB 协同增稠降成本。</p>
+        <p><strong>适用人群：</strong>大众市场、性价比导向客户。</p>
+        <p><strong>成本：</strong>中（CAB 占总表活 30-50% 协同增稠，氨基酸占比降 50-60%）。</p>
+        <p><strong>温和性：</strong>★★☆☆☆（CAB 降主表活刺激）。</p>
+        <p><strong>推荐天赐产品：</strong>TC-CAB-35TF（无盐，透明配方首选）、TC-CAB-35、TC-MAB-40LDL。</p>
+      </div>
+      <div class="card accent3">
+        <h4>方案三 · APG 主导（天然绿色）</h4>
+        <p><strong>定位：</strong>天然有机、绿色概念，APG 降 CMC 补偿泡沫。</p>
+        <p><strong>适用人群：</strong>天然有机定位、婴童、追求清爽冲洗感。</p>
+        <p><strong>成本：</strong>中高（APG 单价中等，但需较高比例）。</p>
+        <p><strong>温和性：</strong>★☆☆☆☆（非离子，极温和、冲洗清爽）。</p>
+        <p><strong>推荐天赐产品：</strong>TC-APG（3-6% 补偿泡沫 + 助透明）。</p>
+      </div>
+    </div>
+
+    <h3>三大挑战与解决方案</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>挑战</th><th>根因</th><th>解决方案</th><th>天赐对应</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>增稠困难</strong></td><td>氨基酸表活加盐直接析出（无钟形曲线）</td><td>① CAB 占总表活 30-50% 协同增稠（最重要）② 卡波姆 0.3-1.0% ③ 肌氨酸钠:CAPB≈1:1</td><td>TC-CAB-35TF + 肌氨酸钠</td></tr>
+          <tr><td><strong>泡沫不足</strong></td><td>氨基酸单体起泡力低于 AES</td><td>① CAB 增泡稳泡 ② APG 3-6% 补偿 ③ 谷氨酸二钠增绵密 ④ 氧化胺稳泡</td><td>TC-CAB-35 + APG</td></tr>
+          <tr><td><strong>成本高</strong></td><td>氨基酸单价是 AES 的 3-8 倍</td><td>① 氨基酸+CAB+APG 三角复配，氨基酸占比降 50-60% ② 椰油基替代月桂基 ③ 谷氨酸二钠 &lt; 甘氨酸钾</td><td>椰油酰肌氨酸钠 + 谷氨酸二钠</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>透明配方设计关键点——让产品"清澈如水"</h3>
+    <p>透明洗发水/沐浴露/洁面是消费者对"纯净"的直观认知，但透明配方的开发难度远高于珠光/不透明配方——<strong>任何微小的配方失误都会导致浑浊</strong>。透明配方本质上是"溶剂化平衡"的艺术，四项核心技术缺一不可。</p>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h4>① 折射率匹配</h4>
+        <p><strong>原理：</strong>当配方中所有组分的折射率（RI）接近时，光线不发生散射，体系透明。水的 RI=1.333，甘油 RI=1.474，表活胶束 RI≈1.40-1.45。<br>
+        <strong>关键：</strong>加入甘油/丙二醇调节体系 RI，使表活胶束和水相的 RI 差最小化。<br>
+        <strong>天赐优势：</strong>TF 系列无盐 CAB 降低了 NaCl 含量（NaCl RI=1.544，偏离水 RI 较大），减少 RI 差异，有利于透明。</p>
+      </div>
+      <div class="concept-card">
+        <h4>② 反离子选择</h4>
+        <p><strong>原理：</strong>表活的反离子（Na⁺、K⁺、TEA⁺、NH₄⁺）影响其水溶性和胶束结构。<br>
+        <strong>选择规则：</strong>TEA 盐型 &gt; K⁺ 盐型 &gt; Na⁺ 盐型（溶解度递减），TEA（三乙醇胺）盐的溶解度最高，最有利于透明配方。<br>
+        <strong>天赐关联：</strong>谷氨酸钠在 pH&lt;5 时析出浑浊，改用谷氨酸 TEA 盐可保持透明。</p>
+      </div>
+      <div class="concept-card">
+        <h4>③ 低温稳定性</h4>
+        <p><strong>机理：</strong>C16 以上高碳链组分在低温（&lt;5°C）下选择性析出，导致浑浊甚至分层。<br>
+        <strong>解决方案：</strong>加入 3-5% 丙二醇/甘油作防冻共溶剂；选用 C8-C14 中短碳链表活；通过复配降低混合物的 Krafft 点。<br>
+        <strong>测试：</strong>-5°C/24h 冷冻-恢复试验，恢复室温后应恢复透明。</p>
+      </div>
+      <div class="concept-card">
+        <h4>④ 增溶技术</h4>
+        <p><strong>香精增溶：</strong>香精不溶于水，需先用 PEG-40 氢化蓖麻油（香精:增溶剂≈1:2~1:3）预混增溶至透明。<br>
+        <strong>油脂增溶：</strong>微量油脂（如霍霍巴油）需用足够的表活胶束增溶，或使用水溶性油脂替代。<br>
+        <strong>天赐关联：</strong>APG 的增溶能力强于氨基酸表活，加入 3-5% APG 有助于香精和油脂的增溶透明。</p>
+      </div>
+    </div>
+    <div class="callout accent3">
+      <strong>透明配方天赐差异化：</strong>① <strong>TF 系列无盐技术</strong>——NaCl 含量极低，消除盐析引起的浑浊风险；② <strong>APHA≤50 的浅色泽</strong>——透明配方中任何颜色都会被放大，低色泽是高端透明产品的准入门槛；③ <strong>CG30W 二钠盐型</strong>——在 pH 5.5-7.0 范围内完全透明，不析出。透明配方是<mark class="key">天赐 TF 系列核心竞争优势的最佳展示场景</mark>。
+    </div>
+  </section>
+
+  <!-- ============ 章节四：洗发水/沐浴露/洁面配方详解 ============ -->
+  <section class="section" id="sec-4">
+    <h2>四、洗发水/沐浴露/洁面配方详解</h2>
+    <p>三大主力剂型的配方逻辑根本不同：<strong>洗发水重调理（护发），沐浴露重滋润（护肤），洁面重温和与剂型质感</strong>。逐项拆解每个成分的"为什么"，才能在客户说"我要调配方"时精准定位问题与机会。</p>
+
+    <h3>洗发水配方详解——每个成分的"为什么"</h3>
+    <div class="card accent">
+      <h4>典型大众洗发水配方（AES+CAB 体系）</h4>
+      <p>洗发水是日化清洁产品中<strong>配方复杂度最高</strong>的品类——它需要在清洁、泡沫、调理、外观、稳定性之间取得平衡。以下逐项拆解每个成分的用量、功能和选择依据。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>成分</th><th>典型用量</th><th>功能</th><th>选择依据</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>AES（70%）</strong></td><td>12-18%</td><td>主表活：清洁、起泡主力</td><td>性价比最高的阴离子表活，泡沫丰富，去污力强。C12-C14 醇 + 2-3EO 硫酸化，HLB≈40，对油脂乳化力强</td></tr>
+          <tr><td><strong>CAB（35%）</strong></td><td>3-8%</td><td>辅表活：降刺激+增泡稳泡+协同增稠</td><td>两性表活，等电点约 pH 4.5-5.5（参考值，以产品资料为准）；pH 低于等电点呈阳离子特性、高于等电点呈阴离子特性，与阴离子 AES 产生强协同效应（β≈-10~-20）</td></tr>
+          <tr><td><strong>CMEA/CDEA</strong></td><td>1-2%</td><td>增稠剂+稳泡剂</td><td>插入 AES 胶束栅栏层，提高表面粘度，稳泡。CAB+CMEA 有协同增稠效应。1:1 型（超级酰胺）优先推荐</td></tr>
+          <tr><td><strong>PQ-10</strong></td><td>0.2-0.5%</td><td>阳离子调理剂：湿梳滑感</td><td>水溶性阳离子纤维素，在冲洗过程中与阴离子表活形成不溶性复合物沉积在发丝上，提供湿梳滑感。分子量 400,000-600,000 为佳</td></tr>
+          <tr><td><strong>瓜尔胶羟丙基三甲基氯化铵</strong></td><td>0.1-0.3%</td><td>阳离子调理剂：柔软感+干梳</td><td>天然来源阳离子聚合物，与 PQ-10 互补——PQ-10 偏湿梳，瓜尔胶偏干梳和柔软感</td></tr>
+          <tr><td><strong>硅油（聚二甲基硅氧烷）</strong></td><td>0.5-2.0%</td><td>调理剂：丝滑感+光泽</td><td>粒径 2-30μm 微乳液。沉积在发丝表面，降低摩擦系数，赋予丝滑感和光泽。大粒径硅油沉积量高但可能油腻</td></tr>
+          <tr><td><strong>NaCl</strong></td><td>0.5-2.0%</td><td>增稠剂（盐增稠）</td><td>压缩 AES 胶束双电层，促进蠕虫状胶束形成 → 粘度上升。呈"钟形曲线"——盐过少或过多都导致粘度低。需做盐曲线确定最佳添加量</td></tr>
+          <tr><td><strong>EDTA二钠</strong></td><td>0.05-0.2%</td><td>螯合剂：稳定剂</td><td>螯合金属离子（Fe、Cu），防止催化氧化变色。同时提升防腐体系效能</td></tr>
+          <tr><td><strong>柠檬酸</strong></td><td>适量</td><td>pH 调节剂</td><td>调节 pH 至 5.5-6.5（匹配头皮天然 pH 5.5、抑制组分水解；二噁烷为乙氧基化工艺副产物，其稳定性与配方 pH 无关）</td></tr>
+          <tr><td><strong>防腐剂</strong></td><td>0.5-1.0%</td><td>防腐</td><td>苯氧乙醇+乙基己基甘油（0.5-0.8%），或苯甲酸钠+山梨酸钾（0.5-1.0%）。非甲醛释放型</td></tr>
+          <tr><td><strong>香精</strong></td><td>0.3-0.8%</td><td>赋香</td><td>需先用 PEG-40 氢化蓖麻油（香精:增溶剂≈1:3）增溶至透明</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <strong>天赐的切入点：</strong>在这个配方中，天赐可以提供 <span class="code">CAB（TC-CAB 35/35TF）</span> 替代竞品 CAB，以及 <span class="code">聚季铵盐（PQ-10）</span> 替代竞品阳离子调理剂。CAB 是洗发水配方中除 AES 外用量最大的表活，也是天赐市占率第一（29.7%）的强势品类。向客户强调 <mark class="key">CAB 的品质差异（游离胺≤0.3%、氯乙酸钠≤20ppm）</mark> 如何直接影响洗发水的温和性和气味。
+    </div>
+
+    <h3>沐浴露配方详解——与洗发水的关键差异</h3>
+    <div class="card accent2">
+      <h4>沐浴露 vs 洗发水：配方设计逻辑的根本不同</h4>
+      <p>虽然沐浴露和洗发水都是清洁类产品，但配方设计逻辑有本质区别：<strong>洗发水需要调理（护发），沐浴露不需要</strong>；<strong>沐浴露需要滋润（护肤），洗发水不需要</strong>。理解这些差异，你才能精准推荐产品。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>对比维度</th><th>洗发水</th><th>沐浴露</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>主表活</strong></td><td>AES 12-18%，高清洁力，需要去除头皮油脂和定型产品残留</td><td>AES 8-12%，清洁力适中，避免过度脱脂导致皮肤干燥</td></tr>
+          <tr><td><strong>辅表活</strong></td><td>CAB 3-8%，偏重增泡稳泡</td><td>CAB 4-8%，更高比例，偏重降刺激和温和性</td></tr>
+          <tr><td><strong>调理剂</strong></td><td>PQ-10+瓜尔胶+硅油（0.5-3%），重点在湿梳/干梳/光泽</td><td><strong>无阳离子调理剂</strong>（或很少），重点在保湿和洗后肤感</td></tr>
+          <tr><td><strong>保湿剂</strong></td><td>甘油 1-3%（非必需）</td><td>甘油 3-8% + 多元醇，<strong>保湿是沐浴露的核心需求</strong></td></tr>
+          <tr><td><strong>油脂/润肤剂</strong></td><td>极少量或不加</td><td>霍霍巴油、角鲨烷、甘油三酯等 0.5-2.0%，提供洗后滋润感</td></tr>
+          <tr><td><strong>pH</strong></td><td>5.5-6.5（头皮 pH）</td><td>5.0-6.0（皮肤 pH，更偏酸）</td></tr>
+          <tr><td><strong>香精</strong></td><td>0.3-0.8%</td><td>0.5-1.5%，沐浴露的香气接受度更宽，可更浓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout accent2">
+      <strong>沐浴露中的天赐机会：</strong>沐浴露追求"温和清洁+滋润保湿"，对表活的温和性要求高于洗发水。天赐的 <span class="code">氨基酸表活（CG30W、Napure C-FA）</span> 替代部分 AES，可显著提升沐浴露的温和性和洗后肤感。相比洗发水，沐浴露对氨基酸表活的接受度更高——因为"氨基酸沐浴露"是消费者愿意溢价购买的品类。推荐话术：<mark class="key">"加 3-5% 椰油酰谷氨酸二钠，沐浴露的温和性和洗后肤感立刻升级，成本增加不到 0.2 元/瓶"</mark>。
+    </div>
+
+    <h3>洁面产品配方详解——三种剂型的配方策略</h3>
+    <div class="card accent3">
+      <h4>洁面产品——配方差异化最大的品类</h4>
+      <p>洁面产品是表活配方差异化和创新最活跃的领域。膏状、乳液状、啫喱状三种剂型对应完全不同的配方策略和消费者定位。</p>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h4>膏状洁面（洁面膏）</h4>
+        <p><strong>核心机制：</strong>甘氨酸钾结晶膏化——pH 5.5-6.5 时甘氨酸盐质子化析出形成三维结晶网络。<br>
+        <strong>关键原料：</strong><span class="code">GCK30P</span>（椰油酰甘氨酸钾）20-30% + 甘油 8-15% + <span class="code">CG30W</span> 5-10%<br>
+        <strong>核心控制：</strong>pH 调节（柠檬酸调至 5.8-6.3）+ 冷却速率（慢速搅拌→大结晶→强珠光）<br>
+        <strong>消费者认知：</strong>"膏体越细腻=品质越高"，珠光效果是"高级感"来源<br>
+        <strong>天赐优势：</strong><span class="code">GCK30P</span> 纯度 99.5%+，批次结晶一致性 ±1.5%，膏体稳定性好</p>
+      </div>
+      <div class="concept-card">
+        <h4>乳液状洁面</h4>
+        <p><strong>核心机制：</strong>O/W 乳液体系，液体表活+液态油脂+乳化剂。<br>
+        <strong>关键原料：</strong>氨基酸表活（谷氨酸盐/肌氨酸盐）8-15% + CAB 3-5% + 角鲨烷/霍霍巴油 1-3%<br>
+        <strong>核心控制：</strong>乳化稳定性（HLB 匹配）+ 粘度控制（丙烯酸聚合物增稠）<br>
+        <strong>消费者认知：</strong>"乳液状=温和滋润"，适合干性/敏感肌<br>
+        <strong>天赐优势：</strong><span class="code">CG30W</span>（椰油酰谷氨酸二钠）水溶性好，乳液配方中不易析出</p>
+      </div>
+      <div class="concept-card">
+        <h4>啫喱状洁面</h4>
+        <p><strong>核心机制：</strong>透明凝胶体系，卡波姆/丙烯酸共聚物增稠。<br>
+        <strong>关键原料：</strong>氨基酸表活（谷氨酸二钠/TEA 盐）10-18% + APG 3-5% + 卡波姆 0.3-0.6%<br>
+        <strong>核心控制：</strong>透明度（pH≥5.0 避免谷氨酸盐析出）+ 泡沫（APG+CAB 补偿氨基酸表活起泡力）<br>
+        <strong>消费者认知：</strong>"透明啫喱=清爽无负担"，适合油皮/混油皮<br>
+        <strong>天赐优势：</strong><span class="code">CG30W</span>（二钠盐型）在 pH 5.5-7.0 范围内完全透明，TF 系列无盐低色度</p>
+      </div>
+    </div>
+    <div class="callout accent3">
+      <strong>三种剂型的天赐产品推荐：</strong>膏状→<mark class="key"><span class="code">GCK30P</span> + <span class="code">CG30W</span> + <span class="code">CAB 35TF</span></mark>（结晶膏化黄金组合）；乳液状→<mark class="key"><span class="code">CG30W</span> + <span class="code">Napure C-FA</span> + <span class="code">CAB 35</span></mark>（温和清洁+滋润肤感）；啫喱状→<mark class="key"><span class="code">CG30W</span> + <span class="code">TC-APG</span> + <span class="code">CAB 35TF</span></mark>（透明清爽+泡沫丰富）。覆盖全部洁面剂型，天赐是洁面品类表活的一站式供应商。
+    </div>
+  </section>
+
+  <!-- ============ 章节五：氨基酸洁面膏配方设计 ============ -->
+  <section class="section" id="sec-5">
+    <h2>五、氨基酸洁面膏配方设计</h2>
+    <div class="card accent">
+      <h4>氨基酸洁面膏——天赐氨基酸表活的最大应用场景</h4>
+      <p>氨基酸洁面膏是当前洁面市场增长最快的品类，2026 年 Q1 新品备案<strong>同比上涨 214%</strong>。天赐的 <span class="code">AMIN GCK95U(P)</span>（椰油酰甘氨酸钾，开发代号 <span class="code">GCK30P</span>）是这类产品的核心主表活。理解洁面膏的结晶膏化机理，你才能真正说服客户选择天赐的氨基酸表活。</p>
+    </div>
+
+    <h3>甘氨酸钾的结晶膏化机理</h3>
+    <p>椰油酰甘氨酸钾在中性或碱性条件下以钾盐形式存在，水溶性良好。当体系 pH 逐步降低至<strong>5.5-6.5</strong>（加入柠檬酸）时，羧基部分质子化，转变为酸式结构（R-CO-NH-CH₂-COOH），疏水性大增，在醇水体系中过饱和析出，形成<strong>三维结晶网络</strong>，膏体成型。</p>
+    <div class="process-flow">
+      <div class="step"><span class="step-num">1</span><div><strong>溶解：</strong>甘氨酸钾（<span class="code">GCK30P</span>）+ 水 + 甘油 → 加热至 70-80°C → 透明溶液</div></div>
+      <div class="step"><span class="step-num">2</span><div><strong>酸化：</strong>加入柠檬酸，调节 pH 至 5.5-6.5 → 甘氨酸盐部分质子化 → 疏水性大增</div></div>
+      <div class="step"><span class="step-num">3</span><div><strong>结晶：</strong>降温至 40-50°C → 酸式甘氨酸过饱和析出 → 形成三维结晶网络</div></div>
+      <div class="step"><span class="step-num">4</span><div><strong>膏化：</strong>结晶网络包裹水和多元醇 → 形成稳定的膏体结构</div></div>
+    </div>
+
+    <h3>多元醇对膏体的关键影响</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>多元醇</th><th>用量</th><th>对膏体的影响</th><th>推荐场景</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>甘油</strong></td><td>8-15%</td><td>促进作用最显著——放热峰最干净、尖锐，形成<strong>均匀细腻的层状凝胶相</strong>，膏体细腻柔软</td><td>高端洁面膏（首选）</td></tr>
+          <tr><td><strong>丁二醇</strong></td><td>3-8%</td><td>放热峰平坦不规则，结晶较粗，膏体偏硬</td><td>搭配甘油使用，调节硬度</td></tr>
+          <tr><td><strong>丙二醇</strong></td><td>2-5%</td><td>结晶促进效果介于甘油和丁二醇之间</td><td>保湿+助结晶</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>调节膏体硬度的四种方法</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>方法</th><th>操作</th><th>效果</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>甘氨酸钾用量</strong></td><td>增加至 20-30%</td><td>膏体更硬，结膏温度更高</td></tr>
+          <tr><td><strong>谷氨酸盐复配</strong></td><td>加入椰油酰谷氨酸钠 5-15%</td><td>甘氨酸盐与谷氨酸盐互补析出点，膏体适度变软，更宽温度范围稳定</td></tr>
+          <tr><td><strong>硬脂酰谷氨酸钠</strong></td><td>0.1-1%</td><td>促进结晶，提升结膏温度至 40°C 以上</td></tr>
+          <tr><td><strong>两性表活穿插</strong></td><td>月桂酰两性基乙酸钠 3-6%</td><td>穿插在结晶网络中，降低膏体硬度，改善铺展性</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent2">
+      <h4>珠光效果的原理</h4>
+      <p>结晶型洁面膏的珠光来自<strong>甘氨酸钾结晶颗粒对光线的散射</strong>，而非外加珠光剂。甘油体系形成的结晶颗粒最均匀细腻，珠光效果最柔和。慢速搅拌 + 缓慢冷却 → 大颗粒结晶 → 强珠光；快速搅拌 + 急速冷却 → 细颗粒结晶 → 柔和珠光。珠光效果是产品"高级感"的重要来源。</p>
+    </div>
+
+    <div class="callout">
+      <strong>经典配方框架：</strong>椰油酰甘氨酸钾（<span class="code">GCK30P</span>）20-30% + 椰油酰谷氨酸钠（<span class="code">CG30W</span>）5-10% + 甘油 8-15% + 月桂酰两性基乙酸钠 3-5% + 柠檬酸调 pH 至 5.8-6.3 + 硬脂酰谷氨酸钠 0.2-0.5%。这就是目前市场上<mark class="key">90% 氨基酸洁面膏</mark>的基础架构。
+    </div>
+  </section>
+
+  <!-- ============ 章节六：透明配方与增稠挑战 ============ -->
+  <section class="section" id="sec-6">
+    <h2>六、透明配方与增稠挑战</h2>
+    <p>透明产品是消费者对"纯净"的直观认知，但透明配方是<strong>技术含量最高的配方类型</strong>——任何微小的失误都会导致浑浊；无硫酸盐体系又叠加了增稠困难的挑战。两部分合看，是高端洗护配方的两大技术门槛。</p>
+
+    <h3>透明洗发水/沐浴露的配方要点</h3>
+    <div class="card accent">
+      <h4>透明度的敌人——五大破坏因素</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>破坏因素</th><th>机理</th><th>解决方案</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>pH不匹配</strong></td><td>椰油酰谷氨酸钠在 pH&lt;5 时酸式析出，溶液变半透明</td><td>保持 pH≥5.0；使用 TEA 盐型代替钠盐</td></tr>
+            <tr><td><strong>阳离子-阴离子沉淀</strong></td><td>PQ-10 等阳离子调理剂与阴离子表活形成不溶性复合物</td><td>阳离子物控制在阴离子总量的 10% 以下</td></tr>
+            <tr><td><strong>盐含量过高</strong></td><td>过量 NaCl（&gt;2%）导致盐析，表活析出浑浊</td><td>控制 NaCl 总量 ≤2%，先做盐曲线确定上限</td></tr>
+            <tr><td><strong>香精/油脂未增溶</strong></td><td>氨基酸表活对芳香油容纳能力有限</td><td>使用水溶性香精，或先用 PEG-40 氢化蓖麻油增溶</td></tr>
+            <tr><td><strong>低温析晶</strong></td><td>C16 以上高碳组分低温选择性析出</td><td>加入 3-5% 丙二醇/甘油防冻；选用低熔点原料</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3>无硫酸盐体系的增稠挑战</h3>
+    <div class="card warning">
+      <h4>为什么无硫酸盐体系难增稠？</h4>
+      <p>传统 SLES 体系的盐增稠依赖阴离子头基的静电屏蔽效应，而氨基酸表活（如月桂酰谷氨酸钠）溶液加盐通常直接析出，不像 SLES 那样有一显著黏度峰值区。因此<strong>不建议仅靠无机盐来增稠氨基酸系体系</strong>。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>方案</th><th>具体方法</th><th>效果</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>两性/阴离子协同增稠</strong></td><td>CAPB 占总表活量 30-50%，或月桂酰肌氨酸钠:CAPB≈1:1</td><td>无需加盐即可达 &gt;5000 mPa·s</td></tr>
+          <tr><td><strong>聚合物增稠</strong></td><td>Carbopol SC-800 / 丙烯酸类共聚物 0.3-1.0%</td><td>提供基础稠度，需中和至 pH 6-7</td></tr>
+          <tr><td><strong>纤维素醚类</strong></td><td>HEC 羟乙基纤维素 0.3-0.8%</td><td>非离子增稠，不受 pH 影响</td></tr>
+          <tr><td><strong>酰胺类助稠</strong></td><td>椰油酰胺 MEA（CMEA）0.5-1.5%</td><td>对氨基酸盐也有帮助</td></tr>
+          <tr><td><strong>疏水/亲水增稠剂复配</strong></td><td>PEG-120 甲基葡萄糖二油酸酯 + PEG-150 二硬脂酸酯</td><td>协同效应，优化温度依赖性</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 章节七：婴童配方设计 ============ -->
+  <section class="section" id="sec-7">
+    <h2>七、婴童配方设计</h2>
+    <p>婴童皮肤厚度仅为成人 1/3，经皮吸收率是成人 3-5 倍，角膜神经末梢密度是成人 3 倍以上——<strong>安全性要求最高</strong>的品类。极低刺激与安全第一是婴童配方的核心原则。</p>
+
+    <div class="card warning">
+      <h4>婴童配方重点注意事项</h4>
+      <ul class="feature-list">
+        <li><strong>无泪配方：</strong>pH 5.5-6.5（接近婴儿皮肤天然 pH 5.5），大分子表活（APG / 高分子氨基酸）不易穿透角膜，渗透压接近生理，眼刺激无刺激。</li>
+        <li><strong>无刺激性防腐剂：</strong>禁用 MIT/CMIT、甲醛释放体；选用食品级苯甲酸钠+山梨酸钾，或多元醇防腐体系。</li>
+        <li><strong>精简成分：</strong>总活性物 ≤15%，避免过度清洁；优先无香或食品级香精（IFRA 认证婴童级 ≤0.1%）。</li>
+        <li><strong>原料安全：</strong>EWG 1-2 等级，避开 SLS/SLES、香精过敏原；全部无盐/低盐 → 渗透压接近生理不刺激眼睛。</li>
+      </ul>
+    </div>
+
+    <h3>婴童配方设计要求</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>设计要求</th><th>指标</th><th>实现方法</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>总活性物</td><td>≤15%</td><td>避免过度清洁</td></tr>
+          <tr><td>pH</td><td>5.0-6.0</td><td>弱酸性，接近婴儿皮肤天然 pH 5.5</td></tr>
+          <tr><td>无泪配方</td><td>眼刺激无刺激</td><td>大分子表活不易穿透角膜；pH 5.5-7.0，渗透压接近生理</td></tr>
+          <tr><td>原料安全</td><td>EWG 1-2</td><td>避开 SLS/SLES、MIT/CMIT、甲醛释放体、香精过敏原</td></tr>
+          <tr><td>防腐</td><td>食品级</td><td>苯甲酸钠+山梨酸钾，或多元醇防腐；禁用 MIT</td></tr>
+          <tr><td>香精</td><td>无香或食品级</td><td>优先无香；IFRA 认证婴童级 ≤0.1%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent2">
+      <h4>无泪配方科学原理</h4>
+      <p>婴幼儿角膜神经末梢密度是成人的<strong>3倍以上</strong>。无泪配方的核心是<strong>大分子量表活不易渗透角膜</strong>——PEG修饰的表活、高分子氨基酸表活、APG因分子体积大，难以穿透角膜上皮细胞的紧密连接，无法接触到角膜下的神经末梢。同时pH严格控制在 5.5-7.0，渗透压接近生理水平。</p>
+    </div>
+
+    <div class="card accent">
+      <h4>极低刺激的表活组合（量化数据）</h4>
+      <p><strong>氨基酸表活（核心）</strong>：椰油酰谷氨酸二钠 6-12%，刺激指数 SI 仅 <strong>0.3</strong>，Draize 评分 <strong>0（无刺激）</strong><br>
+      <strong>两性表活</strong>：CAB 3-6% + 月桂酰两性基乙酸钠 2-4%<br>
+      <strong>非离子表活</strong>：APG 2-5%，无刺激，易生物降解<br>
+      总活性物 ≤ 15%（一般婴童配方），pH 5.0-6.0</p>
+    </div>
+
+    <div class="callout accent3">
+      <strong>天赐婴童黄金组合：</strong>TC-CAB 35TF（无盐CAB）5-8% + TC-SHD(L)（磺基甜菜碱）3-5% + AMIN LS30-NP（无防腐剂肌氨酸钠）6-10% + TC-APG 3-5%。<mark class="key">核心优势：全部无盐/低盐 → 渗透压接近生理不刺激眼睛；AMIN LS30-NP 无防腐剂争议；SHD 系列磺基甜菜碱刺激指数极低、穿插结晶网络改善铺展。</mark>
+    </div>
+  </section>
+
+  <!-- ============ 章节八：配方设计流程 ============ -->
+  <section class="section" id="sec-8">
+    <h2>八、配方设计流程</h2>
+    <p>配方设计是系统工程，从定位到稳定性测试共七步。每一步都决定最终产品的性能与稳定性，跳步往往导致后期反复返工。</p>
+
+    <div class="process-flow">
+      <div class="step"><span class="step-num">1</span><div><strong>确定剂型和定位：</strong>明确产品是洁面/沐浴/洗发，定位大众/高端/婴童，确定总活性物范围、pH 区间、成本上限。这是所有后续选择的锚点。</div></div>
+      <div class="step"><span class="step-num">2</span><div><strong>选择主表活：</strong>大众选 AES（性价比），高端/温和选氨基酸表活（甘氨酸钾/谷氨酸二钠/肌氨酸钠），天然绿色选 APG。主表活决定清洁力与温和性基调。</div></div>
+      <div class="step"><span class="step-num">3</span><div><strong>复配辅表活：</strong>加 CAB（降刺激+增泡+协同增稠），占比 3-8%。无硫酸盐体系 CAB 占总表活 30-50%。辅表活是配方"润滑剂"，让体系更均衡。</div></div>
+      <div class="step"><span class="step-num">4</span><div><strong>添加功能性成分：</strong>调理剂（PQ-10/瓜尔胶/硅油）、保湿剂（甘油/多元醇）、功效成分（美白/抗衰）。按剂型定位添加，沐浴露重保湿，洗发水重调理。</div></div>
+      <div class="step"><span class="step-num">5</span><div><strong>调节 pH 和粘度：</strong>柠檬酸调 pH 至目标区间（洗发 5.5-6.5、沐浴 5.0-6.0、洁面 5.8-6.3）；NaCl 做盐曲线找增稠峰值，或卡波姆/CMEA 增稠。无硫酸盐体系用 CAB 协同增稠。</div></div>
+      <div class="step"><span class="step-num">6</span><div><strong>防腐体系：</strong>选非甲醛释放型（苯氧乙醇+乙基己基甘油，或苯甲酸钠+山梨酸钾），0.5-1.0%。加 EDTA 二钠螯合金属离子提升防腐效能。婴童用食品级。</div></div>
+      <div class="step"><span class="step-num">7</span><div><strong>稳定性测试：</strong>高温（45°C/4 周）、低温（-5°C/24h）、冻融循环、离心、光照测试。透明配方查 pH≥5.0 防析出、查阳离子≤阴离子 10%、查 NaCl≤2%。三步排查 90% 问题。</div></div>
+    </div>
+
+    <div class="callout">
+      <strong>流程心法：</strong>配方设计是"先骨架后血肉"——剂型定位是骨架，表活选择是心脏，辅表活和功能成分是血肉，pH/粘度/防腐是免疫系统，稳定性测试是体检。<mark class="key">每一步都要有依据，不凭感觉加料。</mark>
+    </div>
+  </section>
+
+  <!-- ============ 上下篇导航 ============ -->
+  <nav class="page-nav">
+    <a href="products.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">天赐产品体系</span>
+    </a>
+    <a href="sales.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">销售实战</span>
+    </a>
+  </nav>
+
+  <!-- ============ 相关页面推荐 ============ -->
+  <div class="related-pages">
+    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-grid">
+      <a href="products.html" class="rp-card">
+        <span class="rp-icon">🏭</span>
+        <span class="rp-name">产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">6 大系列选型指南</small></span>
+      </a>
+      <a href="theory.html" class="rp-card">
+        <span class="rp-icon">📚</span>
+        <span class="rp-name">理论<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">表活理论基石</small></span>
+      </a>
+      <a href="sales.html" class="rp-card">
+        <span class="rp-icon">💬</span>
+        <span class="rp-name">销售实战<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">9 场景话术模板</small></span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <h2>天赐材料日化知识库</h2>
+    <p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p>
+    <p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p>
+  </div>
+</footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+<script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
+    </main>
+    <script src="site.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

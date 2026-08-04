@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合成工艺</title>
+    <style id="theme-vars">
+/* ========================================
+   天赐材料日化知识库 · Design Tokens
+   设计语言：深青渐变 × 暖白底 · 精致卡片
+   参照旧知识库 style.css v3，适配 Solo Design token 规范
+   ======================================== */
+
+:root {
+  /* === Brand Primary — 深青色系 (单一品牌色) === */
+  --tinci-primary-50: #E6F5F1;
+  --tinci-primary-100: #CBE8E2;
+  --tinci-primary-200: #99D1C5;
+  --tinci-primary-300: #66BAA8;
+  --tinci-primary-400: #33A38B;
+  --tinci-primary-500: #0B7666;
+  --tinci-primary-600: #0A5F52;
+  --tinci-primary-700: #084840;
+  --tinci-primary-800: #063130;
+  --tinci-primary-900: #042020;
+
+  /* === Bright Teal — 主色浅色变体 (同色系) === */
+  --tinci-teal: #14B8A6;
+  --tinci-teal-soft: #E9FAF6;
+  --tinci-teal-50: #E9FAF6;
+  --tinci-teal-100: #BFF0E6;
+  --tinci-teal-200: #80E1CD;
+  --tinci-teal-300: #41D2B5;
+  --tinci-teal-400: #14B8A6;
+  --tinci-teal-500: #0E9488;
+  --tinci-teal-600: #0B7666;
+
+  /* === Semantic Aliases (required by apply-html-head-contract) === */
+  --tinci-background: #F5FAF8;
+  --tinci-foreground: #0F2E2A;
+  --tinci-card: #FFFFFF;
+  --tinci-card-foreground: #0F2E2A;
+  --tinci-popover: #FFFFFF;
+  --tinci-popover-foreground: #0F2E2A;
+  --tinci-primary: #0B7666;
+  --tinci-primary-foreground: #FFFFFF;
+  --tinci-secondary: #E6F5F1;
+  --tinci-secondary-foreground: #0B7666;
+  --tinci-muted: #E6F5F1;
+  --tinci-muted-foreground: #5B7A74;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #FFFFFF;
+  --tinci-border: #E2EFEB;
+  --tinci-input: #E2EFEB;
+  --tinci-ring: #14B8A6;
+
+  /* === Radius Scale === */
+  --tinci-radius-small: 4px;
+  --tinci-radius-medium: 8px;
+  --tinci-radius-large: 14px;
+  --tinci-radius-full: 9999px;
+
+  /* === Typography === */
+  --tinci-font-sans: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --tinci-font-mono: "JetBrains Mono", "SF Mono", "Consolas", monospace;
+  --tinci-font-heading: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --tinci-font-body: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+
+  /* === Surface Depth === */
+  --tinci-surface: #FFFFFF;
+  --tinci-surface-2: #F8FBFA;
+  --tinci-ink: #0F2E2A;
+  --tinci-ink-2: #5B7A74;
+  --tinci-ink-3: #8FA8A2;
+  --tinci-line: #E2EFEB;
+
+  /* === Gradients (same-hue, for hero/nav only) === */
+  --tinci-nav-grad: linear-gradient(135deg, #0B7666 0%, #14B8A6 100%);
+  --tinci-hero-grad: linear-gradient(135deg, #0A4A42 0%, #0F766E 50%, #14B8A6 110%);
+
+  /* === State Colors (semantic only) === */
+  --state-success: #059669;
+  --state-success-soft: #E9F8EE;
+  --state-warning: #D97706;
+  --state-warning-soft: #FEF5E7;
+  --state-error: #DC2626;
+  --state-error-soft: #FEE2E2;
+  --state-info: #0B7666;
+  --state-info-soft: #E6F5F1;
+
+  /* === Shadows (alpha <= 0.05 for static; deeper for floating only) === */
+  --tinci-shadow-xs: 0 1px 2px rgba(11,118,102,0.04), 0 1px 3px rgba(11,118,102,0.04);
+  --tinci-shadow-sm: 0 2px 6px rgba(11,118,102,0.05);
+  --tinci-shadow-md: 0 8px 24px -6px rgba(11,118,102,0.12), 0 2px 8px -2px rgba(11,118,102,0.06);
+  --tinci-shadow-lg: 0 16px 40px -8px rgba(11,118,102,0.16), 0 4px 12px -4px rgba(11,118,102,0.08);
+}
+
+/* === Dark Mode === */
+.dark {
+  --tinci-background: #0B1F1C;
+  --tinci-foreground: #E2EFEB;
+  --tinci-card: #14302B;
+  --tinci-card-foreground: #E2EFEB;
+  --tinci-popover: #14302B;
+  --tinci-popover-foreground: #E2EFEB;
+  --tinci-primary: #14B8A6;
+  --tinci-primary-foreground: #042020;
+  --tinci-secondary: #1A3A35;
+  --tinci-secondary-foreground: #66BAA8;
+  --tinci-muted: #1A3A35;
+  --tinci-muted-foreground: #8FA8A2;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #042020;
+  --tinci-border: #1F3D38;
+  --tinci-input: #1F3D38;
+  --tinci-ring: #14B8A6;
+  --tinci-surface: #14302B;
+  --tinci-surface-2: #1A3A35;
+  --tinci-ink: #E2EFEB;
+  --tinci-ink-2: #8FA8A2;
+  --tinci-ink-3: #5B7A74;
+  --tinci-line: #1F3D38;
+}
+
+    </style>
+    <script src="vendor/tailwind.browser.js"></script>
+    <script src="vendor/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--tinci-background);
+    --color-foreground: var(--tinci-foreground);
+    --color-card: var(--tinci-card);
+    --color-card-foreground: var(--tinci-card-foreground);
+    --color-popover: var(--tinci-popover);
+    --color-popover-foreground: var(--tinci-popover-foreground);
+    --color-primary: var(--tinci-primary);
+    --color-primary-foreground: var(--tinci-primary-foreground);
+    --color-secondary: var(--tinci-secondary);
+    --color-secondary-foreground: var(--tinci-secondary-foreground);
+    --color-muted: var(--tinci-muted);
+    --color-muted-foreground: var(--tinci-muted-foreground);
+    --color-accent: var(--tinci-accent);
+    --color-accent-foreground: var(--tinci-accent-foreground);
+    --color-border: var(--tinci-border);
+    --color-input: var(--tinci-input);
+    --color-ring: var(--tinci-ring);
+    --radius-sm: var(--tinci-radius-small);
+    --radius-md: var(--tinci-radius-medium);
+    --radius-lg: var(--tinci-radius-large);
+  }
+  @layer base {
+    body { background: var(--tinci-background); color: var(--tinci-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--tinci-background); }
+      .text-background { color: var(--tinci-background); }
+      .border-background { border-color: var(--tinci-background); }
+      .ring-background { --tw-ring-color: var(--tinci-background); }
+      .bg-foreground { background-color: var(--tinci-foreground); }
+      .text-foreground { color: var(--tinci-foreground); }
+      .border-foreground { border-color: var(--tinci-foreground); }
+      .ring-foreground { --tw-ring-color: var(--tinci-foreground); }
+      .bg-card { background-color: var(--tinci-card); }
+      .text-card { color: var(--tinci-card); }
+      .border-card { border-color: var(--tinci-card); }
+      .ring-card { --tw-ring-color: var(--tinci-card); }
+      .bg-card-foreground { background-color: var(--tinci-card-foreground); }
+      .text-card-foreground { color: var(--tinci-card-foreground); }
+      .border-card-foreground { border-color: var(--tinci-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--tinci-card-foreground); }
+      .bg-popover { background-color: var(--tinci-popover); }
+      .text-popover { color: var(--tinci-popover); }
+      .border-popover { border-color: var(--tinci-popover); }
+      .ring-popover { --tw-ring-color: var(--tinci-popover); }
+      .bg-popover-foreground { background-color: var(--tinci-popover-foreground); }
+      .text-popover-foreground { color: var(--tinci-popover-foreground); }
+      .border-popover-foreground { border-color: var(--tinci-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--tinci-popover-foreground); }
+      .bg-primary { background-color: var(--tinci-primary); }
+      .text-primary { color: var(--tinci-primary); }
+      .border-primary { border-color: var(--tinci-primary); }
+      .ring-primary { --tw-ring-color: var(--tinci-primary); }
+      .bg-primary-foreground { background-color: var(--tinci-primary-foreground); }
+      .text-primary-foreground { color: var(--tinci-primary-foreground); }
+      .border-primary-foreground { border-color: var(--tinci-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--tinci-primary-foreground); }
+      .bg-secondary { background-color: var(--tinci-secondary); }
+      .text-secondary { color: var(--tinci-secondary); }
+      .border-secondary { border-color: var(--tinci-secondary); }
+      .ring-secondary { --tw-ring-color: var(--tinci-secondary); }
+      .bg-secondary-foreground { background-color: var(--tinci-secondary-foreground); }
+      .text-secondary-foreground { color: var(--tinci-secondary-foreground); }
+      .border-secondary-foreground { border-color: var(--tinci-secondary-foreground); }
+      .ring-secondary-foreground { --tw-ring-color: var(--tinci-secondary-foreground); }
+      .bg-muted { background-color: var(--tinci-muted); }
+      .text-muted { color: var(--tinci-muted); }
+      .border-muted { border-color: var(--tinci-muted); }
+      .ring-muted { --tw-ring-color: var(--tinci-muted); }
+      .bg-muted-foreground { background-color: var(--tinci-muted-foreground); }
+      .text-muted-foreground { color: var(--tinci-muted-foreground); }
+      .border-muted-foreground { border-color: var(--tinci-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--tinci-muted-foreground); }
+      .bg-accent { background-color: var(--tinci-accent); }
+      .text-accent { color: var(--tinci-accent); }
+      .border-accent { border-color: var(--tinci-accent); }
+      .ring-accent { --tw-ring-color: var(--tinci-accent); }
+      .bg-accent-foreground { background-color: var(--tinci-accent-foreground); }
+      .text-accent-foreground { color: var(--tinci-accent-foreground); }
+      .border-accent-foreground { border-color: var(--tinci-accent-foreground); }
+      .ring-accent-foreground { --tw-ring-color: var(--tinci-accent-foreground); }
+      .bg-border { background-color: var(--tinci-border); }
+      .text-border { color: var(--tinci-border); }
+      .border-border { border-color: var(--tinci-border); }
+      .ring-border { --tw-ring-color: var(--tinci-border); }
+      .bg-input { background-color: var(--tinci-input); }
+      .text-input { color: var(--tinci-input); }
+      .border-input { border-color: var(--tinci-input); }
+      .ring-input { --tw-ring-color: var(--tinci-input); }
+      .bg-ring { background-color: var(--tinci-ring); }
+      .text-ring { color: var(--tinci-ring); }
+      .border-ring { border-color: var(--tinci-ring); }
+      .ring-ring { --tw-ring-color: var(--tinci-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <link rel="stylesheet" href="shared-components.css">
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+<nav class="site-nav">
+  <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
+  <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
+    <a href="index.html">首页</a>
+    <a href="theory.html" class="active">理论</a>
+    <a href="products.html">产品</a>
+    <a href="formulation.html">配方</a>
+    <a href="sales.html">销售</a>
+    <a href="market.html">市场</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ============ Page Hero ============ -->
+  <section class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="bc-sep">›</span>
+      <a href="theory.html">理论</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">合成工艺</span>
+    </div>
+    <h1>合成工艺详解</h1>
+    <p class="page-hero-desc">LAS磺化、AES乙氧基化+硫酸化、甜菜碱季铵化、氨基酸表活肖顿-鲍曼反应等10种合成路线。本页工艺参数为通用行业参考值，具体以天赐工艺卡与 TDS 为准。</p>
+    <div class="page-hero-meta">
+      <span class="tag">合成工艺</span>
+      <span class="tag">10种路线</span>
+      <span class="tag">天赐核心</span>
+    </div>
+  </section>
+
+  <!-- ============ TOC ============ -->
+  <details class="toc-nav" open>
+    <summary>本页目录 · 五大章节</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>LAS 磺化工艺</a>
+      <a href="#sec-2"><span class="toc-num">2</span>AES 硫酸化工艺</a>
+      <a href="#sec-3"><span class="toc-num">3</span>非离子表活合成</a>
+      <a href="#sec-4"><span class="toc-num">4</span>季铵盐合成</a>
+      <a href="#sec-5"><span class="toc-num">5</span>甜菜碱与氨基酸表活</a>
+    </div>
+  </details>
+
+  <!-- ============ 8.1 LAS ============ -->
+  <section class="section" id="sec-1">
+    <h2>8.1 LAS（烷基苯磺酸钠）——三步法工艺</h2>
+
+    <div class="formula-box">1 烷基苯制备：正构烷烃→脱氢/氯化→与苯烷基化(Friedel-Crafts，催化剂AlCl₃或HF)→直链烷基苯(LAB)（此处 LAB=直链烷基苯 Linear Alkyl Benzene，是 LAS 的原料，<mark class="key">与产品系列 LAB＝月桂酰胺丙基甜菜碱 无关</mark>）<br>
+↓ 2 磺化反应：LAB + SO₃ → 烷基苯磺酸。膜式磺化反应器（降膜式），温度30-60°C，停留时间几秒至几十秒。温度过高→多磺化副产物和砜类杂质→影响色泽和性能。<br>
+↓ 3 中和：烷基苯磺酸 + NaOH → LAS成品。后处理：脱色、调配。</div>
+
+    <h3>8.1.1 LAS的SO₃磺化工艺——详细参数</h3>
+
+    <div class="callout">
+      <p><strong>降膜式反应器（Falling Film Reactor）——磺化工艺的核心设备</strong></p>
+      <p>LAS的磺化是工业规模最大的表活合成反应之一。降膜式反应器是目前最先进的磺化设备：<strong>LAB在反应器内壁形成0.1-0.3mm的液膜向下流动，SO₃气体与液膜并流（同向）向下流动</strong>——气液接触面积巨大，传质效率极高，能在极短时间内完成反应。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>工艺参数</th><th>最佳范围</th><th>偏离后果</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>反应温度</strong></td><td><strong>40-60°C</strong></td><td>温度过低→反应不完全，游离油高；温度过高→多磺化副产物、砜类杂质增加，色泽加深</td></tr>
+          <tr><td><strong>SO₃/LAB摩尔比</strong></td><td><strong>1.05-1.10</strong></td><td>比例过低→磺化不完全，游离油高；比例过高→多磺化、磺内酯形成，颜色变深至Gardner 5+</td></tr>
+          <tr><td><strong>停留时间</strong></td><td><strong>2-5秒</strong></td><td>时间过短→反应不完全；时间过长→副反应增多，局部过热</td></tr>
+          <tr><td><strong>SO₃浓度</strong></td><td>3-5%（以干空气稀释）</td><td>浓度过高→局部过热，副反应加剧；浓度过低→反应速率不足</td></tr>
+          <tr><td><strong>冷却介质</strong></td><td>冷却水（20-30°C）</td><td>磺化反应放热量大（约170 kJ/mol），冷却不足→温度失控</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warning">
+      <p><strong>品质关键：</strong>SO₃/LAB摩尔比是最关键的工艺参数。每提高0.05摩尔比，磺化产物色泽可能加深1-2个Gardner单位。天赐的氨基酸表活之所以色泽浅、批次一致性好，正是因为对类似磺化/酰化反应中的摩尔比、温度、时间的精密控制。这也是为什么<mark class="key">"工艺参数"= "产品品质"</mark>。</p>
+    </div>
+
+    <h3>8.1.2 AOS（α-烯烃磺酸盐）的完整合成路线</h3>
+
+    <div class="callout accent3">
+      <p><strong>四步法——磺化→老化→中和→水解</strong></p>
+      <p>AOS是除LAS和AES之外最重要的阴离子表活品种之一，以α-烯烃（C₁₂-C₁₈）为原料，SO₃磺化。其合成路线包含一个独特的<strong>水解步骤</strong>，这是AOS区别于LAS的关键工艺特征。</p>
+    </div>
+
+    <div class="formula-box">1 磺化：α-烯烃 + SO₃ → 磺内酯（sultone）混合物。温度30-50°C，SO₃/烯烃摩尔比1.05-1.10。α-烯烃的磺化比LAB更复杂，产物中含有多种异构磺内酯。<br>
+↓ 2 老化：磺化产物在40-60°C老化10-30分钟，使磺内酯异构化重排，反应趋于完全。<br>
+↓ 3 中和：NaOH中和至pH 7-9，生成烯烃磺酸钠和羟基烷磺酸钠混合物。<br>
+↓ 4 水解（AOS独有）：中和产物在140-170°C、0.5-1.0 MPa条件下水解1-2小时。这是AOS工艺最关键的步骤——磺内酯环在高温高压下开环水解，生成羟基烷磺酸盐。这一步决定了AOS的最终活性物含量和色泽。</div>
+
+    <div class="callout accent3">
+      <p><strong>AOS vs LAS：</strong>AOS的耐硬水能力远优于LAS（钙皂分散力是LAS的3-5倍），在无磷洗衣粉中是不可替代的组分。AOS的Krafft点低于LAS，低温溶解性更好。但AOS工艺中的高温水解步骤能耗高，成本也高于LAS。天赐的氨基酸表活在耐硬水性上同样出色，且天然温和性远超AOS。</p>
+    </div>
+  </section>
+
+  <!-- ============ 8.2 AES ============ -->
+  <section class="section" id="sec-2">
+    <h2>8.2 AES（脂肪醇聚氧乙烯醚硫酸盐）——三步法</h2>
+
+    <div class="formula-box">1 乙氧基化：ROH + 2~3EO → RO(CH₂CH₂O)₂₋₃H（AEO），催化剂KOH/NaOH，120-180°C，0.2-0.5MPa<br>
+↓ 2 硫酸化：AEO + SO₃ → RO(CH₂CH₂O)nSO₃H。关键控制：副产物二噁烷残留量。<br>
+↓ 3 中和：硫酸酯 + NaOH → AES；若用氨水中和→AESA（更温和，高档香波用）</div>
+
+    <h3>8.2.1 AES的SO₃硫酸化工艺——详细参数</h3>
+
+    <div class="callout accent2">
+      <p><strong>AES硫酸化与LAS磺化的关键区别</strong></p>
+      <p>AES的硫酸化比LAS的磺化更敏感——硫酸酯键（-O-SO₃⁻）比磺酸键（-C-SO₃⁻）更容易水解，对工艺条件的要求更苛刻。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>工艺参数</th><th>最佳范围</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>反应温度</strong></td><td><strong>30-50°C</strong></td><td>比LAS磺化温度更低，因为硫酸酯键在高温下极易水解断裂</td></tr>
+          <tr><td><strong>SO₃/AEO摩尔比</strong></td><td><strong>1.02-1.05</strong></td><td>略低于LAS的摩尔比，过量SO₃会导致深度硫酸化，增加二噁烷副产物</td></tr>
+          <tr><td><strong>老化时间</strong></td><td><strong>30-60分钟</strong>（中和前）</td><td>硫酸化后需在老化器中充分停留使反应完全，但时间过长会导致硫酸酯水解和色泽加深</td></tr>
+          <tr><td><strong>中和温度</strong></td><td>&lt;40°C</td><td>中和反应放热，需有效冷却，温度过高→硫酸酯水解→活性物下降</td></tr>
+          <tr><td><strong>二噁烷控制</strong></td><td>≤30 ppm</td><td>二噁烷是SO₃硫酸化工艺的固有副产物（EO链的闭环反应），需真空脱除或优化工艺</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>天赐启示：</strong>AES是大众洗发水最常用的主表活，虽然天赐不直接生产AES，但天赐的氨基酸表活（如椰油酰谷氨酸二钠、椰油酰甘氨酸钾）正是替代AES的升级方案。向客户解释AES的工艺局限（二噁烷风险、硫酸酯水解），就能自然引出氨基酸表活的优势——<mark class="key">酰胺键比硫酸酯键稳定得多</mark>，无二噁烷风险，且对皮肤更温和。</p>
+    </div>
+  </section>
+
+  <!-- ============ 8.3 非离子表活 ============ -->
+  <section class="section" id="sec-3">
+    <h2>8.3 非离子表活——AEO、APG、烷醇酰胺</h2>
+
+    <h3>8.3.1 AEO（脂肪醇聚氧乙烯醚）的合成——乙氧基化</h3>
+
+    <div class="callout accent2">
+      <p><strong>AEO——非离子表活中产量最大的品种</strong></p>
+      <p>AEO的合成是典型的<strong>乙氧基化反应</strong>：脂肪醇（C₁₂-C₁₈）在催化剂作用下与环氧乙烷（EO）开环加成，生成聚氧乙烯醚。AEO是AES的前体原料，也是重要的非离子表活品种。</p>
+    </div>
+
+    <div class="formula-box">1 催化剂活化：脂肪醇 + KOH/NaOH（传统催化剂，0.1-0.5%）或DMC（双金属氰化物催化剂）。DMC催化剂的EO分布更窄，未反应醇（游离醇）更低。<br>
+↓ 2 乙氧基化：脂肪醇 + n EO → R(OCH₂CH₂)nOH。温度120-180°C（传统KOH催化）或90-110°C（DMC催化），压力0.2-0.5 MPa。DMC催化剂活性更高，可在更低温度下进行，副产物（PEG、二噁烷）更少。<br>
+↓ 3 后处理：中和催化剂（醋酸中和KOH），脱色，过滤。AEO-3（n=3，亲油）、AEO-7（n=7，润湿）、AEO-9（n=9，乳化/洗涤）是主要牌号。</div>
+
+    <div class="callout">
+      <p><strong>DMC vs KOH催化：</strong>DMC（双金属氰化物）催化剂是乙氧基化的新一代催化技术。与传统KOH催化相比：① EO分布更窄，产物组成更均一；② 游离醇含量更低（≤1% vs 3-5%）；③ 反应温度更低（90-110°C vs 120-180°C），色泽更浅；④ 二噁烷副产物更少。天赐的氨基酸表活烷基链来源于天然脂肪酸，其酰氯制备和缩合工艺同样追求"窄分布、低杂质"——这跟AEO的DMC催化理念一致。</p>
+    </div>
+
+    <h3>8.3.2 APG（烷基糖苷）的合成——两种工艺路线</h3>
+
+    <div class="callout accent3">
+      <p><strong>APG——绿色非离子表活的代表</strong></p>
+      <p>APG由天然脂肪醇和葡萄糖（可再生资源）合成，100%生物降解，是"绿色化学"理念的典范产品。天赐的TC-APG系列是这一品类的代表。</p>
+    </div>
+
+    <h3>直接苷化法（一步法）</h3>
+    <ul>
+      <li><strong>工艺：</strong>葡萄糖 + 过量脂肪醇（C₈-C₁₆）→ 在酸性催化剂（PTSA对甲苯磺酸或硫酸）作用下直接苷化。</li>
+      <li><strong>温度：</strong>105-110°C</li>
+      <li><strong>压力：</strong>减压（2-5 kPa）脱水</li>
+      <li><strong>后处理：</strong>中和催化剂→蒸馏回收过量醇→溶解→脱色→成品</li>
+      <li><strong>优点：</strong>工艺简单，适合大规模生产</li>
+      <li><strong>缺点：</strong>聚合度（DP）控制较难，产物颜色偏深（需脱色处理）</li>
+    </ul>
+
+    <h3>转糖苷化法（两步法）</h3>
+    <ul>
+      <li><strong>第一步：</strong>葡萄糖 + 丁醇（短链醇）→ 丁基糖苷（中间体）。酸性催化，温度110-120°C。</li>
+      <li><strong>第二步：</strong>丁基糖苷 + 长链脂肪醇（C₈-C₁₆）→ 转糖苷化 → APG。温度110-120°C，减压脱除丁醇。</li>
+      <li><strong>优点：</strong>DP分布更可控，产品色泽更浅，品质更优</li>
+      <li><strong>缺点：</strong>两步法工艺更复杂，成本更高</li>
+    </ul>
+
+    <div class="callout accent3">
+      <p><strong>APG的品质差异来源：</strong>①<strong>聚合度（DP）</strong>——DP=1.2-1.5为低聚APG（HLB相对较低，约10-13），DP=1.5-2.0为高聚APG（葡萄糖单元增多、亲水性增强，HLB相对较高，约13-15）（参考值，以产品TDS为准）；②<strong>游离醇</strong>——残留脂肪醇影响气味和刺激性，优级品≤1%；③<strong>色泽</strong>——APG天然色泽偏深（Gardner 3-5），脱色工艺是品质分水岭。天赐TC-APG采用优化工艺，色泽更浅，批次一致性更好。</p>
+    </div>
+
+    <h3>8.3.3 烷醇酰胺（6501/CDEA）的合成</h3>
+
+    <div class="callout accent4">
+      <p><strong>6501——洗发水/沐浴露的经典增稠稳泡剂</strong></p>
+      <p>烷醇酰胺（椰油酰胺DEA，俗称6501或CDEA）是洗涤配方中应用最广泛的增稠剂和稳泡剂。它通过<strong>插入阴离子表活胶束的栅栏层</strong>，增加界面膜的表面粘度，从而提升泡沫的稳定性和细腻度。</p>
+    </div>
+
+    <div class="formula-box">1 1:1型（超级酰胺）：椰油酸甲酯 + 二乙醇胺（DEA）→ 椰油酰胺DEA + 甲醇↑。温度100-120°C，催化剂：甲醇钠（NaOCH₃），减压脱除甲醇。酯交换反应，酰胺含量≥90%，游离DEA≤5%。<br>
+↓ 2 1:2型（Kritchevsky型）：椰油酸 + 2当量DEA → 酰胺化反应。温度140-170°C，脱水促进反应。产物中含有约60-70%酰胺和20-30%游离DEA——游离DEA本身也参与增稠和稳泡。1:2型增稠效果更强，但游离DEA含量高（亚硝胺风险），欧美法规趋严。</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>对比项</th><th>1:1型（超级酰胺）</th><th>1:2型（Kritchevsky型）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>酰胺含量</strong></td><td>≥90%</td><td>60-70%</td></tr>
+          <tr><td><strong>游离DEA</strong></td><td>≤5%</td><td>20-30%</td></tr>
+          <tr><td><strong>增稠效果</strong></td><td>中等</td><td>强</td></tr>
+          <tr><td><strong>亚硝胺风险</strong></td><td>低</td><td>高（已受限）</td></tr>
+          <tr><td><strong>外观</strong></td><td>固体或膏状</td><td>液体（更易使用）</td></tr>
+          <tr><td><strong>法规趋势</strong></td><td>推荐使用</td><td>欧盟限制，中国逐步淘汰</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>与天赐的关联：</strong>由于6501的亚硝胺风险和法规趋严，行业正在寻找替代方案。天赐的<strong>TC-CAO（椰油酰胺丙基氧化胺）和TC-LAO（月桂酰胺丙基氧化胺）</strong>是优秀的6501替代品——氧化胺同样具有增稠和稳泡功能，且无亚硝胺风险，刺激性更低。氧化胺与CAB的协同增稠效果甚至优于6501。在无硫酸盐/氨基酸体系中，CAB+氧化胺是新一代的增稠稳泡组合。</p>
+    </div>
+  </section>
+
+  <!-- ============ 8.4 季铵盐 ============ -->
+  <section class="section" id="sec-4">
+    <h2>8.4 季铵盐合成——季铵化反应</h2>
+
+    <div class="formula-box">季铵化反应（通用）　R₃N + R'X → R₃R'N⁺X⁻<br>
+叔胺　卤代烷　季铵盐<br>
+溶剂：异丙醇等；温度：80~120°C<br>
+例如：C₁₂H₂₅N(CH₃)₂ + CH₃Cl → C₁₂H₂₅N⁺(CH₃)₃ Cl⁻ (DTAC/1231)</div>
+
+    <div class="callout">
+      <p><strong>从工艺参数到产品品质——工艺决定论</strong></p>
+      <p>合成工艺不只是"实验室配方"，而是决定产品<strong>纯度、色泽、副产物、刺激性</strong>的核心因素。天赐在氨基酸表活和两性表活上之所以能建立品质优势，根本原因在于对关键工艺参数的系统优化。理解这些参数，你就能向客户解释为什么同样的"化学名称"背后，产品品质可以天差地别。</p>
+    </div>
+
+    <h3>8.4.1 季铵盐（阳离子表活）的合成——叔胺季铵化</h3>
+
+    <div class="formula-box">季铵盐合成——叔胺 + 烷基化试剂 → 季铵盐<br>
+R₃N + R'X → R₃R'N⁺X⁻<br>
+典型工艺条件：温度80-120°C，溶剂：异丙醇/水混合溶剂（或水相），反应时间3-8小时，催化剂：NaOH/KOH（微量）<br>
+常用烷基化试剂：<br>
+- CH₃Cl（氯甲烷）→ 制备三甲基季铵盐（如DTAC/1231，C₁₂H₂₅N⁺(CH₃)₃Cl⁻）<br>
+- C₆H₅CH₂Cl（苄基氯）→ 制备苄基季铵盐（如1227，十二烷基二甲基苄基氯化铵）<br>
+- (CH₃)₂SO₄（硫酸二甲酯）→ 制备甲基季铵盐（硫酸单甲酯盐）</div>
+
+    <div class="callout">
+      <p><strong>季铵化反应的关键控制点</strong></p>
+      <ul>
+        <li><strong>温度控制：</strong>80-120°C是平衡位置。温度过低→反应速率慢，转化率低；温度过高（&gt;130°C）→叔胺氧化降解，产生胺味和色泽加深</li>
+        <li><strong>溶剂选择：</strong>异丙醇/水混合溶剂可提高叔胺和烷基化试剂的互溶性。水相反应更环保但需加压（氯甲烷沸点-24°C）</li>
+        <li><strong>pH控制：</strong>微碱性条件（pH 8-9）有利于反应，但强碱会导致季铵盐分解（Hofmann消除）</li>
+        <li><strong>游离胺控制：</strong>残留游离叔胺 &lt; 1.5% 为合格，&lt; 0.5% 为优级品。游离胺是刺激性和胺味的主要来源</li>
+      </ul>
+    </div>
+
+    <h3>8.4.2 酯基季铵盐（EQ）的合成——两步法</h3>
+
+    <div class="callout accent2">
+      <p><strong>酯基季铵盐——可生物降解的"绿色"阳离子表活</strong></p>
+      <p>传统季铵盐（如DTAC）生物降解性差，在环境中持久存在。酯基季铵盐通过在分子中引入酯键（-COO-），使分子在自然环境中可被酯酶水解断裂，<mark class="key">28天生物降解率可达90%以上</mark>。酯基季铵盐是织物柔软剂的主流方向，也是天赐聚季铵盐的关联品类。</p>
+    </div>
+
+    <div class="formula-box">1 酯化反应：脂肪酸（C₁₆-C₁₈）+ 三乙醇胺（TEA）→ 三乙醇胺脂肪酸酯。温度160-180°C，催化剂：对甲苯磺酸（PTSA）或次磷酸，减压脱水促进酯化平衡右移。酯化率需达到95%以上。<br>
+↓ 2 季铵化反应：三乙醇胺脂肪酸酯 + (CH₃)₂SO₄（硫酸二甲酯）或CH₃Cl → 酯基季铵盐。温度80-100°C，溶剂：异丙醇或乙醇。</div>
+
+    <div class="callout accent2">
+      <p><strong>与天赐的关联：</strong>虽然天赐目前不直接生产酯基季铵盐，但天赐的<strong>聚季铵盐系列（PQ-6、PQ-7、PQ-10）</strong>是水溶性阳离子调理剂，在洗发水和护发素中与传统的季铵盐/酯基季铵盐搭配使用，提供差异化的调理效果。酯基季铵盐负责柔软手感，聚季铵盐负责湿梳滑感和干梳顺滑感——两者协同。</p>
+    </div>
+  </section>
+
+  <!-- ============ 8.5 甜菜碱 ============ -->
+  <section class="section" id="sec-5">
+    <h2>8.5 甜菜碱合成——天赐核心工艺</h2>
+
+    <div class="callout accent2">
+      <p><strong>天赐的"一锅法"工艺</strong></p>
+      <p>CAB合成：脂肪叔胺 + 氯乙酸钠 → 在水溶液中一步反应→叔胺的氮原子被季铵化的同时羧甲基化→直接生成甜菜碱。<strong>天赐的专利优化了此工艺，提高了产品纯度和收率。</strong></p>
+      <p><strong>工艺差异化价值：</strong>不同工艺产生不同副产物和杂质——游离胺（有胺味、刺激性）、氯乙酸钠（刺激性）、NaCl（盐分）。天赐的<strong>无盐技术(TF系列)</strong>通过特殊工艺去除了NaCl等盐杂质，提高了产品纯度和温和性。</p>
+    </div>
+
+    <h3>8.5.1 甜菜碱的合成工艺参数——天赐核心工艺</h3>
+
+    <div class="callout accent3">
+      <p><strong>CAB/LAB合成（LAB=月桂酰胺丙基甜菜碱，天赐产品型号 TC-LAB）——工艺参数对产品品质的精细影响</strong></p>
+      <p>椰油酰胺丙基甜菜碱（CAB）和月桂酰胺丙基甜菜碱（LAB）的合成是典型的叔胺与氯乙酸钠的季铵化/羧甲基化反应。天赐的CAB以<strong>市占率29.7%位居行业第一</strong>，其核心优势来源于对工艺参数的精细控制。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>工艺参数</th><th>最佳范围</th><th>对品质的影响</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>反应温度</strong></td><td><strong>70-90°C</strong></td><td>温度过低→反应速率慢，转化率低（游离胺高）；温度过高→酰胺键水解、叔胺氧化，产生胺味</td></tr>
+          <tr><td><strong>反应pH</strong></td><td><strong>8-10</strong></td><td>pH过低→氯乙酸钠质子化失活，反应不完全；pH过高→酰胺键水解，产生游离脂肪酸</td></tr>
+          <tr><td><strong>反应时间</strong></td><td><strong>4-6小时</strong></td><td>时间不足→转化率低，游离胺＞2%；时间过长→副产物增加，色泽加深</td></tr>
+          <tr><td><strong>氯乙酸钠/叔胺摩尔比</strong></td><td>1.02-1.05</td><td>比例过低→游离胺高；比例过高→氯乙酸钠残留增加（刺激性）</td></tr>
+          <tr><td><strong>NaCl控制</strong></td><td>标准品≤5%，TF无盐品≤0.5%</td><td>CAB合成中氯乙酸钠与NaOH中和产生NaCl副产物。天赐TF系列通过特殊工艺去除NaCl</td></tr>
+          <tr><td><strong>游离胺控制</strong></td><td>≤0.5%（优级品）</td><td>游离胺是CAB刺激性、胺味的主要来源。天赐CAB游离胺≤0.3%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout accent3">
+      <p><strong>销售价值：</strong>普通CAB游离胺含量在1.0-2.0%，胺味明显，刺激性高。天赐CAB游离胺控制在0.3%以下，几乎无胺味，刺激指数显著降低。客户问"为什么你们的CAB贵一点"——答案就在这0.7%的游离胺差异中：<mark class="key">更低的游离胺=更温和的肤感=更少的胺味=更高的产品品质</mark>。</p>
+    </div>
+
+    <h3>8.5.2 咪唑啉型两性表活的合成——两步法</h3>
+
+    <div class="callout accent4">
+      <p><strong>咪唑啉——两性表活中最大的品种之一</strong></p>
+      <p>咪唑啉型表活（如椰油酰两性基二乙酸二钠、月桂酰两性基乙酸钠）是两性表活家族中仅次于甜菜碱的第二大品类。天赐的TC-MAB 40LDL（月桂酰两性基乙酸钠（Disodium Lauroamphodiacetate），INCI：Disodium Lauroamphodiacetate）即属于咪唑啉开环型两性表活。TC-SHD（磺基甜菜碱）不属于咪唑啉体系，属磺基甜菜碱类。</p>
+    </div>
+
+    <div class="formula-box">1 酰胺化环化：脂肪酸（椰油酸/月桂酸）+ 羟乙基乙二胺（AEEA）→ 酰胺化→ 脱水环化 → 咪唑啉。温度200-250°C（参考值，视工艺与催化剂，待核实），减压脱水，催化剂：硼酸或PTSA。酰胺化率需达到98%以上，胺值控制是关键。<br>
+↓ 2 季铵化/羧甲基化：咪唑啉 + 氯乙酸钠（一氯乙酸或二氯乙酸）→ 咪唑啉型两性表活。温度70-90°C，pH 8-10，反应时间4-8小时。控制氯乙酸钠用量可调节一取代/二取代产物比例。</div>
+
+    <div class="callout">
+      <p><strong>天赐差异化：</strong>天赐的TC-MAB 40LDL（月桂酰两性基乙酸钠）采用无盐工艺，NaCl含量≤0.5%，远低于行业平均的3-5%。低盐意味着更好的配方兼容性——在透明配方中不会因为盐分过高导致浑浊，在婴童配方中不会因为盐分增加渗透压刺激。这就是天赐TF系列的核心价值。</p>
+    </div>
+
+    <h3>8.5.3 氨基酸表活的合成——Schotten-Baumann反应</h3>
+
+    <div class="callout">
+      <p><strong>氨基酸表活合成的核心反应——Schotten-Baumann缩合</strong></p>
+      <p>氨基酸表活（肌氨酸盐、谷氨酸盐、甘氨酸盐、丙氨酸盐等）的合成均基于<strong>Schotten-Baumann反应</strong>：脂肪酰氯在碱性水溶液中与氨基酸缩合，生成N-酰基氨基酸盐。这是天赐最核心的合成技术平台。</p>
+      <div class="formula-box">Schotten-Baumann反应（通用）<br>
+R-COCl + H₂N-CHR'-COONa + NaOH → R-CO-NH-CHR'-COONa + NaCl + H₂O<br>
+脂肪酰氯　氨基酸钠　N-酰基氨基酸钠<br>
+<strong>工艺条件：</strong>温度<strong>10-30°C</strong>（低温控制），pH 9-11（碱维持），水-丙酮或水-四氢呋喃混合溶剂</div>
+    </div>
+
+    <h3>8.5.3.1 肌氨酸钠（Napure C-FA）</h3>
+    <p>原料：椰油酰氯 + 肌氨酸钠（N-甲基甘氨酸钠）。关键控制：pH维持9-10，温度10-25°C。肌氨酸钠的N-甲基导致酰胺键空间位阻增大，耐水解性优于谷氨酸盐。天赐的Napure C-FA系列活性物含量30%，游离脂肪酸≤0.5%。</p>
+
+    <h3>8.5.3.2 谷氨酸盐（CG30W）</h3>
+    <p>原料：椰油酰氯 + 谷氨酸钠。谷氨酸有两个羧基，可形成单钠盐（酸性）或二钠盐（中性/碱性）。关键控制：pH 9-10，温度15-25°C。二钠盐水溶性好，单钠盐在酸性条件下析出结晶。天赐CG30W为二钠盐型，透明配方首选。</p>
+
+    <h3>8.5.3.3 甘氨酸盐（GCK30P）</h3>
+    <p>原料：椰油酰氯 + 甘氨酸钾。甘氨酸是最简单的氨基酸，产物分子量小，膏化能力强。关键控制：pH 9-11，温度10-20°C。甘氨酸钾盐是洁面膏的核心原料——通过柠檬酸调pH至5.5-6.5，甘氨酸盐部分质子化析出结晶，形成膏体。</p>
+
+    <div class="callout accent2">
+      <p><strong>Schotten-Baumann反应的关键控制点：</strong>①<strong>低温</strong>（10-30°C）——酰氯水解是放热反应，温度过高会导致酰氯水解为脂肪酸（副反应），降低收率；②<strong>pH控制</strong>——反应消耗碱生成HCl，需持续加NaOH维持pH 9-11，否则HCl累积导致pH下降，酰氯水解加剧；③<strong>酰氯品质</strong>——酰氯中游离脂肪酸含量直接影响最终产品的游离脂肪酸残留。天赐自建脂肪酸精炼产线，从源头控制酰氯品质，这是产品纯度的底层保障。</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <h2>天赐材料日化知识库</h2>
+    <p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p>
+    <p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p>
+  </div>
+</footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+<script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
+    </main>
+    <script src="site.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

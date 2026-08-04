@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非离子表面活性剂</title>
+    <style id="theme-vars">
+/* ========================================
+   天赐材料日化知识库 · Design Tokens
+   设计语言：深青渐变 × 暖白底 · 精致卡片
+   参照旧知识库 style.css v3，适配 Solo Design token 规范
+   ======================================== */
+
+:root {
+  /* === Brand Primary — 深青色系 (单一品牌色) === */
+  --tinci-primary-50: #E6F5F1;
+  --tinci-primary-100: #CBE8E2;
+  --tinci-primary-200: #99D1C5;
+  --tinci-primary-300: #66BAA8;
+  --tinci-primary-400: #33A38B;
+  --tinci-primary-500: #0B7666;
+  --tinci-primary-600: #0A5F52;
+  --tinci-primary-700: #084840;
+  --tinci-primary-800: #063130;
+  --tinci-primary-900: #042020;
+
+  /* === Bright Teal — 主色浅色变体 (同色系) === */
+  --tinci-teal: #14B8A6;
+  --tinci-teal-soft: #E9FAF6;
+  --tinci-teal-50: #E9FAF6;
+  --tinci-teal-100: #BFF0E6;
+  --tinci-teal-200: #80E1CD;
+  --tinci-teal-300: #41D2B5;
+  --tinci-teal-400: #14B8A6;
+  --tinci-teal-500: #0E9488;
+  --tinci-teal-600: #0B7666;
+
+  /* === Semantic Aliases (required by apply-html-head-contract) === */
+  --tinci-background: #F5FAF8;
+  --tinci-foreground: #0F2E2A;
+  --tinci-card: #FFFFFF;
+  --tinci-card-foreground: #0F2E2A;
+  --tinci-popover: #FFFFFF;
+  --tinci-popover-foreground: #0F2E2A;
+  --tinci-primary: #0B7666;
+  --tinci-primary-foreground: #FFFFFF;
+  --tinci-secondary: #E6F5F1;
+  --tinci-secondary-foreground: #0B7666;
+  --tinci-muted: #E6F5F1;
+  --tinci-muted-foreground: #5B7A74;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #FFFFFF;
+  --tinci-border: #E2EFEB;
+  --tinci-input: #E2EFEB;
+  --tinci-ring: #14B8A6;
+
+  /* === Radius Scale === */
+  --tinci-radius-small: 4px;
+  --tinci-radius-medium: 8px;
+  --tinci-radius-large: 14px;
+  --tinci-radius-full: 9999px;
+
+  /* === Typography === */
+  --tinci-font-sans: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --tinci-font-mono: "JetBrains Mono", "SF Mono", "Consolas", monospace;
+  --tinci-font-heading: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --tinci-font-body: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+
+  /* === Surface Depth === */
+  --tinci-surface: #FFFFFF;
+  --tinci-surface-2: #F8FBFA;
+  --tinci-ink: #0F2E2A;
+  --tinci-ink-2: #5B7A74;
+  --tinci-ink-3: #8FA8A2;
+  --tinci-line: #E2EFEB;
+
+  /* === Gradients (same-hue, for hero/nav only) === */
+  --tinci-nav-grad: linear-gradient(135deg, #0B7666 0%, #14B8A6 100%);
+  --tinci-hero-grad: linear-gradient(135deg, #0A4A42 0%, #0F766E 50%, #14B8A6 110%);
+
+  /* === State Colors (semantic only) === */
+  --state-success: #059669;
+  --state-success-soft: #E9F8EE;
+  --state-warning: #D97706;
+  --state-warning-soft: #FEF5E7;
+  --state-error: #DC2626;
+  --state-error-soft: #FEE2E2;
+  --state-info: #0B7666;
+  --state-info-soft: #E6F5F1;
+
+  /* === Shadows (alpha <= 0.05 for static; deeper for floating only) === */
+  --tinci-shadow-xs: 0 1px 2px rgba(11,118,102,0.04), 0 1px 3px rgba(11,118,102,0.04);
+  --tinci-shadow-sm: 0 2px 6px rgba(11,118,102,0.05);
+  --tinci-shadow-md: 0 8px 24px -6px rgba(11,118,102,0.12), 0 2px 8px -2px rgba(11,118,102,0.06);
+  --tinci-shadow-lg: 0 16px 40px -8px rgba(11,118,102,0.16), 0 4px 12px -4px rgba(11,118,102,0.08);
+}
+
+/* === Dark Mode === */
+.dark {
+  --tinci-background: #0B1F1C;
+  --tinci-foreground: #E2EFEB;
+  --tinci-card: #14302B;
+  --tinci-card-foreground: #E2EFEB;
+  --tinci-popover: #14302B;
+  --tinci-popover-foreground: #E2EFEB;
+  --tinci-primary: #14B8A6;
+  --tinci-primary-foreground: #042020;
+  --tinci-secondary: #1A3A35;
+  --tinci-secondary-foreground: #66BAA8;
+  --tinci-muted: #1A3A35;
+  --tinci-muted-foreground: #8FA8A2;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #042020;
+  --tinci-border: #1F3D38;
+  --tinci-input: #1F3D38;
+  --tinci-ring: #14B8A6;
+  --tinci-surface: #14302B;
+  --tinci-surface-2: #1A3A35;
+  --tinci-ink: #E2EFEB;
+  --tinci-ink-2: #8FA8A2;
+  --tinci-ink-3: #5B7A74;
+  --tinci-line: #1F3D38;
+}
+
+    </style>
+    <script src="vendor/tailwind.browser.js"></script>
+    <script src="vendor/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--tinci-background);
+    --color-foreground: var(--tinci-foreground);
+    --color-card: var(--tinci-card);
+    --color-card-foreground: var(--tinci-card-foreground);
+    --color-popover: var(--tinci-popover);
+    --color-popover-foreground: var(--tinci-popover-foreground);
+    --color-primary: var(--tinci-primary);
+    --color-primary-foreground: var(--tinci-primary-foreground);
+    --color-secondary: var(--tinci-secondary);
+    --color-secondary-foreground: var(--tinci-secondary-foreground);
+    --color-muted: var(--tinci-muted);
+    --color-muted-foreground: var(--tinci-muted-foreground);
+    --color-accent: var(--tinci-accent);
+    --color-accent-foreground: var(--tinci-accent-foreground);
+    --color-border: var(--tinci-border);
+    --color-input: var(--tinci-input);
+    --color-ring: var(--tinci-ring);
+    --radius-sm: var(--tinci-radius-small);
+    --radius-md: var(--tinci-radius-medium);
+    --radius-lg: var(--tinci-radius-large);
+  }
+  @layer base {
+    body { background: var(--tinci-background); color: var(--tinci-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--tinci-background); }
+      .text-background { color: var(--tinci-background); }
+      .border-background { border-color: var(--tinci-background); }
+      .ring-background { --tw-ring-color: var(--tinci-background); }
+      .bg-foreground { background-color: var(--tinci-foreground); }
+      .text-foreground { color: var(--tinci-foreground); }
+      .border-foreground { border-color: var(--tinci-foreground); }
+      .ring-foreground { --tw-ring-color: var(--tinci-foreground); }
+      .bg-card { background-color: var(--tinci-card); }
+      .text-card { color: var(--tinci-card); }
+      .border-card { border-color: var(--tinci-card); }
+      .ring-card { --tw-ring-color: var(--tinci-card); }
+      .bg-card-foreground { background-color: var(--tinci-card-foreground); }
+      .text-card-foreground { color: var(--tinci-card-foreground); }
+      .border-card-foreground { border-color: var(--tinci-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--tinci-card-foreground); }
+      .bg-popover { background-color: var(--tinci-popover); }
+      .text-popover { color: var(--tinci-popover); }
+      .border-popover { border-color: var(--tinci-popover); }
+      .ring-popover { --tw-ring-color: var(--tinci-popover); }
+      .bg-popover-foreground { background-color: var(--tinci-popover-foreground); }
+      .text-popover-foreground { color: var(--tinci-popover-foreground); }
+      .border-popover-foreground { border-color: var(--tinci-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--tinci-popover-foreground); }
+      .bg-primary { background-color: var(--tinci-primary); }
+      .text-primary { color: var(--tinci-primary); }
+      .border-primary { border-color: var(--tinci-primary); }
+      .ring-primary { --tw-ring-color: var(--tinci-primary); }
+      .bg-primary-foreground { background-color: var(--tinci-primary-foreground); }
+      .text-primary-foreground { color: var(--tinci-primary-foreground); }
+      .border-primary-foreground { border-color: var(--tinci-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--tinci-primary-foreground); }
+      .bg-secondary { background-color: var(--tinci-secondary); }
+      .text-secondary { color: var(--tinci-secondary); }
+      .border-secondary { border-color: var(--tinci-secondary); }
+      .ring-secondary { --tw-ring-color: var(--tinci-secondary); }
+      .bg-secondary-foreground { background-color: var(--tinci-secondary-foreground); }
+      .text-secondary-foreground { color: var(--tinci-secondary-foreground); }
+      .border-secondary-foreground { border-color: var(--tinci-secondary-foreground); }
+      .ring-secondary-foreground { --tw-ring-color: var(--tinci-secondary-foreground); }
+      .bg-muted { background-color: var(--tinci-muted); }
+      .text-muted { color: var(--tinci-muted); }
+      .border-muted { border-color: var(--tinci-muted); }
+      .ring-muted { --tw-ring-color: var(--tinci-muted); }
+      .bg-muted-foreground { background-color: var(--tinci-muted-foreground); }
+      .text-muted-foreground { color: var(--tinci-muted-foreground); }
+      .border-muted-foreground { border-color: var(--tinci-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--tinci-muted-foreground); }
+      .bg-accent { background-color: var(--tinci-accent); }
+      .text-accent { color: var(--tinci-accent); }
+      .border-accent { border-color: var(--tinci-accent); }
+      .ring-accent { --tw-ring-color: var(--tinci-accent); }
+      .bg-accent-foreground { background-color: var(--tinci-accent-foreground); }
+      .text-accent-foreground { color: var(--tinci-accent-foreground); }
+      .border-accent-foreground { border-color: var(--tinci-accent-foreground); }
+      .ring-accent-foreground { --tw-ring-color: var(--tinci-accent-foreground); }
+      .bg-border { background-color: var(--tinci-border); }
+      .text-border { color: var(--tinci-border); }
+      .border-border { border-color: var(--tinci-border); }
+      .ring-border { --tw-ring-color: var(--tinci-border); }
+      .bg-input { background-color: var(--tinci-input); }
+      .text-input { color: var(--tinci-input); }
+      .border-input { border-color: var(--tinci-input); }
+      .ring-input { --tw-ring-color: var(--tinci-input); }
+      .bg-ring { background-color: var(--tinci-ring); }
+      .text-ring { color: var(--tinci-ring); }
+      .border-ring { border-color: var(--tinci-ring); }
+      .ring-ring { --tw-ring-color: var(--tinci-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <link rel="stylesheet" href="shared-components.css">
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+<nav class="site-nav">
+  <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
+  <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
+    <a href="index.html">首页</a>
+    <a href="theory.html" class="active">理论</a>
+    <a href="products.html">产品</a>
+    <a href="formulation.html">配方</a>
+    <a href="sales.html">销售</a>
+    <a href="market.html">市场</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ============ Page Hero ============ -->
+  <section class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="bc-sep">›</span>
+      <a href="theory.html">理论</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">非离子表面活性剂</span>
+    </div>
+    <h1>非离子表面活性剂</h1>
+    <p class="page-hero-desc">AEO、Span/Tween、6501/CDEA、APG——不受电解质影响，与各类表活复配的万金油。</p>
+    <div class="page-hero-meta">
+      <span class="tag">非离子</span>
+      <span class="tag">AEO</span>
+      <span class="tag">APG</span>
+    </div>
+  </section>
+
+  <!-- ============ TOC ============ -->
+  <details class="toc-nav" open>
+    <summary>本页目录 · 四大品类</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>AEO 系列 · n 值影响</a>
+      <a href="#sec-2"><span class="toc-num">2</span>Span 与 Tween</a>
+      <a href="#sec-3"><span class="toc-num">3</span>6501 / CDEA 与 CMEA</a>
+      <a href="#sec-4"><span class="toc-num">4</span>APG 烷基糖苷</a>
+    </div>
+  </details>
+
+  <!-- ============ 非离子表活正文 ============ -->
+  <section class="section">
+    <div class="callout accent3">
+      <strong>非离子表活的特点</strong><br>
+      非离子表活在水中<strong>不电离</strong>，亲水性来自分子中的极性基团（如羟基-OH、醚键-O-、酯键）。由于不带电荷，它<strong>耐硬水、耐酸碱、配伍性极好</strong>。非离子表活是品种最多的表活类型之一，产量仅次于阴离子表活。
+    </div>
+
+    <h3 id="sec-1">6.1 聚氧乙烯型（AEO系列）——n值的影响</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>指标</th><th>AEO-2</th><th>AEO-3</th><th>AEO-5</th><th>AEO-7</th><th>AEO-9</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>EO数</strong></td><td>2</td><td>3</td><td>5</td><td>7</td><td>9</td></tr>
+          <tr><td><strong>HLB值</strong></td><td>~6</td><td>~8</td><td>~11</td><td>~12.5</td><td>~13.5</td></tr>
+          <tr><td><strong>浊点(°C)</strong></td><td>—</td><td>—</td><td>~42</td><td>~58</td><td>~85+</td></tr>
+          <tr><td><strong>外观</strong></td><td>液体</td><td>液体</td><td>液体</td><td>液体</td><td>膏状</td></tr>
+          <tr><td><strong>水溶性</strong></td><td>不溶</td><td>分散</td><td>分散</td><td>可溶</td><td>易溶</td></tr>
+          <tr><td><strong>主要用途</strong></td><td>W/O乳化</td><td>乳化/渗透</td><td>清洗/乳化</td><td>清洗/乳化</td><td>清洗/增溶</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><mark class="key">每增加1个EO单元，浊点平均升高约6~8°C；每增加1个EO单元，HLB值增加约0.5~2.0（非线性，n越小→增幅越大）。</mark>通过调节n值，可以"定制"不同HLB的AEO产品。</p>
+
+    <h3 id="sec-2">6.2 Span与Tween——经典乳化剂组合</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>系列</th><th>品种</th><th>化学名称</th><th>脂肪酸</th><th>HLB</th><th>溶解性</th><th>用途</th></tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="6"><strong>Span</strong></td><td>Span-20</td><td>失水山梨醇单月桂酸酯</td><td>月桂酸(C12)</td><td>8.6</td><td>油溶</td><td>W/O乳化</td></tr>
+          <tr><td>Span-40</td><td>失水山梨醇单棕榈酸酯</td><td>棕榈酸(C16)</td><td>6.7</td><td>油溶</td><td>W/O乳化</td></tr>
+          <tr><td>Span-60</td><td>失水山梨醇单硬脂酸酯</td><td>硬脂酸(C18)</td><td>4.7</td><td>油溶</td><td>W/O乳化</td></tr>
+          <tr><td>Span-65</td><td>失水山梨醇三硬脂酸酯</td><td>硬脂酸(C18)</td><td>2.1</td><td>油溶</td><td>消泡/W/O乳化</td></tr>
+          <tr><td>Span-80</td><td>失水山梨醇单油酸酯</td><td>油酸(C18:1)</td><td>4.3</td><td>油溶</td><td>W/O乳化</td></tr>
+          <tr><td>Span-85</td><td>失水山梨醇三油酸酯</td><td>油酸(C18:1)</td><td>1.8</td><td>油溶</td><td>消泡剂</td></tr>
+          <tr><td rowspan="4"><strong>Tween</strong></td><td>Tween-20</td><td>聚山梨酯20</td><td>月桂酸(C12)</td><td>16.7</td><td>水溶</td><td>O/W乳化/增溶</td></tr>
+          <tr><td>Tween-40</td><td>聚山梨酯40</td><td>棕榈酸(C16)</td><td>15.6</td><td>水溶</td><td>O/W乳化</td></tr>
+          <tr><td>Tween-60</td><td>聚山梨酯60</td><td>硬脂酸(C18)</td><td>14.9</td><td>水溶</td><td>O/W乳化</td></tr>
+          <tr><td>Tween-80</td><td>聚山梨酯80</td><td>油酸(C18:1)</td><td>15.0</td><td>水溶</td><td>O/W乳化/增溶</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="sec-3">6.3 烷醇酰胺——6501（CDEA）与CMEA的详细对比</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>特性</th><th>CMEA（椰油酸单乙醇酰胺）</th><th>CDEA/6501（椰油酸二乙醇酰胺）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>化学式</strong></td><td>R-CO-NH-CH₂CH₂OH</td><td>R-CO-N(CH₂CH₂OH)₂</td></tr>
+          <tr><td><strong>外观</strong></td><td>白色至浅黄色片状/珠状固体</td><td>淡黄色粘稠液体</td></tr>
+          <tr><td><strong>熔点</strong></td><td>约65-75°C</td><td>液态</td></tr>
+          <tr><td><strong>HLB值</strong></td><td>约12-14</td><td>约9-10</td></tr>
+          <tr><td><strong>增稠力</strong></td><td>强（需阴离子体系）</td><td>极强（对配方响应更敏感）</td></tr>
+          <tr><td><strong>泡沫稳定性</strong></td><td>优</td><td>优</td></tr>
+          <tr><td><strong>法规趋势</strong></td><td>绿色、低风险（DEA-free）</td><td>受限（DEA可能生成亚硝胺）</td></tr>
+          <tr><td><strong>天赐对应</strong></td><td>—</td><td>—（天赐无对应）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="sec-4">6.4 APG（烷基糖苷）——绿色表活的代表</h3>
+    <div class="callout accent2">
+      <strong>APG的合成方法</strong><br><br>
+      <strong>方法一（直接苷化法）：</strong>葡萄糖 + 长链脂肪醇(C8-C18) → 酸性催化剂，100-120°C → APG。工艺简单但葡萄糖溶解性差，产物颜色深。<br><br>
+      <strong>方法二（转糖苷化法，主流工业工艺）：</strong>葡萄糖 + 丁醇 → 80-120°C → 低碳烷基糖苷 → +长链脂肪醇，高真空除去丁醇 → APG。反应条件温和，产品质量好，通过蒸出丁醇的量可控制反应深度。<br><br>
+      <strong>特点：</strong>无毒、无刺激、完全生物降解、ECOCERT认证。<strong>天赐：</strong>TC-APG系列。
+    </div>
+  </section>
+
+  <!-- ============ 数据来源 ============ -->
+  <section class="section">
+    <h2>数据来源</h2>
+    <ol>
+      <li>宋启煌 主编，《精细化工工艺学》（第四版），化学工业出版社（基础数据来源，具体页码待补充）</li>
+      <li>天赐材料产品目录/TDS（部分产品数据，待补充对应牌号）</li>
+    </ol>
+    <div class="callout">注：本文数据标注"~"为近似值，具体数值以产品TDS或最新文献为准。更多数据来源待补充。</div>
+  </section>
+
+  <!-- ============ 上下篇导航 ============ -->
+  <nav class="page-nav">
+    <a href="theory.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">表面活性剂理论</span>
+    </a>
+    <a href="products.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">天赐产品体系</span>
+    </a>
+  </nav>
+
+  <!-- ============ 相关页面推荐 ============ -->
+  <div class="related-pages">
+    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-grid">
+      <a href="theory.html" class="rp-card">
+        <span class="rp-icon">📚</span>
+        <span class="rp-name">表面活性剂理论<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">四大分类与核心参数</small></span>
+      </a>
+      <a href="products.html" class="rp-card">
+        <span class="rp-icon">🏭</span>
+        <span class="rp-name">产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">6 大系列选型指南</small></span>
+      </a>
+      <a href="formulation.html" class="rp-card">
+        <span class="rp-icon">🧪</span>
+        <span class="rp-name">配方设计<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">五大相与三剂型</small></span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <h2>天赐材料日化知识库</h2>
+    <p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p>
+    <p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p>
+  </div>
+</footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+<script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
+    </main>
+    <script src="site.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

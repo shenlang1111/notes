@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天赐产品体系</title>
+    <style id="theme-vars">
+/* ========================================
+   天赐材料日化知识库 · Design Tokens
+   设计语言：深青渐变 × 暖白底 · 精致卡片
+   参照旧知识库 style.css v3，适配 Solo Design token 规范
+   ======================================== */
+
+:root {
+  /* === Brand Primary — 深青色系 (单一品牌色) === */
+  --tinci-primary-50: #E6F5F1;
+  --tinci-primary-100: #CBE8E2;
+  --tinci-primary-200: #99D1C5;
+  --tinci-primary-300: #66BAA8;
+  --tinci-primary-400: #33A38B;
+  --tinci-primary-500: #0B7666;
+  --tinci-primary-600: #0A5F52;
+  --tinci-primary-700: #084840;
+  --tinci-primary-800: #063130;
+  --tinci-primary-900: #042020;
+
+  /* === Bright Teal — 主色浅色变体 (同色系) === */
+  --tinci-teal: #14B8A6;
+  --tinci-teal-soft: #E9FAF6;
+  --tinci-teal-50: #E9FAF6;
+  --tinci-teal-100: #BFF0E6;
+  --tinci-teal-200: #80E1CD;
+  --tinci-teal-300: #41D2B5;
+  --tinci-teal-400: #14B8A6;
+  --tinci-teal-500: #0E9488;
+  --tinci-teal-600: #0B7666;
+
+  /* === Semantic Aliases (required by apply-html-head-contract) === */
+  --tinci-background: #F5FAF8;
+  --tinci-foreground: #0F2E2A;
+  --tinci-card: #FFFFFF;
+  --tinci-card-foreground: #0F2E2A;
+  --tinci-popover: #FFFFFF;
+  --tinci-popover-foreground: #0F2E2A;
+  --tinci-primary: #0B7666;
+  --tinci-primary-foreground: #FFFFFF;
+  --tinci-secondary: #E6F5F1;
+  --tinci-secondary-foreground: #0B7666;
+  --tinci-muted: #E6F5F1;
+  --tinci-muted-foreground: #5B7A74;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #FFFFFF;
+  --tinci-border: #E2EFEB;
+  --tinci-input: #E2EFEB;
+  --tinci-ring: #14B8A6;
+
+  /* === Radius Scale === */
+  --tinci-radius-small: 4px;
+  --tinci-radius-medium: 8px;
+  --tinci-radius-large: 14px;
+  --tinci-radius-full: 9999px;
+
+  /* === Typography === */
+  --tinci-font-sans: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --tinci-font-mono: "JetBrains Mono", "SF Mono", "Consolas", monospace;
+  --tinci-font-heading: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --tinci-font-body: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+
+  /* === Surface Depth === */
+  --tinci-surface: #FFFFFF;
+  --tinci-surface-2: #F8FBFA;
+  --tinci-ink: #0F2E2A;
+  --tinci-ink-2: #5B7A74;
+  --tinci-ink-3: #8FA8A2;
+  --tinci-line: #E2EFEB;
+
+  /* === Gradients (same-hue, for hero/nav only) === */
+  --tinci-nav-grad: linear-gradient(135deg, #0B7666 0%, #14B8A6 100%);
+  --tinci-hero-grad: linear-gradient(135deg, #0A4A42 0%, #0F766E 50%, #14B8A6 110%);
+
+  /* === State Colors (semantic only) === */
+  --state-success: #059669;
+  --state-success-soft: #E9F8EE;
+  --state-warning: #D97706;
+  --state-warning-soft: #FEF5E7;
+  --state-error: #DC2626;
+  --state-error-soft: #FEE2E2;
+  --state-info: #0B7666;
+  --state-info-soft: #E6F5F1;
+
+  /* === Shadows (alpha <= 0.05 for static; deeper for floating only) === */
+  --tinci-shadow-xs: 0 1px 2px rgba(11,118,102,0.04), 0 1px 3px rgba(11,118,102,0.04);
+  --tinci-shadow-sm: 0 2px 6px rgba(11,118,102,0.05);
+  --tinci-shadow-md: 0 8px 24px -6px rgba(11,118,102,0.12), 0 2px 8px -2px rgba(11,118,102,0.06);
+  --tinci-shadow-lg: 0 16px 40px -8px rgba(11,118,102,0.16), 0 4px 12px -4px rgba(11,118,102,0.08);
+}
+
+/* === Dark Mode === */
+.dark {
+  --tinci-background: #0B1F1C;
+  --tinci-foreground: #E2EFEB;
+  --tinci-card: #14302B;
+  --tinci-card-foreground: #E2EFEB;
+  --tinci-popover: #14302B;
+  --tinci-popover-foreground: #E2EFEB;
+  --tinci-primary: #14B8A6;
+  --tinci-primary-foreground: #042020;
+  --tinci-secondary: #1A3A35;
+  --tinci-secondary-foreground: #66BAA8;
+  --tinci-muted: #1A3A35;
+  --tinci-muted-foreground: #8FA8A2;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #042020;
+  --tinci-border: #1F3D38;
+  --tinci-input: #1F3D38;
+  --tinci-ring: #14B8A6;
+  --tinci-surface: #14302B;
+  --tinci-surface-2: #1A3A35;
+  --tinci-ink: #E2EFEB;
+  --tinci-ink-2: #8FA8A2;
+  --tinci-ink-3: #5B7A74;
+  --tinci-line: #1F3D38;
+}
+
+    </style>
+    <script src="vendor/tailwind.browser.js"></script>
+    <script src="vendor/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--tinci-background);
+    --color-foreground: var(--tinci-foreground);
+    --color-card: var(--tinci-card);
+    --color-card-foreground: var(--tinci-card-foreground);
+    --color-popover: var(--tinci-popover);
+    --color-popover-foreground: var(--tinci-popover-foreground);
+    --color-primary: var(--tinci-primary);
+    --color-primary-foreground: var(--tinci-primary-foreground);
+    --color-secondary: var(--tinci-secondary);
+    --color-secondary-foreground: var(--tinci-secondary-foreground);
+    --color-muted: var(--tinci-muted);
+    --color-muted-foreground: var(--tinci-muted-foreground);
+    --color-accent: var(--tinci-accent);
+    --color-accent-foreground: var(--tinci-accent-foreground);
+    --color-border: var(--tinci-border);
+    --color-input: var(--tinci-input);
+    --color-ring: var(--tinci-ring);
+    --radius-sm: var(--tinci-radius-small);
+    --radius-md: var(--tinci-radius-medium);
+    --radius-lg: var(--tinci-radius-large);
+  }
+  @layer base {
+    body { background: var(--tinci-background); color: var(--tinci-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--tinci-background); }
+      .text-background { color: var(--tinci-background); }
+      .border-background { border-color: var(--tinci-background); }
+      .ring-background { --tw-ring-color: var(--tinci-background); }
+      .bg-foreground { background-color: var(--tinci-foreground); }
+      .text-foreground { color: var(--tinci-foreground); }
+      .border-foreground { border-color: var(--tinci-foreground); }
+      .ring-foreground { --tw-ring-color: var(--tinci-foreground); }
+      .bg-card { background-color: var(--tinci-card); }
+      .text-card { color: var(--tinci-card); }
+      .border-card { border-color: var(--tinci-card); }
+      .ring-card { --tw-ring-color: var(--tinci-card); }
+      .bg-card-foreground { background-color: var(--tinci-card-foreground); }
+      .text-card-foreground { color: var(--tinci-card-foreground); }
+      .border-card-foreground { border-color: var(--tinci-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--tinci-card-foreground); }
+      .bg-popover { background-color: var(--tinci-popover); }
+      .text-popover { color: var(--tinci-popover); }
+      .border-popover { border-color: var(--tinci-popover); }
+      .ring-popover { --tw-ring-color: var(--tinci-popover); }
+      .bg-popover-foreground { background-color: var(--tinci-popover-foreground); }
+      .text-popover-foreground { color: var(--tinci-popover-foreground); }
+      .border-popover-foreground { border-color: var(--tinci-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--tinci-popover-foreground); }
+      .bg-primary { background-color: var(--tinci-primary); }
+      .text-primary { color: var(--tinci-primary); }
+      .border-primary { border-color: var(--tinci-primary); }
+      .ring-primary { --tw-ring-color: var(--tinci-primary); }
+      .bg-primary-foreground { background-color: var(--tinci-primary-foreground); }
+      .text-primary-foreground { color: var(--tinci-primary-foreground); }
+      .border-primary-foreground { border-color: var(--tinci-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--tinci-primary-foreground); }
+      .bg-secondary { background-color: var(--tinci-secondary); }
+      .text-secondary { color: var(--tinci-secondary); }
+      .border-secondary { border-color: var(--tinci-secondary); }
+      .ring-secondary { --tw-ring-color: var(--tinci-secondary); }
+      .bg-secondary-foreground { background-color: var(--tinci-secondary-foreground); }
+      .text-secondary-foreground { color: var(--tinci-secondary-foreground); }
+      .border-secondary-foreground { border-color: var(--tinci-secondary-foreground); }
+      .ring-secondary-foreground { --tw-ring-color: var(--tinci-secondary-foreground); }
+      .bg-muted { background-color: var(--tinci-muted); }
+      .text-muted { color: var(--tinci-muted); }
+      .border-muted { border-color: var(--tinci-muted); }
+      .ring-muted { --tw-ring-color: var(--tinci-muted); }
+      .bg-muted-foreground { background-color: var(--tinci-muted-foreground); }
+      .text-muted-foreground { color: var(--tinci-muted-foreground); }
+      .border-muted-foreground { border-color: var(--tinci-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--tinci-muted-foreground); }
+      .bg-accent { background-color: var(--tinci-accent); }
+      .text-accent { color: var(--tinci-accent); }
+      .border-accent { border-color: var(--tinci-accent); }
+      .ring-accent { --tw-ring-color: var(--tinci-accent); }
+      .bg-accent-foreground { background-color: var(--tinci-accent-foreground); }
+      .text-accent-foreground { color: var(--tinci-accent-foreground); }
+      .border-accent-foreground { border-color: var(--tinci-accent-foreground); }
+      .ring-accent-foreground { --tw-ring-color: var(--tinci-accent-foreground); }
+      .bg-border { background-color: var(--tinci-border); }
+      .text-border { color: var(--tinci-border); }
+      .border-border { border-color: var(--tinci-border); }
+      .ring-border { --tw-ring-color: var(--tinci-border); }
+      .bg-input { background-color: var(--tinci-input); }
+      .text-input { color: var(--tinci-input); }
+      .border-input { border-color: var(--tinci-input); }
+      .ring-input { --tw-ring-color: var(--tinci-input); }
+      .bg-ring { background-color: var(--tinci-ring); }
+      .text-ring { color: var(--tinci-ring); }
+      .border-ring { border-color: var(--tinci-ring); }
+      .ring-ring { --tw-ring-color: var(--tinci-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <link rel="stylesheet" href="shared-components.css">
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+<nav class="site-nav">
+  <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
+  <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
+    <a href="index.html">首页</a><a href="theory.html">理论</a><a href="products.html" class="active">产品</a><a href="formulation.html">配方</a><a href="sales.html">销售</a><a href="market.html">市场</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ============ Page Hero ============ -->
+  <section class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">产品</span>
+    </div>
+    <h1>天赐产品体系</h1>
+    <p class="page-hero-desc">命名规则、全谱系牌号与选型指南——两性（29牌号）、氨基酸（30+牌号）、阳离子、非离子四大类产品，从牌号密码到销售速查的完整产品知识地图。</p>
+    <div class="page-hero-meta">
+      <span class="tag">产品手册</span>
+      <span class="tag">两性29牌号</span>
+      <span class="tag">氨基酸30+</span>
+      <span class="tag">命名规则</span>
+      <span class="tag">选型速查</span>
+    </div>
+  </section>
+
+  <!-- ============ 命名规则 ============ -->
+  <section class="section" id="naming">
+    <h2>命名规则 · 后缀编码表</h2>
+    <p>天赐两性表活产品牌号由四段组成：<strong>TC-（天赐）+ 化学系列 + 活性物浓度 + 后缀编码</strong>。后缀编码是选型的关键密码——读懂后缀，就知道这个牌号适合什么配方场景。</p>
+
+    <div class="formula-box">TC- + &lt;化学系列&gt; + &lt;活性物浓度&gt; + &lt;后缀&gt;　　例：TC-CAB 35TF = 天赐 + 椰油酰胺丙基甜菜碱 + 35% + 无盐</div>
+
+    <h3>命名四段拆解</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>段落</th><th>含义</th><th>示例</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>TC-</strong></td><td>天赐（TianCi）品牌前缀</td><td><code class="code">TC-</code></td><td>所有天赐表活牌号统一前缀</td></tr>
+          <tr><td><strong>系列代号</strong></td><td>化学系列/结构前缀</td><td><code class="code">CAB / LAB / MAB / SHD / SHS / CAO</code></td><td>决定产品属于哪个化学系列</td></tr>
+          <tr><td><strong>浓度</strong></td><td>活性物百分含量</td><td><code class="code">35 / 40 / 45 / 97</code></td><td>数字代表活性物最低含量</td></tr>
+          <tr><td><strong>后缀编码</strong></td><td>差异化特征标识</td><td><code class="code">TF / HP / FA / B / LS / LDL ...</code></td><td>后缀不同 = 性能定位不同</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>核心后缀编码表</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>后缀</th><th>全称</th><th>含义</th><th>对客户的价值</th><th>代表产品</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>TF</strong></td><td>Tinci Salt-Free</td><td>无盐专利技术</td><td>极低氯离子，温和性最优，透明度最高</td><td><code class="code">CAB 35TF</code></td></tr>
+          <tr><td><strong>HP</strong></td><td>High Paste</td><td>膏状形态，高粘度</td><td>增稠效率高，适合高粘度配方</td><td><code class="code">CAB 35HP</code></td></tr>
+          <tr><td><strong>FA</strong></td><td>Foam Agent</td><td>液体增泡优化</td><td>泡沫更丰富细腻</td><td><code class="code">CAB 35FA</code></td></tr>
+          <tr><td><strong>B</strong></td><td>Buffer</td><td>缓冲型</td><td>pH 稳定性好，减少 pH 调节剂用量</td><td><code class="code">CAB 35B</code></td></tr>
+          <tr><td><strong>LS</strong></td><td>Low Salt</td><td>低盐型</td><td>盐含量低，对电解质敏感配方友好</td><td><code class="code">CAB 35LS</code></td></tr>
+          <tr><td><strong>H</strong></td><td>High Viscosity</td><td>高粘度型</td><td>增稠效率更高</td><td><code class="code">CAB 35H</code></td></tr>
+          <tr><td><strong>HG</strong></td><td>High Gel</td><td>高凝胶型</td><td>极致增稠，适合凝胶配方</td><td><code class="code">CAB 45HG</code></td></tr>
+          <tr><td><strong>L</strong></td><td>Light / Liquid</td><td>低粘度液体型</td><td>便于泵送自动化生产</td><td><code class="code">CAB 45L</code></td></tr>
+          <tr><td><strong>FG</strong></td><td>Fine Granule</td><td>颗粒状固体</td><td>便于称量运输，溶解性好</td><td><code class="code">CAB 35FG</code></td></tr>
+          <tr><td><strong>LDL</strong></td><td>Lauroamphodiacetate</td><td>月桂酰两性基乙酸钠标识</td><td>识别为月桂基咪唑啉型</td><td><code class="code">MAB 40LDL</code></td></tr>
+          <tr><td><strong>FO</strong></td><td>Free Odor</td><td>低气味型（⚠待核实）</td><td>香精敏感配方首选</td><td><code class="code">CAB 35FO</code></td></tr>
+          <tr><td><strong>NC</strong></td><td>No Chloride</td><td>无氯型</td><td>进一步降低氯离子</td><td>—</td></tr>
+          <tr><td><strong>NF</strong></td><td>No Formaldehyde</td><td>无甲醛/无添加</td><td>极简配方，清洁标签</td><td><code class="code">SHS(NF)</code></td></tr>
+          <tr><td><strong>RSPO MB</strong></td><td>RSPO Mass Balance</td><td>可持续棕榈油认证</td><td>满足国际品牌 ESG/绿色供应链</td><td><code class="code">CAB 35 RSPO MB</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <strong>后缀是选型的关键密码。</strong>同一系列（如 CAB）下不同后缀代表完全不同的产品定位：<mark class="key">TF = 无盐婴童首选，HP = 膏状增稠旗舰，FA = 液体增泡，B = pH 缓冲</mark>。客户说"要 CAB 35"时，先问清配方需求（温和？增稠？透明？），再用后缀锁定具体牌号。
+    </div>
+
+    <h3>记忆口诀</h3>
+    <div class="callout accent2">
+      HP膏状FA泡，FG颗粒TF无盐，B缓冲LS低盐，H高粘HG凝胶，L低粘方便泵，FO低气味NF无添加，LDL月桂基两性，RSPO绿色认证通全球。
+    </div>
+
+    <h3>牌号密码详解 · 全品牌三段拆解</h3>
+    <p>上方后缀表聚焦 CAB 语境；天赐全谱系（<strong>Napure / AMIN / TC-</strong> 三大品牌线）的牌号密码还有<strong>前缀、中间字母、数字</strong>三段，全部拆开都能读。</p>
+
+    <h4>前缀：产品系列</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>前缀</th><th>含义</th><th>代表产品</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Napure</strong></td><td>Natural + Pure，天然纯净氨基酸表活</td><td>Napure C-HP, Napure SCI85</td></tr>
+          <tr><td><strong>AMIN</strong></td><td>Amino Acid，氨基酸表活品牌</td><td>AMIN GC30, AMIN LS30</td></tr>
+          <tr><td><strong>TC-</strong></td><td>Tinci，天赐通用前缀，用于两性/非离子表活</td><td>TC-CAB 35, TC-SHD(L)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>中间字母：化学结构</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>字母</th><th>全称</th><th>含义</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>C</strong></td><td>Coco / Cocoyl</td><td>椰油基（C8-C18混合脂肪酸）</td></tr>
+          <tr><td><strong>L</strong></td><td>Lauryl / Lauroyl</td><td>月桂基（C12单一脂肪酸）</td></tr>
+          <tr><td><strong>G</strong></td><td>Glycinate</td><td>甘氨酸</td></tr>
+          <tr><td><strong>CG</strong></td><td>Cocoyl Glutamate</td><td>椰油酰谷氨酸</td></tr>
+          <tr><td><strong>LS</strong></td><td>Lauroyl Sarcosinate</td><td>月桂酰肌氨酸</td></tr>
+          <tr><td><strong>CAB</strong></td><td>Cocamidopropyl Betaine</td><td>椰油酰胺丙基甜菜碱</td></tr>
+          <tr><td><strong>LAB</strong></td><td>Lauramidopropyl Betaine</td><td>月桂酰胺丙基甜菜碱</td></tr>
+          <tr><td><strong>SHD</strong></td><td>Hydroxysultaine</td><td>羟基磺基甜菜碱</td></tr>
+          <tr><td><strong>MAB</strong></td><td>Amphodiacetate</td><td>两性基乙酸钠（咪唑啉型）</td></tr>
+          <tr><td><strong>CAO</strong></td><td>Cocamidopropylamine Oxide</td><td>椰油酰胺丙基氧化胺</td></tr>
+          <tr><td><strong>LAO</strong></td><td>Lauramidopropylamine Oxide</td><td>月桂酰胺丙基氧化胺</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>尾部字母：氨基酸系列后缀</h4>
+    <div class="callout accent2">
+      <strong>注意：</strong>下表后缀适用于<strong>氨基酸表活（Napure / AMIN）系列</strong>；两性 CAB 系列的后缀（TF/HP/FA/B/LS…）含义见上方"核心后缀编码表"。<mark class="key">同一后缀在不同系列含义不同</mark>，请按系列记忆。
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>后缀</th><th>含义</th><th>举例</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>HP</strong></td><td>High Purity / Hot Paste（膏状）</td><td>Napure C-HP</td></tr>
+          <tr><td><strong>FA</strong></td><td>Fluid（液体）；或 Fatty Acid</td><td>Napure C-FA（液体形态）</td></tr>
+          <tr><td><strong>FG</strong></td><td>Fine Granule（细颗粒/固体）</td><td>Napure C-FG, Napure L-FG90</td></tr>
+          <tr><td><strong>Na</strong></td><td>Sodium，钠盐粉末</td><td>AMIN LSNa, AMIN LGNa</td></tr>
+          <tr><td><strong>P</strong></td><td>Preserved（含防腐剂）或 Potassium（钾盐）</td><td>AMIN LS30-P, AMIN GCK95U(P)</td></tr>
+          <tr><td><strong>NP</strong></td><td>No Preservative（无防腐剂）</td><td>AMIN LS30-NP</td></tr>
+          <tr><td><strong>K</strong></td><td>Potassium（钾盐）</td><td>AMIN GCK95U(P), AMIN GCK30H</td></tr>
+          <tr><td><strong>H</strong></td><td>High concentration（高浓度）</td><td>AMIN GCK30H</td></tr>
+          <tr><td><strong>TF</strong></td><td>Tinci Salt-Free（无盐/低盐技术）</td><td>TC-CAB 35TF, TC-LAB 35TF</td></tr>
+          <tr><td><strong>LDL</strong></td><td>Lauroamphodiacetate 标识</td><td>TC-MAB 40LDL</td></tr>
+          <tr><td><strong>(L)</strong></td><td>Lauryl 月桂基</td><td>TC-SHD(L)</td></tr>
+          <tr><td><strong>(B)</strong></td><td>Coconut-based 椰油基</td><td>TC-SHD(B)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>数字：活性物含量</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>数字</th><th>含义</th><th>举例</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>30</td><td>活性物含量 ~30%（液体产品）</td><td>AMIN GC30, LS30, CG30, CA30</td></tr>
+          <tr><td>35</td><td>活性物含量 ~35%</td><td>TC-CAB 35, TC-LAB 35</td></tr>
+          <tr><td>40</td><td>活性物含量 ~40%</td><td>TC-MAB 40LDL</td></tr>
+          <tr><td>45</td><td>活性物含量 ~45%（高浓度液体）</td><td>TC-CAB 45HG</td></tr>
+          <tr><td>85</td><td>活性物含量 ~85%（固体粉末/颗粒）</td><td>Napure SCI85, SLMI85</td></tr>
+          <tr><td>90</td><td>高纯度等级（≥90%）</td><td>Napure L-FG90</td></tr>
+          <tr><td>95</td><td>极高纯度（≥95%，粉末）</td><td>CG95, LG95, AMIN LSNa</td></tr>
+          <tr><td>97</td><td>极高纯度（≥97%，粉末）</td><td>TC-CAB 97</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>实战拆解示例</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>牌号</th><th>拆解</th><th>结论</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>AMIN GCK95U(P)</strong></td><td>AMIN=氨基酸 + GCK=椰油酰甘氨酸钾 + 95U=高纯度版 + (P)=含防腐剂</td><td>高纯度椰油酰甘氨酸钾液体，含防腐剂，用于洁面膏</td></tr>
+          <tr><td><strong>Napure L-FG90</strong></td><td>Napure=天然表活 + L=月桂基 + FG=细颗粒 + 90=高纯度</td><td>月桂酰基牛磺酸钠，高纯度颗粒，用于高端洗发水</td></tr>
+          <tr><td><strong>TC-CAB 35TF</strong></td><td>TC=天赐 + CAB=椰油甜菜碱 + 35=35% + TF=无盐</td><td>无盐椰油甜菜碱，婴童温和配方首选</td></tr>
+          <tr><td><strong>AMIN CG30</strong></td><td>AMIN=氨基酸 + CG=椰油酰谷氨酸 + 30=30%</td><td>30%椰油酰谷氨酸钠液体，温和清洁</td></tr>
+          <tr><td><strong>TC-SHD(L)</strong></td><td>TC=天赐 + SHD=磺基甜菜碱 + (L)=月桂基</td><td>月桂酰胺丙基羟基磺基甜菜碱，极低刺激</td></tr>
+          <tr><td><strong>AMIN LSNa</strong></td><td>AMIN=氨基酸 + LS=月桂酰肌氨酸 + Na=钠盐粉末</td><td>月桂酰肌氨酸钠粉末，≥95%纯度</td></tr>
+          <tr><td><strong>TC-MAB 40LDL</strong></td><td>TC=天赐 + MAB=两性基乙酸钠 + 40=40% + LDL=月桂酰两性基</td><td>月桂酰两性基乙酸钠，极致温和，婴童配方</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 产品全景 · 四大类谱系 ============ -->
+  <section class="section" id="landscape">
+    <h2>产品全景 · 四大类谱系</h2>
+    <p>天赐表面活性剂按电荷类型分四大类，其中<strong>氨基酸表活（阴离子温和型）+ 两性表活</strong>是核心竞争力：氨基酸覆盖六大子类、超过 30 个牌号；两性覆盖四大子类、共 29 个牌号。</p>
+
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <div class="scn-icon">🧬</div>
+        <div class="scn-label">阴离子（温和型）</div>
+        <div class="scn-title">氨基酸表活（AMIN + Napure 系列）</div>
+        <ul class="feature-list">
+          <li><strong>肌氨酸类：</strong>LS30, LS30-P, LSNa, CS30, MS30</li>
+          <li><strong>甘氨酸类：</strong>GC30, GCK95U(P), GCK30H</li>
+          <li><strong>谷氨酸类：</strong>CG95, CG30, CG30W, LGNa, LG95, CEA-30S, CE-30A</li>
+          <li><strong>丙氨酸类：</strong>CA30</li>
+          <li><strong>牛磺酸类：</strong>C-HP, C-FG, L-FG90, CT-HP, C-C</li>
+          <li><strong>羟乙磺酸类：</strong>SCI85, SLMI85</li>
+        </ul>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">⚖️</div>
+        <div class="scn-label">两性离子</div>
+        <div class="scn-title">两性表活（TC-系列）</div>
+        <ul class="feature-list">
+          <li><strong>甜菜碱类：</strong>CAB35, CAB35TF, CAB45HG, CAB97, LAB35, LAB35TF</li>
+          <li><strong>磺基甜菜碱类：</strong>SHD(L), SHD(B), SHS, SHS(NF)</li>
+          <li><strong>咪唑啉类：</strong>MAB 40LDL</li>
+          <li><strong>氧化胺类*：</strong>CAO30, LAO30（化学结构上属非离子）</li>
+        </ul>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🟢</div>
+        <div class="scn-label">非离子</div>
+        <div class="scn-title">非离子表活（6501 / APG / AEO 等）</div>
+        <ul class="feature-list">
+          <li><strong>烷基糖苷：</strong>TC-APG 0810, TC-APG 1214, TC-APG 1214 HP, TC-APG CG</li>
+          <li><strong>烷醇酰胺：</strong>TC-6501, TC-CMEA</li>
+          <li><strong>脂肪醇醚：</strong>TC-AEO-7, TC-AEO-9</li>
+          <li><strong>氧化胺*：</strong>TC-CAO, TC-LAO（品类归档归非离子）</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>天赐系列 × 表活类型归属</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>天赐产品系列</th><th>表活类型</th><th>在配方中的角色</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Napure 系列（肌氨酸/牛磺酸/羟乙磺酸）</td><td>阴离子（温和型）</td><td>主表活 — 负责清洁和起泡</td></tr>
+          <tr><td>AMIN 系列（甘氨酸/谷氨酸/肌氨酸等）</td><td>阴离子（温和型）</td><td>主表活/辅助表活</td></tr>
+          <tr><td>TC-CAB / TC-LAB 系列</td><td>两性离子</td><td>辅助表活 — 降刺激、增泡稳泡</td></tr>
+          <tr><td>TC-SHD 系列</td><td>两性离子（磺基甜菜碱）</td><td>辅助表活 — 极低刺激，婴童配方</td></tr>
+          <tr><td>TC-SHS 系列</td><td>两性离子（磺基甜菜碱）</td><td>辅助表活 — 无甲醛/无香精极简配方</td></tr>
+          <tr><td>TC-MAB 系列</td><td>两性离子（咪唑啉）</td><td>辅助表活 — 温和清洁</td></tr>
+          <tr><td>TC-CAO / TC-LAO</td><td>非离子（氧化胺）*</td><td>增泡稳泡，家居清洁</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>氧化胺的特殊分类说明</h3>
+    <p>氧化胺在化学结构上属于非离子表面活性剂（N→O 极性键不电离），但因其在水溶液中可呈现两性离子特性（酸性条件下质子化后表现为阳离子特性），常与两性表活一起讨论。天赐的 TC-CAO / TC-LAO 系列在功能上主要用于<strong>增泡稳泡、协同增稠</strong>，在品类归档上归入非离子表活。</p>
+
+    <div class="callout">
+      <strong>核心事实</strong>
+      <p>天赐表面活性剂的核心竞争力在<mark class="key">氨基酸表活 + 两性表活</mark>。氨基酸表活覆盖六大子类、超过 30 个牌号；两性表活覆盖四大子类、共 29 个牌号。氧化胺类（CAO/LAO）化学结构属非离子，功能上常用于增泡稳泡。</p>
+    </div>
+  </section>
+
+  <!-- ============ 六大系列卡片 ============ -->
+  <section class="section" id="series">
+    <h2>六大系列 · 产品全景</h2>
+    <p>天赐两性表活覆盖<strong>6大化学系列、29个牌号</strong>。从行业市占率第一的 CAB 椰油甜菜碱，到婴童配方灵魂基料 MAB 咪唑啉，再到泡沫"涡轮增压器" AO 氧化胺——每个系列都有明确的定位和应用场景。</p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h4>CAB 系列 · 椰油酰胺丙基甜菜碱</h4>
+        <p><span class="tag tag-blue">主力系列</span> <span class="tag tag-green">17牌号</span></p>
+        <p style="margin-top:0.5rem;"><strong>羧基甜菜碱</strong>，天赐两性表活绝对主力，行业市占率第一。温和 + 稳泡 + 增稠三合一，与 AES 复配增稠效果极佳。</p>
+        <p style="margin-top:0.4rem;"><strong>典型应用：</strong>香波、沐浴露、洗手液、洗面奶（2-8%）；覆盖 30%~97% 全浓度梯度。</p>
+      </div>
+      <div class="concept-card">
+        <h4>LAB 系列 · 月桂酰胺丙基甜菜碱</h4>
+        <p><span class="tag tag-purple">升级款</span> <span class="tag tag-green">3牌号</span></p>
+        <p style="margin-top:0.5rem;">C12 单一链长，<strong>起泡更快 + 泡沫更细腻 + 更温和</strong>，但成本更高。CAB 是"走量款"，LAB 是"升级款"。</p>
+        <p style="margin-top:0.4rem;"><strong>典型应用：</strong>高端无硫酸盐透明洗发水、婴童洗护。与 CAB 35TF 双 TF 组合保证透明度和温和性。</p>
+      </div>
+      <div class="concept-card">
+        <h4>MAB 系列 · 月桂酰两性基乙酸钠</h4>
+        <p><span class="tag tag-blue">极温和</span> <span class="tag tag-green">2牌号</span></p>
+        <p style="margin-top:0.5rem;">咪唑啉型两性表活，<strong>Draize 眼刺激指数接近零</strong>的极温和表活，擅长调理。婴童/敏感肌配方的"灵魂"基料。</p>
+        <p style="margin-top:0.4rem;"><strong>典型应用：</strong>婴童无泪配方、敏感肌洁面。pH 8.0-9.5，与酸性表活复配自动中和。</p>
+      </div>
+      <div class="concept-card">
+        <h4>SHD 系列 · 羟基磺基甜菜碱</h4>
+        <p><span class="tag tag-orange">pH稳定器</span> <span class="tag tag-green">3牌号</span></p>
+        <p style="margin-top:0.5rem;">磺酸基替代羧酸基，<strong>全 pH 范围（2-12）两性离子状态稳定</strong>，极低刺激。不受 pH 影响是相对 CAB 的核心技术差异。</p>
+        <p style="margin-top:0.4rem;"><strong>典型应用：</strong>婴童/敏感肌配方、果酸配方、极端 pH 体系。SHD(L) 月桂基版更温和、起泡更优。</p>
+      </div>
+      <div class="concept-card">
+        <h4>SHS 系列 · 磺基甜菜碱</h4>
+        <p><span class="tag tag-red">极简配方</span> <span class="tag tag-green">2牌号</span></p>
+        <p style="margin-top:0.5rem;">与 SHD 同属磺基甜菜碱家族，<strong>"无甲醛/无香精"极简配方牌号的载体</strong>。具体结构与 SHD 的差异待 TDS 确认。</p>
+        <p style="margin-top:0.4rem;"><strong>典型应用：</strong>标准温和清洁（SHS）、无甲醛/无香精极简配方（SHS(NF)），可搭配 CAB FO 型低气味产品。</p>
+      </div>
+      <div class="concept-card">
+        <h4>AO 系列 · 氧化胺</h4>
+        <p><span class="tag tag-blue">增泡涡轮</span> <span class="tag tag-green">2牌号</span></p>
+        <p style="margin-top:0.5rem;">泡沫的"涡轮增压器"：<strong>增泡稳泡 + 协同增稠 + 酸性调理</strong>。酸性呈阳离子、中/碱呈非离子。与 AES/AOS/LAS 复配泡沫提升 20-40%。</p>
+        <p style="margin-top:0.4rem;"><strong>典型应用：</strong>高泡清洁剂、家居清洁、酸性洁厕剂、无硫酸盐体系增泡。CAO 椰油基增泡最强，LAO 月桂基更细腻。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 两性牌号全目录 ============ -->
+  <section class="section" id="catalog">
+    <h2>两性牌号全目录 · 29 款分系列详解</h2>
+    <p>两性表活完整目录共 <strong>29 个牌号、6 大化学类型</strong>（数据来源：内部产品目录，<mark class="key">来源待核实</mark>，具体技术参数以天赐官方 TDS 为准）。CAB 以 17 个牌号占据 59%，是天赐两性表活的绝对主力；后缀细分（B/LS/TF/H/FO/L/HG/HP/FA/FG）+ RSPO 认证双维度覆盖，走的是"深度细分 + 可持续认证"的竞争策略。</p>
+
+    <h3>TC-CAB 椰油酰胺丙基甜菜碱 — 17 个牌号</h3>
+    <p><span class="code">INCI: Cocamidopropyl Betaine</span> | <span class="code">CAS: 61789-40-0</span> | 核心品类，市占率行业第一</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>活性物</th><th>后缀含义</th><th>产品定位</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TC-CAB 30</strong></td><td>~30%</td><td>—</td><td>经济入门款，低浓度标准型</td></tr>
+          <tr><td><strong>TC-CAB 35</strong></td><td>≥35%</td><td>—</td><td>标准型，应用最广，香波/沐浴露/洗面奶</td></tr>
+          <tr><td><strong>TC-CAB 35 RSPO MB</strong></td><td>≥35%</td><td>RSPO 认证</td><td>标准型 + 可持续棕榈油认证，国际品牌绿色供应链</td></tr>
+          <tr><td><strong>TC-CAB 35HP</strong></td><td>≥35%</td><td>HP = High Paste 膏状</td><td>膏状高粘度型，增稠效率比标准 CAB 35 高 30-50%</td></tr>
+          <tr><td><strong>TC-CAB 35FA</strong></td><td>≥35%</td><td>FA = Foam Agent 增泡</td><td>液体增泡型，泡沫高度提升约 15-20%</td></tr>
+          <tr><td><strong>TC-CAB 35FG</strong></td><td>≥35%</td><td>FG = Fine Granule 颗粒</td><td>颗粒状固体，便于称量和运输</td></tr>
+          <tr><td><strong>TC-CAB 35B</strong></td><td>≥35%</td><td>B = Buffer 缓冲型</td><td>pH 缓冲体系，配方 pH 稳定性更好</td></tr>
+          <tr><td><strong>TC-CAB 35B RSPO MB</strong></td><td>≥35%</td><td>B + RSPO</td><td>缓冲型 + 可持续认证，双高配</td></tr>
+          <tr><td><strong>TC-CAB 35FO</strong></td><td>≥35%</td><td>FO = Free Odor / 低气味</td><td>低气味型，香精敏感配方</td></tr>
+          <tr><td><strong>TC-CAB 35H</strong></td><td>≥35%</td><td>H = High Viscosity</td><td>高粘度型，增稠效率更高</td></tr>
+          <tr><td><strong>TC-CAB 35LS</strong></td><td>≥35%</td><td>LS = Low Salt</td><td>低盐型，对电解质敏感的配方体系</td></tr>
+          <tr><td><strong>TC-CAB 35TF</strong></td><td>≥35%</td><td>TF = Tinci Salt-Free</td><td>无盐专利型，婴童/敏感肌首选</td></tr>
+          <tr><td><strong>TC-CAB 45</strong></td><td>≥45%</td><td>—</td><td>高浓度标准型</td></tr>
+          <tr><td><strong>TC-CAB 45HG</strong></td><td>≥45%</td><td>HG = High Gel</td><td>高凝胶型，特高增稠需求</td></tr>
+          <tr><td><strong>TC-CAB 45L</strong></td><td>≥45%</td><td>L = Light / Liquid</td><td>低粘度高浓度型，便于泵送和自动化生产</td></tr>
+          <tr><td><strong>TC-CAB 45L RSPO MB</strong></td><td>≥45%</td><td>L + RSPO</td><td>低粘度高浓度 + 可持续认证</td></tr>
+          <tr><td><strong>TC-CAB 97</strong></td><td>≥97%</td><td>—</td><td>极高浓度粉末，固体配方/浓缩液/出口</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout accent2">
+      <strong>CAB 35 系列（11 个变体）是全品类最密集的子系列</strong>
+      <p>标准、RSPO、缓冲、低气味、高粘度、低盐、无盐、膏状、增泡、颗粒——同一个 35% 活性物浓度，通过不同后缀覆盖了几乎所有的配方适配需求。这种"一个活性物等级打多张牌"的策略，是天赐与进口品牌竞争的核心手法。</p>
+    </div>
+
+    <div class="callout">
+      <strong>CAB-35 和 CAB-35TF 的区别：</strong>CAB-35 标准版 NaCl ≤5%（作为副产物），在常规配方中有利于增稠；CAB-35TF 通过天赐无盐专利技术将 NaCl 控制在 0.5% 以下（无盐版 NaCl ≤0.5%），刺激性更低，但配方增稠需要更精细的调控。客户问"为什么 35TF 比 35 贵？"——因为<mark class="key">多了一道脱盐工序</mark>，成本更高，但换来的是婴童和敏感肌市场准入。
+    </div>
+
+    <h3>TC-LAB 月桂酰胺丙基甜菜碱 — 3 个牌号</h3>
+    <p><span class="code">INCI: Lauramidopropyl Betaine</span> | 月桂基（C12），比 CAB 起泡更快、更温和</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>活性物</th><th>后缀含义</th><th>产品定位</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TC-LAB 35B</strong></td><td>≥35%</td><td>B = Buffer</td><td>缓冲型标准版</td></tr>
+          <tr><td><strong>TC-LAB 35LS</strong></td><td>≥35%</td><td>LS = Low Salt</td><td>低盐型，电解质敏感配方</td></tr>
+          <tr><td><strong>TC-LAB 35TF</strong></td><td>≥35%</td><td>TF = Tinci Salt-Free</td><td>无盐型，无硫酸盐透明洗发水</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout accent2">
+      <strong>LAB vs CAB 怎么选？</strong>
+      <p>LAB 月桂基（C12 单一链长）比 CAB 椰油基（C8-C18 混合）<mark class="key">起泡更快、泡沫更细腻、温和性更优</mark>，但成本更高。适合高端无硫酸盐透明洗发水、婴童洗护。销售时：CAB 是"走量款"，LAB 是"升级款"。</p>
+    </div>
+
+    <h3>TC-MAB 月桂酰两性基乙酸钠 — 2 个牌号</h3>
+    <p><span class="code">INCI: Disodium Lauroamphodiacetate</span> | 极温和，婴童和敏感肌专用</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>活性物</th><th>后缀含义</th><th>产品定位</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TC-MAB 40LDL</strong></td><td>~40%</td><td>LDL = Lauroamphodiacetate</td><td>标准型，温和清洁，降低产品刺激性</td></tr>
+          <tr><td><strong>TC-MAB 40LDL RSPO MB</strong></td><td>~40%</td><td>RSPO 认证</td><td>可持续认证版，满足国际客户 ESG 要求</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card accent3">
+      <h4>为什么婴童产品首选咪唑啉？</h4>
+      <p><strong>1. 眼刺激指数极低：</strong>咪唑啉分子量较大（约 400-500 Da），不易穿透眼角膜和皮肤屏障。标准兔眼刺激试验（Draize Test）评分通常为 0-5（无刺激至极微刺激），而普通 CAB 在 5-15。</p>
+      <p><strong>2. 蛋白质变性低：</strong>对皮肤角质层蛋白变性作用极低，不破坏皮肤屏障，是婴童"无泪配方"的底层技术支撑。</p>
+      <p><strong>3. 天然调理：</strong>两个羧基可与头发角蛋白氨基形成氢键，提供天然调理效果，减少单独添加阳离子调理剂用量。</p>
+      <p><strong>4. 配方兼容：</strong>pH 偏碱性（8.0-9.5），与酸性表活复配时自动中和，减少 pH 调节剂用量。</p>
+    </div>
+    <div class="callout accent2">
+      <strong>选型建议：</strong>做婴童/敏感肌产品 → 咪唑啉是首选；做大众日化/泡沫优先 → 甜菜碱是首选。两者不是替代关系，而是<mark class="key">互补关系</mark>——高端婴童配方通常同时使用咪唑啉和甜菜碱。
+    </div>
+
+    <h3>TC-SHD 羟基磺基甜菜碱 — 3 个牌号</h3>
+    <p>SHD 与常规甜菜碱的关键区别：用<strong>磺酸基（-SO3-）替代羧酸基（-COO-）</strong>。磺酸基是强酸基团，使 SHD 在<mark class="key">全 pH 范围（2-12）</mark>均保持两性离子状态、不受 pH 影响——这是 SHD 最核心的技术优势。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>活性物</th><th>烷基来源</th><th>核心性能</th><th>推荐应用</th><th>典型客户</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TC-SHD 35</strong></td><td>~35%</td><td>椰油基混合</td><td>性价比标准型，pH 2-12 稳定</td><td>通用温和清洁，酸碱配方</td><td>大众洗护品牌</td></tr>
+          <tr><td><strong>TC-SHD(B)</strong></td><td>~35%</td><td>椰油基（Coco）</td><td>椰油基，泡沫和清洁力均衡</td><td>洗发水、沐浴露标准温和配方</td><td>中高端日化品牌</td></tr>
+          <tr><td><strong>TC-SHD(L)</strong></td><td>~35%</td><td>月桂基（C12）</td><td><strong>月桂基 C12 单链</strong>，起泡更快，更温和</td><td>婴童产品、敏感肌、高端洁面</td><td>婴童品牌、敏感肌品牌</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>TC-SHS 磺基甜菜碱 — 2 个牌号（全新品类）</h3>
+    <p>SHS 与 SHD 同属磺基甜菜碱家族，推测为不同烷基链长或羟基取代结构（具体差异待 TDS 确认）。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>推测特征</th><th>产品定位</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TC-SHS</strong></td><td>基础型羟基磺基甜菜碱</td><td>标准温和清洁</td></tr>
+          <tr><td><strong>TC-SHS(NF)</strong></td><td>NF = No Formaldehyde / No Fragrance</td><td>无甲醛/无香精，极简配方</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout accent4">
+      <strong>TC-SHS 是此前手册完全未覆盖的新品类</strong>
+      <p>SHS 和 SHD 的具体差异（INCI 名称、链长、羟基位置）需要进一步查阅天赐内部 TDS 确认。建议关注这两个牌号的技术参数，可能是针对特定客户定制的差异化产品。</p>
+    </div>
+
+    <h3>TC-CAO / TC-LAO 氧化胺 — 2 个牌号</h3>
+    <p>氧化胺是<strong>pH 依赖型表面活性剂</strong>（化学结构属非离子，行业习惯按两性讨论）——酸性条件下（pH &lt; 5）呈阳离子性，中/碱性（pH &gt; 7）呈非离子性。既是增泡稳泡剂，又是增稠剂和调理剂。</p>
+    <div class="card accent">
+      <p><span class="code">TC-CAO 30 · INCI: Cocamidopropyl Amine Oxide</span> | <strong>活性物：</strong> ~30% | <strong>外观：</strong> 淡黄色透明液体 | <strong>pH：</strong> 6.0-8.0</p>
+      <p><strong>烷基来源：</strong> 椰油基（C8-C18 混合），以 C12 为主</p>
+      <p><strong>核心性能：</strong> <mark class="key">极佳的增泡稳泡能力</mark>，与 AES、AOS、LAS 复配时泡沫高度可提升 20-40%。同时具有增稠、调理和抗静电效果。</p>
+      <p><strong>推荐应用：</strong> 高泡香波、沐浴露、洗手液、餐具洗涤剂、洁厕剂 | <strong>推荐用量：</strong> 1-5%（活性物计）</p>
+      <p><strong>特别注意：</strong> CAO 在酸性清洁剂（如洁厕剂）中表现优异，阳离子性提供额外杀菌增效。</p>
+    </div>
+    <div class="card accent">
+      <p><span class="code">TC-LAO 30 · INCI: Lauramidopropyl Amine Oxide</span> | <strong>活性物：</strong> ~30% | <strong>外观：</strong> 淡黄色透明液体 | <strong>pH：</strong> 6.0-8.0</p>
+      <p><strong>烷基来源：</strong> 月桂基（C12 单一链长），纯度更高</p>
+      <p><strong>核心性能：</strong> 相比 CAO，LAO 的<strong>泡沫更细腻、起泡速度更快</strong>，但增稠能力略低于 CAO。低温稳定性更好，不易析出。</p>
+      <p><strong>推荐应用：</strong> 高端透明洗发水、洁面泡沫、婴童洗护 | <strong>推荐用量：</strong> 1-5%（活性物计）</p>
+      <p><strong>典型客户：</strong> 高端个人护理品牌，追求透明外观和细腻泡沫的配方商</p>
+    </div>
+    <h4>CAO vs LAO 性能对比</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>性能指标</th><th>TC-CAO（椰油基）</th><th>TC-LAO（月桂基）</th><th>结论</th></tr></thead>
+        <tbody>
+          <tr><td><strong>起泡速度</strong></td><td>快</td><td><strong>更快</strong></td><td>LAO 更优</td></tr>
+          <tr><td><strong>泡沫细腻度</strong></td><td>细腻</td><td><strong>更细腻</strong></td><td>LAO 更优</td></tr>
+          <tr><td><strong>泡沫稳定性</strong></td><td>优秀</td><td>优秀</td><td>持平</td></tr>
+          <tr><td><strong>增稠能力</strong></td><td><strong>强</strong></td><td>中等</td><td>CAO 更优</td></tr>
+          <tr><td><strong>温和性</strong></td><td>良好</td><td><strong>更优</strong></td><td>LAO 更优</td></tr>
+          <tr><td><strong>低温稳定性</strong></td><td>可能出现浑浊</td><td><strong>低温透明</strong></td><td>LAO 更优</td></tr>
+          <tr><td><strong>成本</strong></td><td>经济</td><td>较高</td><td>CAO 更优</td></tr>
+          <tr><td><strong>推荐场景</strong></td><td>高泡清洁、家居清洁</td><td>高端洗护、透明产品</td><td>按需选择</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout accent2">
+      <strong>销售话术</strong>
+      <p>"客户要泡沫好，先问是不是加了氧化胺。CAO 是泡沫的'涡轮增压器'——加 1-2%，泡沫就能提升一个档次。如果客户要高端透明产品，推荐 LAO，低温不浑浊，泡沫更细腻。"</p>
+    </div>
+  </section>
+
+  <!-- ============ 主力牌号详解 ============ -->
+  <section class="section" id="key-products">
+    <h2>主力牌号详解 · CAB 三剑客</h2>
+    <p>CAB 系列是天赐销量最大的系列，其中 <code class="code">TC-CAB 35</code>（标准型）、<code class="code">TC-CAB 35TF</code>（无盐型）、<code class="code">TC-CAB 35HP</code>（膏状型）是最核心的三个牌号，覆盖从大众性价比到高端婴童的全场景需求。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>牌号</th><th>活性物</th><th>盐含量</th><th>粘度/形态</th><th>泡沫</th><th>适用场景</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="code">TC-CAB 35</code><br><span class="tag tag-blue">标准型</span></td>
+            <td>≥35%</td>
+            <td>NaCl ≤5%</td>
+            <td>淡黄液体<br>标准粘度</td>
+            <td>丰富稳定</td>
+            <td>大众日化配方"万金油"：香波、沐浴露、洗手液（2-8%）；与 AES 复配增稠</td>
+          </tr>
+          <tr>
+            <td><code class="code">TC-CAB 35TF</code><br><span class="tag tag-green">无盐专利</span></td>
+            <td>≥35%</td>
+            <td>极低（TF=无盐）<br>从合成路线杜绝氯离子</td>
+            <td>无色至淡黄透明液体<br>标准粘度</td>
+            <td>丰富稳定<br>透明度最高</td>
+            <td>婴童洗护、敏感肌配方、透明配方首选；极低刺激</td>
+          </tr>
+          <tr>
+            <td><code class="code">TC-CAB 35HP</code><br><span class="tag tag-purple">膏状旗舰</span></td>
+            <td>≥35%</td>
+            <td>标准</td>
+            <td>白色膏状（30℃以下）<br>增稠效率比标准高 30-50%</td>
+            <td>丰富</td>
+            <td>高粘度沐浴露、洗发膏、身体磨砂膏（3-10%）；需加热 40-50℃ 泵送</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tier-section tier-high">
+      <h4>高端梯队 <span class="tier-badge">TF / HP</span></h4>
+      <p><strong>TF（无盐型）</strong>：天赐专利无盐路线，从合成工艺杜绝氯离子，温和性最优、透明度最高。婴童/敏感肌配方首选，无硫酸盐透明体系核心。</p>
+      <p><strong>HP（膏状型）</strong>：特殊结晶工艺，室温下呈膏状，含更高比例长链烷基甜菜碱。增稠效率比标准 CAB 35 高 30-50%，追求高粘稠感配方的首选。注意需加热至 40-50℃ 泵送。</p>
+      <p style="margin-top:0.6rem;"><strong>销售定位：</strong>面向中高端品牌、婴童线、追求差异化肤感的配方商。毛利空间大于标准型。</p>
+    </div>
+
+    <div class="tier-section tier-standard">
+      <h4>常规梯队 <span class="tier-badge">标准型</span></h4>
+      <p><strong>CAB 35（标准型）</strong>：行业标杆，天赐 CAB 系列销量最大的牌号，国内市占率第一。产能稳定、批次一致性好，与 AES 复配增稠效果好。典型客户为大众日化品牌、追求性价比的配方商。</p>
+      <p style="margin-top:0.6rem;"><strong>销售定位：</strong>走量主力，价格竞争力强，适合大众洗护市场。是建立客户关系、切入供应链的"敲门砖"产品。</p>
+    </div>
+
+    <div class="callout accent2">
+      <strong>选型逻辑：</strong>客户要性价比 → <code class="code">CAB 35</code>；要温和/透明/婴童 → <code class="code">CAB 35TF</code>；要高粘稠感/膏状 → <code class="code">CAB 35HP</code>。三个牌号覆盖从大众到高端的全场景需求，是 CAB 系列销售的核心武器。
+    </div>
+  </section>
+
+  <!-- ============ 甜菜碱复配协同 ============ -->
+  <section class="section" id="synergy">
+    <h2>甜菜碱复配协同 · 四大协同效应</h2>
+    <p>甜菜碱的独特价值不仅在于自身性能，更在于它与其他表活的<strong>协同增效</strong>——这是甜菜碱成为"万能配角"的根本原因。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>复配体系</th><th>协同效果</th><th>推荐用量配比</th><th>机理</th><th>典型应用</th></tr></thead>
+        <tbody>
+          <tr><td><strong>与 AES 复配</strong></td><td>增稠效率提升 50-200%，泡沫更细腻，刺激性降低 30-40%</td><td>AES:CAB = 2:1 ~ 3:1</td><td>CAB 的季铵基团与 AES 的硫酸酯基团形成<strong>混合胶束</strong>，胶束体积增大，宏观粘度上升</td><td>市售 90% 以上的香波/沐浴露</td></tr>
+          <tr><td><strong>与氨基酸表活复配</strong></td><td>解决氨基酸表活"难增稠"痛点，同时不增加刺激性</td><td>氨基酸:CAB = 2:1 ~ 3:1</td><td>CAB 提供增稠骨架，氨基酸表活提供温和清洁，两者<strong>等电点互补</strong></td><td>氨基酸洁面泡沫、高端洗面奶</td></tr>
+          <tr><td><strong>与 APG 复配</strong></td><td>改善 APG 泡沫质感（"大泡"变"细泡"），提升冲洗感</td><td>APG:CAB = 1:1 ~ 2:1</td><td>CAB 降低 APG 的<strong>动态表面张力</strong>，气泡更稳定不易破裂</td><td>无硫酸盐透明洗发水、婴童洗护</td></tr>
+          <tr><td><strong>与氧化胺复配</strong></td><td>泡沫极大丰富，增稠效果叠加，适合高泡配方</td><td>CAB:CAO = 1:1 ~ 2:1</td><td>两者均为两性/非离子型，<strong>氢键网络</strong>增强泡沫膜强度</td><td>泡泡沐浴露、洗手液</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout accent2">
+      <strong>销售话术</strong>
+      <p>"甜菜碱在配方里的角色就像'调味料'——用量不多，但缺了它配方就不对味。加 CAB 不只是为了温和，更是为了让 AES 更稠、让氨基酸起泡、让 APG 更好冲。这 4 大协同效应，是客户换不掉天赐 CAB 的底层逻辑。"</p>
+    </div>
+  </section>
+
+  <!-- ============ 氨基酸表活 ============ -->
+  <section class="section" id="amino">
+    <h2>氨基酸表活 · Napure / AMIN / TC- 系列</h2>
+    <p>天赐的阴离子表活以<strong>氨基酸类</strong>为核心，Napure（天然纯净）与 AMIN（氨基酸）两大品牌线覆盖<strong>六大氨基酸子类、超过 30 个牌号</strong>，是国内品类最全的氨基酸表活供应商。氨基酸表活在化学结构上属于阴离子表面活性剂（亲水基为羧酸盐，带负电荷），但因其温和性突出，常归入"温和型阴离子"。</p>
+    <div class="callout warning">
+      <strong>数据说明：</strong>本区氨基酸牌号明细（30+ 牌号、TC-GCS / SCS / TCS 等）为旧资料整理，<mark class="key">⚠来源待补（旧资料，待入 wiki）</mark>，具体参数以天赐官方 TDS 为准。
+    </div>
+
+    <h3>Napure 系列 — 牛磺酸 / 肌氨酸 / 羟乙磺酸表活</h3>
+    <p style="font-size:0.9rem;color:var(--tinci-muted-foreground);margin-bottom:1rem;">Napure = Natural + Pure，代表天赐最高端的天然氨基酸表活品牌。采用 TINCI Salt-Free 无盐专利技术，金属离子残留 &lt;5ppm，EWG 评级 1.0。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>INCI 名称</th><th>活性物</th><th>外观</th><th>核心特点</th><th>推荐应用</th><th>典型用量</th></tr></thead>
+        <tbody>
+          <tr><td><span class="code">Napure C-HP</span></td><td>甲基椰油酰基牛磺酸钠</td><td>~30%</td><td>白色膏状</td><td>泡沫细腻绵密如奶油，易增稠辅助结晶，膏体稳定性好</td><td>氨基酸洁面膏、透明洗发水</td><td>10-25%</td></tr>
+          <tr><td><span class="code">Napure C-FA</span></td><td>椰油酰肌氨酸钠</td><td>~30%</td><td>流动液体</td><td>液体形态，直接添加不须加热，操作更方便</td><td>温和沐浴露、液体皂</td><td>10-20%</td></tr>
+          <tr><td><span class="code">Napure C-FG</span></td><td>甲基椰油酰基牛磺酸钠</td><td>高纯度</td><td>固体颗粒</td><td>颗粒版，适合固体配方，便于储存运输</td><td>洁颜粉、洗发饼、固体香皂</td><td>5-15%</td></tr>
+          <tr><td><span class="code">Napure L-FG90</span></td><td>甲基月桂酰基牛磺酸钠</td><td>≥90%</td><td>白色颗粒</td><td><mark class="key">月桂基高纯度版</mark>，起泡更快更丰富，更温和，高端定位</td><td>高端无硫酸盐洗发水、洁面膏</td><td>8-20%</td></tr>
+          <tr><td><span class="code">Napure CT-HP</span></td><td>甲基椰油酰基牛磺酸钠</td><td>~30%</td><td>白色膏状</td><td>双牛磺酸结构，极致温和，适用于受损发质</td><td>受损发质洗发水、敏感肌洁面</td><td>8-15%</td></tr>
+          <tr><td><span class="code">Napure C-C</span></td><td>椰油酰基牛磺酸钠</td><td>~30%</td><td>液体</td><td>椰油基牛磺酸，性价比高，泡沫丰富</td><td>大众温和洗发水、沐浴露</td><td>10-20%</td></tr>
+          <tr><td><span class="code">Napure SCI85</span></td><td>椰油酰羟乙磺酸酯钠</td><td>≥85%</td><td>白色针状/片状</td><td>温和高泡，洗后柔软丝滑，耐硬水，自乳化特性</td><td>合成香皂、洁面膏、洗发饼</td><td>20-35%</td></tr>
+          <tr><td><span class="code">Napure SLMI85</span></td><td>月桂酰甲基羟乙基磺酸钠</td><td>≥85%</td><td>白色片状</td><td>新一代无硫酸盐表活，月桂基更温和，泡沫更细腻</td><td>高端固体洁面、洗发饼</td><td>15-30%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>AMIN 系列 — 氨基酸表活全品类</h3>
+    <h4>肌氨酸类（Sarcosinate）</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>INCI 名称</th><th>活性物</th><th>外观</th><th>核心特点</th><th>推荐应用</th><th>典型用量</th></tr></thead>
+        <tbody>
+          <tr><td><span class="code">AMIN LS30</span></td><td>月桂酰肌氨酸钠</td><td>~30%</td><td>透明液体</td><td>泡沫细腻持久，与 AES 有协同效应，可降低传统表活刺激性</td><td>洗发水、沐浴露、洁面乳</td><td>5-15%</td></tr>
+          <tr><td><span class="code">AMIN LS30-P</span></td><td>月桂酰肌氨酸钠</td><td>~30%</td><td>液体</td><td>含防腐剂版，婴童可用，pH 5.5-7.0</td><td>婴童洗护产品</td><td>5-12%</td></tr>
+          <tr><td><span class="code">AMIN LS30-NP</span></td><td>月桂酰肌氨酸钠</td><td>~30%</td><td>液体</td><td><mark class="key">无防腐剂版</mark>，极简配方首选，适合 Clean Beauty 宣称</td><td>极简配方、敏感肌产品</td><td>5-12%</td></tr>
+          <tr><td><span class="code">AMIN LSNa</span></td><td>月桂酰肌氨酸钠</td><td>≥95%</td><td>白色粉末</td><td>粉末版，高纯度，适合固体配方，便于运输</td><td>固体洁面、洗发饼、洁颜粉</td><td>5-20%</td></tr>
+          <tr><td><span class="code">AMIN CS30</span></td><td>椰油酰肌氨酸钠</td><td>~30%</td><td>液体</td><td>椰油基版，成本更低，与传统表活复配性好</td><td>大众温和洗发水、沐浴露</td><td>5-15%</td></tr>
+          <tr><td><span class="code">AMIN MS30</span></td><td>肉豆蔻酰肌氨酸钠</td><td>~30%</td><td>液体</td><td>肉豆蔻基（C14），介于椰油和月桂之间，易增稠</td><td>洁面膏、沐浴露增稠</td><td>5-12%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>甘氨酸类（Glycinate）— 洁面膏主力</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>INCI 名称</th><th>活性物</th><th>外观</th><th>核心特点</th><th>推荐应用</th><th>典型用量</th></tr></thead>
+        <tbody>
+          <tr><td><span class="code">AMIN GC30</span></td><td>椰油酰甘氨酸钠</td><td>~30%</td><td>透明液体</td><td>弱碱性条件使用，洗发、沐浴、婴童均适用</td><td>洗发水、沐浴露、婴童洗护</td><td>8-20%</td></tr>
+          <tr><td><span class="code">AMIN GCK95U(P)</span></td><td>椰油酰甘氨酸钾</td><td>~30%</td><td>液体</td><td><mark class="key">洁面膏核心原料</mark>——碱性透明/酸性膏体可切换，pH 可调范围广</td><td>氨基酸洁面膏（核心）、慕斯</td><td>15-25%</td></tr>
+          <tr><td><span class="code">AMIN GCK30H</span></td><td>椰油酰甘氨酸钾 + 椰油酸钾</td><td>~30%</td><td>液体</td><td>高浓度复合版，起泡和稳泡性能显著优于 GCK95U(P)</td><td>高端洁面膏、高泡配方</td><td>12-22%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>谷氨酸类（Glutamate）— 温和清洁王牌</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>INCI 名称</th><th>活性物</th><th>外观</th><th>核心特点</th><th>推荐应用</th><th>典型用量</th></tr></thead>
+        <tbody>
+          <tr><td><span class="code">CG95</span></td><td>椰油酰谷氨酸钠</td><td>≥95%</td><td>白色粉末</td><td>全球氨基酸表活最大品类（约占 41%），极高纯度</td><td>高端洁面、洗发饼</td><td>5-15%</td></tr>
+          <tr><td><span class="code">CG30</span></td><td>椰油酰谷氨酸钠</td><td>~30%</td><td>液体</td><td>弱酸性洁面标准选择，温和低刺激</td><td>弱酸性洁面、沐浴</td><td>8-18%</td></tr>
+          <tr><td><span class="code">AMIN CG30</span></td><td>椰油酰谷氨酸二钠</td><td>~30%</td><td>液体</td><td>易冲水、耐硬水，洗后清爽不假滑</td><td>洗发水、洁面慕斯、婴童产品</td><td>5-12%</td></tr>
+          <tr><td><span class="code">AMIN LGNa</span></td><td>月桂酰谷氨酸钠</td><td>≥95%</td><td>白色粉末</td><td>月桂基版，泡沫性能更优，高端洁面</td><td>洁颜粉、高端洁面膏</td><td>5-15%</td></tr>
+          <tr><td><span class="code">LG95</span></td><td>月桂酰谷氨酸钠</td><td>≥95%</td><td>白色粉末</td><td>高纯度月桂基谷氨酸，起泡快、泡沫绵密</td><td>高端固体洁面、洗发饼</td><td>5-15%</td></tr>
+          <tr><td><span class="code">CEA-30S</span></td><td>椰油酰谷氨酸钠</td><td>~30%</td><td>液体</td><td>温和洁面、沐浴，性价比高</td><td>大众温和洁面、沐浴</td><td>8-18%</td></tr>
+          <tr><td><span class="code">CE-30A</span></td><td>椰油酰谷氨酸 TEA 盐</td><td>~30%</td><td>液体</td><td>三乙醇胺盐，弱酸性体系专用，透明度好</td><td>弱酸性透明洁面</td><td>8-15%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>丙氨酸类（Alaninate）</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>INCI 名称</th><th>活性物</th><th>外观</th><th>核心特点</th><th>推荐应用</th><th>典型用量</th></tr></thead>
+        <tbody>
+          <tr><td><span class="code">CA30</span></td><td>椰油酰氨基丙酸钠</td><td>~30%</td><td>液体</td><td>天然来源椰油酸 + 丙氨酸合成，温和低刺激，泡沫细腻</td><td>婴童洗护、敏感肌洁面</td><td>5-15%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>TC- 系列氨基酸 — 技术参数补充</h3>
+    <p>氨基酸表活在 TC- 前缀下另有独立编号体系（与 AMIN/Napure 并存，<mark class="key">⚠来源待补（旧资料，待入 wiki）</mark>）：</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>产品名称</th><th>INCI 名称</th><th>活性物</th><th>外观</th><th>pH</th><th>核心性能</th><th>推荐应用</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TC-GCS 30</strong></td><td>Sodium Cocoyl Glycinate</td><td>~30%</td><td>淡黄色液体</td><td>7.0-9.0</td><td><strong>椰油酰甘氨酸钠</strong>，泡沫细腻丰富，洗后不紧绷</td><td>氨基酸洁面膏、洁面泡沫</td></tr>
+          <tr><td><strong>TC-GCS 95</strong></td><td>Sodium Cocoyl Glycinate</td><td>≥95%</td><td>白色粉末</td><td>7.0-9.0(1%)</td><td>高纯度粉末，适合固体配方和出口</td><td>洁颜粉、氨基酸洗发饼</td></tr>
+          <tr><td><strong>TC-GCS 30K</strong></td><td>Potassium Cocoyl Glycinate</td><td>~30%</td><td>淡黄色液体</td><td>7.0-9.0</td><td><strong>钾盐型</strong>，水溶性更好，低温不析出</td><td>透明氨基酸洁面、高透配方</td></tr>
+          <tr><td><strong>TC-SCS 30</strong></td><td>Sodium Cocoyl Sarcosinate</td><td>~30%</td><td>淡黄色液体</td><td>7.0-8.5</td><td><strong>椰油酰肌氨酸钠</strong>，起泡力强，pH 适用范围宽</td><td>洁面泡沫、沐浴露</td></tr>
+          <tr><td><strong>TC-TCS 30</strong></td><td>Sodium Cocoyl Taurate</td><td>~30%</td><td>白色膏状</td><td>7.0-8.5</td><td><strong>椰油酰甲基牛磺酸钠</strong>，泡沫极丰富，耐硬水</td><td>高端洁面、洗发水</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent">
+      <h4>快速记忆：阴离子表活选型决策树</h4>
+      <p style="font-size:0.9rem;color:var(--tinci-muted-foreground);">
+        <strong>做洁面膏？</strong> → <span class="code">AMIN GCK95U(P)</span>（主力）+ <span class="code">AMIN CG30</span>（辅助）+ <span class="code">TC-CAB 35TF</span>（降刺激）<br>
+        <strong>做高端洗发水？</strong> → <span class="code">Napure L-FG90</span>（月桂基高泡）+ <span class="code">TC-LAB 35TF</span>（无盐无防腐）<br>
+        <strong>做固体产品？</strong> → <span class="code">Napure SCI85</span>（羟乙磺酸）+ <span class="code">Napure C-FG</span>（牛磺酸）+ <span class="code">TC-CAB 97</span>（甜菜碱粉）<br>
+        <strong>做极致温和婴童？</strong> → <span class="code">AMIN LS30-NP</span>（无防腐剂）+ <span class="code">CA30</span>（丙氨酸）+ <span class="code">Napure C-FA</span>（肌氨酸液体）
+      </p>
+    </div>
+
+    <div class="callout">
+      <strong>阴离子表活使用原则：</strong>阴离子表活是<mark class="key">主表活（Primary Surfactant）</mark>，配方中占比通常为总表活的 60-80%。典型用量：洁面膏 15-25%，洗发水 10-20%，沐浴露 8-18%，洁面慕斯 8-12%。C 系列性价比高适合大众市场，L 系列更温和起泡更快适合高端线。
+    </div>
+  </section>
+
+  <!-- ============ 阳离子与非离子表活 ============ -->
+  <section class="section" id="cation-nonion">
+    <h2>阳离子与非离子表活</h2>
+
+    <h3>阳离子表活 — 调理与抗静电专家</h3>
+    <p>阳离子表活亲水头基带<strong>正电荷</strong>，通过静电吸附附着在带负电的头发/皮肤表面，提供<strong>抗静电、柔软、顺滑、调理</strong>四大功效，是护发素、发膜、衣物柔顺剂的核心成分。<strong>注意：不能与阴离子表活直接混合使用</strong>（会形成沉淀），必须在配方中分区或分步加入。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>产品类别</th><th>代表牌号</th><th>INCI 名称</th><th>活性物</th><th>外观</th><th>核心特点</th><th>推荐应用</th><th>典型用量</th></tr></thead>
+        <tbody>
+          <tr><td><strong>聚季铵盐-7</strong></td><td><span class="code">POLYQUTA 550/550F</span></td><td>Polyquaternium-7</td><td>~9%</td><td>透明粘稠液体</td><td>阳离子高分子调理剂，与阴离子表活相容性好，提供湿梳滑感</td><td>洗发水、沐浴露、二合一产品</td><td>0.5-3%</td></tr>
+          <tr><td><strong>聚季铵盐-10</strong></td><td><span class="code">TC-PQ10</span></td><td>Polyquaternium-10</td><td>固体</td><td>白色粉末</td><td>羟乙基纤维素改性，洗发水中提供冲洗时的顺滑感</td><td>洗发水、护发素</td><td>0.2-0.5%</td></tr>
+          <tr><td><strong>聚季铵盐-22</strong></td><td><span class="code">TC-PQ22</span></td><td>Polyquaternium-22</td><td>~30%</td><td>透明液体</td><td>温和调理，适合透明配方，不影响透明度</td><td>透明洗发水、沐浴露</td><td>1-3%</td></tr>
+          <tr><td><strong>聚季铵盐-39</strong></td><td><span class="code">TC-PQ39</span></td><td>Polyquaternium-39</td><td>~10%</td><td>透明液体</td><td>高效调理，极低用量即可提供明显滑感</td><td>高端护发素、发膜</td><td>0.5-2%</td></tr>
+          <tr><td><strong>瓜尔胶羟丙基三甲基氯化铵</strong></td><td><span class="code">TC-Guar</span></td><td>Guar Hydroxypropyltrimonium Chloride</td><td>固体</td><td>淡黄色粉末</td><td>天然来源阳离子调理剂，卓越湿梳和干梳性能</td><td>洗发水、护发素、发膜</td><td>0.2-0.8%</td></tr>
+          <tr><td><strong>山嵛基三甲基氯化铵</strong></td><td><span class="code">TC-BTAC</span></td><td>Behentrimonium Chloride</td><td>~80%</td><td>白色片状/颗粒</td><td><mark class="key">C22 长链阳离子</mark>，卓越调理和抗静电，护发素标准原料</td><td>护发素、发膜、免洗护发</td><td>1-4%</td></tr>
+          <tr><td><strong>西曲氯铵</strong></td><td><span class="code">TC-CETAC</span></td><td>Cetrimonium Chloride</td><td>~30%</td><td>透明液体</td><td>C16 阳离子，快速吸附，即时顺滑和抗静电</td><td>护发素、免洗喷雾</td><td>0.5-3%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <strong>阳离子表活核心使用原则：</strong>洗发水配方中用量<mark class="key">0.2-3%</mark>（作调理剂），护发素/发膜中<mark class="key">1-4%</mark>（作主表活）。聚季铵盐类（POLYQUTA 550/550F、PQ-10、PQ-22）与阴离子表活相容，可直接加入洗发水体系；季铵盐类（BTAC、CETAC）与阴离子表活不相容，仅用于阴离子含量极低的护发素体系。
+    </div>
+
+    <h3>非离子表活 — 稳定与绿色的"万能胶"</h3>
+    <p>非离子表活<mark class="key">不电离</mark>，具有三大独特优势：①不受 pH 影响，任何酸碱条件都稳定；②<strong>耐硬水</strong>，不与钙镁离子反应；③与所有类型表活（阴离子、阳离子、两性离子）完全相容。其中 APG（烷基糖苷）由天然葡萄糖和脂肪醇合成，28 天完全生物降解，是"绿色"表活的代表。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>INCI 名称</th><th>活性物</th><th>外观</th><th>核心特点</th><th>推荐应用</th><th>典型用量</th></tr></thead>
+        <tbody>
+          <tr><td><span class="code">TC-APG 0810</span></td><td>辛基/癸基葡糖苷</td><td>~50%</td><td>透明粘稠液体</td><td><mark class="key">C8-C10 短链 APG</mark>，高泡、清爽、易冲洗，餐具洗涤/工业清洗主力</td><td>餐具洗涤、工业清洗</td><td>2-10%</td></tr>
+          <tr><td><span class="code">TC-APG 1214</span></td><td>月桂基葡糖苷</td><td>~50%</td><td>透明粘稠液体</td><td>C12-C14 中链 APG，泡沫更丰富持久，冲洗感略慢</td><td>洗发水、沐浴露、洗手液</td><td>2-8%</td></tr>
+          <tr><td><span class="code">TC-APG 1214 HP</span></td><td>月桂基葡糖苷</td><td>~50%</td><td>淡黄色液体</td><td>C12-C14 高纯度型（高 DP），增稠性好、温和性高</td><td>婴童洗护、高端温和配方</td><td>2-8%</td></tr>
+          <tr><td><span class="code">TC-APG CG</span></td><td>椰油基葡糖苷</td><td>~50%</td><td>淡黄色液体</td><td>C8-C16 混合链，通用型、性价比高</td><td>通用型/性价比高</td><td>2-10%</td></tr>
+          <tr><td><span class="code">TC-6501</span></td><td>椰油酰胺 DEA</td><td>~96%</td><td>淡黄色粘稠液体</td><td><mark class="key">经典非离子增稠稳泡剂</mark>，与 AES 复配增稠效果显著</td><td>洗发水、沐浴露、洗手液</td><td>1-3%</td></tr>
+          <tr><td><span class="code">TC-CMEA</span></td><td>椰油酰胺 MEA</td><td>~96%</td><td>白色片状/颗粒</td><td>固体版 6501 替代品，增稠稳泡，不含游离二乙醇胺</td><td>洗发水、沐浴露（固体配方）</td><td>1-3%</td></tr>
+          <tr><td><span class="code">TC-AEO-7</span></td><td>脂肪醇聚氧乙烯醚（7EO）</td><td>~99%</td><td>透明液体</td><td>经典非离子乳化剂，HLB 约 12，O/W 乳化，去污力强</td><td>洗衣液、家居清洁、工业清洗</td><td>2-10%</td></tr>
+          <tr><td><span class="code">TC-AEO-9</span></td><td>脂肪醇聚氧乙烯醚（9EO）</td><td>~99%</td><td>透明液体</td><td>HLB 约 13.5，乳化力更强，亲水性更好</td><td>洗衣液、洗洁精、工业清洗</td><td>2-10%</td></tr>
+          <tr><td><span class="code">TC-APG</span></td><td>烷基糖苷（混合规格）</td><td>按规格</td><td>液体</td><td>通用型 APG，天然来源，完全生物降解，ECOCERT 认证</td><td>绿色清洁、婴童产品</td><td>2-10%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card accent2">
+      <h4>APG 的核心竞争力</h4>
+      <p style="font-size:0.9rem;color:var(--tinci-muted-foreground);">
+        <strong>APG（Alkyl Polyglucoside）= 天然葡萄糖 + 天然脂肪醇</strong>，原料 100% 来自可再生资源（玉米淀粉 + 椰子油/棕榈仁油），28 天生物降解率 &gt;95%，符合 OECD 301B 标准。<br><br>
+        <strong>四大优势：</strong>① <mark class="key">极致温和</mark>——LD50&gt;5000mg/kg，可用于婴童无泪配方；② <strong>泡沫细腻</strong>——"奶油般"洗感；③ <strong>耐硬水耐酸碱</strong>——pH 2-13 均稳定；④ <strong>协同增效</strong>——与阴离子和两性表活复配显著降低整体刺激性。
+      </p>
+    </div>
+    <div class="callout">
+      <strong>非离子表活核心使用原则：</strong>个人护理产品中通常作<mark class="key">第三辅助表活</mark>，用量 1-3%，作用为增溶香精、调节冲洗感、降低刺激性；家居清洁产品中可作<strong>主表活</strong>，用量 5-20%，利用其耐硬水和强去油特性。
+    </div>
+  </section>
+
+  <!-- ============ 按活性物含量分级 ============ -->
+  <section class="section" id="levels">
+    <h2>按活性物含量分级 · 选型切入点</h2>
+    <p>客户选型时，活性物含量是最直接的切入点：30% = 经济款，35% = 标准款，45% = 浓缩款，97% = 固体款。销售时按"客户对成本 vs 浓度的偏好"快速定位等级，再在同级中按后缀功能细分。</p>
+
+    <div class="tier-section tier-standard">
+      <h4>30% 经济入门级<span class="tier-badge">经济</span></h4>
+      <p>适合成本敏感的大众配方或对活性物浓度要求不高的工业清洁场景。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>牌号</th><th>适用场景</th></tr></thead>
+          <tbody><tr><td><strong>TC-CAB 30</strong></td><td>经济型香波、洗衣液、工业清洗</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier-section tier-high">
+      <h4>35% 主力标准级 — 19 个牌号，占总量 66%<span class="tier-badge">主力</span></h4>
+      <p>覆盖 CAB / LAB / SHD / SHS 全部化学类型，是配方师最熟悉的浓度。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>化学类型</th><th>牌号</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CAB</strong></td><td>CAB 35, 35 RSPO MB, 35HP, 35FA, 35FG, 35B, 35B RSPO MB, 35FO, 35H, 35LS, 35TF</td></tr>
+            <tr><td><strong>LAB</strong></td><td>LAB 35B, 35LS, 35TF</td></tr>
+            <tr><td><strong>SHD</strong></td><td>SHD 35, SHD(B), SHD(L)</td></tr>
+            <tr><td><strong>SHS</strong></td><td>SHS, SHS(NF)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier-section tier-standard">
+      <h4>40-45% 高浓度级<span class="tier-badge">浓缩</span></h4>
+      <p>适合需要高活性物含量的浓缩配方，或希望减少运输成本的客户（水少了）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>牌号</th><th>活性物</th><th>特点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>TC-CAB 45</strong></td><td>≥45%</td><td>高浓度标准型</td></tr>
+            <tr><td><strong>TC-CAB 45HG</strong></td><td>≥45%</td><td>高凝胶型，极致增稠</td></tr>
+            <tr><td><strong>TC-CAB 45L</strong></td><td>≥45%</td><td>低粘度型，好操作</td></tr>
+            <tr><td><strong>TC-CAB 45L RSPO MB</strong></td><td>≥45%</td><td>低粘度 + RSPO</td></tr>
+            <tr><td><strong>TC-MAB 40LDL</strong></td><td>~40%</td><td>咪唑啉标准型</td></tr>
+            <tr><td><strong>TC-MAB 40LDL RSPO MB</strong></td><td>~40%</td><td>咪唑啉 + RSPO</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier-section tier-standard">
+      <h4>97% 极高浓度/固体级<span class="tier-badge">固体</span></h4>
+      <p>固体粉末形态，运输成本极低，适合固体配方（洗发饼、洁颜粉）和出口。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>牌号</th><th>适用场景</th></tr></thead>
+          <tbody><tr><td><strong>TC-CAB 97</strong></td><td>合成香皂、洗发饼、洁颜粉、浓缩液、出口</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="callout accent2">
+      <strong>客户选型切入：</strong>先按成本 vs 浓度偏好定位等级（30 经济 / 35 主力 / 45 浓缩 / 97 固体），再在同级内按后缀功能细分（增稠/增泡/无盐/缓冲/低气味…）。
+    </div>
+  </section>
+
+  <!-- ============ RSPO MB 认证 ============ -->
+  <section class="section" id="rspo">
+    <h2>RSPO MB 认证体系</h2>
+    <p>RSPO（Roundtable on Sustainable Palm Oil）可持续棕榈油圆桌会议认证；MB = Mass Balance（质量平衡），表示供应链中可持续棕榈油按比例混合，可追溯但不物理隔离。这是国际日化巨头（欧莱雅、宝洁、联合利华）的<strong>硬性采购门槛</strong>。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>基础牌号</th><th>化学类型</th><th>活性物</th><th>适用客户</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TC-CAB 35 RSPO MB</strong></td><td>CAB 35</td><td>椰油甜菜碱</td><td>≥35%</td><td>大众型国际品牌</td></tr>
+          <tr><td><strong>TC-CAB 35B RSPO MB</strong></td><td>CAB 35B</td><td>椰油甜菜碱 缓冲型</td><td>≥35%</td><td>对 pH 稳定性有要求的国际品牌</td></tr>
+          <tr><td><strong>TC-CAB 45L RSPO MB</strong></td><td>CAB 45L</td><td>椰油甜菜碱 低粘度</td><td>≥45%</td><td>自动化生产线的国际品牌</td></tr>
+          <tr><td><strong>TC-MAB 40LDL RSPO MB</strong></td><td>MAB 40LDL</td><td>月桂酰两性基乙酸钠</td><td>~40%</td><td>婴童/敏感肌国际品牌</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout accent2">
+      <strong>RSPO 认证的销售价值</strong>
+      <p>这不是"锦上添花"，而是"入场券"。宝洁、欧莱雅、联合利华等国际客户已将 RSPO 认证作为供应商准入的硬性条件。天赐在 CAB 35、CAB 35B、CAB 45L、MAB 40LDL 四个核心牌号上铺开 RSPO MB 认证，意味着<mark class="key">主力产品线已具备服务全球 Top 10 个护品牌的资格</mark>。对比国内竞品，这是明显的差异化优势。</p>
+    </div>
+  </section>
+
+  <!-- ============ 选型速查 ============ -->
+  <section class="section" id="selection">
+    <h2>选型速查 · 场景到牌号</h2>
+    <p>客户说需求，你给方案。六个典型场景直接对应推荐牌号——这是销售现场最快的产品匹配工具。</p>
+
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <div class="scn-icon">🍼</div>
+        <div class="scn-label">场景一</div>
+        <div class="scn-title">温和无刺激</div>
+        <div class="scn-rec">推荐：CAB 35TF</div>
+        <div class="scn-desc">无盐专利技术，极低氯离子，温和性最优。适合敏感肌、透明配方、无硫酸盐体系。</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🫧</div>
+        <div class="scn-label">场景二</div>
+        <div class="scn-title">高泡丰富</div>
+        <div class="scn-rec">推荐：CAB 35HP</div>
+        <div class="scn-desc">膏状高粘度型，增稠效率高 30-50%。适合追求丰富泡沫和高粘稠感的沐浴露、洗发膏。</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">💰</div>
+        <div class="scn-label">场景三</div>
+        <div class="scn-title">性价比 / 经济实惠</div>
+        <div class="scn-rec">推荐：CAB 30 / CAB 35</div>
+        <div class="scn-desc">30% 最经济，35% 是行业标准浓度、市占率第一。产能稳定、批次一致性好，大众日化配方"万金油"。</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">👶</div>
+        <div class="scn-label">场景四</div>
+        <div class="scn-title">婴童产品</div>
+        <div class="scn-rec">推荐：MAB 40LDL + CAB 35TF + SHD(L)</div>
+        <div class="scn-desc">咪唑啉 Draize 眼刺激接近零（婴童配方"灵魂"）+ TF 无盐专利 + SHD 极低刺激，三件套覆盖无泪、无盐、无刺激。</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🧴</div>
+        <div class="scn-label">场景五</div>
+        <div class="scn-title">杀菌体系</div>
+        <div class="scn-rec">推荐：SHD-B</div>
+        <div class="scn-desc">羟基磺基甜菜碱椰油基版，全 pH（2-12）两性离子稳定。适合极端 pH 杀菌配方、果酸体系。</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">⚡</div>
+        <div class="scn-label">场景六</div>
+        <div class="scn-title">增泡增效</div>
+        <div class="scn-rec">推荐：AO 系列</div>
+        <div class="scn-desc">氧化胺是泡沫"涡轮增压器"，与 AES/AOS/LAS 复配泡沫提升 20-40%。CAO 椰油基增泡最强，LAO 月桂基更细腻。</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">💧</div>
+        <div class="scn-label">场景七</div>
+        <div class="scn-title">无硫酸盐透明洗发水</div>
+        <div class="scn-rec">推荐：LAB 35TF + CAB 35TF</div>
+        <div class="scn-desc">LAB 月桂基起泡更优 + 双 TF 保证透明度和温和性，无硫酸盐体系的黄金组合。</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🌍</div>
+        <div class="scn-label">场景八</div>
+        <div class="scn-title">国际品牌</div>
+        <div class="scn-rec">推荐：RSPO MB 系列</div>
+        <div class="scn-desc">CAB 35 / 45L / MAB 40LDL RSPO MB——直接亮 RSPO 认证牌号，这是国内竞品少有的"硬通货"。</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🚢</div>
+        <div class="scn-label">场景九</div>
+        <div class="scn-title">浓缩液 / 大包装出口</div>
+        <div class="scn-rec">推荐：CAB 45L / 45HG / 97</div>
+        <div class="scn-desc">45L 低粘度好操作，97 粉末运费最低，45HG 极致增稠。高浓度=水少了=运费省。</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">📈</div>
+        <div class="scn-label">场景十</div>
+        <div class="scn-title">配方粘度调不上去</div>
+        <div class="scn-rec">推荐：CAB 35H / CAB 45HG</div>
+        <div class="scn-desc">H 高粘度 / HG 高凝胶，两者都是专为增稠优化的型号，配合 CAO 协同增稠效果更佳。</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🌸</div>
+        <div class="scn-label">场景十一</div>
+        <div class="scn-title">气味敏感</div>
+        <div class="scn-rec">推荐：CAB 35FO / SHS(NF)</div>
+        <div class="scn-desc">FO 低气味型 + NF 无香精型，双保险，适合 Clean Beauty 无香宣称配方。</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🧪</div>
+        <div class="scn-label">场景十二</div>
+        <div class="scn-title">pH 稳定性要求高</div>
+        <div class="scn-rec">推荐：CAB 35B / SHD(B) / SHD(L)</div>
+        <div class="scn-desc">B 缓冲型 + SHD 磺基甜菜碱在酸碱条件下均稳定，适合极端 pH 杀菌配方、果酸体系。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 客户问题速查手册 ============ -->
+  <section class="section" id="faq">
+    <h2>客户问题速查手册</h2>
+    <p>一线销售实战速查——客户常见问题，对应推荐产品和话术。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>客户说</th><th>推荐产品</th><th>推荐用量</th><th>话术要点</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>"泡沫不够"</strong></td>
+            <td>TC-CAB 35FA（增泡 CAB）<br>TC-CAO（氧化胺增泡）<br>TC-LAO（月桂基氧化胺）<br>TC-LAB 35TF（月桂基甜菜碱）</td>
+            <td>CAB 35FA: 3-8%<br>CAO/LAO: 1-3%<br>LAB: 3-8%</td>
+            <td>"泡沫不够，先加氧化胺——CAO 是泡沫的'涡轮增压'，加 1-2% 泡沫就能提升一个档次。如果还不够，用 CAB 35FA 替代普通 CAB 35，FA 专门优化了 C12-C14 比例，起泡更快更细腻。"</td>
+          </tr>
+          <tr>
+            <td><strong>"太刺激"</strong></td>
+            <td>TC-CAB 35TF（无盐 CAB）<br>TC-MAB 40LDL（咪唑啉）<br>TC-SHD(L)（月桂基磺基甜菜碱）<br>TC-LAB 35TF（月桂基无盐）</td>
+            <td>主表活替换为 TF 系列<br>MAB: 5-15%<br>SHD(L): 3-8%</td>
+            <td>"刺激感的元凶是盐（NaCl）和硫酸盐表活。第一步：把普通 CAB（标准版 NaCl ≤5%）换成 CAB 35TF（无盐版 NaCl ≤0.5%），氯离子大幅下降，刺激感立减。第二步：如果做婴童产品，必须加 MAB 40LDL，咪唑啉的 Draize 眼刺激指数只有 0-5，是真正的无泪配方基料。"</td>
+          </tr>
+          <tr>
+            <td><strong>"不够稠"</strong></td>
+            <td>TC-CAB 35HP（膏状高粘度）<br>TC-CAB 35H（高粘度型）<br>TC-CAB 45HG（高凝胶型）<br>TC-CAO（氧化胺协同增稠）</td>
+            <td>CAB 35HP: 3-10%<br>CAB 35H: 3-8%<br>CAB 45HG: 2-6%<br>CAO: 1-3%</td>
+            <td>"增稠分三步：第一步，用 CAB 35H 替代普通 CAB 35，H 型粘度高 30-50%；第二步，加 1-2% CAO 氧化胺，与 AES 形成蠕虫状胶束，粘度跳升；第三步，如果还不够，直接上 CAB 45HG 高凝胶型，这是增稠的'终极武器'。注意：如果是无硫酸盐体系，优先用 CAB 35HP 膏状型。"</td>
+          </tr>
+          <tr>
+            <td><strong>"颜色太深"</strong></td>
+            <td>TC-CAB 35TF（无盐，颜色最浅）<br>TC-CAB 35FO（低气味，颜色也浅）<br>TC-LAB 35TF（月桂基，颜色浅）</td>
+            <td>直接替换现用 CAB 即可</td>
+            <td>"颜色深浅主要受两个因素影响：原料色度和盐含量。TF 系列从合成路线就杜绝了氯离子，不需要后处理脱色，所以颜色天然就浅。无盐+无色=清澈透明，做透明产品的最佳选择。如果客户现有产品颜色深，建议送 TF 样品对比，眼见为实。"</td>
+          </tr>
+          <tr>
+            <td><strong>"价格太高"</strong></td>
+            <td>TC-CAB 30（经济款 30%）<br>TC-CAB 35（标准款）<br>用 CAB 替代部分高成本表活</td>
+            <td>CAB 30: 成本最低<br>CAB 35: 性价比最优<br>替代方案：用 CAB 替代 30-50% 的氨基酸表活</td>
+            <td>"表面看 CAB 单价不低，但算总配方成本要看综合性价比：（1）CAB 增稠效率高，加 CAB 能少加增稠剂，增稠剂通常比 CAB 贵；（2）CAB 降低 AES 刺激，能少加温和剂；（3）CAB 35 是行业标准浓度，产能大、批次稳，综合成本比进口低 30%+。如果客户做氨基酸洁面，用 CAB TF 替代 30% 的氨基酸表活，成本降 30% 但温和性不降。"</td>
+          </tr>
+          <tr>
+            <td><strong>"想要无硫酸盐配方"</strong></td>
+            <td>TC-CAB 35TF（无盐 CAB）<br>TC-LAB 35TF（月桂基无盐）<br>TC-CAO（氧化胺增泡）<br>TC-SHD(L)（磺基甜菜碱）<br>+ 氨基酸表活（如 TC-GCS 30）</td>
+            <td>主表活体系：氨基酸表活 40-60%<br>辅助表活：CAB TF 15-25%<br>增泡剂：CAO 2-4%<br>调理剂：SHD(L) 3-5%</td>
+            <td>"无硫酸盐配方有三个核心挑战：起泡、增稠、透明度。天赐的解决方案是'氨基酸表活 + CAB TF + 氧化胺 + 磺基甜菜碱'四件套——氨基酸负责温和清洁，CAB TF 负责增稠和无盐，CAO 负责泡沫，SHD(L) 负责调理和 pH 稳定。这套组合已经在多个客户的无硫酸盐透明洗发水中验证过。"</td>
+          </tr>
+          <tr>
+            <td><strong>"要做透明产品"</strong></td>
+            <td>TC-CAB 35TF（无盐，透明度最高）<br>TC-CAB 35LS（低盐）<br>TC-LAB 35TF（月桂基无盐）<br>TC-LAO（低温不浑浊）<br>TC-GCS 30K（钾盐氨基酸）</td>
+            <td>CAB TF: 主表活辅助<br>LAO: 1-3% 增泡<br>GCS 30K: 钾盐型，低温透明</td>
+            <td>"透明产品的敌人是盐和低温析出。盐会降低非离子表活浊点，导致产品浑浊；低温会让钠盐型氨基酸表活析出结晶。解决方案：全程用 TF 无盐系列 + LAO（月桂基氧化胺低温不浑浊）+ 钾盐型氨基酸表活（GCS 30K）。这套组合在 -5℃ 也能保持透明。"</td>
+          </tr>
+          <tr>
+            <td><strong>"要做婴童产品"</strong></td>
+            <td>TC-MAB 40LDL（咪唑啉，核心）<br>TC-CAB 35TF（无盐 CAB）<br>TC-SHD(L)（月桂基磺基甜菜碱）<br>TC-LAO（氧化胺温和增泡）<br>+ 氨基酸表活</td>
+            <td>MAB 40LDL: 8-15%（核心）<br>CAB 35TF: 5-10%<br>SHD(L): 3-5%<br>氨基酸表活: 30-50%<br>LAO: 1-2%</td>
+            <td>"婴童产品三个关键词：无泪、无盐、无刺激。咪唑啉 MAB 40LDL 是婴童配方的'灵魂'——Draize 眼刺激指数接近零，是真正的无泪配方基料。配合 CAB 35TF 无盐、SHD(L) 月桂基温和调理、LAO 温和增泡，再加上氨基酸表活做清洁主体。这套配方框架不仅能过眼刺激测试，更能过婴童化妆品备案。如果客户要做 RSPO 认证的婴童产品，直接上 MAB 40LDL RSPO MB。"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout accent3">
+      <strong>速查口诀</strong>
+      <p>泡沫不够加氧化胺，太刺激换 TF+MAB，不够稠上 HP/H/HG，颜色深用 TF，嫌贵推 CAB 30/35 替代方案，无硫酸盐用四件套，透明产品 TF+LAO+钾盐，婴童产品 MAB 是灵魂。</p>
+    </div>
+  </section>
+
+  <!-- ============ 数据来源 ============ -->
+  <section class="section" id="sources">
+    <h2>数据来源</h2>
+    <ol>
+      <li><strong>天赐材料内部产品目录 — 温和两性表面活性剂产品列表（用户上传截图）。</strong> 来源待核实</li>
+      <li><strong>天赐材料官网 (cn.tinci.com) — Napure、AMIN、TC- 系列产品详情页。</strong> <a href="https://cn.tinci.com" target="_blank" rel="noopener">https://cn.tinci.com</a></li>
+      <li><strong>万顺日化 (gd-wanshun.cn) — 天赐材料代理商完整产品目录。</strong></li>
+      <li><strong>天赐材料专利 CN202210971113.0 — 阴离子和两性离子复合表活合成方法。</strong> 中国国家知识产权局专利公布公告</li>
+      <li><strong>天赐材料 2025 年年度报告（2026-03-10）。</strong></li>
+      <li><strong>拓新化工 — 表面活性剂四大分类及功能解析。</strong></li>
+    </ol>
+    <div class="callout warning">
+      <strong>数据说明</strong>
+      <p>本文所有产品牌号数量、活性物含量等具体数值均基于内部产品目录整理，<strong>来源待核实</strong>。部分产品技术参数（如 SHS/SHD 差异、市占率数据）标注为"推测/待核实"，请以天赐官方 TDS 为准。</p>
+    </div>
+  </section>
+
+  <!-- ============ 上下篇导航 ============ -->
+  <nav class="page-nav">
+    <a href="theory.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">表面活性剂理论</span>
+    </a>
+    <a href="formulation.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">配方设计</span>
+    </a>
+  </nav>
+
+  <!-- ============ 相关页面推荐 ============ -->
+  <div class="related-pages">
+    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-grid">
+      <a href="theory.html" class="rp-card">
+        <span class="rp-icon">📚</span>
+        <span class="rp-name">理论<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">表活基础与复配原理</small></span>
+      </a>
+      <a href="formulation.html" class="rp-card">
+        <span class="rp-icon">🧪</span>
+        <span class="rp-name">配方设计<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">五大相与三剂型</small></span>
+      </a>
+      <a href="sales.html" class="rp-card">
+        <span class="rp-icon">💬</span>
+        <span class="rp-name">销售实战<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">9 场景话术模板</small></span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer><div class="container"><h2>天赐材料日化知识库</h2><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+<script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
+    </main>
+    <script src="site.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

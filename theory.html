@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表面活性剂理论</title>
+    <style id="theme-vars">
+/* ========================================
+   天赐材料日化知识库 · Design Tokens
+   设计语言：深青渐变 × 暖白底 · 精致卡片
+   参照旧知识库 style.css v3，适配 Solo Design token 规范
+   ======================================== */
+
+:root {
+  /* === Brand Primary — 深青色系 (单一品牌色) === */
+  --tinci-primary-50: #E6F5F1;
+  --tinci-primary-100: #CBE8E2;
+  --tinci-primary-200: #99D1C5;
+  --tinci-primary-300: #66BAA8;
+  --tinci-primary-400: #33A38B;
+  --tinci-primary-500: #0B7666;
+  --tinci-primary-600: #0A5F52;
+  --tinci-primary-700: #084840;
+  --tinci-primary-800: #063130;
+  --tinci-primary-900: #042020;
+
+  /* === Bright Teal — 主色浅色变体 (同色系) === */
+  --tinci-teal: #14B8A6;
+  --tinci-teal-soft: #E9FAF6;
+  --tinci-teal-50: #E9FAF6;
+  --tinci-teal-100: #BFF0E6;
+  --tinci-teal-200: #80E1CD;
+  --tinci-teal-300: #41D2B5;
+  --tinci-teal-400: #14B8A6;
+  --tinci-teal-500: #0E9488;
+  --tinci-teal-600: #0B7666;
+
+  /* === Semantic Aliases (required by apply-html-head-contract) === */
+  --tinci-background: #F5FAF8;
+  --tinci-foreground: #0F2E2A;
+  --tinci-card: #FFFFFF;
+  --tinci-card-foreground: #0F2E2A;
+  --tinci-popover: #FFFFFF;
+  --tinci-popover-foreground: #0F2E2A;
+  --tinci-primary: #0B7666;
+  --tinci-primary-foreground: #FFFFFF;
+  --tinci-secondary: #E6F5F1;
+  --tinci-secondary-foreground: #0B7666;
+  --tinci-muted: #E6F5F1;
+  --tinci-muted-foreground: #5B7A74;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #FFFFFF;
+  --tinci-border: #E2EFEB;
+  --tinci-input: #E2EFEB;
+  --tinci-ring: #14B8A6;
+
+  /* === Radius Scale === */
+  --tinci-radius-small: 4px;
+  --tinci-radius-medium: 8px;
+  --tinci-radius-large: 14px;
+  --tinci-radius-full: 9999px;
+
+  /* === Typography === */
+  --tinci-font-sans: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --tinci-font-mono: "JetBrains Mono", "SF Mono", "Consolas", monospace;
+  --tinci-font-heading: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --tinci-font-body: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+
+  /* === Surface Depth === */
+  --tinci-surface: #FFFFFF;
+  --tinci-surface-2: #F8FBFA;
+  --tinci-ink: #0F2E2A;
+  --tinci-ink-2: #5B7A74;
+  --tinci-ink-3: #8FA8A2;
+  --tinci-line: #E2EFEB;
+
+  /* === Gradients (same-hue, for hero/nav only) === */
+  --tinci-nav-grad: linear-gradient(135deg, #0B7666 0%, #14B8A6 100%);
+  --tinci-hero-grad: linear-gradient(135deg, #0A4A42 0%, #0F766E 50%, #14B8A6 110%);
+
+  /* === State Colors (semantic only) === */
+  --state-success: #059669;
+  --state-success-soft: #E9F8EE;
+  --state-warning: #D97706;
+  --state-warning-soft: #FEF5E7;
+  --state-error: #DC2626;
+  --state-error-soft: #FEE2E2;
+  --state-info: #0B7666;
+  --state-info-soft: #E6F5F1;
+
+  /* === Shadows (alpha <= 0.05 for static; deeper for floating only) === */
+  --tinci-shadow-xs: 0 1px 2px rgba(11,118,102,0.04), 0 1px 3px rgba(11,118,102,0.04);
+  --tinci-shadow-sm: 0 2px 6px rgba(11,118,102,0.05);
+  --tinci-shadow-md: 0 8px 24px -6px rgba(11,118,102,0.12), 0 2px 8px -2px rgba(11,118,102,0.06);
+  --tinci-shadow-lg: 0 16px 40px -8px rgba(11,118,102,0.16), 0 4px 12px -4px rgba(11,118,102,0.08);
+}
+
+/* === Dark Mode === */
+.dark {
+  --tinci-background: #0B1F1C;
+  --tinci-foreground: #E2EFEB;
+  --tinci-card: #14302B;
+  --tinci-card-foreground: #E2EFEB;
+  --tinci-popover: #14302B;
+  --tinci-popover-foreground: #E2EFEB;
+  --tinci-primary: #14B8A6;
+  --tinci-primary-foreground: #042020;
+  --tinci-secondary: #1A3A35;
+  --tinci-secondary-foreground: #66BAA8;
+  --tinci-muted: #1A3A35;
+  --tinci-muted-foreground: #8FA8A2;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #042020;
+  --tinci-border: #1F3D38;
+  --tinci-input: #1F3D38;
+  --tinci-ring: #14B8A6;
+  --tinci-surface: #14302B;
+  --tinci-surface-2: #1A3A35;
+  --tinci-ink: #E2EFEB;
+  --tinci-ink-2: #8FA8A2;
+  --tinci-ink-3: #5B7A74;
+  --tinci-line: #1F3D38;
+}
+
+    </style>
+    <script src="vendor/tailwind.browser.js"></script>
+    <script src="vendor/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--tinci-background);
+    --color-foreground: var(--tinci-foreground);
+    --color-card: var(--tinci-card);
+    --color-card-foreground: var(--tinci-card-foreground);
+    --color-popover: var(--tinci-popover);
+    --color-popover-foreground: var(--tinci-popover-foreground);
+    --color-primary: var(--tinci-primary);
+    --color-primary-foreground: var(--tinci-primary-foreground);
+    --color-secondary: var(--tinci-secondary);
+    --color-secondary-foreground: var(--tinci-secondary-foreground);
+    --color-muted: var(--tinci-muted);
+    --color-muted-foreground: var(--tinci-muted-foreground);
+    --color-accent: var(--tinci-accent);
+    --color-accent-foreground: var(--tinci-accent-foreground);
+    --color-border: var(--tinci-border);
+    --color-input: var(--tinci-input);
+    --color-ring: var(--tinci-ring);
+    --radius-sm: var(--tinci-radius-small);
+    --radius-md: var(--tinci-radius-medium);
+    --radius-lg: var(--tinci-radius-large);
+  }
+  @layer base {
+    body { background: var(--tinci-background); color: var(--tinci-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--tinci-background); }
+      .text-background { color: var(--tinci-background); }
+      .border-background { border-color: var(--tinci-background); }
+      .ring-background { --tw-ring-color: var(--tinci-background); }
+      .bg-foreground { background-color: var(--tinci-foreground); }
+      .text-foreground { color: var(--tinci-foreground); }
+      .border-foreground { border-color: var(--tinci-foreground); }
+      .ring-foreground { --tw-ring-color: var(--tinci-foreground); }
+      .bg-card { background-color: var(--tinci-card); }
+      .text-card { color: var(--tinci-card); }
+      .border-card { border-color: var(--tinci-card); }
+      .ring-card { --tw-ring-color: var(--tinci-card); }
+      .bg-card-foreground { background-color: var(--tinci-card-foreground); }
+      .text-card-foreground { color: var(--tinci-card-foreground); }
+      .border-card-foreground { border-color: var(--tinci-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--tinci-card-foreground); }
+      .bg-popover { background-color: var(--tinci-popover); }
+      .text-popover { color: var(--tinci-popover); }
+      .border-popover { border-color: var(--tinci-popover); }
+      .ring-popover { --tw-ring-color: var(--tinci-popover); }
+      .bg-popover-foreground { background-color: var(--tinci-popover-foreground); }
+      .text-popover-foreground { color: var(--tinci-popover-foreground); }
+      .border-popover-foreground { border-color: var(--tinci-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--tinci-popover-foreground); }
+      .bg-primary { background-color: var(--tinci-primary); }
+      .text-primary { color: var(--tinci-primary); }
+      .border-primary { border-color: var(--tinci-primary); }
+      .ring-primary { --tw-ring-color: var(--tinci-primary); }
+      .bg-primary-foreground { background-color: var(--tinci-primary-foreground); }
+      .text-primary-foreground { color: var(--tinci-primary-foreground); }
+      .border-primary-foreground { border-color: var(--tinci-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--tinci-primary-foreground); }
+      .bg-secondary { background-color: var(--tinci-secondary); }
+      .text-secondary { color: var(--tinci-secondary); }
+      .border-secondary { border-color: var(--tinci-secondary); }
+      .ring-secondary { --tw-ring-color: var(--tinci-secondary); }
+      .bg-secondary-foreground { background-color: var(--tinci-secondary-foreground); }
+      .text-secondary-foreground { color: var(--tinci-secondary-foreground); }
+      .border-secondary-foreground { border-color: var(--tinci-secondary-foreground); }
+      .ring-secondary-foreground { --tw-ring-color: var(--tinci-secondary-foreground); }
+      .bg-muted { background-color: var(--tinci-muted); }
+      .text-muted { color: var(--tinci-muted); }
+      .border-muted { border-color: var(--tinci-muted); }
+      .ring-muted { --tw-ring-color: var(--tinci-muted); }
+      .bg-muted-foreground { background-color: var(--tinci-muted-foreground); }
+      .text-muted-foreground { color: var(--tinci-muted-foreground); }
+      .border-muted-foreground { border-color: var(--tinci-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--tinci-muted-foreground); }
+      .bg-accent { background-color: var(--tinci-accent); }
+      .text-accent { color: var(--tinci-accent); }
+      .border-accent { border-color: var(--tinci-accent); }
+      .ring-accent { --tw-ring-color: var(--tinci-accent); }
+      .bg-accent-foreground { background-color: var(--tinci-accent-foreground); }
+      .text-accent-foreground { color: var(--tinci-accent-foreground); }
+      .border-accent-foreground { border-color: var(--tinci-accent-foreground); }
+      .ring-accent-foreground { --tw-ring-color: var(--tinci-accent-foreground); }
+      .bg-border { background-color: var(--tinci-border); }
+      .text-border { color: var(--tinci-border); }
+      .border-border { border-color: var(--tinci-border); }
+      .ring-border { --tw-ring-color: var(--tinci-border); }
+      .bg-input { background-color: var(--tinci-input); }
+      .text-input { color: var(--tinci-input); }
+      .border-input { border-color: var(--tinci-input); }
+      .ring-input { --tw-ring-color: var(--tinci-input); }
+      .bg-ring { background-color: var(--tinci-ring); }
+      .text-ring { color: var(--tinci-ring); }
+      .border-ring { border-color: var(--tinci-ring); }
+      .ring-ring { --tw-ring-color: var(--tinci-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <link rel="stylesheet" href="shared-components.css">
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+<nav class="site-nav">
+  <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
+  <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
+    <a href="index.html">首页</a>
+    <a href="theory.html" class="active">理论</a>
+    <a href="products.html">产品</a>
+    <a href="formulation.html">配方</a>
+    <a href="sales.html">销售</a>
+    <a href="market.html">市场</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ============ Page Hero ============ -->
+  <section class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">理论</span>
+    </div>
+    <h1>表面活性剂理论</h1>
+    <p class="page-hero-desc">从两亲结构到四大分类，从胶束热力学到CPP参数——构建表活知识的理论基石。</p>
+    <div class="page-hero-meta">
+      <span class="tag">基础理论</span>
+      <span class="tag">必读</span>
+      <span class="tag">12 页</span>
+    </div>
+  </section>
+
+  <!-- ============ TOC ============ -->
+  <details class="toc-nav" open>
+    <summary>本页目录 · 五大章节</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>基础概念与原理</a>
+      <a href="#sec-2"><span class="toc-num">2</span>四大表面活性剂分类</a>
+      <a href="#sec-3"><span class="toc-num">3</span>核心物化性质</a>
+      <a href="#sec-4"><span class="toc-num">4</span>合成工艺</a>
+      <a href="#sec-5"><span class="toc-num">5</span>应用原理</a>
+    </div>
+  </details>
+
+  <!-- ============ 章节一：基础概念与原理 ============ -->
+  <section class="section" id="sec-1">
+    <h2>一、基础概念与原理</h2>
+    <p>表面活性剂（表活）最根本的结构特征是<strong>两亲性（amphiphilic）</strong>：一个分子同时含亲水基和疏水基。<mark class="key">表活 = 一手抓油、一手抓水的分子</mark>，所有功能都从"两亲结构"长出来。</p>
+    <p>核心主线：<strong>两亲结构 → 决定表活所有行为 → 按亲水基电性分为四类 → 每类合成方法不同 → 表现为 CMC/HLB 等参数差异 → 最终决定应用场景。</strong></p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h4>① 两亲结构</h4>
+        <p>分子同时含亲油基（直链烷基 C12-C18）和亲水基（-SO₃⁻、-COO⁻、-N⁺(CH₃)₃ 等）。碳链越长 → CMC 越低 → 表面活性越强（Traube 规则）。由此长出四大功能：清洁去污、起泡、乳化、增稠。</p>
+      </div>
+      <div class="concept-card">
+        <h4>② 胶束与 CMC</h4>
+        <p>浓度低于 CMC 时表活在界面定向排列，表面张力急剧下降；<strong>浓度超过 CMC 后</strong>多余分子自发抱团形成胶束（亲油基向内、亲水基向外），界面张力不再降，开始增溶去污。CMC 处电导率、渗透压、去污力发生突变。</p>
+      </div>
+      <div class="concept-card">
+        <h4>③ CPP 堆积参数</h4>
+        <p>决定胶束形态的"几何密码"。P = v / (a₀·lc)，P 越大胶束越扁平：球形 P&lt;1/3、蠕虫状 1/3~1/2、层状 1/2~1。头基面积 a 减小（如加盐、复配异电性表活）→ P 增大 → 球形变蠕虫状 → 粘度急剧上升。</p>
+      </div>
+      <div class="concept-card">
+        <h4>④ 定向排列与熵驱动</h4>
+        <p>胶束形成是<strong>熵驱动</strong>的物理自组装：疏水尾链破坏水分子氢键网络，水分子被迫形成有序"冰山结构"；尾链抱团后释放被束缚的水分子，溶剂熵剧增 → ΔG&lt;0 自发发生。是水分子想恢复自由，推着表活自动成胶束。</p>
+      </div>
+    </div>
+
+    <h3>CPP 堆积参数 — 胶束形态对照</h3>
+    <div class="formula-box">P = v / (a₀ · lc)　　v = 疏水尾链体积 · a₀ = 亲水头基有效面积 · lc = 尾链最大有效伸展长度</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>P 范围</th><th>分子形状</th><th>形成结构</th><th>典型实例</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>P ≤ 1/3</td><td>锥形（头大尾小）</td><td>球形胶束</td><td>SDS、低浓度 CTAB、氨基酸表活稀溶液</td></tr>
+          <tr><td>1/3 &lt; P ≤ 1/2</td><td>截顶锥形/楔形</td><td>棒状/蠕虫状胶束</td><td><strong>AES+CAB 复配</strong>、CTAB+NaCl</td></tr>
+          <tr><td>1/2 &lt; P &lt; 1</td><td>截顶锥形（头尾相近）</td><td>层状结构、囊泡</td><td>卵磷脂、双尾链表活</td></tr>
+          <tr><td>P ≈ 1</td><td>圆柱形</td><td>平面双分子层</td><td>生物膜脂质</td></tr>
+          <tr><td>P &gt; 1</td><td>倒锥形（头小尾大）</td><td>反胶束（非极性溶剂）</td><td>AOT 在有机溶剂中</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <strong>销售极简版：</strong>表活单独溶于水，周围的水被强行固定，体系不稳定；为了让水重新自由流动，疏水尾主动抱团成胶束，释放被束缚的水分子。<mark class="key">是水分子想恢复自由，推着表活自动形成胶束。</mark>面对非技术客户，用"空心防水小气球"类比比讲热力学有效一百倍。
+    </div>
+
+    <h3>两亲结构 → 四大功能</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>功能</th><th>两亲结构如何作用</th><th>客户语言</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>① 清洁去污</td><td>疏水端抓油，亲水端抓水，胶束包裹油污被水冲走</td><td>"一手抓油、一手抓水，把油污包起来冲走"</td></tr>
+          <tr><td>② 起泡</td><td>表活加固水膜结构，气泡不易破裂</td><td>"像水泥一样加固气泡壁，泡泡又多又持久"</td></tr>
+          <tr><td>③ 乳化</td><td>表活卡在油水界面：疏水链裹油滴，亲水基溶于水</td><td>"在油和水之间搭桥，让油水平共处"</td></tr>
+          <tr><td>④ 增稠</td><td>高浓度下堆叠成棒状/层状胶束，互相缠绕提升粘度</td><td>"手拉手形成网络，把水锁住，液体变稠"</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 章节二：四大表面活性剂分类 ============ -->
+  <section class="section" id="sec-2">
+    <h2>二、四大表面活性剂分类</h2>
+    <p>按<strong>亲水基在水中是否电离及电性</strong>分类（最重要、最实用的分类法）。洗衣粉（LAS）、洗洁精（AES）、牙膏（K12）、洗发水（氨基酸表活）——日常清洁产品的主表活几乎都是阴离子型。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>类型</th><th>电荷特征</th><th>代表品种</th><th>主要应用</th><th>天赐产品</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>阴离子型</strong><br><span class="tag tag-blue">产量最大</span></td>
+            <td>负电荷<br>-COO⁻, -SO₃⁻, -OSO₃⁻</td>
+            <td>肥皂、LAS、AES、K12、N-酰基氨基酸盐</td>
+            <td>洗涤去污主力：洗衣粉、洗洁精、洗发水、牙膏</td>
+            <td>Napure 系列、AMIN 系列</td>
+          </tr>
+          <tr>
+            <td><strong>阳离子型</strong></td>
+            <td>正电荷<br>-N⁺R₄</td>
+            <td>DTAC(1231)、D1821、苯扎氯铵、聚季铵盐</td>
+            <td>护发调理、柔软抗静电、杀菌消毒</td>
+            <td>聚季铵盐（PQ-6/7/10）</td>
+          </tr>
+          <tr>
+            <td><strong>两性离子型</strong><br><span class="tag tag-green">天赐主营</span></td>
+            <td>同时含正、负电荷</td>
+            <td>甜菜碱(CAB/LAB)、咪唑啉、氧化胺</td>
+            <td>温和助表活、增泡增稠、电荷桥梁</td>
+            <td>TC-CAB、TC-LAB、TC-MAB、TC-SHD、TC-CAO、TC-LAO</td>
+          </tr>
+          <tr>
+            <td><strong>非离子型</strong><br><span class="tag tag-purple">产量第二</span></td>
+            <td>不电离</td>
+            <td>AEO(平平加)、APG、Span/Tween、6501</td>
+            <td>乳化、稳泡、增稠辅助、耐硬水</td>
+            <td>TC-APG</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout accent2">
+      <strong>重点：两性表活（天赐主营）</strong>——温和、低刺激、配伍性极好。分子同时含阳离子和阴离子基团，理论上可与所有类型表活复配，是配方中的"万能搭档"。它在阴离子体系中当增泡增稠剂，同时"桥接"阳离子调理剂防沉淀。这就是甜菜碱是配方核心的原因。
+    </div>
+
+    <h3>阴离子表活 — 四大亚类</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>亚类</th><th>亲水基</th><th>代表品种</th><th>关键特征</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>羧酸盐型</td><td>-COO⁻</td><td>肥皂、N-酰基氨基酸盐</td><td>最古老，不耐硬水；氨基酸盐弱酸性温和</td></tr>
+          <tr><td>磺酸盐型</td><td>-SO₃⁻</td><td>LAS、AOS、MES、甲基牛磺酸钠</td><td>C-S 键牢固，耐水解；品种最多产量最大</td></tr>
+          <tr><td>硫酸酯盐型</td><td>-OSO₃⁻</td><td>K12/SDS、AES/SLES</td><td>C-O-S 键，酸性易水解；洗发水主力</td></tr>
+          <tr><td>磷酸酯盐型</td><td>-OPO₃²⁻</td><td>磷酸酯</td><td>低刺激，抗硬水</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warning">
+      <strong>配伍铁律：</strong>阳离子表活与阴离子表活<mark class="key">不能直接混合</mark>——正负电荷结合生成沉淀。两性表活和非离子表活可以与所有类型复配。这就是甜菜碱是配方中"万能搭档"的原因。
+    </div>
+
+    <h3>刺激性排序（结构-性质关联）</h3>
+    <p><strong>硫酸酯基(-OSO₃⁻) &gt; 磺酸基(-SO₃⁻) &gt; 羧酸基(-COO⁻)</strong>。甲牛（椰油酰甲基牛磺酸钠）因长链拉长分散电荷 + 酰胺缓冲 + N-甲基位阻，刺激性最低（★☆☆☆☆），蛋白变性率比 SLS 低约 83%。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>梯队</th><th>品种</th><th>亲水基团</th><th>刺激性</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>第一梯队</td><td>SDS/K12、LAS、AES(1-2EO)</td><td>-OSO₃⁻ / -SO₃⁻(苯环)</td><td>★★★★★</td></tr>
+          <tr><td>第二梯队</td><td>AES(3EO)、皂基</td><td>-OSO₃⁻(3EO) / -COO⁻</td><td>★★★☆☆</td></tr>
+          <tr><td>第三梯队</td><td>月桂酰肌氨酸钠、椰油酰谷氨酸钠</td><td>-COO⁻(酰胺修饰)</td><td>★★☆☆☆</td></tr>
+          <tr><td>第四梯队</td><td>椰油酰甲基牛磺酸钠</td><td>-SO₃⁻(长链+甲基位阻)</td><td>★☆☆☆☆</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 章节三：核心物化性质 ============ -->
+  <section class="section" id="sec-3">
+    <h2>三、核心物化性质</h2>
+    <p>CMC、HLB、Krafft 点、浊点——四个关键参数决定表活在配方里的角色。数值为教材通用参考值，产品具体参数以 TDS 与实测为准。</p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h4>CMC 临界胶束浓度</h4>
+        <p>表活开始大量形成胶束的最低浓度。低于 CMC 洗不干净，高于 CMC 才开始增溶去污。CMC 越低 → 配方成本更低、温和性更好。<strong>你卖表活，本质上卖的是"形成胶束的能力"。</strong></p>
+      </div>
+      <div class="concept-card">
+        <h4>HLB 亲水亲油平衡值</h4>
+        <p>决定表活用途的"身份证"：1~3 消泡、3~6 W/O 乳化、7~9 润湿、8~18 O/W 乳化、13~15 洗涤、15~18 增溶。混合 HLB = Σ(Wi×HLBi)/Σ(Wi)，是配方师调节乳化体系的核心方法。</p>
+      </div>
+      <div class="concept-card">
+        <h4>Krafft 点（离子型）</h4>
+        <p>离子型表活的<strong>使用温度下限</strong>。低于此温度以晶体析出。疏水链越长 → Krafft 点越高；加 EO → 降低。甜菜碱 Krafft 点通常远低于 0°C，冬季常温不会"低于 Krafft 点"。</p>
+      </div>
+      <div class="concept-card">
+        <h4>浊点（非离子型）</h4>
+        <p>非离子 PEO 类的<strong>使用温度上限</strong>。升温 → 氢键断裂、EO 链脱水 → 表活析出浑浊。EO 数越大 → 浊点越高；加盐 → 降低。超过浊点表活"失效"。</p>
+      </div>
+    </div>
+
+    <h3>CMC — 各类表活典型值</h3>
+    <div class="formula-box">CMC 处：表面张力、电导率、渗透压、去污力、增溶量发生突变</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>表活类型</th><th>典型品种</th><th>CMC (mmol/L)</th><th>CMC (wt%)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>阴离子</td><td>SDS (K12)</td><td>8.2</td><td>~0.24%</td></tr>
+          <tr><td>阴离子</td><td>LAS</td><td>1.2</td><td>~0.04%</td></tr>
+          <tr><td>两性</td><td>甜菜碱 (CAB)</td><td>0.1~1.0</td><td>~0.003-0.03%</td></tr>
+          <tr><td>非离子</td><td>AEO-9</td><td>0.05~0.1</td><td>~0.003%</td></tr>
+          <tr><td>非离子</td><td>APG</td><td>0.01~0.1</td><td>极低</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>HLB 值 — 应用对照</h3>
+    <div class="formula-box">HLB_混合 = Σ(Wi × HLBi) / Σ(Wi)　—— Span/Tween 按比例混合精确匹配油相所需 HLB</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>HLB 范围</th><th>用途</th><th>HLB 范围</th><th>用途</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1~3</td><td>消泡剂</td><td>13~15</td><td>洗涤</td></tr>
+          <tr><td>3~6</td><td>W/O 乳化（油包水）</td><td>15~18</td><td>增溶</td></tr>
+          <tr><td>7~9</td><td>润湿</td><td>—</td><td>—</td></tr>
+          <tr><td>8~18</td><td>O/W 乳化（水包油）</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Krafft 点与浊点 — 一对"温度开关"</h3>
+    <div class="formula-box">Krafft 点 = 离子型使用温度下限（升温变澄清） · 浊点 = 非离子型使用温度上限（升温变浑浊）</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>特征</th><th>Krafft 点</th><th>浊点</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>适用表活</td><td>离子型</td><td>非离子型（PEO 类）</td></tr>
+          <tr><td>温度变化方向</td><td>升温 → 变澄清</td><td>升温 → 变浑浊</td></tr>
+          <tr><td>物理本质</td><td>溶解度达到 CMC，胶束大量形成</td><td>氢键断裂，EO 链脱水 → 析出</td></tr>
+          <tr><td>实际意义</td><td><strong>使用温度下限</strong></td><td><strong>使用温度上限</strong></td></tr>
+          <tr><td>关键影响因素</td><td>疏水链越长 → 越高；加 EO → 降低</td><td>EO 数越大 → 越高；加盐 → 降低</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout accent4">
+      <strong>销售实战：</strong>客户说"CAB 35 冬天粘度掉得厉害"。CAB 是两性表活，水溶性极好，Krafft 点远低于 0°C，冬季常温并不会"低于 Krafft 点"——低温问题不应归因到 Krafft 点。真因是<strong>配方中其他组分的相行为变化</strong>：油脂/盐分低温结晶、非离子组分受浊点影响、低温凝胶化。建议排查储存温度与配方组分，复配助溶剂（醇类、丙二醇）。
+    </div>
+  </section>
+
+  <!-- ============ 章节四：合成工艺 ============ -->
+  <section class="section" id="sec-4">
+    <h2>四、合成工艺</h2>
+    <div class="callout">
+      <strong>核心心法：工艺决定论。</strong>合成工艺不只是"实验室配方"，而是决定产品<strong>纯度、色泽、副产物、刺激性</strong>的核心因素。天赐在氨基酸表活和两性表活上能建立品质优势，根本原因是对关键工艺参数（摩尔比/温度/时间）的系统优化。同样的"化学名称"背后，产品品质可以天差地别。
+    </div>
+
+    <h3>LAS（烷基苯磺酸钠）— 三步法</h3>
+    <div class="process-flow">
+      <div class="step"><span class="step-num">1</span><div><strong>烷基苯制备：</strong>正构烷烃 → 脱氢/氯化 → 与苯烷基化（Friedel-Crafts，AlCl₃ 或 HF）→ 直链烷基苯（LAB）。</div></div>
+      <div class="step"><span class="step-num">2</span><div><strong>磺化：</strong>LAB + SO₃ → 烷基苯磺酸。膜式磺化反应器（降膜式），40-60°C，SO₃/LAB 摩尔比 1.05-1.10。</div></div>
+      <div class="step"><span class="step-num">3</span><div><strong>中和：</strong>磺酸 + NaOH → LAS 成品（脱色、调配）。</div></div>
+    </div>
+
+    <h3>AES（脂肪醇聚氧乙烯醚硫酸盐）— 三步法</h3>
+    <div class="process-flow">
+      <div class="step"><span class="step-num">1</span><div><strong>乙氧基化：</strong>ROH + 2~3EO → AEO。催化剂 KOH/NaOH，120-180°C，0.2-0.5 MPa。</div></div>
+      <div class="step"><span class="step-num">2</span><div><strong>硫酸化：</strong>AEO + SO₃ → 硫酸酯。30-50°C（比 LAS 更低，硫酸酯键高温易水解）。<mark class="key">关键控制：副产物二噁烷残留量 ≤30 ppm。</mark></div></div>
+      <div class="step"><span class="step-num">3</span><div><strong>中和：</strong>硫酸酯 + NaOH → AES；若用氨水中和 → AESA（更温和，高档香波用）。中和温度 &lt;40°C。</div></div>
+    </div>
+
+    <h3>甜菜碱（CAB/LAB）— 一锅法 · 天赐核心工艺</h3>
+    <div class="formula-box">脂肪叔胺 + 氯乙酸钠 → 水溶液一步反应（季铵化+羧甲基化）→ 直接生成甜菜碱</div>
+    <div class="process-flow">
+      <div class="step"><span class="step-num">1</span><div><strong>中间体制备：</strong>脂肪酸（椰油/月桂）与 N,N-二甲基丙二胺缩合 → 酰胺叔胺中间体。</div></div>
+      <div class="step"><span class="step-num">2</span><div><strong>一锅法季铵化：</strong>酰胺叔胺 + 氯乙酸钠 → 70-90°C，pH 8-10，4-6 小时 → 甜菜碱成品。</div></div>
+      <div class="step"><span class="step-num">3</span><div><strong>纯化（天赐差异化）：</strong>无盐技术（TF 系列）去除 NaCl 副产物，游离胺控制 ≤0.3%（行业 1.0-2.0%）。</div></div>
+    </div>
+    <div class="callout accent3">
+      <strong>销售价值：</strong>普通 CAB 游离胺 1.0-2.0%，胺味明显；天赐 ≤0.3%，几乎无胺味。客户问"为什么你们的 CAB 贵一点"——答案就在这 0.7% 游离胺差异：<mark class="key">更低游离胺 = 更温和肤感 = 更少胺味 = 更高品质。</mark>
+    </div>
+
+    <h3>氨基酸表活 — Schotten-Baumann 反应（天赐最核心平台）</h3>
+    <div class="formula-box">R-COCl + H₂N-CHR'-COONa + NaOH → R-CO-NH-CHR'-COONa + NaCl + H₂O<br>温度 10-30°C（低温控制）· pH 9-11（碱维持）· 水-丙酮混合溶剂</div>
+    <div class="process-flow">
+      <div class="step"><span class="step-num">1</span><div><strong>酰氯制备：</strong>脂肪酸 + 氯化剂 → 脂肪酰氯。天赐自建脂肪酸精炼产线，从源头控制酰氯品质。</div></div>
+      <div class="step"><span class="step-num">2</span><div><strong>Schotten-Baumann 缩合：</strong>酰氯 + 氨基酸盐（肌氨酸钠/谷氨酸钠/甘氨酸钾）→ 低温 10-30°C 缩合，持续加 NaOH 维持 pH 9-11。</div></div>
+      <div class="step"><span class="step-num">3</span><div><strong>中和精制：</strong>精密中和 + 脱色 + 过滤。三种代表：肌氨酸钠（Napure C-FA）、谷氨酸盐（CG30W）、甘氨酸盐（GCK30P）。</div></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>产品</th><th>原料</th><th>关键控制</th><th>特点</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>肌氨酸钠 Napure C-FA</td><td>椰油酰氯 + 肌氨酸钠</td><td>pH 9-10，10-25°C</td><td>N-甲基空间位阻大，耐水解；活性物 30%</td></tr>
+          <tr><td>谷氨酸盐 CG30W</td><td>椰油酰氯 + 谷氨酸钠</td><td>pH 9-10，15-25°C</td><td>双羧基可成单钠/二钠盐；二钠盐透明配方首选</td></tr>
+          <tr><td>甘氨酸盐 GCK30P</td><td>椰油酰氯 + 甘氨酸钾</td><td>pH 9-11，10-20°C</td><td>分子量小，膏化能力强；调 pH 5.5-6.5 形成膏体</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 章节五：应用原理 ============ -->
+  <section class="section" id="sec-5">
+    <h2>五、应用原理</h2>
+    <p>乳化、增溶、洗涤去污、泡沫、复配协同——表活理论最终落地到应用场景。没有单一表活能同时满足全部性能，必须多组分复配协同。</p>
+
+    <div class="concept-grid">
+      <div class="card accent">
+        <h4>① 乳化理论</h4>
+        <p>乳液是两种不相溶液体通过乳化剂形成的<strong>热力学不稳定但动力学稳定</strong>的分散体系。O/W（水包油）需 HLB 8~18，清爽易稀释；W/O（油包水）需 HLB 3~6，油腻滋润。DLVO 理论：Zeta 电位绝对值 &gt;30mV 为稳定。</p>
+      </div>
+      <div class="card accent2">
+        <h4>② 增溶作用</h4>
+        <p>胶束空腔装油污、香精、油溶性原料。四种方式：PEO 链间缠绕（最高）&gt; 栅栏层 &gt; 胶束内核 &gt; 表面吸附（最低）。增溶最佳 HLB 范围 15~18。<strong>增溶是胶束最核心的客户价值。</strong></p>
+      </div>
+      <div class="card accent3">
+        <h4>③ 泡沫理论</h4>
+        <p>Gibbs-Marangoni 效应：液膜受拉伸变薄 → 局部表活浓度降低 → 表面张力梯度驱动液体回流 → 液膜自动修复变厚，使泡沫有"弹性"。Ross-Miles 法：H₀ 起泡力、H₅ 稳泡力，二者是独立概念。</p>
+      </div>
+      <div class="card accent4">
+        <h4>④ 洗涤去污五步</h4>
+        <p>润湿渗透 → 卷缩脱离 → 乳化分散 → 增溶稳定 → 悬浮冲洗。表活降低水的表面张力让洗液渗透污垢与基底之间，亲油基插入油污使其卷缩脱离，再经乳化增溶防止重新沉积。</p>
+      </div>
+    </div>
+
+    <h3>复配协同效应 — 正则溶液理论（RST）</h3>
+    <div class="formula-box">1/CMC_mix = α₁/(f₁·CMC₁) + α₂/(f₂·CMC₂)　·　β &lt; 0 协同（吸引）· β = 0 理想 · β &gt; 0 拮抗（排斥）</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>β 值</th><th>含义</th><th>典型体系</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>&lt; -5</td><td>强协同</td><td>阴离子-两性体系（AES+CAB，β≈-10~-20）</td></tr>
+          <tr><td>-2 ~ -5</td><td>中等协同</td><td>阴离子-非离子体系（AES+AEO）</td></tr>
+          <tr><td>≈ 0</td><td>理想混合</td><td>同类型表活（两种非离子混合）</td></tr>
+          <tr><td>&gt; 0</td><td>拮抗</td><td>阴离子-阳离子（正负电荷结合沉淀）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout accent2">
+      <strong>复配协同效应（重点）：</strong>阴离子-两性体系（AES+CAB）β≈-10~-20，是最强的协同组合。<mark class="key">甜菜碱季铵阳离子中和 AES 头基负电荷 → 静电排斥减弱 → 头基有效面积 a 减小 → CPP 从 &lt;1/3 提升至 1/3~1/2 → 球形胶束变蠕虫状 → 缠绕成网络 → 粘度急剧上升。</mark>这就是"CAB 协同 AES 增稠"的分子机制，也是二合一洗发水能同时清洁+调理的理论基础。
+    </div>
+
+    <h3>典型洗发水配方角色分配</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>组分</th><th>功能角色</th><th>典型用量</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>阴离子表活（AES/氨基酸盐）</td><td>主清洁剂、主发泡剂</td><td>8~15%</td></tr>
+          <tr><td>两性表活（CAB/磺基甜菜碱）</td><td>电荷桥梁、协同增稠、降低刺激</td><td>2~5%</td></tr>
+          <tr><td>阳离子调理剂（PQ-7/PQ-10）</td><td>柔顺、抗静电、吸附毛鳞片</td><td>0.2~1%</td></tr>
+          <tr><td>非离子表活（6501/APG）</td><td>稳泡、增稠辅助、乳化油脂</td><td>1~3%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <strong>电荷桥梁原理：</strong>两性表活是<strong>电荷屏蔽介质</strong>——阴离子基团与阳离子调理剂作用降低其游离电荷，阳离子基团与阴离子表活作用降低其游离电荷，在阴阳离子间形成"缓冲层"阻止直接接触沉淀。不与任何一方形成永久沉淀，通过可逆静电相互作用维持动态平衡，使阴阳离子宏观共存。这是二合一洗发水物理上能实现的最底层约束。
+    </div>
+  </section>
+
+  <!-- ============ 上下篇导航 ============ -->
+  <nav class="page-nav">
+    <a href="index.html" class="nav-link prev">
+      <span class="nav-label">上一篇</span>
+      <span class="nav-title">首页</span>
+    </a>
+    <a href="products.html" class="nav-link next">
+      <span class="nav-label">下一篇</span>
+      <span class="nav-title">天赐产品体系</span>
+    </a>
+  </nav>
+
+  <!-- ============ 相关页面推荐 ============ -->
+  <div class="related-pages">
+    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-grid">
+      <a href="products.html" class="rp-card">
+        <span class="rp-icon">🏭</span>
+        <span class="rp-name">产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">6 大系列选型指南</small></span>
+      </a>
+      <a href="formulation.html" class="rp-card">
+        <span class="rp-icon">🧪</span>
+        <span class="rp-name">配方设计<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">五大相与三剂型</small></span>
+      </a>
+      <a href="sales.html" class="rp-card">
+        <span class="rp-icon">💬</span>
+        <span class="rp-name">销售实战<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">9 场景话术模板</small></span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <h2>天赐材料日化知识库</h2>
+    <p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p>
+    <p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p>
+  </div>
+</footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+<script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
+    </main>
+    <script src="site.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

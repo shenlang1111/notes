@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>应用原理</title>
+    <style id="theme-vars">
+/* ========================================
+   天赐材料日化知识库 · Design Tokens
+   设计语言：深青渐变 × 暖白底 · 精致卡片
+   参照旧知识库 style.css v3，适配 Solo Design token 规范
+   ======================================== */
+
+:root {
+  /* === Brand Primary — 深青色系 (单一品牌色) === */
+  --tinci-primary-50: #E6F5F1;
+  --tinci-primary-100: #CBE8E2;
+  --tinci-primary-200: #99D1C5;
+  --tinci-primary-300: #66BAA8;
+  --tinci-primary-400: #33A38B;
+  --tinci-primary-500: #0B7666;
+  --tinci-primary-600: #0A5F52;
+  --tinci-primary-700: #084840;
+  --tinci-primary-800: #063130;
+  --tinci-primary-900: #042020;
+
+  /* === Bright Teal — 主色浅色变体 (同色系) === */
+  --tinci-teal: #14B8A6;
+  --tinci-teal-soft: #E9FAF6;
+  --tinci-teal-50: #E9FAF6;
+  --tinci-teal-100: #BFF0E6;
+  --tinci-teal-200: #80E1CD;
+  --tinci-teal-300: #41D2B5;
+  --tinci-teal-400: #14B8A6;
+  --tinci-teal-500: #0E9488;
+  --tinci-teal-600: #0B7666;
+
+  /* === Semantic Aliases (required by apply-html-head-contract) === */
+  --tinci-background: #F5FAF8;
+  --tinci-foreground: #0F2E2A;
+  --tinci-card: #FFFFFF;
+  --tinci-card-foreground: #0F2E2A;
+  --tinci-popover: #FFFFFF;
+  --tinci-popover-foreground: #0F2E2A;
+  --tinci-primary: #0B7666;
+  --tinci-primary-foreground: #FFFFFF;
+  --tinci-secondary: #E6F5F1;
+  --tinci-secondary-foreground: #0B7666;
+  --tinci-muted: #E6F5F1;
+  --tinci-muted-foreground: #5B7A74;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #FFFFFF;
+  --tinci-border: #E2EFEB;
+  --tinci-input: #E2EFEB;
+  --tinci-ring: #14B8A6;
+
+  /* === Radius Scale === */
+  --tinci-radius-small: 4px;
+  --tinci-radius-medium: 8px;
+  --tinci-radius-large: 14px;
+  --tinci-radius-full: 9999px;
+
+  /* === Typography === */
+  --tinci-font-sans: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --tinci-font-mono: "JetBrains Mono", "SF Mono", "Consolas", monospace;
+  --tinci-font-heading: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --tinci-font-body: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+
+  /* === Surface Depth === */
+  --tinci-surface: #FFFFFF;
+  --tinci-surface-2: #F8FBFA;
+  --tinci-ink: #0F2E2A;
+  --tinci-ink-2: #5B7A74;
+  --tinci-ink-3: #8FA8A2;
+  --tinci-line: #E2EFEB;
+
+  /* === Gradients (same-hue, for hero/nav only) === */
+  --tinci-nav-grad: linear-gradient(135deg, #0B7666 0%, #14B8A6 100%);
+  --tinci-hero-grad: linear-gradient(135deg, #0A4A42 0%, #0F766E 50%, #14B8A6 110%);
+
+  /* === State Colors (semantic only) === */
+  --state-success: #059669;
+  --state-success-soft: #E9F8EE;
+  --state-warning: #D97706;
+  --state-warning-soft: #FEF5E7;
+  --state-error: #DC2626;
+  --state-error-soft: #FEE2E2;
+  --state-info: #0B7666;
+  --state-info-soft: #E6F5F1;
+
+  /* === Shadows (alpha <= 0.05 for static; deeper for floating only) === */
+  --tinci-shadow-xs: 0 1px 2px rgba(11,118,102,0.04), 0 1px 3px rgba(11,118,102,0.04);
+  --tinci-shadow-sm: 0 2px 6px rgba(11,118,102,0.05);
+  --tinci-shadow-md: 0 8px 24px -6px rgba(11,118,102,0.12), 0 2px 8px -2px rgba(11,118,102,0.06);
+  --tinci-shadow-lg: 0 16px 40px -8px rgba(11,118,102,0.16), 0 4px 12px -4px rgba(11,118,102,0.08);
+}
+
+/* === Dark Mode === */
+.dark {
+  --tinci-background: #0B1F1C;
+  --tinci-foreground: #E2EFEB;
+  --tinci-card: #14302B;
+  --tinci-card-foreground: #E2EFEB;
+  --tinci-popover: #14302B;
+  --tinci-popover-foreground: #E2EFEB;
+  --tinci-primary: #14B8A6;
+  --tinci-primary-foreground: #042020;
+  --tinci-secondary: #1A3A35;
+  --tinci-secondary-foreground: #66BAA8;
+  --tinci-muted: #1A3A35;
+  --tinci-muted-foreground: #8FA8A2;
+  --tinci-accent: #14B8A6;
+  --tinci-accent-foreground: #042020;
+  --tinci-border: #1F3D38;
+  --tinci-input: #1F3D38;
+  --tinci-ring: #14B8A6;
+  --tinci-surface: #14302B;
+  --tinci-surface-2: #1A3A35;
+  --tinci-ink: #E2EFEB;
+  --tinci-ink-2: #8FA8A2;
+  --tinci-ink-3: #5B7A74;
+  --tinci-line: #1F3D38;
+}
+
+    </style>
+    <script src="vendor/tailwind.browser.js"></script>
+    <script src="vendor/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--tinci-background);
+    --color-foreground: var(--tinci-foreground);
+    --color-card: var(--tinci-card);
+    --color-card-foreground: var(--tinci-card-foreground);
+    --color-popover: var(--tinci-popover);
+    --color-popover-foreground: var(--tinci-popover-foreground);
+    --color-primary: var(--tinci-primary);
+    --color-primary-foreground: var(--tinci-primary-foreground);
+    --color-secondary: var(--tinci-secondary);
+    --color-secondary-foreground: var(--tinci-secondary-foreground);
+    --color-muted: var(--tinci-muted);
+    --color-muted-foreground: var(--tinci-muted-foreground);
+    --color-accent: var(--tinci-accent);
+    --color-accent-foreground: var(--tinci-accent-foreground);
+    --color-border: var(--tinci-border);
+    --color-input: var(--tinci-input);
+    --color-ring: var(--tinci-ring);
+    --radius-sm: var(--tinci-radius-small);
+    --radius-md: var(--tinci-radius-medium);
+    --radius-lg: var(--tinci-radius-large);
+  }
+  @layer base {
+    body { background: var(--tinci-background); color: var(--tinci-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--tinci-background); }
+      .text-background { color: var(--tinci-background); }
+      .border-background { border-color: var(--tinci-background); }
+      .ring-background { --tw-ring-color: var(--tinci-background); }
+      .bg-foreground { background-color: var(--tinci-foreground); }
+      .text-foreground { color: var(--tinci-foreground); }
+      .border-foreground { border-color: var(--tinci-foreground); }
+      .ring-foreground { --tw-ring-color: var(--tinci-foreground); }
+      .bg-card { background-color: var(--tinci-card); }
+      .text-card { color: var(--tinci-card); }
+      .border-card { border-color: var(--tinci-card); }
+      .ring-card { --tw-ring-color: var(--tinci-card); }
+      .bg-card-foreground { background-color: var(--tinci-card-foreground); }
+      .text-card-foreground { color: var(--tinci-card-foreground); }
+      .border-card-foreground { border-color: var(--tinci-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--tinci-card-foreground); }
+      .bg-popover { background-color: var(--tinci-popover); }
+      .text-popover { color: var(--tinci-popover); }
+      .border-popover { border-color: var(--tinci-popover); }
+      .ring-popover { --tw-ring-color: var(--tinci-popover); }
+      .bg-popover-foreground { background-color: var(--tinci-popover-foreground); }
+      .text-popover-foreground { color: var(--tinci-popover-foreground); }
+      .border-popover-foreground { border-color: var(--tinci-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--tinci-popover-foreground); }
+      .bg-primary { background-color: var(--tinci-primary); }
+      .text-primary { color: var(--tinci-primary); }
+      .border-primary { border-color: var(--tinci-primary); }
+      .ring-primary { --tw-ring-color: var(--tinci-primary); }
+      .bg-primary-foreground { background-color: var(--tinci-primary-foreground); }
+      .text-primary-foreground { color: var(--tinci-primary-foreground); }
+      .border-primary-foreground { border-color: var(--tinci-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--tinci-primary-foreground); }
+      .bg-secondary { background-color: var(--tinci-secondary); }
+      .text-secondary { color: var(--tinci-secondary); }
+      .border-secondary { border-color: var(--tinci-secondary); }
+      .ring-secondary { --tw-ring-color: var(--tinci-secondary); }
+      .bg-secondary-foreground { background-color: var(--tinci-secondary-foreground); }
+      .text-secondary-foreground { color: var(--tinci-secondary-foreground); }
+      .border-secondary-foreground { border-color: var(--tinci-secondary-foreground); }
+      .ring-secondary-foreground { --tw-ring-color: var(--tinci-secondary-foreground); }
+      .bg-muted { background-color: var(--tinci-muted); }
+      .text-muted { color: var(--tinci-muted); }
+      .border-muted { border-color: var(--tinci-muted); }
+      .ring-muted { --tw-ring-color: var(--tinci-muted); }
+      .bg-muted-foreground { background-color: var(--tinci-muted-foreground); }
+      .text-muted-foreground { color: var(--tinci-muted-foreground); }
+      .border-muted-foreground { border-color: var(--tinci-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--tinci-muted-foreground); }
+      .bg-accent { background-color: var(--tinci-accent); }
+      .text-accent { color: var(--tinci-accent); }
+      .border-accent { border-color: var(--tinci-accent); }
+      .ring-accent { --tw-ring-color: var(--tinci-accent); }
+      .bg-accent-foreground { background-color: var(--tinci-accent-foreground); }
+      .text-accent-foreground { color: var(--tinci-accent-foreground); }
+      .border-accent-foreground { border-color: var(--tinci-accent-foreground); }
+      .ring-accent-foreground { --tw-ring-color: var(--tinci-accent-foreground); }
+      .bg-border { background-color: var(--tinci-border); }
+      .text-border { color: var(--tinci-border); }
+      .border-border { border-color: var(--tinci-border); }
+      .ring-border { --tw-ring-color: var(--tinci-border); }
+      .bg-input { background-color: var(--tinci-input); }
+      .text-input { color: var(--tinci-input); }
+      .border-input { border-color: var(--tinci-input); }
+      .ring-input { --tw-ring-color: var(--tinci-input); }
+      .bg-ring { background-color: var(--tinci-ring); }
+      .text-ring { color: var(--tinci-ring); }
+      .border-ring { border-color: var(--tinci-ring); }
+      .ring-ring { --tw-ring-color: var(--tinci-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <link rel="stylesheet" href="shared-components.css">
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+<nav class="site-nav">
+  <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
+  <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
+    <a href="index.html">首页</a>
+    <a href="theory.html" class="active">理论</a>
+    <a href="products.html">产品</a>
+    <a href="formulation.html">配方</a>
+    <a href="sales.html">销售</a>
+    <a href="market.html">市场</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ============ Page Hero ============ -->
+  <section class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="bc-sep">›</span>
+      <a href="theory.html">理论</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">应用原理</span>
+    </div>
+    <h1>应用原理深度</h1>
+    <p class="page-hero-desc">乳化（HLB法/PIT法）、增溶、洗涤去污（卷缩机理）、泡沫理论、复配协同（β参数）、消泡破乳。</p>
+    <div class="page-hero-meta">
+      <span class="tag">乳化</span>
+      <span class="tag">增溶</span>
+      <span class="tag">泡沫</span>
+      <span class="tag">复配</span>
+    </div>
+  </section>
+
+  <!-- ============ TOC ============ -->
+  <details class="toc-nav" open>
+    <summary>本页目录 · 七大章节</summary>
+    <div class="toc-grid">
+      <a href="#sec-1"><span class="toc-num">1</span>乳化理论</a>
+      <a href="#sec-2"><span class="toc-num">2</span>增溶作用</a>
+      <a href="#sec-3"><span class="toc-num">3</span>洗涤去污</a>
+      <a href="#sec-4"><span class="toc-num">4</span>泡沫稳定性</a>
+      <a href="#sec-5"><span class="toc-num">5</span>复配协同效应</a>
+      <a href="#sec-6"><span class="toc-num">6</span>消泡机理</a>
+      <a href="#sec-7"><span class="toc-num">7</span>破乳方法</a>
+    </div>
+  </details>
+
+  <!-- ============ 9.1 乳化理论 ============ -->
+  <section class="section" id="sec-1">
+    <h2>9.1 乳化理论</h2>
+    <p>乳液是两种不相溶液体（油和水）通过乳化剂形成的<mark class="key">热力学不稳定但动力学稳定</mark>的分散体系。</p>
+
+    <h3>O/W型（水包油）</h3>
+    <p>油滴分散在连续水相中。HLB 8~18有利于形成。外观清爽不油腻，易水稀释。典型：清爽面霜、乳液、牛奶。</p>
+
+    <h3>W/O型（油包水）</h3>
+    <p>水滴分散在连续油相中。HLB 3~6有利于形成。外观油腻滋润，难以水稀释。典型：冷霜、防晒霜（滋润型）。</p>
+
+    <h3>W/O/W型（多重乳液）</h3>
+    <p>水滴包裹在油滴中，油滴又分散在外层水相。需两种乳化剂协同。可缓释活性成分、包裹不相容活性物，是高端护肤品的前沿技术。</p>
+
+    <h4>DLVO理论（静电稳定理论）</h4>
+    <div class="callout">
+      液滴间的总相互作用能 = 范德华引力势能(V_A) + 静电排斥势能(V_R)。当两个液滴靠近时：在较远距离，静电排斥占主导，形成<strong>能量势垒</strong>；在极近距离，范德华引力急剧增大，一旦越过势垒，液滴迅速聚并。势垒高度越大，乳液越稳定。离子型表活通过形成双电层赋予Zeta电位，产生静电排斥。Zeta电位绝对值 &gt; 30mV 为稳定。
+    </div>
+  </section>
+
+  <!-- ============ 9.2 增溶作用 ============ -->
+  <section class="section" id="sec-2">
+    <h2>9.2 增溶作用的四种方式</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>方式</th><th>位置</th><th>被增溶物类型</th><th>增溶量</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>胶束内核增溶</strong></td><td>胶束内部的疏水核心</td><td>非极性分子（苯、正庚烷等简单烃类）</td><td>中</td></tr>
+          <tr><td><strong>栅栏层增溶</strong></td><td>亲水-疏水交界的栅栏层</td><td>长链醇、脂肪酸等极性有机物</td><td>较高</td></tr>
+          <tr><td><strong>表面吸附</strong></td><td>胶束表面</td><td>高分子、染料等大分子</td><td>最低</td></tr>
+          <tr><td><strong>PEO链间缠绕</strong></td><td>聚氧乙烯链间（仅非离子）</td><td>苯酚、芳香羧酸（通过氢键固定）</td><td>最高</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>增溶量顺序：</strong>PEO链间缠绕 &gt; 栅栏层 &gt; 内核 &gt; 表面吸附。增溶最佳HLB范围：15~18。</p>
+  </section>
+
+  <!-- ============ 9.3 洗涤去污 ============ -->
+  <section class="section" id="sec-3">
+    <h2>9.3 洗涤去污的微观五步过程</h2>
+    <div class="callout">
+      <p style="margin-bottom:0.5rem;"><strong>润湿渗透：</strong>表活降低水的表面张力→洗液渗透到污垢与基底之间</p>
+      <p style="margin-bottom:0.5rem;"><strong>卷缩脱离：</strong>表活亲油基插入油污内部→油污被"撑开"→从基底上卷缩脱离</p>
+      <p style="margin-bottom:0.5rem;"><strong>乳化分散：</strong>脱离的油污被表活包裹→形成O/W乳液→分散在水中</p>
+      <p style="margin-bottom:0.5rem;"><strong>增溶稳定：</strong>小颗粒油污被胶束包裹→"增溶"在溶液中→防止重新沉积</p>
+      <p style="margin-bottom:0;"><strong>悬浮冲洗：</strong>悬浮的污垢随水流被冲走</p>
+    </div>
+
+    <div class="table-wrap" style="padding:1.1rem 1.2rem;background:var(--tinci-card);">
+      <div style="text-align:center;font-size:0.95rem;font-weight:800;color:var(--tinci-primary);margin-bottom:0.5rem;">图5 · 洗涤去污五步过程与乳化原理</div>
+      <svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+        <!-- 第一步：润湿渗透 -->
+        <rect x="10" y="0" width="135" height="180" rx="8" fill="var(--tinci-surface-2)"/>
+        <circle cx="77" cy="20" r="10" fill="var(--tinci-primary)"/><text x="77" y="24" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">1</text>
+        <text x="77" y="45" text-anchor="middle" font-size="11" font-weight="700" fill="var(--tinci-foreground)">润湿渗透</text>
+        <!-- 基底 -->
+        <rect x="20" y="55" width="115" height="20" rx="3" fill="#94A3B8"/>
+        <text x="77" y="68" text-anchor="middle" font-size="8" fill="#fff">基底（皮肤/头发/织物）</text>
+        <!-- 油污 -->
+        <rect x="35" y="80" width="85" height="25" rx="4" fill="#D97706" opacity="0.6"/>
+        <text x="77" y="96" text-anchor="middle" font-size="8" fill="#fff">油污</text>
+        <!-- 表活 + 水 -->
+        <g><rect x="55" y="110" width="10" height="8" rx="2" fill="#D97706"/><circle cx="60" cy="124" r="5" fill="#2563EB"/><rect x="75" y="115" width="10" height="8" rx="2" fill="#D97706"/><circle cx="80" cy="129" r="5" fill="#2563EB"/></g>
+        <text x="77" y="155" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">表活降低表面张力</text>
+        <text x="77" y="170" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">水渗入油污与基底之间</text>
+
+        <text x="155" y="90" text-anchor="middle" font-size="16" fill="var(--tinci-primary)">→</text>
+
+        <!-- 第二步：卷缩脱离 -->
+        <rect x="175" y="0" width="135" height="180" rx="8" fill="var(--tinci-surface-2)"/>
+        <circle cx="242" cy="20" r="10" fill="var(--tinci-primary)"/><text x="242" y="24" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">2</text>
+        <text x="242" y="45" text-anchor="middle" font-size="11" font-weight="700" fill="var(--tinci-foreground)">卷缩脱离</text>
+        <rect x="185" y="55" width="115" height="20" rx="3" fill="#94A3B8"/>
+        <text x="242" y="68" text-anchor="middle" font-size="8" fill="#fff">基底</text>
+        <!-- 油污卷缩 -->
+        <ellipse cx="242" cy="100" rx="35" ry="15" fill="#D97706" opacity="0.5"/>
+        <text x="242" y="104" text-anchor="middle" font-size="8" fill="#fff">油污卷缩</text>
+        <!-- 表活插入 -->
+        <g><rect x="210" y="85" width="8" height="6" rx="2" fill="#D97706"/><circle cx="214" cy="97" r="4" fill="#2563EB"/><rect x="270" y="85" width="8" height="6" rx="2" fill="#D97706"/><circle cx="274" cy="97" r="4" fill="#2563EB"/></g>
+        <text x="242" y="140" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">表活亲油尾插入油污</text>
+        <text x="242" y="155" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">油污被撑开、卷缩</text>
+        <text x="242" y="170" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">从基底上脱离</text>
+
+        <text x="320" y="90" text-anchor="middle" font-size="16" fill="var(--tinci-primary)">→</text>
+
+        <!-- 第三步：乳化分散 -->
+        <rect x="340" y="0" width="135" height="180" rx="8" fill="var(--tinci-surface-2)"/>
+        <circle cx="407" cy="20" r="10" fill="var(--tinci-primary)"/><text x="407" y="24" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">3</text>
+        <text x="407" y="45" text-anchor="middle" font-size="11" font-weight="700" fill="var(--tinci-foreground)">乳化分散</text>
+        <!-- 大油滴 -->
+        <circle cx="407" cy="90" r="22" fill="#D97706" opacity="0.4"/>
+        <text x="407" y="94" text-anchor="middle" font-size="8" fill="#fff">油滴</text>
+        <!-- 表活包裹 -->
+        <circle cx="388" cy="78" r="4" fill="#2563EB"/><circle cx="425" cy="75" r="4" fill="#2563EB"/><circle cx="430" cy="95" r="4" fill="#2563EB"/><circle cx="415" cy="105" r="4" fill="#2563EB"/><circle cx="395" cy="100" r="4" fill="#2563EB"/><circle cx="385" cy="90" r="4" fill="#2563EB"/>
+        <text x="407" y="140" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">表活在油滴表面排列</text>
+        <text x="407" y="155" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">亲水头朝外→稳定分散</text>
+        <text x="407" y="170" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">O/W乳液形成</text>
+
+        <text x="485" y="90" text-anchor="middle" font-size="16" fill="var(--tinci-primary)">→</text>
+
+        <!-- 第四步：增溶稳定 -->
+        <rect x="505" y="0" width="135" height="180" rx="8" fill="var(--tinci-surface-2)"/>
+        <circle cx="572" cy="20" r="10" fill="var(--tinci-primary)"/><text x="572" y="24" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">4</text>
+        <text x="572" y="45" text-anchor="middle" font-size="11" font-weight="700" fill="var(--tinci-foreground)">增溶稳定</text>
+        <!-- 胶束包裹油 -->
+        <circle cx="572" cy="90" r="28" fill="none" stroke="#2563EB" stroke-width="2"/>
+        <circle cx="560" cy="80" r="4" fill="#2563EB"/><circle cx="582" cy="78" r="4" fill="#2563EB"/><circle cx="590" cy="92" r="4" fill="#2563EB"/><circle cx="578" cy="102" r="4" fill="#2563EB"/><circle cx="560" cy="98" r="4" fill="#2563EB"/>
+        <circle cx="572" cy="90" r="8" fill="#D97706" opacity="0.5"/>
+        <text x="572" y="140" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">小油滴被胶束包裹</text>
+        <text x="572" y="155" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">"增溶"在溶液中</text>
+        <text x="572" y="170" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">防止重新沉积</text>
+
+        <!-- 第五步：悬浮冲洗 -->
+        <rect x="570" y="0" width="135" height="180" rx="8" fill="var(--tinci-surface-2)"/>
+        <circle cx="637" cy="20" r="10" fill="var(--tinci-primary)"/><text x="637" y="24" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">5</text>
+        <text x="637" y="45" text-anchor="middle" font-size="11" font-weight="700" fill="var(--tinci-teal)">悬浮冲洗</text>
+        <text x="637" y="65" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">随水流被冲走</text>
+
+        <!-- 底部：O/W vs W/O -->
+        <rect x="10" y="200" width="345" height="170" rx="8" fill="var(--tinci-surface-2)"/>
+        <text x="182" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="var(--tinci-primary)">O/W型（水包油）— 洗发水、沐浴露</text>
+        <circle cx="182" cy="290" r="50" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+        <text x="182" y="360" text-anchor="middle" font-size="10" fill="var(--tinci-muted-foreground)">连续相：水（蓝色）</text>
+        <!-- 油滴散布 -->
+        <circle cx="155" cy="275" r="12" fill="#D97706" opacity="0.5"/><text x="155" y="279" text-anchor="middle" font-size="7" fill="#fff">油</text>
+        <circle cx="210" cy="270" r="10" fill="#D97706" opacity="0.5"/><text x="210" y="274" text-anchor="middle" font-size="7" fill="#fff">油</text>
+        <circle cx="175" cy="310" r="14" fill="#D97706" opacity="0.5"/><text x="175" y="314" text-anchor="middle" font-size="7" fill="#fff">油</text>
+        <circle cx="200" cy="300" r="8" fill="#D97706" opacity="0.5"/><text x="200" y="304" text-anchor="middle" font-size="7" fill="#fff">油</text>
+        <!-- 表活 -->
+        <circle cx="145" cy="268" r="3" fill="#2563EB"/><circle cx="165" cy="265" r="3" fill="#2563EB"/><circle cx="200" cy="260" r="3" fill="#2563EB"/><circle cx="220" cy="275" r="3" fill="#2563EB"/>
+        <text x="182" y="375" text-anchor="middle" font-size="9" fill="var(--tinci-muted-foreground)">HLB 8~18 · 清爽不油腻 · 易水稀释</text>
+
+        <rect x="370" y="200" width="340" height="170" rx="8" fill="var(--tinci-surface-2)"/>
+        <text x="540" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="var(--tinci-teal)">W/O型（油包水）— 冷霜、防晒霜</text>
+        <circle cx="540" cy="290" r="50" fill="none" stroke="#D97706" stroke-width="2.5"/>
+        <text x="540" y="360" text-anchor="middle" font-size="10" fill="var(--tinci-muted-foreground)">连续相：油（橙色）</text>
+        <!-- 水滴散布 -->
+        <circle cx="515" cy="275" r="12" fill="#2563EB" opacity="0.5"/><text x="515" y="279" text-anchor="middle" font-size="7" fill="#fff">水</text>
+        <circle cx="565" cy="270" r="10" fill="#2563EB" opacity="0.5"/><text x="565" y="274" text-anchor="middle" font-size="7" fill="#fff">水</text>
+        <circle cx="535" cy="310" r="14" fill="#2563EB" opacity="0.5"/><text x="535" y="314" text-anchor="middle" font-size="7" fill="#fff">水</text>
+        <circle cx="555" cy="300" r="8" fill="#2563EB" opacity="0.5"/><text x="555" y="304" text-anchor="middle" font-size="7" fill="#fff">水</text>
+        <!-- 表活 -->
+        <circle cx="505" cy="268" r="3" fill="#D97706"/><circle cx="525" cy="265" r="3" fill="#D97706"/><circle cx="555" cy="260" r="3" fill="#D97706"/><circle cx="575" cy="275" r="3" fill="#D97706"/>
+        <text x="540" y="375" text-anchor="middle" font-size="9" fill="var(--tinci-muted-foreground)">HLB 3~6 · 油腻滋润 · 难水稀释</text>
+      </svg>
+      <p style="margin-top:0.7rem;font-size:0.85rem;color:var(--tinci-muted-foreground);"><strong style="color:var(--tinci-primary);">图解：</strong>上排展示洗涤去污的连续过程：①表活降低表面张力，水渗入油污与基底之间；②亲油尾插入油污，油污卷缩脱离；③表活在油滴表面排列，形成O/W乳液；④小油滴被胶束包裹增溶，防止重新沉积；⑤随水流冲走。下排对比O/W和W/O两种乳液类型——你卖的表活主要用在O/W体系（洗发水、沐浴露）。</p>
+    </div>
+
+    <div class="callout">
+      <p style="margin-bottom:0.75rem;"><strong>📐 图5 · 洗涤去污五步过程与乳化原理</strong></p>
+      <p style="margin-bottom:0.4rem;"><strong>① 润湿渗透：</strong>基底（皮肤/头发/织物）· 油污 · 表活降低表面张力 · 水渗入油污与基底之间</p>
+      <p style="margin-bottom:0.2rem;text-align:center;color:var(--tinci-muted-foreground);">↓</p>
+      <p style="margin-bottom:0.4rem;"><strong>② 卷缩脱离：</strong>基底 · 油污卷缩 · 表活亲油尾插入油污 · 油污被撑开、卷缩 · 从基底上脱离</p>
+      <p style="margin-bottom:0.2rem;text-align:center;color:var(--tinci-muted-foreground);">↓</p>
+      <p style="margin-bottom:0.4rem;"><strong>③ 乳化分散：</strong>油滴 · 表活在油滴表面排列 · 亲水头朝外→稳定分散 · O/W乳液形成</p>
+      <p style="margin-bottom:0.2rem;text-align:center;color:var(--tinci-muted-foreground);">↓</p>
+      <p style="margin-bottom:0.4rem;"><strong>④ 增溶稳定：</strong>小油滴被胶束包裹 · "增溶"在溶液中 · 防止重新沉积</p>
+      <p style="margin-bottom:0.2rem;text-align:center;color:var(--tinci-muted-foreground);">↓</p>
+      <p style="margin-bottom:0.75rem;"><strong>⑤ 悬浮冲洗：</strong>随水流被冲走</p>
+      <p style="margin-bottom:0.4rem;padding-top:0.75rem;border-top:1px solid var(--tinci-border);"><strong>O/W型（水包油）— 洗发水、沐浴露：</strong>连续相：水（蓝色）· 油·油·油·油 · HLB 8~18 · 清爽不油腻 · 易水稀释</p>
+      <p style="margin-bottom:0.75rem;"><strong>W/O型（油包水）— 冷霜、防晒霜：</strong>连续相：油（橙色）· 水·水·水·水 · HLB 3~6 · 油腻滋润 · 难水稀释</p>
+      <p style="margin-bottom:0;font-size:0.875rem;color:var(--tinci-muted-foreground);"><strong>图解：</strong>上排展示洗涤去污的连续过程：①表活降低表面张力，水渗入油污与基底之间；②亲油尾插入油污，油污卷缩脱离；③表活在油滴表面排列，形成O/W乳液；④小油滴被胶束包裹增溶，防止重新沉积；⑤随水流冲走。下排对比O/W和W/O两种乳液类型——你卖的表活主要用在O/W体系（洗发水、沐浴露）。</p>
+    </div>
+  </section>
+
+  <!-- ============ 9.4 泡沫稳定性 ============ -->
+  <section class="section" id="sec-4">
+    <h2>9.4 泡沫稳定性——Gibbs-Marangoni效应</h2>
+    <p>这是泡沫稳定性的<strong>核心机制</strong>。当液膜受到拉伸（局部变薄）时：该区域表活浓度降低→局部表面张力升高→产生表面张力梯度→驱动液体从低表面张力区（膜厚处）向高表面张力区（膜薄处）流动→液膜<mark class="key">自动修复变厚</mark>。这一自修复过程称为Gibbs-Marangoni效应，使液膜具有"弹性"。</p>
+    <div class="callout">
+      <p style="margin-bottom:0.75rem;"><strong>Ross-Miles法（国标泡沫评价法）</strong></p>
+      <p style="margin-bottom:0.75rem;">200mL试液从高900mm、内径2.9mm的细孔滴下，冲入下方盛有50mL相同试液的量筒中。冲击过程带入空气形成泡沫。</p>
+      <p style="margin-bottom:0;"><strong>初始泡高H₀</strong>（200mL流完即刻测量）→反映<strong>起泡力</strong>；<strong>5分钟泡高H₅</strong>→反映<strong>泡沫稳定性（稳泡力）</strong>。起泡力与稳泡力是两个独立概念——有的表活起泡快但消泡也快，有的起泡慢但泡沫持久。</p>
+    </div>
+  </section>
+
+  <!-- ============ 9.5 复配协同效应 ============ -->
+  <section class="section" id="sec-5">
+    <h2>9.5 复配协同效应——正则溶液理论（RST）</h2>
+    <p>正则溶液理论是描述混合胶束的<strong>核心定量模型</strong>：</p>
+    <div class="formula-box">
+      1/CMC_mix = α₁/(f₁·CMC₁) + α₂/(f₂·CMC₂)<br>
+      f₁ = exp(β·X₂²)，f₂ = exp(β·X₁²)
+    </div>
+    <p>β为相互作用参数：β&lt;0为吸引（协同），β=0为理想混合，β&gt;0为排斥（拮抗）</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>β值</th><th>含义</th><th>典型体系</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>&lt; -5</strong></td><td>强协同效应</td><td><strong>阴离子-两性体系</strong>（AES+CAB，β≈-10~-20）</td></tr>
+          <tr><td><strong>-2 ~ -5</strong></td><td>中等协同</td><td>阴离子-非离子体系（AES+AEO）</td></tr>
+          <tr><td><strong>≈ 0</strong></td><td>理想混合</td><td>同类型表活（如两种非离子混合）</td></tr>
+          <tr><td><strong>&gt; 0</strong></td><td>拮抗作用</td><td><strong>阴离子-阳离子</strong>（正负电荷结合沉淀）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <strong>阴离子-非离子协同机理：</strong>非离子表活（如AEO、APG）插入阴离子表活胶束中→拉开阴离子头基间距→降低静电排斥→胶束更易形成→<mark class="key">混合CMC显著降低</mark>。同时，非离子EO链在胶束表面形成水合保护层，增加空间位阻稳定性。这就是为什么AES+6501复配后泡沫更细腻稳定——界面膜中分子排列更致密，表面粘度更高。
+    </div>
+  </section>
+
+  <!-- ============ 9.6 消泡机理 ============ -->
+  <section class="section" id="sec-6">
+    <h2>9.6 消泡机理</h2>
+    <p>消泡剂通过三种机制作用：</p>
+    <ul>
+      <li><strong>铺展/去润湿：</strong>消泡剂液滴在液膜表面铺展→取代原表活→液膜破裂</li>
+      <li><strong>桥连/拉伸：</strong>消泡剂液滴同时接触液膜两侧→形成油桥→断裂</li>
+      <li><strong>去稳定化：</strong>降低表面弹性→削弱Gibbs-Marangoni自修复效应</li>
+    </ul>
+    <p>常见消泡剂：有机硅（PDMS）、聚醚、矿物油、高碳醇。</p>
+  </section>
+
+  <!-- ============ 9.7 破乳方法 ============ -->
+  <section class="section" id="sec-7">
+    <h2>9.7 破乳方法</h2>
+
+    <h3>化学破乳</h3>
+    <p>加入破乳剂（如聚氧乙烯-聚氧丙烯嵌段共聚物、有机硅破乳剂），在界面上取代原有乳化剂，破坏界面膜强度。</p>
+
+    <h3>物理破乳</h3>
+    <p>加热（降低粘度→加速碰撞→破坏非离子水合层）、离心、电场破乳（高压电场使液滴极化聚并）、超声波。</p>
+
+    <h3>电解质破乳</h3>
+    <p>加入NaCl/CaCl₂→压缩双电层→降低Zeta电位→静电排斥减弱→液滴聚并。高价离子（Ca²⁺、Al³⁺）效果更显著。</p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <h2>天赐材料日化知识库</h2>
+    <p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p>
+    <p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p>
+  </div>
+</footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+<script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
+    </main>
+    <script src="site.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
