@@ -242,6 +242,13 @@ tbody tr:hover td{background:var(--tinci-primary-50);box-shadow:inset 3px 0 0 va
 .related-pages .rp-icon{font-size:1.1rem;flex-shrink:0;}
 .related-pages .rp-name{font-size:0.85rem;font-weight:600;line-height:1.4;}
 
+/* 首页领域分区：卡片基础样式（无前缀，供 index.html 使用） */
+.rp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.8rem;}
+.rp-card{display:flex;align-items:center;gap:0.6rem;padding:0.8rem 1rem;background:var(--tinci-card);border:1px solid var(--tinci-border);border-radius:var(--tinci-radius-large);text-decoration:none;color:var(--tinci-foreground);transition:all 0.2s cubic-bezier(0.4,0,0.2,1);box-shadow:var(--tinci-shadow-xs);}
+.rp-card:hover{border-color:rgba(20,184,166,0.4);box-shadow:var(--tinci-shadow-sm);transform:translateY(-2px);}
+.rp-icon{font-size:1.1rem;flex-shrink:0;}
+.rp-name{font-size:0.85rem;font-weight:600;line-height:1.4;}
+
 /* 首页领域分区：入口高亮 */
 .rp-card.entry{background:var(--tinci-primary-50);border-color:rgba(20,184,166,0.45);}
 .rp-card.entry .rp-name{font-weight:800;color:var(--tinci-primary);}
