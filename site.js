@@ -107,50 +107,88 @@
       .catch(function () { cb(); });
   }
 
+  function snippet(text, q) {
+    if (!text) return '';
+    var i = text.toLowerCase().indexOf(q);
+    if (i < 0) return text.slice(0, 40);
+    var start = Math.max(0, i - 12);
+    return (start > 0 ? '…' : '') + text.slice(start, i + q.length + 18) + '…';
+  }
+
   function render(q) {
     results.innerHTML = '';
     q = (q || '').trim().toLowerCase();
     if (!q || !index) return;
-    var hits = [];
+    var items = [];
+    var seenUrl = {};
     for (var i = 0; i < index.length; i++) {
       var p = index[i];
       var tl = (p.title || '').toLowerCase();
-      var dl = (p.desc || '').toLowerCase();
-      var sl = (p.sections || []).join(' ').toLowerCase();
       var tl2 = (p.text || '').toLowerCase();
-      var hay = tl + ' ' + dl + ' ' + sl + ' ' + tl2;
-      if (hay.indexOf(q) >= 0) {
+      // 页面标题 / 描述命中
+      if (tl.indexOf(q) >= 0) {
+        items.push({ url: p.url, pageTitle: p.title, score: 6 });
+      } else if (p.desc && p.desc.toLowerCase().indexOf(q) >= 0) {
+        items.push({ url: p.url, pageTitle: p.title, score: 3 });
+      }
+      // 小节命中（正文具体位置，带锚点跳转）
+      var secs = p.sections || [];
+      for (var j = 0; j < secs.length; j++) {
+        var sec = secs[j];
+        var st = (sec.title || '').toLowerCase();
+        var stx = (sec.text || '').toLowerCase();
+        var hit = false;
         var score = 0;
-        if (tl.indexOf(q) >= 0) score += 4;
-        if (dl.indexOf(q) >= 0) score += 2;
-        if (sl.indexOf(q) >= 0) score += 2;
-        if (tl2.indexOf(q) >= 0) score += 1;
-        hits.push({ p: p, s: score });
+        if (st.indexOf(q) >= 0) { hit = true; score = 5; }
+        else if (stx.indexOf(q) >= 0) { hit = true; score = 4; }
+        if (hit) {
+          if (tl.indexOf(q) >= 0) score += 1;
+          items.push({
+            url: p.url + '#' + sec.id,
+            pageTitle: p.title,
+            secTitle: sec.title,
+            snippet: snippet(sec.text, q),
+            score: score
+          });
+        }
+      }
+      // 页面正文兜底（无小节命中时也能找到）
+      if (tl2.indexOf(q) >= 0) {
+        items.push({ url: p.url, pageTitle: p.title, score: 1 });
       }
     }
-    hits.sort(function (a, b) { return b.s - a.s; });
-    if (hits.length === 0) {
+    items.sort(function (a, b) { return b.score - a.score; });
+    // 同 url 去重（保留最高分）
+    var finalItems = [];
+    for (var k = 0; k < items.length; k++) {
+      if (!seenUrl[items[k].url]) {
+        seenUrl[items[k].url] = true;
+        finalItems.push(items[k]);
+      }
+    }
+    if (finalItems.length === 0) {
       var e = document.createElement('div');
       e.className = 'search-empty';
       e.textContent = '没有找到「' + q + '」相关结果，换个词试试';
       results.appendChild(e);
       return;
     }
-    var n = Math.min(hits.length, 8);
-    for (var j = 0; j < n; j++) {
-      var h = hits[j].p;
+    var n = Math.min(finalItems.length, 8);
+    for (var t = 0; t < n; t++) {
+      var h = finalItems[t];
       var a = document.createElement('a');
       a.href = base + h.url;
       a.className = 'search-item';
-      var t = document.createElement('div');
-      t.className = 'search-item-title';
-      t.textContent = h.title;
-      var s = document.createElement('div');
-      s.className = 'search-item-sections';
-      var sec = (h.sections && h.sections.length) ? h.sections.slice(0, 2).join(' · ') : h.desc;
-      s.textContent = sec;
-      a.appendChild(t);
-      a.appendChild(s);
+      var ti = document.createElement('div');
+      ti.className = 'search-item-title';
+      ti.textContent = h.secTitle ? h.secTitle : h.pageTitle;
+      var sb = document.createElement('div');
+      sb.className = 'search-item-sections';
+      sb.textContent = h.secTitle
+        ? ('在「' + h.pageTitle + '」中' + (h.snippet ? ' · ' + h.snippet : ''))
+        : h.pageTitle;
+      a.appendChild(ti);
+      a.appendChild(sb);
       results.appendChild(a);
     }
   }
