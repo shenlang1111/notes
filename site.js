@@ -76,6 +76,7 @@
       trig.addEventListener('click', function (e) {
         if (window.innerWidth <= 768) {
           e.preventDefault();
+          e.stopPropagation(); // 阻止冒泡到 .nav-links 委托（否则子菜单刚展开就被 close() 关闭）
           dd.classList.toggle('open');
         }
       });

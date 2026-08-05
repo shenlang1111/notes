@@ -53,38 +53,6 @@
         mask-position: center;
         background-color: currentColor;
       }
-      /* 体系层卡片 */
-      .sys-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.1rem;margin:1.35rem 0;}
-      .sys-card{
-        background:var(--tinci-card);border:1px solid var(--tinci-border);border-radius:var(--tinci-radius-large);
-        padding:1.35rem 1.4rem;box-shadow:var(--tinci-shadow-xs);position:relative;overflow:hidden;
-        transition:all 0.22s cubic-bezier(0.4,0,0.2,1);
-      }
-      .sys-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--tinci-nav-grad);opacity:0;transition:opacity 0.22s;}
-      .sys-card:hover{box-shadow:var(--tinci-shadow-md);transform:translateY(-3px);border-color:rgba(20,184,166,0.4);}
-      .sys-card:hover::before{opacity:1;}
-      .sys-card .sys-num{
-        display:inline-flex;align-items:center;justify-content:center;
-        width:1.9rem;height:1.9rem;background:var(--tinci-nav-grad);color:#fff;
-        font-size:0.85rem;font-weight:800;border-radius:9px;margin-bottom:0.7rem;
-      }
-      .sys-card h3{font-size:1.02rem;font-weight:800;margin-bottom:0.35rem;color:var(--tinci-foreground);}
-      .sys-card .sys-what{font-size:0.83rem;color:var(--tinci-muted-foreground);line-height:1.7;margin-bottom:0.5rem;}
-      .sys-card .sys-can{
-        font-size:0.8rem;color:var(--tinci-primary);font-weight:600;line-height:1.6;
-        padding:0.55rem 0.7rem;background:var(--tinci-primary-50);border-radius:10px;margin-bottom:0.85rem;
-      }
-      .sys-card .sys-link{font-size:0.8rem;font-weight:700;color:var(--tinci-primary);text-decoration:none;}
-      .sys-card .sys-link:hover{text-decoration:underline;}
-      .path-box{
-        background:var(--tinci-card);border:1px solid var(--tinci-border);border-radius:var(--tinci-radius-large);
-        padding:1.2rem 1.4rem;margin:1.1rem 0;box-shadow:var(--tinci-shadow-xs);
-      }
-      .path-box .pb-step{display:flex;align-items:flex-start;gap:0.6rem;margin:0.55rem 0;font-size:0.88rem;line-height:1.7;color:var(--tinci-ink);}
-      .path-box .pb-num{
-        display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;
-        min-width:1.5rem;height:1.5rem;background:var(--tinci-primary);color:#fff;font-size:0.75rem;font-weight:800;border-radius:50%;margin-top:0.2rem;
-      }
     </style>
     <link rel="stylesheet" href="tokens.css?v=1">
     <link rel="stylesheet" href="shared-components.css?v=11">
@@ -181,59 +149,47 @@
     <h2>知识体系地图 · 六层递进</h2>
     <p>从"卡波姆站在哪"学到"怎么卖出去"，每层解决一类问题。<strong>建议按 1→6 顺序学</strong>，也可以现场速查直接进 4/5 层。</p>
 
-    <div class="sys-grid">
-      <div class="sys-card">
-        <div class="sys-num">1</div>
-        <h3>定位 · 卡波姆站在哪</h3>
-        <div class="sys-what">日化配方里的位置、增稠的四种机制、增稠剂家族横向对比（黄原胶/纤维素/瓜尔胶），卡波姆的独特生态位。</div>
-        <div class="sys-can">学完能答：客户为什么用卡波姆不用黄原胶？</div>
-        <a class="sys-link" href="carbomer-theory.html#position">进入第 1 层 →</a>
-      </div>
-      <div class="sys-card">
-        <div class="sys-num">2</div>
-        <h3>原理 · 它是什么、怎么工作</h3>
-        <div class="sys-what">化学本质（交联聚丙烯酸）、三种增稠力（电荷/氢键/疏水缔合）、8 个为什么——每个都讲到分子层，配原理→牌号映射。</div>
-        <div class="sys-can">学完能答：客户问任何"为什么"，你都能从分子层接住。</div>
-        <a class="sys-link" href="carbomer-theory.html#principle">进入第 2 层 →</a>
-      </div>
-      <div class="sys-card">
-        <div class="sys-num">3</div>
-        <h3>产品 · 天赐 18 牌号</h3>
-        <div class="sys-what">命名规则、4 个原理变量（产品线设计逻辑）、18 牌号完整速览（常规/FD/生物基）、孪生牌号与记忆法。</div>
-        <div class="sys-can">学完能答：18 个牌号差异说得清、记得住。</div>
-        <a class="sys-link" href="carbomer-products.html#series">进入第 3 层 →</a>
-      </div>
-      <div class="sys-card">
-        <div class="sys-num">4</div>
-        <h3>应用 · 怎么用、选哪个</h3>
-        <div class="sys-what">应用场景全谱（化妆品/医药/工业）、选型决策树（场景→分支→牌号）、操作指南（分散/中和/避坑）、与表活的组合方案。</div>
-        <div class="sys-can">学完能答：客户说场景，你给牌号 + 用法 + 避坑。</div>
-        <a class="sys-link" href="carbomer-products.html#selection">进入第 4 层 →</a>
-      </div>
-      <div class="sys-card">
-        <div class="sys-num">5</div>
-        <h3>销售 · 怎么卖出去</h3>
-        <div class="sys-what">竞品格局（路博润/Newman/天赐）、对标关系、客户问题速查、卖卡波姆的底层逻辑与话术。</div>
-        <div class="sys-can">学完能答：面对路博润客户、国产压价客户有武器。</div>
-        <a class="sys-link" href="carbomer-sell.html#competition">进入第 5 层 →</a>
-      </div>
-      <div class="sys-card">
-        <div class="sys-num">6</div>
-        <h3>安全 · 背书与法规</h3>
-        <div class="sys-what">中国药典 2020 专论、USP-NF 对照、CIR 安全评估、苯残留口径、毒性数据——全是销售必知的硬背书。</div>
-        <div class="sys-can">学完能答：客户问安全，你有数据。</div>
-        <a class="sys-link" href="carbomer-theory.html#safety">进入第 6 层 →</a>
-      </div>
+    <div class="page-grid">
+      <a href="carbomer-theory.html#position" class="page-card">
+        <span class="card-icon">🗺️</span>
+        <h3>第 1 层 · 定位：卡波姆站在哪</h3>
+        <p>日化配方里的位置、增稠的四种机制、增稠剂家族横向对比（黄原胶/纤维素/瓜尔胶），卡波姆的独特生态位。<br><strong>学完能答：客户为什么用卡波姆不用黄原胶？</strong></p>
+      </a>
+      <a href="carbomer-theory.html#principle" class="page-card">
+        <span class="card-icon">🧠</span>
+        <h3>第 2 层 · 原理：它是什么、怎么工作</h3>
+        <p>化学本质（交联聚丙烯酸）、三种增稠力（电荷/氢键/疏水缔合）、8 个为什么——每个讲到分子层，配原理→牌号映射。<br><strong>学完能答：客户问任何"为什么"，你都能从分子层接住。</strong></p>
+      </a>
+      <a href="carbomer-products.html#series" class="page-card">
+        <span class="card-icon">🏭</span>
+        <h3>第 3 层 · 产品：天赐 18 牌号</h3>
+        <p>命名规则、4 个原理变量（产品线设计逻辑）、18 牌号完整速览（常规/FD/生物基）、孪生牌号与记忆法。<br><strong>学完能答：18 个牌号差异说得清、记得住。</strong></p>
+      </a>
+      <a href="carbomer-products.html#selection" class="page-card">
+        <span class="card-icon">🧪</span>
+        <h3>第 4 层 · 应用：怎么用、选哪个</h3>
+        <p>应用场景全谱（化妆品/医药/工业）、选型决策树（场景→分支→牌号）、操作指南（分散/中和/避坑）、与表活的组合方案。<br><strong>学完能答：客户说场景，你给牌号 + 用法 + 避坑。</strong></p>
+      </a>
+      <a href="carbomer-sell.html#competition" class="page-card">
+        <span class="card-icon">💬</span>
+        <h3>第 5 层 · 销售：怎么卖出去</h3>
+        <p>竞品格局（路博润/Newman/天赐）、对标关系、客户问题速查、卖卡波姆的底层逻辑与话术。<br><strong>学完能答：面对路博润客户、国产压价客户有武器。</strong></p>
+      </a>
+      <a href="carbomer-theory.html#safety" class="page-card">
+        <span class="card-icon">🛡️</span>
+        <h3>第 6 层 · 安全：背书与法规</h3>
+        <p>中国药典 2020 专论、USP-NF 对照、CIR 安全评估、苯残留口径、毒性数据——全是销售必知的硬背书。<br><strong>学完能答：客户问安全，你有数据。</strong></p>
+      </a>
     </div>
   </section>
 
   <!-- ============ 学习路径 ============ -->
   <section class="section" id="path">
     <h2>学习路径建议</h2>
-    <div class="path-box">
-      <div class="pb-step"><span class="pb-num">1</span><span><strong>先学原理（theory 页）：</strong>第 1 层定位搞清"卡波姆是什么家族"，第 2 层 8 个为什么搞清"它怎么工作"，第 6 层安全搞清"背书的底气"。这是地基，一次学完。</span></div>
-      <div class="pb-step"><span class="pb-num">2</span><span><strong>再学产品（products 页）：</strong>第 3 层 18 牌号（配 3 步记忆法），第 4 层选型决策树 + 操作指南。学完能"对着场景给牌号"。</span></div>
-      <div class="pb-step"><span class="pb-num">3</span><span><strong>最后学销售（sell 页）：</strong>第 5 层竞品对标 + 客户问答 + 底层逻辑。这是把前四层变成业绩的临门一脚。</span></div>
+    <div class="process-flow">
+      <div class="step"><span class="step-num">1</span><span><strong>先学原理（theory 页）：</strong>第 1 层定位搞清"卡波姆是什么家族"，第 2 层 8 个为什么搞清"它怎么工作"，第 6 层安全搞清"背书的底气"。这是地基，一次学完。</span></div>
+      <div class="step"><span class="step-num">2</span><span><strong>再学产品（products 页）：</strong>第 3 层 18 牌号（配 3 步记忆法），第 4 层选型决策树 + 操作指南。学完能"对着场景给牌号"。</span></div>
+      <div class="step"><span class="step-num">3</span><span><strong>最后学销售（sell 页）：</strong>第 5 层竞品对标 + 客户问答 + 底层逻辑。这是把前四层变成业绩的临门一脚。</span></div>
     </div>
     <div class="callout accent2">
       <strong>现场速查路径：</strong>客户说场景 → 直接进 <strong>products 页选型决策树</strong>；客户问原理 → 进 <strong>theory 页 8 个为什么</strong>；客户拿竞品压价 → 进 <strong>sell 页竞品对标</strong>。不需要按顺序。
@@ -298,6 +254,6 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=10"></script>
+    <script src="site.js?v=12"></script>
 </body>
 </html>

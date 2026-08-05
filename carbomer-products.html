@@ -53,26 +53,6 @@
         mask-position: center;
         background-color: currentColor;
       }
-      /* 决策树 */
-      .dt{background:var(--tinci-card);border:1px solid var(--tinci-border);border-radius:var(--tinci-radius-large);padding:1.3rem 1.4rem;margin:1.1rem 0;box-shadow:var(--tinci-shadow-xs);}
-      .dt-start{
-        display:flex;align-items:center;gap:0.55rem;font-weight:800;font-size:0.95rem;color:var(--tinci-foreground);
-        margin-bottom:1rem;
-      }
-      .dt-start .dt-dot{width:10px;height:10px;border-radius:50%;background:var(--tinci-nav-grad);box-shadow:0 0 0 4px rgba(20,184,166,0.14);}
-      .dt-q{margin:0.7rem 0;padding:0.7rem 0.9rem;background:var(--tinci-primary-50);border-left:4px solid var(--tinci-primary);border-radius:0 10px 10px 0;font-size:0.9rem;font-weight:700;color:var(--tinci-primary);}
-      .dt-ans{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
-      .dt-ans .da{
-        background:var(--tinci-surface-2);border:1px solid var(--tinci-border);border-radius:10px;padding:0.6rem 0.8rem;font-size:0.84rem;line-height:1.6;
-      }
-      .dt-ans .da b{display:block;margin-bottom:0.15rem;font-size:0.8rem;color:var(--tinci-ink-3);}
-      .dt-ans .da.yes{background:var(--tinci-teal-soft);border-color:rgba(20,184,166,0.4);}
-      .dt-ans .da.no{background:var(--tinci-surface-2);}
-      .dt-result{
-        margin-top:0.7rem;padding:0.7rem 0.9rem;background:var(--tinci-teal-soft);border-left:4px solid var(--tinci-teal);
-        border-radius:0 10px 10px 0;font-size:0.88rem;font-weight:700;color:var(--tinci-primary);
-      }
-      @media(max-width:768px){.dt-ans{grid-template-columns:1fr;}}
     </style>
     <link rel="stylesheet" href="tokens.css?v=1">
     <link rel="stylesheet" href="shared-components.css?v=11">
@@ -282,49 +262,23 @@
     <h2>第 4 层 · 应用：选型决策树</h2>
     <p>客户说场景，别背表——走问题。每一步"是/否"都通向一个牌号，30 秒定位。</p>
 
-    <div class="dt">
-      <div class="dt-start"><span class="dt-dot"></span>决策树起点：先问"配方含不含盐 / 离子型表活？"</div>
-      <div class="dt-q">Q1 · 配方含盐、含离子表活（氨基酸/硫酸盐体系）？</div>
-      <div class="dt-ans">
-        <div class="da yes"><b>是 → 必须耐盐</b>选 FD 疏水改性四兄弟：<br>短流 → <strong>FD21</strong>；长流 → <strong>FD2010/2020</strong></div>
-        <div class="da no"><b>否 → 常规款即可</b>进入下一问</div>
-      </div>
-      <div class="dt-q">Q2 · 乙醇浓度 ≥70%（免洗消毒）？</div>
-      <div class="dt-ans">
-        <div class="da yes"><b>是 → <strong>351</strong></b>（乙醇相容，70% 乙醇透光率 ≥85%）</div>
-        <div class="da no"><b>否 → 下一问</b></div>
-      </div>
-      <div class="dt-q">Q3 · 要极致透明（啫喱/水晶皂）？</div>
-      <div class="dt-ans">
-        <div class="da yes"><b>是 → <strong>640</strong></b>（透光率 ≥95% 全系最高，备选 380）</div>
-        <div class="da no"><b>否 → 下一问</b></div>
-      </div>
-      <div class="dt-q">Q4 · 医药 / 口腔 / 高纯要求？</div>
-      <div class="dt-ans">
-        <div class="da yes"><b>是 → <strong>356</strong></b>（医药级，无苯无环己烷，残留丙烯酸全系最低）</div>
-        <div class="da no"><b>否 → 下一问</b></div>
-      </div>
-      <div class="dt-q">Q5 · 婴童 / 出口 / 溶剂敏感？</div>
-      <div class="dt-ans">
-        <div class="da yes"><b>是 → 无苯三选</b>：<strong>340H / 381 / 380</strong></div>
-        <div class="da no"><b>否 → 下一问</b></div>
-      </div>
-      <div class="dt-q">Q6 · 要高粘、同用量增稠效率最高？</div>
-      <div class="dt-ans">
-        <div class="da yes"><b>是 → <strong>396</strong></b>（0.5% 68000-80000 全系最高）</div>
-        <div class="da no"><b>否 → 下一问</b></div>
-      </div>
-      <div class="dt-q">Q7 · 家居清洁 / 氧化剂体系（漂白）？</div>
-      <div class="dt-ans">
-        <div class="da yes"><b>是 → <strong>276 / 286</strong></b>（氧化剂稳定，垂直挂壁）</div>
-        <div class="da no"><b>否 → 下一问</b></div>
-      </div>
-      <div class="dt-q">Q8 · 客户嫌结块 / 操作麻烦？</div>
-      <div class="dt-ans">
-        <div class="da yes"><b>是 → FD 系列</b>：<strong>FD21</strong>（≤6min 最快）</div>
-        <div class="da no"><b>否 → 通用选择</b></div>
-      </div>
-      <div class="dt-result">默认落点（以上全否）：<strong>TC-CARBOMER 380</strong>——个护旗舰，短流高透明最均衡，覆盖 80% 常规场景；要流动感换 341/381。</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>决策问题（自上而下依次问）</th><th>是 → 推荐</th><th>否 →</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Q1 · 配方含盐 / 含离子表活（氨基酸/硫酸盐体系）？</strong></td><td><strong>FD21</strong>（短流）/ <strong>FD2010/2020</strong>（长流）——疏水改性耐盐四兄弟</td><td>进入下一问</td></tr>
+          <tr><td><strong>Q2 · 乙醇浓度 ≥70%（免洗消毒）？</strong></td><td><strong>351</strong>（乙醇相容，70% 乙醇透光率 ≥85%）</td><td>进入下一问</td></tr>
+          <tr><td><strong>Q3 · 要极致透明（啫喱/水晶皂）？</strong></td><td><strong>640</strong>（透光率 ≥95% 全系最高，备选 380）</td><td>进入下一问</td></tr>
+          <tr><td><strong>Q4 · 医药 / 口腔 / 高纯要求？</strong></td><td><strong>356</strong>（医药级，无苯无环己烷，残留丙烯酸全系最低）</td><td>进入下一问</td></tr>
+          <tr><td><strong>Q5 · 婴童 / 出口 / 溶剂敏感？</strong></td><td><strong>340H / 381 / 380</strong>（全部无苯）</td><td>进入下一问</td></tr>
+          <tr><td><strong>Q6 · 要高粘、同用量增稠效率最高？</strong></td><td><strong>396</strong>（0.5% 68000-80000 全系最高）</td><td>进入下一问</td></tr>
+          <tr><td><strong>Q7 · 家居清洁 / 氧化剂体系（漂白）？</strong></td><td><strong>276 / 286</strong>（氧化剂稳定，垂直挂壁）</td><td>进入下一问</td></tr>
+          <tr><td><strong>Q8 · 客户嫌结块 / 操作麻烦？</strong></td><td><strong>FD21</strong>（≤6min 最快）</td><td>进入下一问</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout accent2">
+      <strong>默认落点（以上全否）：TC-CARBOMER 380</strong>——个护旗舰，短流高透明最均衡，覆盖 80% 常规场景；要流动感换 341/381。
     </div>
 
     <h3>14 个真实客户场景速查（决策树的落地版）</h3>
@@ -553,6 +507,6 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=10"></script>
+    <script src="site.js?v=12"></script>
 </body>
 </html>
