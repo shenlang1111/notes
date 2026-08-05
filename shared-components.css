@@ -482,8 +482,12 @@ footer p{color:rgba(255,255,255,0.6);line-height:1.7;}
 .nav-toggle:hover{background:var(--tinci-primary-100);}
 @media(max-width:768px){
   .nav-toggle{display:inline-flex;}
+  /* 移动端按钮成组靠右，☰（汉堡）在最右——修复"点右上角点不到汉堡"（原 🌙/🔍 排在 ☰ 更右边） */
+  .site-nav .theme-toggle{margin-left:auto;order:3;}
+  .site-nav .search-btn{order:4;margin-left:0.4rem;}
+  .site-nav .nav-toggle{order:5;width:2.6rem;height:2.6rem;}
   .site-nav .nav-links{
-    display:none;position:absolute;top:100%;left:0;right:0;
+    display:none;position:fixed;top:56px;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0.25rem;
     background:var(--tinci-card);
     border-bottom:1px solid var(--tinci-border);
