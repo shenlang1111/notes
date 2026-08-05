@@ -95,12 +95,12 @@
       pages: ['surfactants.html','theory.html','fundamentals.html','amphoteric.html','anionic.html','cationic.html','nonionic.html','apg.html','synthesis.html','properties.html','applications.html','advanced.html','troubleshooting.html','products.html','formulation.html','sales.html','market.html','naming-rules.html'],
       cols: [
         ['门户', 'surfactants.html'],
-        ['栏1 理论', 'theory.html'],
-        ['栏2 命名规则', 'naming-rules.html'],
-        ['栏3 产品', 'products.html'],
-        ['栏4 配方', 'formulation.html'],
-        ['栏5 销售', 'sales.html'],
-        ['栏6 市场', 'market.html']
+        ['1 理论', 'theory.html'],
+        ['2 命名规则', 'naming-rules.html'],
+        ['3 产品', 'products.html'],
+        ['4 配方', 'formulation.html'],
+        ['5 销售', 'sales.html'],
+        ['6 市场', 'market.html']
       ]
     },
     {
@@ -109,11 +109,11 @@
       pages: ['carbomer.html','carbomer-theory.html','carbomer-products.html','carbomer-sell.html'],
       cols: [
         ['门户', 'carbomer.html'],
-        ['栏1 理论', 'carbomer-theory.html'],
-        ['栏2 命名规则', 'naming-rules.html#carbomer'],
-        ['栏3 产品', 'carbomer-products.html'],
-        ['栏4 应用', 'carbomer-products.html#selection'],
-        ['栏5 销售', 'carbomer-sell.html']
+        ['1 理论', 'carbomer-theory.html'],
+        ['2 命名规则', 'naming-rules.html#carbomer'],
+        ['3 产品', 'carbomer-products.html'],
+        ['4 应用', 'carbomer-products.html#selection'],
+        ['5 销售', 'carbomer-sell.html']
       ]
     }
   ];
