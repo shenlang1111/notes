@@ -98,6 +98,13 @@ ul.feature-list{margin:0.85rem 0;padding:0;list-style:none;}
 .feature-list li::before{content:'';position:absolute;left:0;top:0.72em;width:0.5rem;height:0.5rem;border-radius:50%;background:var(--tinci-nav-grad);box-shadow:0 0 0 3px rgba(20,184,166,0.12);}
 .feature-list strong{color:var(--tinci-primary);}
 
+/* ============ 原理→牌号映射提示条（why-map） ============ */
+.why-map{
+  margin:0.55rem 0 0.35rem;padding:0.5rem 0.75rem;
+  background:var(--tinci-teal-soft);border-left:3px solid var(--tinci-teal);
+  border-radius:0 10px 10px 0;font-size:0.82rem;color:var(--tinci-primary);font-weight:600;
+}
+
 /* ============ 卡片 ============ */
 .card{
   background:var(--tinci-card);border:1px solid var(--tinci-border);border-radius:var(--tinci-radius-large);
@@ -470,6 +477,25 @@ footer p{color:rgba(255,255,255,0.6);line-height:1.7;}
 @media(min-width:769px){
   .site-nav .theme-toggle{margin-left:auto;}
 }
+
+/* ============ 知识域感知导航（汉堡菜单顶部栏目） ============ */
+.domain-nav{
+  display:none;border:1px solid rgba(20,184,166,0.35);border-radius:12px;
+  padding:0.6rem 0.75rem;margin-bottom:0.6rem;
+  background:var(--tinci-primary-50);
+}
+.domain-nav-title{font-size:0.8rem;font-weight:800;color:var(--tinci-primary);margin-bottom:0.45rem;}
+.domain-nav-cols{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.domain-nav-chip{
+  display:inline-flex;align-items:center;
+  font-size:0.78rem;font-weight:700;color:var(--tinci-primary);
+  background:var(--tinci-card);border:1px solid rgba(20,184,166,0.35);
+  border-radius:999px;padding:0.28rem 0.65rem;text-decoration:none;
+  transition:background 0.15s,color 0.15s;
+}
+.domain-nav-chip:hover{background:var(--tinci-primary);color:#fff;}
+@media(max-width:768px){.domain-nav{display:block;}}
+@media(min-width:769px){.domain-nav{display:none;}}
 
 /* ============ 移动端导航按钮（汉堡菜单） ============ */
 .nav-toggle{

@@ -87,6 +87,70 @@
     if (!links.contains(e.target) && !toggle.contains(e.target)) close();
   });
 
+  /* ---------- 2.5) 知识域感知导航：汉堡菜单顶部显示当前知识域栏目 ---------- */
+  var DOMAINS = [
+    {
+      name: '表活知识域',
+      icon: '🧪',
+      pages: ['surfactants.html','theory.html','fundamentals.html','amphoteric.html','anionic.html','cationic.html','nonionic.html','apg.html','synthesis.html','properties.html','applications.html','advanced.html','troubleshooting.html','products.html','formulation.html','sales.html','market.html','naming-rules.html'],
+      cols: [
+        ['门户', 'surfactants.html'],
+        ['栏1 理论', 'theory.html'],
+        ['栏2 命名规则', 'naming-rules.html'],
+        ['栏3 产品', 'products.html'],
+        ['栏4 配方', 'formulation.html'],
+        ['栏5 销售', 'sales.html'],
+        ['栏6 市场', 'market.html']
+      ]
+    },
+    {
+      name: '卡波姆知识域',
+      icon: '🧪',
+      pages: ['carbomer.html','carbomer-theory.html','carbomer-products.html','carbomer-sell.html'],
+      cols: [
+        ['门户', 'carbomer.html'],
+        ['栏1 理论', 'carbomer-theory.html'],
+        ['栏2 命名规则', 'naming-rules.html#carbomer'],
+        ['栏3 产品', 'carbomer-products.html'],
+        ['栏4 应用', 'carbomer-products.html#selection'],
+        ['栏5 销售', 'carbomer-sell.html']
+      ]
+    }
+  ];
+
+  function initDomainNav() {
+    if (!links) return;
+    var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    var domain = null;
+    for (var i = 0; i < DOMAINS.length; i++) {
+      for (var j = 0; j < DOMAINS[i].pages.length; j++) {
+        if (DOMAINS[i].pages[j] === page) { domain = DOMAINS[i]; break; }
+      }
+      if (domain) break;
+    }
+    if (!domain) return;
+    var dn = document.createElement('div');
+    dn.className = 'domain-nav';
+    var title = document.createElement('div');
+    title.className = 'domain-nav-title';
+    title.textContent = domain.icon + ' 当前：' + domain.name;
+    dn.appendChild(title);
+    var list = document.createElement('div');
+    list.className = 'domain-nav-cols';
+    for (var k = 0; k < domain.cols.length; k++) {
+      (function (href, label) {
+        var a = document.createElement('a');
+        a.href = href;
+        a.textContent = label;
+        a.className = 'domain-nav-chip';
+        list.appendChild(a);
+      })(domain.cols[k][1], domain.cols[k][0]);
+    }
+    dn.appendChild(list);
+    links.insertBefore(dn, links.firstChild);
+  }
+  initDomainNav();
+
   /* ---------- 3) 站内搜索 ---------- */
   var scriptEl2 = document.currentScript ||
     document.querySelector('script[src*="site.js"]');

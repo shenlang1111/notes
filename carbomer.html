@@ -53,32 +53,9 @@
         mask-position: center;
         background-color: currentColor;
       }
-      /* 门户栏卡 */
-      .col-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.1rem;margin:1.35rem 0;}
-      .col-card{
-        background:var(--tinci-card);border:1px solid var(--tinci-border);border-radius:var(--tinci-radius-large);
-        padding:1.35rem 1.4rem;box-shadow:var(--tinci-shadow-xs);position:relative;overflow:hidden;
-        transition:all 0.22s cubic-bezier(0.4,0,0.2,1);
-      }
-      .col-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--tinci-nav-grad);opacity:0;transition:opacity 0.22s;}
-      .col-card:hover{box-shadow:var(--tinci-shadow-md);transform:translateY(-3px);border-color:rgba(20,184,166,0.4);}
-      .col-card:hover::before{opacity:1;}
-      .col-card .col-num{
-        display:inline-flex;align-items:center;justify-content:center;
-        width:1.9rem;height:1.9rem;background:var(--tinci-nav-grad);color:#fff;
-        font-size:0.85rem;font-weight:800;border-radius:9px;margin-bottom:0.7rem;
-      }
-      .col-card h3{font-size:1.02rem;font-weight:800;margin-bottom:0.35rem;color:var(--tinci-foreground);}
-      .col-card .col-what{font-size:0.83rem;color:var(--tinci-muted-foreground);line-height:1.7;margin-bottom:0.5rem;}
-      .col-card .col-can{
-        font-size:0.8rem;color:var(--tinci-primary);font-weight:600;line-height:1.6;
-        padding:0.55rem 0.7rem;background:var(--tinci-primary-50);border-radius:10px;margin-bottom:0.85rem;
-      }
-      .col-card .col-link{font-size:0.8rem;font-weight:700;color:var(--tinci-primary);text-decoration:none;}
-      .col-card .col-link:hover{text-decoration:underline;}
     </style>
     <link rel="stylesheet" href="tokens.css?v=1">
-    <link rel="stylesheet" href="shared-components.css?v=11">
+    <link rel="stylesheet" href="shared-components.css?v=12">
 </head>
 <body class="min-h-screen font-sans antialiased">
     <main>
@@ -172,41 +149,36 @@
     <h2>知识门户 · 五大栏目</h2>
     <p>从"卡波姆站在哪"学到"怎么卖出去"，每栏解决一类问题。<strong>建议按 1→5 顺序学</strong>，也可以现场速查直接进 3/4/5 栏。</p>
 
-    <div class="col-grid">
-      <div class="col-card">
-        <div class="col-num">1</div>
-        <h3>理论 · 它是什么、怎么工作</h3>
-        <div class="col-what">定位（卡波姆站在哪、增稠剂家族对比）+ 化学本质（交联聚丙烯酸）+ 8 个为什么（每个讲到分子层，配原理→牌号映射）+ 安全背书（药典/CIR/法规）。</div>
-        <div class="col-can">学完能答：客户问任何"为什么"，你都能从分子层接住。</div>
-        <a class="col-link" href="carbomer-theory.html">进入栏 1 · 理论 →</a>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h4>栏 1 · 理论：它是什么、怎么工作</h4>
+        <p>定位（卡波姆站在哪、增稠剂家族对比）+ 化学本质（交联聚丙烯酸）+ 8 个为什么（每个讲到分子层，配原理→牌号映射）+ 安全背书（药典/CIR/法规）。</p>
+        <p><strong>学完能答：</strong>客户问任何"为什么"，你都能从分子层接住。</p>
+        <p><a href="carbomer-theory.html" style="color:var(--tinci-primary);font-weight:700;">进入栏 1 · 理论 →</a></p>
       </div>
-      <div class="col-card">
-        <div class="col-num">2</div>
-        <h3>命名规则 · 牌号名怎么读</h3>
-        <div class="col-what">卡波姆独立命名体系（不走表活结构）：TC- + CARBOMER/BIO-CARBOMER + 数字；FD 快速分散、BIO 生物基、H 无苯版；18 个数字牌号的定位速查。</div>
-        <div class="col-can">学完能答：客户报一个牌号，你立刻知道它是哪类、耐不耐盐。</div>
-        <a class="col-link" href="naming-rules.html#carbomer">进入栏 2 · 命名规则中心 →</a>
+      <div class="concept-card">
+        <h4>栏 2 · 命名规则：牌号名怎么读</h4>
+        <p>卡波姆独立命名体系（不走表活结构）：TC- + CARBOMER/BIO-CARBOMER + 数字；FD 快速分散、BIO 生物基、H 无苯版；18 个数字牌号的定位速查。</p>
+        <p><strong>学完能答：</strong>客户报一个牌号，你立刻知道它是哪类、耐不耐盐。</p>
+        <p><a href="naming-rules.html#carbomer" style="color:var(--tinci-primary);font-weight:700;">进入栏 2 · 命名规则中心 →</a></p>
       </div>
-      <div class="col-card">
-        <div class="col-num">3</div>
-        <h3>产品 · 天赐 18 牌号</h3>
-        <div class="col-what">4 个原理变量（产品线设计逻辑）、18 牌号完整速览（常规 11 / FD 6 / 生物基 1）、孪生牌号与 3 步记忆法。</div>
-        <div class="col-can">学完能答：18 个牌号差异说得清、记得住。</div>
-        <a class="col-link" href="carbomer-products.html#series">进入栏 3 · 产品 →</a>
+      <div class="concept-card">
+        <h4>栏 3 · 产品：天赐 18 牌号</h4>
+        <p>4 个原理变量（产品线设计逻辑）、18 牌号完整速览（常规 11 / FD 6 / 生物基 1）、孪生牌号与 3 步记忆法。</p>
+        <p><strong>学完能答：</strong>18 个牌号差异说得清、记得住。</p>
+        <p><a href="carbomer-products.html#series" style="color:var(--tinci-primary);font-weight:700;">进入栏 3 · 产品 →</a></p>
       </div>
-      <div class="col-card">
-        <div class="col-num">4</div>
-        <h3>应用 · 怎么用、选哪个</h3>
-        <div class="col-what">选型决策树（场景→分支→牌号，30 秒定位）+ 14 个真实客户场景 + 操作指南（分散/中和/避坑）+ 与表活的组合方案。</div>
-        <div class="col-can">学完能答：客户说场景，你给牌号 + 用法 + 避坑。</div>
-        <a class="col-link" href="carbomer-products.html#selection">进入栏 4 · 应用 →</a>
+      <div class="concept-card">
+        <h4>栏 4 · 应用：怎么用、选哪个</h4>
+        <p>选型决策树（场景→分支→牌号，30 秒定位）+ 14 个真实客户场景 + 操作指南（分散/中和/避坑）+ 与表活的组合方案。</p>
+        <p><strong>学完能答：</strong>客户说场景，你给牌号 + 用法 + 避坑。</p>
+        <p><a href="carbomer-products.html#selection" style="color:var(--tinci-primary);font-weight:700;">进入栏 4 · 应用 →</a></p>
       </div>
-      <div class="col-card">
-        <div class="col-num">5</div>
-        <h3>销售 · 怎么卖出去</h3>
-        <div class="col-what">竞品格局（路博润/Newman/天赐）、对标关系、9 条客户问答、卖卡波姆的 3 个底层逻辑与组合销售方案。</div>
-        <div class="col-can">学完能答：面对路博润客户、国产压价客户有武器。</div>
-        <a class="col-link" href="carbomer-sell.html">进入栏 5 · 销售 →</a>
+      <div class="concept-card">
+        <h4>栏 5 · 销售：怎么卖出去</h4>
+        <p>竞品格局（路博润/Newman/天赐）、对标关系、9 条客户问答、卖卡波姆的 3 个底层逻辑与组合销售方案。</p>
+        <p><strong>学完能答：</strong>面对路博润客户、国产压价客户有武器。</p>
+        <p><a href="carbomer-sell.html" style="color:var(--tinci-primary);font-weight:700;">进入栏 5 · 销售 →</a></p>
       </div>
     </div>
   </section>
@@ -214,10 +186,13 @@
   <!-- ============ 学习路径 ============ -->
   <section class="section" id="path">
     <h2>学习路径建议</h2>
-    <div class="path-box">
-      <div class="pb-step"><span class="pb-num">1</span><span><strong>先学理论（栏 1）：</strong>搞清"卡波姆是什么家族、怎么工作、安全底气在哪"。这是地基，一次学完。</span></div>
-      <div class="pb-step"><span class="pb-num">2</span><span><strong>再学产品（栏 3 + 栏 4）：</strong>18 牌号（配 3 步记忆法）+ 选型决策树 + 操作指南。学完能"对着场景给牌号"。</span></div>
-      <div class="pb-step"><span class="pb-num">3</span><span><strong>最后学销售（栏 5）：</strong>竞品对标 + 客户问答 + 底层逻辑。这是把前四栏变成业绩的临门一脚。</span></div>
+    <div class="card accent2">
+      <h4>三步学完整套体系</h4>
+      <ul class="feature-list">
+        <li><strong>先学理论（栏 1）：</strong>搞清"卡波姆是什么家族、怎么工作、安全底气在哪"。这是地基，一次学完。</li>
+        <li><strong>再学产品（栏 3 + 栏 4）：</strong>18 牌号（配 3 步记忆法）+ 选型决策树 + 操作指南。学完能"对着场景给牌号"。</li>
+        <li><strong>最后学销售（栏 5）：</strong>竞品对标 + 客户问答 + 底层逻辑。这是把前四栏变成业绩的临门一脚。</li>
+      </ul>
     </div>
     <div class="callout accent2">
       <strong>现场速查路径：</strong>客户说场景 → 直接进 <strong>栏 4 选型决策树</strong>；客户问原理 → 进 <strong>栏 1 的 8 个为什么</strong>；客户拿竞品压价 → 进 <strong>栏 5 竞品对标</strong>；客户报牌号听不懂 → 进 <strong>栏 2 命名规则</strong>。不需要按顺序。
@@ -282,6 +257,6 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=12"></script>
+    <script src="site.js?v=13"></script>
 </body>
 </html>
