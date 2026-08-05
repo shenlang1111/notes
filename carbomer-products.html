@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卡波姆产品 · 18 牌号 · 选型决策树 · 操作指南 · 天赐知识库</title>
+    <meta name="description" content="天赐材料日化知识库 · 卡波姆产品：18 牌号速览、选型决策树、应用场景、操作指南">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
+    
+    <script src="vendor/tailwind.browser.js?v=10"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--tinci-background);
+    --color-foreground: var(--tinci-foreground);
+    --color-card: var(--tinci-card);
+    --color-card-foreground: var(--tinci-card-foreground);
+    --color-popover: var(--tinci-popover);
+    --color-popover-foreground: var(--tinci-popover-foreground);
+    --color-primary: var(--tinci-primary);
+    --color-primary-foreground: var(--tinci-primary-foreground);
+    --color-secondary: var(--tinci-muted);
+    --color-secondary-foreground: var(--tinci-muted-emphasis);
+    --color-muted: var(--tinci-muted);
+    --color-muted-foreground: var(--tinci-muted-foreground);
+    --color-accent: var(--tinci-teal);
+    --color-accent-foreground: var(--tinci-primary-foreground);
+    --color-border: var(--tinci-border);
+    --color-input: var(--tinci-input);
+    --color-ring: var(--tinci-ring);
+    --radius-sm: var(--tinci-radius-small);
+    --radius-md: var(--tinci-radius-medium);
+    --radius-lg: var(--tinci-radius-large);
+  }
+  @layer base {
+    body { background: var(--tinci-background); color: var(--tinci-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+      /* 决策树 */
+      .dt{background:var(--tinci-card);border:1px solid var(--tinci-border);border-radius:var(--tinci-radius-large);padding:1.3rem 1.4rem;margin:1.1rem 0;box-shadow:var(--tinci-shadow-xs);}
+      .dt-start{
+        display:flex;align-items:center;gap:0.55rem;font-weight:800;font-size:0.95rem;color:var(--tinci-foreground);
+        margin-bottom:1rem;
+      }
+      .dt-start .dt-dot{width:10px;height:10px;border-radius:50%;background:var(--tinci-nav-grad);box-shadow:0 0 0 4px rgba(20,184,166,0.14);}
+      .dt-q{margin:0.7rem 0;padding:0.7rem 0.9rem;background:var(--tinci-primary-50);border-left:4px solid var(--tinci-primary);border-radius:0 10px 10px 0;font-size:0.9rem;font-weight:700;color:var(--tinci-primary);}
+      .dt-ans{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
+      .dt-ans .da{
+        background:var(--tinci-surface-2);border:1px solid var(--tinci-border);border-radius:10px;padding:0.6rem 0.8rem;font-size:0.84rem;line-height:1.6;
+      }
+      .dt-ans .da b{display:block;margin-bottom:0.15rem;font-size:0.8rem;color:var(--tinci-ink-3);}
+      .dt-ans .da.yes{background:var(--tinci-teal-soft);border-color:rgba(20,184,166,0.4);}
+      .dt-ans .da.no{background:var(--tinci-surface-2);}
+      .dt-result{
+        margin-top:0.7rem;padding:0.7rem 0.9rem;background:var(--tinci-teal-soft);border-left:4px solid var(--tinci-teal);
+        border-radius:0 10px 10px 0;font-size:0.88rem;font-weight:700;color:var(--tinci-primary);
+      }
+    </style>
+    <link rel="stylesheet" href="tokens.css?v=1">
+    <link rel="stylesheet" href="shared-components.css?v=10">
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+<nav class="site-nav">
+  <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
+  <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
+    <a href="index.html">首页</a>
+    <div class="nav-dd">
+      <a href="theory.html" class="dd-trigger">理论 <span class="dd-caret">▾</span></a>
+      <div class="dd-menu">
+        <a href="theory.html">理论总览</a>
+        <a href="fundamentals.html">基础概念与原理</a>
+        <a href="amphoteric.html">两性表面活性剂</a>
+        <a href="anionic.html">阴离子表面活性剂</a>
+        <a href="cationic.html">阳离子表面活性剂</a>
+        <a href="nonionic.html">非离子表面活性剂</a>
+        <a href="apg.html">APG 烷基糖苷</a>
+        <a href="synthesis.html">合成工艺</a>
+        <a href="properties.html">核心物化性质</a>
+        <a href="applications.html">应用原理</a>
+        <a href="advanced.html">高阶理论</a>
+        <a href="troubleshooting.html">排故诊断</a>
+      </div>
+    </div>
+    <div class="nav-dd">
+      <a href="products.html" class="dd-trigger active">产品 <span class="dd-caret">▾</span></a>
+      <div class="dd-menu">
+        <a href="products.html">产品体系</a>
+        <a href="carbomer.html">卡波姆体系</a>
+        <a href="carbomer-products.html" class="active">卡波姆产品</a>
+        <a href="carbomer-theory.html">卡波姆原理</a>
+        <a href="carbomer-sell.html">卡波姆销售</a>
+      </div>
+    </div>
+    <a href="formulation.html">配方</a>
+    <a href="sales.html">销售</a>
+    <a href="market.html">市场</a>
+    <div class="nav-dd">
+      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <div class="dd-menu">
+        <a href="finechem-additives.html">添加剂与助剂</a>
+        <a href="finechem-daily-chem.html">日化产品体系</a>
+        <a href="finechem-surfaces.html">涂料胶粘剂</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ============ Page Hero ============ -->
+  <section class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="bc-sep">›</span>
+      <a href="products.html">产品</a>
+      <span class="bc-sep">›</span>
+      <a href="carbomer.html">卡波姆体系</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">产品与选型</span>
+    </div>
+    <h1>卡波姆产品 · 18 牌号 + 选型决策树 + 操作指南</h1>
+    <p class="page-hero-desc">体系第 3+4 层。先把 18 个牌号用 4 个原理变量看清、用 3 步记忆法记住；再走一遍选型决策树——客户说场景，你几步内给到牌号；最后是现场必问的操作指南（分散/中和/避坑）。</p>
+    <div class="page-hero-meta">
+      <span class="tag">第 3 层 · 产品</span>
+      <span class="tag">第 4 层 · 应用</span>
+      <span class="tag">18 牌号</span>
+      <span class="tag">决策树</span>
+    </div>
+  </section>
+
+  <!-- ============ TOC ============ -->
+  <details class="toc-nav" open>
+    <summary>本页目录 · 4 大部分</summary>
+    <div class="toc-grid">
+      <a href="#variables"><span class="toc-num">1</span>4 个原理变量看懂 18 牌号</a>
+      <a href="#series"><span class="toc-num">2</span>18 牌号速览（常规 / FD / 生物基）</a>
+      <a href="#selection"><span class="toc-num">3</span>选型决策树 + 场景速查</a>
+      <a href="#operation"><span class="toc-num">4</span>操作指南（分散 / 中和 / 避坑）</a>
+    </div>
+  </details>
+
+  <!-- ============ 第 3 层 · 产品 ============ -->
+  <section class="section" id="variables">
+    <h2>第 3 层 · 产品：4 个原理变量看懂 18 牌号</h2>
+    <p>把原理页 8 个为什么压缩成 4 个变量：<mark class="key">交联密度 → 粘度；疏水改性 → 耐盐；合成溶剂 → 苯残留；表面处理 → 分散快慢</mark>。每个变量都能在牌号参数里找到对应。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>原理变量</th><th>分子根源</th><th>决定产品什么</th><th>天赐牌号对照</th><th>销售含义</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>① 交联密度 / 分子量</strong></td>
+            <td>网织得多密（药典实证：低粘↔高交联分子量）</td>
+            <td>粘度档：网越密 → 粘度越高</td>
+            <td>396/276 最高粘（68000-80000）<br>341/381 最低粘（4000-11000）</td>
+            <td>要高粘、同用量效率最高 → 396；要流动感 → 341/381</td>
+          </tr>
+          <tr>
+            <td><strong>② 是否疏水改性</strong></td>
+            <td>链上是否引入 C10-30 长烷基链（油锚）</td>
+            <td>耐盐性：有油锚 → 盐来了不塌</td>
+            <td>FD20/21/2010/2020 疏水改性，1% NaCl 实证<br>其余为传统均聚物，怕盐</td>
+            <td>配方含盐/含离子表活 → 只能选 FD 疏水改性四兄弟</td>
+          </tr>
+          <tr>
+            <td><strong>③ 合成溶剂</strong></td>
+            <td>沉淀聚合法反应溶剂残留在成品里</td>
+            <td>苯残留：用苯 → 含苯；用乙酸乙酯/环己烷 → 无苯</td>
+            <td>含苯：340/341/396（≤0.50%）<br>无苯：340H/381/380/640 等<br>医药级：356（无苯无环己烷）</td>
+            <td>婴童/出口/医药客户 → 主动推无苯版</td>
+          </tr>
+          <tr>
+            <td><strong>④ 表面处理</strong></td>
+            <td>FD 系列做表面润湿处理，水快速渗进颗粒</td>
+            <td>分散速度：免浸泡、免高速剪切</td>
+            <td>FD21 ≤6min 最快 · FD10 ≤8min · FD980 ≤12min</td>
+            <td>客户嫌结块/操作麻烦 → 推 FD；FD21 综合最优</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>特殊牌号速记（点状原理）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>特殊在哪</th><th>背后原理</th></tr></thead>
+        <tbody>
+          <tr><td><strong>351</strong></td><td>70% 乙醇下仍澄清</td><td>乙醇相容结构，扛得住去溶剂化（TDS 实证）→ 免洗消毒啫喱指定款</td></tr>
+          <tr><td><strong>356</strong></td><td>医药级</td><td>残留丙烯酸 ≤0.1% 全系最低 + 无苯无环己烷 → 口腔/医药</td></tr>
+          <tr><td><strong>640</strong></td><td>全系最透明 ≥95%</td><td>配方纯净度最高 → 透明啫喱/水晶皂</td></tr>
+          <tr><td><strong>396</strong></td><td>全系最高粘</td><td>网络最致密 → 同用量增稠效率最高</td></tr>
+          <tr><td><strong>BIO 380</strong></td><td>生物基</td><td>原料换 95% 生物质，性能与 380 一致 → ESG 客户 1:1 替换</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 18 牌号速览 ============ -->
+  <section class="section" id="series">
+    <h2>18 牌号速览</h2>
+    <p>数据基于 18 张 TDS 全量收录（2026-08-05）。<strong>粘度口径警告：</strong>不同牌号 TDS 测试条件不同，不可直接横向比数字（0.5% / 0.2% / 1% 水凝胶，pH 条件不一）。下表"粘度档"是同口径内的相对分级。</p>
+
+    <h3>常规系列（传统均聚物 · INCI: Carbomer）— 11 牌号</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>流变</th><th>粘度档</th><th>透光率</th><th>溶剂</th><th>一句话定位</th></tr></thead>
+        <tbody>
+          <tr><td><strong>276</strong></td><td>短流</td><td>极高 45000-80000</td><td>≥80%</td><td>TDS 未列</td><td>工业/家居清洗主力，氧化剂体系首选</td></tr>
+          <tr><td><strong>286</strong></td><td>短流</td><td>高 55000-75000</td><td>≥80%</td><td>无苯</td><td>家居清洁兼顾个护，氧化剂稳定</td></tr>
+          <tr><td><strong>340</strong></td><td>短流</td><td>高 40000-70000</td><td>≥85%</td><td><strong>含苯</strong></td><td>个护短流高透明基础款</td></tr>
+          <tr><td><strong>340H</strong></td><td>短流</td><td>高 40000-70000</td><td>≥85%</td><td>无苯</td><td>340 的无苯版，婴童/出口安全敏感</td></tr>
+          <tr><td><strong>341</strong></td><td><strong>长流</strong></td><td><strong>低</strong> 4000-11000</td><td>≥85%</td><td><strong>含苯</strong></td><td>长流低粘/离子体系流动感产品</td></tr>
+          <tr><td><strong>351</strong></td><td>短流</td><td>中高 20000-42000</td><td>≥85%（70%乙醇下）</td><td>无苯</td><td><strong>免洗消毒啫喱指定款（乙醇相容）</strong></td></tr>
+          <tr><td><strong>356</strong></td><td>短流</td><td>中 20700-41300</td><td>TDS 未列</td><td>无苯无环己烷</td><td><strong>医药级</strong>，口腔产品/医药配方</td></tr>
+          <tr><td><strong>380</strong></td><td>短流</td><td>高 40000-60000</td><td>≥85%</td><td>无苯</td><td>个护旗舰款，短流高透明最均衡</td></tr>
+          <tr><td><strong>381</strong></td><td><strong>长流</strong></td><td><strong>低</strong> 4000-11000</td><td>≥85%</td><td>无苯</td><td>341 的无苯版，中等离子流动感产品</td></tr>
+          <tr><td><strong>396</strong></td><td>短流</td><td><strong>极高（全系最高）</strong> 68000-80000</td><td>≥85%</td><td><strong>含苯</strong></td><td>高粘需求/全能款，同用量增稠效率最高</td></tr>
+          <tr><td><strong>640</strong></td><td>短流</td><td>高 40000-60000</td><td><strong>≥95%（全系最高）</strong></td><td>无苯</td><td>极致透明产品指定款</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>FD 系列（快速分散 Fast Dispersible）— 6 牌号</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>牌号</th><th>类型</th><th>流变</th><th>润湿时间</th><th>耐盐</th><th>一句话定位</th></tr></thead>
+        <tbody>
+          <tr><td><strong>FD10</strong></td><td>传统易分散</td><td>短流</td><td>≤8min</td><td>怕盐 ⚠</td><td>与表活配伍性好，防晒专用</td></tr>
+          <tr><td><strong>FD980</strong></td><td>传统易分散</td><td>短流</td><td>≤12min</td><td>怕盐 ⚠</td><td>380 的易分散版，清爽肤感</td></tr>
+          <tr><td><strong>FD20</strong></td><td><strong>疏水改性</strong></td><td>短流</td><td>≤10min（3%）</td><td><strong>1%NaCl 实证</strong></td><td>疏水改性短流耐盐版</td></tr>
+          <tr><td><strong>FD21</strong></td><td><strong>疏水改性</strong></td><td>短流</td><td><strong>≤6min（最快）</strong></td><td><strong>耐盐</strong></td><td>FD 家族综合最优：最快+最透明+耐盐</td></tr>
+          <tr><td><strong>FD2010</strong></td><td><strong>疏水改性</strong></td><td><strong>长流</strong></td><td>≤25min（3%）</td><td><strong>1%NaCl 实证</strong></td><td>流动感含表活体系耐盐版</td></tr>
+          <tr><td><strong>FD2020</strong></td><td><strong>疏水改性</strong></td><td><strong>长流</strong></td><td>TDS 未列</td><td><strong>1%NaCl 实证</strong></td><td>与 FD2010 参数几乎一致</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>生物基系列 — 1 牌号</h3>
+    <div class="card accent3">
+      <p><strong>TC-BIO-CARBOMER 380：</strong>95% 生物质原料 · ISCC+ 认证 · 碳足迹 -50% · 性能与 380 完全一致（粘度 40000-60000，透光率 ≥85%），可 1:1 替换 ⚠。卖点：ESG/绿色供应链客户，现有 380 客户无缝切换。</p>
+    </div>
+
+    <h3>四组"孪生牌号"（记它们省一半力气）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>孪生组</th><th>共同点</th><th>唯一差异</th></tr></thead>
+        <tbody>
+          <tr><td><strong>340 ↔ 340H</strong></td><td>性能一致</td><td>溶剂：含苯 / 无苯</td></tr>
+          <tr><td><strong>341 ↔ 381</strong></td><td>长流低粘性能一致</td><td>溶剂：含苯 / 无苯 + 381 标"中等离子"</td></tr>
+          <tr><td><strong>380 ↔ FD980 ↔ BIO 380</strong></td><td>粘度、透光率一致</td><td>380 基础款 / FD980 易分散版 / BIO380 生物基版</td></tr>
+          <tr><td><strong>FD2010 ↔ FD2020</strong></td><td>参数几乎完全一致</td><td>仅润湿时间项</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout accent2">
+      <strong>3 步记忆法装下 18 个牌号：</strong>① 分三堆——常规 11（看粘度+溶剂）、FD 6（看耐盐+快慢）、BIO 1（=380 的绿色版）；② 常规记 4 个特殊——396 最高粘 · 640 最透明 · 351 乙醇 · 356 医药；③ FD 记一条线——疏水改性四兄弟耐盐（20/21 短流、2010/2020 长流），FD10/FD980 只是"容易分散的常规款"。
+    </div>
+  </section>
+
+  <!-- ============ 第 4 层 · 选型 ============ -->
+  <section class="section" id="selection">
+    <h2>第 4 层 · 应用：选型决策树</h2>
+    <p>客户说场景，别背表——走问题。每一步"是/否"都通向一个牌号，30 秒定位。</p>
+
+    <div class="dt">
+      <div class="dt-start"><span class="dt-dot"></span>决策树起点：先问"配方含不含盐 / 离子型表活？"</div>
+      <div class="dt-q">Q1 · 配方含盐、含离子表活（氨基酸/硫酸盐体系）？</div>
+      <div class="dt-ans">
+        <div class="da yes"><b>是 → 必须耐盐</b>选 FD 疏水改性四兄弟：<br>短流 → <strong>FD21</strong>；长流 → <strong>FD2010/2020</strong></div>
+        <div class="da no"><b>否 → 常规款即可</b>进入下一问</div>
+      </div>
+      <div class="dt-q">Q2 · 乙醇浓度 ≥70%（免洗消毒）？</div>
+      <div class="dt-ans">
+        <div class="da yes"><b>是 → <strong>351</strong></b>（乙醇相容，70% 乙醇透光率 ≥85%）</div>
+        <div class="da no"><b>否 → 下一问</b></div>
+      </div>
+      <div class="dt-q">Q3 · 要极致透明（啫喱/水晶皂）？</div>
+      <div class="dt-ans">
+        <div class="da yes"><b>是 → <strong>640</strong></b>（透光率 ≥95% 全系最高，备选 380）</div>
+        <div class="da no"><b>否 → 下一问</b></div>
+      </div>
+      <div class="dt-q">Q4 · 医药 / 口腔 / 高纯要求？</div>
+      <div class="dt-ans">
+        <div class="da yes"><b>是 → <strong>356</strong></b>（医药级，无苯无环己烷，残留丙烯酸全系最低）</div>
+        <div class="da no"><b>否 → 下一问</b></div>
+      </div>
+      <div class="dt-q">Q5 · 婴童 / 出口 / 溶剂敏感？</div>
+      <div class="dt-ans">
+        <div class="da yes"><b>是 → 无苯三选</b>：<strong>340H / 381 / 380</strong></div>
+        <div class="da no"><b>否 → 下一问</b></div>
+      </div>
+      <div class="dt-q">Q6 · 要高粘、同用量增稠效率最高？</div>
+      <div class="dt-ans">
+        <div class="da yes"><b>是 → <strong>396</strong></b>（0.5% 68000-80000 全系最高）</div>
+        <div class="da no"><b>否 → 下一问</b></div>
+      </div>
+      <div class="dt-q">Q7 · 家居清洁 / 氧化剂体系（漂白）？</div>
+      <div class="dt-ans">
+        <div class="da yes"><b>是 → <strong>276 / 286</strong></b>（氧化剂稳定，垂直挂壁）</div>
+        <div class="da no"><b>否 → 下一问</b></div>
+      </div>
+      <div class="dt-q">Q8 · 客户嫌结块 / 操作麻烦？</div>
+      <div class="dt-ans">
+        <div class="da yes"><b>是 → FD 系列</b>：<strong>FD21</strong>（≤6min 最快）</div>
+        <div class="da no"><b>否 → 通用选择</b></div>
+      </div>
+      <div class="dt-result">默认落点（以上全否）：<strong>TC-CARBOMER 380</strong>——个护旗舰，短流高透明最均衡，覆盖 80% 常规场景；要流动感换 341/381。</div>
+    </div>
+
+    <h3>14 个真实客户场景速查（决策树的落地版）</h3>
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <div class="scn-icon">💎</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">极致透明（啫喱/水晶皂）</div>
+        <div class="scn-rec">首选：TC-CARBOMER 640</div>
+        <div class="scn-desc">透光率 ≥95% 全系最高，备选 380</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🧴</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">免洗消毒啫喱（70%+乙醇）</div>
+        <div class="scn-rec">首选：TC-CARBOMER 351</div>
+        <div class="scn-desc">乙醇相容，70% 乙醇下透光率仍 ≥85%，其他卡波醇基会浑浊</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🧂</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">配方含盐/高离子（氨基酸表活、含盐沐浴露）</div>
+        <div class="scn-rec">首选：FD21（短流）/ FD2010（长流）</div>
+        <div class="scn-desc">FD 疏水改性四兄弟 1% NaCl 实证耐盐，其他都怕盐</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">⚡</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">客户嫌结块/操作麻烦</div>
+        <div class="scn-rec">首选：FD21（≤6min 最快）</div>
+        <div class="scn-desc">FD 系列自润湿，免浸泡免高速剪切</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🛁</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">沐浴露/香波增稠（含表活）</div>
+        <div class="scn-rec">FD21 / FD2010</div>
+        <div class="scn-desc">含表活=含离子→耐盐型；无盐透明体系用 380</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🦷</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">牙膏/义齿/口腔产品</div>
+        <div class="scn-rec">首选：TC-CARBOMER 356</div>
+        <div class="scn-desc">唯一医药级，无苯无环己烷，残留丙烯酸 ≤0.1% 全系最低</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">💧</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">低粘流动感/清爽乳液</div>
+        <div class="scn-rec">381（无苯）/ 341（含苯）</div>
+        <div class="scn-desc">长流低粘（0.5% 仅 4000-11000）；出口/婴童推无苯 381</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🏠</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">家居清洁/洗衣液/硬表面</div>
+        <div class="scn-rec">首选：276</div>
+        <div class="scn-desc">氧化剂稳定+宽 pH+垂直挂壁；全能高粘用 396</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🧪</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">含氯漂白/过氧化物清洁</div>
+        <div class="scn-rec">首选：276</div>
+        <div class="scn-desc">TDS 明确氧化剂体系稳定，增稠不破坏漂白活性</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">👶</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">婴童/敏感肌/出口（溶剂敏感）</div>
+        <div class="scn-rec">340H / 381 / 380</div>
+        <div class="scn-desc">全部无苯；医药级 356 更高规格</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🌍</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">国际品牌/ESG/绿色供应链</div>
+        <div class="scn-rec">TC-BIO-CARBOMER 380</div>
+        <div class="scn-desc">95% 生物质、ISCC+、碳足迹 -50%，1:1 替换 380 ⚠</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">☀️</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">防晒霜（悬浮防晒剂）</div>
+        <div class="scn-rec">首选：FD10</div>
+        <div class="scn-desc">TDS 明列防晒应用，与表活配伍性好</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🏔️</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">高粘膏霜/极稠凝胶（用量敏感）</div>
+        <div class="scn-rec">首选：396</div>
+        <div class="scn-desc">0.5% 68000-80000 全系最高，同用量增稠效率最高</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scn-icon">🤝</div>
+        <div class="scn-label">场景</div>
+        <div class="scn-title">卖表活顺带推增稠（客户没明确要卡波）</div>
+        <div class="scn-rec">首选：FD21</div>
+        <div class="scn-desc">与表活配伍+耐盐+易分散，切入门槛最低</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 操作指南 ============ -->
+  <section class="section" id="operation">
+    <h2>操作指南：客户现场必问"怎么用"</h2>
+
+    <h3>分散技巧（按类型）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>卡波姆类型</th><th>分散方法</th><th>注意事项</th></tr></thead>
+        <tbody>
+          <tr><td><strong>传统型</strong>（340/380/396 等）</td><td>缓慢撒入涡旋水中，搅拌 30-60 分钟</td><td>容易结块，不能一次性倒入</td></tr>
+          <tr><td><strong>易分散型</strong>（FD 系列）</td><td>直接撒入水中，自润湿 ≤6-12min</td><td>免预分散，操作友好</td></tr>
+          <tr><td><strong>操作红线</strong></td><td>中和用宽搅拌桨缓慢搅拌</td><td>避免卷入气泡；中和前先抽真空/静置消泡</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>中和剂选择与用量</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>中和剂</th><th>类型</th><th>适用场景</th><th>特点</th></tr></thead>
+        <tbody>
+          <tr><td><strong>NaOH（氢氧化钠）</strong></td><td>无机碱</td><td>通用</td><td>最常用，成本低；1g 卡波姆 ≈ 0.4g NaOH</td></tr>
+          <tr><td><strong>TEA（三乙醇胺）</strong></td><td>有机胺</td><td>化妆品</td><td>肤感好、透明度高，且改善 UV 稳定性（药典实证）</td></tr>
+          <tr><td><strong>AMP（氨甲基丙醇）</strong></td><td>有机胺</td><td>高端化妆品</td><td>透明度最佳</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout accent3">
+      <strong>中和后 pH 目标：6～11（药典：此区间黏度最大，pH&lt;3 或 &gt;12 或强电解质 → 黏度明显下降）。</strong>客户说"粘度不够"，第一件事永远是问 pH 中和到位没有——90% 的翻车在这里。
+    </div>
+
+    <h3>常见翻车 6 条（客户问题速查）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>问题</th><th>原因</th><th>解决</th></tr></thead>
+        <tbody>
+          <tr><td><strong>结块不分散</strong></td><td>加料太快 / 搅拌不足</td><td>慢撒入涡旋中心；换 FD 易分散型</td></tr>
+          <tr><td><strong>粘度不够</strong></td><td>pH 没调到位</td><td>查 pH（目标 6-11），补中和剂</td></tr>
+          <tr><td><strong>加盐后变稀</strong></td><td>电解质屏蔽电荷排斥</td><td>换耐盐型（FD20/21/2010/2020）</td></tr>
+          <tr><td><strong>搅拌后变稀不恢复</strong></td><td>过度剪切破坏网络</td><td>降低搅拌速度和时间</td></tr>
+          <tr><td><strong>气泡多</strong></td><td>中和时卷入空气</td><td>抽真空静置；中和前加完所有原料</td></tr>
+          <tr><td><strong>透明度差</strong></td><td>pH 不在最佳范围 / 有离子</td><td>调 pH 6-7；检查配方离子；换 640</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>与天赐表活的组合方案（卖组合的核心）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>客户场景</th><th>天赐方案（表活 + 卡波姆）</th><th>为什么</th></tr></thead>
+        <tbody>
+          <tr><td>无硫酸盐透明洗发水</td><td>CAB 35TF + 340H</td><td>无盐无苯双保险，双透明</td></tr>
+          <tr><td>氨基酸洁面乳</td><td>氨基酸表活 + CAB 35 + FD21</td><td>氨基酸难增稠 → 胶束 + 油锚双网络</td></tr>
+          <tr><td>免洗消毒凝胶</td><td>温和表活 + 351</td><td>乙醇相容 + 温和</td></tr>
+          <tr><td>磨砂沐浴露（悬浮粒子）</td><td>CAB 35 + 380/FD980</td><td>胶束增稠 + 高屈服悬浮</td></tr>
+          <tr><td>透明极致啫喱</td><td>CAB 35TF + 640</td><td>双透明</td></tr>
+          <tr><td>口腔产品</td><td>MAB 40LDL + 356</td><td>医药级卡波 + 温和表活</td></tr>
+          <tr><td>家居清洁</td><td>CAB 35/氧化胺 + 276/396</td><td>氧化剂稳定 + 垂直挂壁</td></tr>
+          <tr><td>ESG 绿色方案</td><td>RSPO 表活 + BIO 380</td><td>绿色双背书</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout accent2">
+      <strong>卖点逻辑：</strong>路博润只卖卡波姆，天赐表活 + 卡波姆一起卖。<strong>"清洁 + 增稠"一单打包</strong>是竞品给不了的组合方案。
+    </div>
+  </section>
+
+  <!-- ============ 数据来源 ============ -->
+  <section class="section" id="sources">
+    <h2>数据来源与可信度</h2>
+    <ol>
+      <li><strong>天赐产品 TDS（18 张，2026-08-05 全量收录）</strong>——全部牌号参数、粘度档、透光率、润湿时间、耐盐/乙醇实测</li>
+      <li><strong>中国药典 2020 · 卡波姆均聚物专论</strong>——操作指南的 pH 范围、残留溶剂限值（S 级）</li>
+      <li><strong>USP-NF 药典综述</strong>——中和换算、pH 6-11 黏度最大、UV 防护（S 级）</li>
+      <li><strong>Lubrizol 中文官网 + 金锄头（路博润官方数据整理）</strong>——家族分类、INCI 名</li>
+    </ol>
+    <div class="callout warning">
+      <strong>可信度标注：</strong>"FD980 怕盐""BIO 380 可 1:1 替换""FD2010 对标路博润 ETD 2020"为推测 ⚠（公开供应商信息/行业对标，非 TDS 直接标注）；增稠剂家族对比为通识 ⚠；其余牌号参数均为 TDS 实证。具体以天赐官方资料为准。
+    </div>
+  </section>
+
+  <!-- ============ 上下篇导航 ============ -->
+  <nav class="page-nav">
+    <a href="carbomer-theory.html" class="nav-link prev">
+      <span class="nav-label">上一篇 · 第 1+2+6 层</span>
+      <span class="nav-title">卡波姆原理</span>
+    </a>
+    <a href="carbomer-sell.html" class="nav-link next">
+      <span class="nav-label">下一步 · 第 5 层</span>
+      <span class="nav-title">卡波姆销售（竞品 + 话术）</span>
+    </a>
+  </nav>
+
+  <!-- ============ 相关页面推荐 ============ -->
+  <div class="related-pages">
+    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-grid">
+      <a href="carbomer.html" class="rp-card">
+        <span class="rp-icon">🗺️</span>
+        <span class="rp-name">卡波姆知识体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">六层地图 · 学习路径</small></span>
+      </a>
+      <a href="carbomer-theory.html" class="rp-card">
+        <span class="rp-icon">🧠</span>
+        <span class="rp-name">卡波姆原理<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">定位 · 8 个为什么 · 安全</small></span>
+      </a>
+      <a href="carbomer-sell.html" class="rp-card">
+        <span class="rp-icon">💬</span>
+        <span class="rp-name">卡波姆销售<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">竞品对标 · 客户问答</small></span>
+      </a>
+      <a href="formulation.html" class="rp-card">
+        <span class="rp-icon">🧪</span>
+        <span class="rp-name">配方设计<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">五大相与三剂型</small></span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+    </main>
+<footer><div class="container"><h2>天赐材料日化知识库</h2><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+<script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
+
+    <script src="site.js?v=10"></script>
+</body>
+</html>

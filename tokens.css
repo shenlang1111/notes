@@ -1,0 +1,190 @@
+/* ========================================
+   天赐材料日化知识库 · Design Tokens (单一事实源)
+   设计语言：深青渐变 × 暖白底 · 精致卡片
+   规范：单色相品牌色 + --state-* 语义色；不使用 secondary/accent 品牌变量
+   引用：每页 <link> 此文件，shared-components.css 亦依赖
+   ======================================== */
+
+:root {
+  /* === Brand Primary — 深青色系 (单一品牌色) === */
+  --tinci-primary-50: #E6F5F1;
+  --tinci-primary-100: #CBE8E2;
+  --tinci-primary-200: #99D1C5;
+  --tinci-primary-300: #66BAA8;
+  --tinci-primary-400: #33A38B;
+  --tinci-primary-500: #0B7666;
+  --tinci-primary-600: #0A5F52;
+  --tinci-primary-700: #084840;
+  --tinci-primary-800: #063130;
+  --tinci-primary-900: #042020;
+
+  /* === Bright Teal — 主色浅色变体 (同色系，用于 hover/渐变) === */
+  --tinci-teal: #14B8A6;
+  --tinci-teal-soft: #E9FAF6;
+  --tinci-teal-50: #E9FAF6;
+  --tinci-teal-100: #BFF0E6;
+  --tinci-teal-200: #80E1CD;
+  --tinci-teal-300: #41D2B5;
+  --tinci-teal-400: #14B8A6;
+  --tinci-teal-500: #0E9488;
+  --tinci-teal-600: #0B7666;
+
+  /* === Semantic Aliases (required by apply-html-head-contract) ===
+     注：原 secondary/accent 品牌变量已移除——
+       secondary     = muted（同值，直接用 muted）
+       accent        = teal（同值，直接用 teal）
+       accent-fg     = primary-foreground（同值）
+       secondary-fg  改名 muted-emphasis（暗色下独立值，保留） */
+  --tinci-background: #F5FAF8;
+  --tinci-foreground: #0F2E2A;
+  --tinci-card: #FFFFFF;
+  --tinci-card-foreground: #0F2E2A;
+  --tinci-popover: #FFFFFF;
+  --tinci-popover-foreground: #0F2E2A;
+  --tinci-primary: #0B7666;
+  --tinci-primary-foreground: #FFFFFF;
+  --tinci-muted: #E6F5F1;
+  --tinci-muted-foreground: #5B7A74;
+  --tinci-muted-emphasis: #0B7666;   /* 原 secondary-foreground：次级表面上的强调文字 */
+  --tinci-border: #E2EFEB;
+  --tinci-input: #E2EFEB;
+  --tinci-ring: #14B8A6;
+
+  /* === Radius Scale === */
+  --tinci-radius-small: 4px;
+  --tinci-radius-medium: 8px;
+  --tinci-radius-large: 12px;
+  --tinci-radius-full: 9999px;
+
+  /* === Typography === */
+  --tinci-font-sans: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --tinci-font-mono: "JetBrains Mono", "SF Mono", "Consolas", monospace;
+  --tinci-font-heading: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --tinci-font-body: "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+
+  /* === Surface Depth === */
+  --tinci-surface: #FFFFFF;
+  --tinci-surface-2: #F8FBFA;
+  --tinci-ink: #0F2E2A;
+  --tinci-ink-2: #5B7A74;
+  --tinci-ink-3: #8FA8A2;
+  --tinci-line: #E2EFEB;
+
+  /* === Gradients (same-hue, for hero/nav only) === */
+  --tinci-nav-grad: linear-gradient(135deg, #0B7666 0%, #14B8A6 100%);
+  --tinci-hero-grad: linear-gradient(135deg, #0A4A42 0%, #0F766E 50%, #14B8A6 110%);
+
+  /* === State Colors (semantic only) === */
+  --state-success: #059669;
+  --state-success-soft: #E9F8EE;
+  --state-warning: #D97706;
+  --state-warning-soft: #FEF5E7;
+  --state-error: #DC2626;
+  --state-error-soft: #FEE2E2;
+  --state-info: #0B7666;
+  --state-info-soft: #E6F5F1;
+
+  /* === Shadows (alpha <= 0.05 for static; deeper for floating only) === */
+  --tinci-shadow-xs: 0 1px 2px rgba(11,118,102,0.04), 0 1px 3px rgba(11,118,102,0.04);
+  --tinci-shadow-sm: 0 2px 6px rgba(11,118,102,0.05);
+  --tinci-shadow-md: 0 4px 12px rgba(11,118,102,0.05), 0 2px 6px rgba(11,118,102,0.04);
+  --tinci-shadow-lg: 0 8px 24px rgba(11,118,102,0.05), 0 4px 12px rgba(11,118,102,0.04);
+}
+
+/* === Dark Mode === */
+.dark {
+  --tinci-background: #0B1F1C;
+  --tinci-foreground: #E2EFEB;
+  --tinci-card: #14302B;
+  --tinci-card-foreground: #E2EFEB;
+  --tinci-popover: #14302B;
+  --tinci-popover-foreground: #E2EFEB;
+  --tinci-primary: #14B8A6;
+  --tinci-primary-foreground: #042020;
+  --tinci-muted: #1A3A35;
+  --tinci-muted-foreground: #8FA8A2;
+  --tinci-muted-emphasis: #66BAA8;
+  --tinci-border: #1F3D38;
+  --tinci-input: #1F3D38;
+  --tinci-ring: #14B8A6;
+  --tinci-surface: #14302B;
+  --tinci-surface-2: #1A3A35;
+  --tinci-ink: #E2EFEB;
+  --tinci-ink-2: #8FA8A2;
+  --tinci-ink-3: #5B7A74;
+  --tinci-line: #1F3D38;
+}
+
+/* ========================================
+   Semantic Token Fallback
+   供 Tailwind 语义类（bg-secondary 等）在 tailwind.browser.js 未就绪时仍有样式
+   注：底层变量已规范化，secondary→muted、accent→teal
+   ======================================== */
+.bg-background { background-color: var(--tinci-background); }
+.text-background { color: var(--tinci-background); }
+.border-background { border-color: var(--tinci-background); }
+.ring-background { --tw-ring-color: var(--tinci-background); }
+.bg-foreground { background-color: var(--tinci-foreground); }
+.text-foreground { color: var(--tinci-foreground); }
+.border-foreground { border-color: var(--tinci-foreground); }
+.ring-foreground { --tw-ring-color: var(--tinci-foreground); }
+.bg-card { background-color: var(--tinci-card); }
+.text-card { color: var(--tinci-card); }
+.border-card { border-color: var(--tinci-card); }
+.ring-card { --tw-ring-color: var(--tinci-card); }
+.bg-card-foreground { background-color: var(--tinci-card-foreground); }
+.text-card-foreground { color: var(--tinci-card-foreground); }
+.border-card-foreground { border-color: var(--tinci-card-foreground); }
+.ring-card-foreground { --tw-ring-color: var(--tinci-card-foreground); }
+.bg-popover { background-color: var(--tinci-popover); }
+.text-popover { color: var(--tinci-popover); }
+.border-popover { border-color: var(--tinci-popover); }
+.ring-popover { --tw-ring-color: var(--tinci-popover); }
+.bg-popover-foreground { background-color: var(--tinci-popover-foreground); }
+.text-popover-foreground { color: var(--tinci-popover-foreground); }
+.border-popover-foreground { border-color: var(--tinci-popover-foreground); }
+.ring-popover-foreground { --tw-ring-color: var(--tinci-popover-foreground); }
+.bg-primary { background-color: var(--tinci-primary); }
+.text-primary { color: var(--tinci-primary); }
+.border-primary { border-color: var(--tinci-primary); }
+.ring-primary { --tw-ring-color: var(--tinci-primary); }
+.bg-primary-foreground { background-color: var(--tinci-primary-foreground); }
+.text-primary-foreground { color: var(--tinci-primary-foreground); }
+.border-primary-foreground { border-color: var(--tinci-primary-foreground); }
+.ring-primary-foreground { --tw-ring-color: var(--tinci-primary-foreground); }
+.bg-secondary { background-color: var(--tinci-muted); }
+.text-secondary { color: var(--tinci-muted); }
+.border-secondary { border-color: var(--tinci-muted); }
+.ring-secondary { --tw-ring-color: var(--tinci-muted); }
+.bg-secondary-foreground { background-color: var(--tinci-muted-emphasis); }
+.text-secondary-foreground { color: var(--tinci-muted-emphasis); }
+.border-secondary-foreground { border-color: var(--tinci-muted-emphasis); }
+.ring-secondary-foreground { --tw-ring-color: var(--tinci-muted-emphasis); }
+.bg-muted { background-color: var(--tinci-muted); }
+.text-muted { color: var(--tinci-muted); }
+.border-muted { border-color: var(--tinci-muted); }
+.ring-muted { --tw-ring-color: var(--tinci-muted); }
+.bg-muted-foreground { background-color: var(--tinci-muted-foreground); }
+.text-muted-foreground { color: var(--tinci-muted-foreground); }
+.border-muted-foreground { border-color: var(--tinci-muted-foreground); }
+.ring-muted-foreground { --tw-ring-color: var(--tinci-muted-foreground); }
+.bg-accent { background-color: var(--tinci-teal); }
+.text-accent { color: var(--tinci-teal); }
+.border-accent { border-color: var(--tinci-teal); }
+.ring-accent { --tw-ring-color: var(--tinci-teal); }
+.bg-accent-foreground { background-color: var(--tinci-primary-foreground); }
+.text-accent-foreground { color: var(--tinci-primary-foreground); }
+.border-accent-foreground { border-color: var(--tinci-primary-foreground); }
+.ring-accent-foreground { --tw-ring-color: var(--tinci-primary-foreground); }
+.bg-border { background-color: var(--tinci-border); }
+.text-border { color: var(--tinci-border); }
+.border-border { border-color: var(--tinci-border); }
+.ring-border { --tw-ring-color: var(--tinci-border); }
+.bg-input { background-color: var(--tinci-input); }
+.text-input { color: var(--tinci-input); }
+.border-input { border-color: var(--tinci-input); }
+.ring-input { --tw-ring-color: var(--tinci-input); }
+.bg-ring { background-color: var(--tinci-ring); }
+.text-ring { color: var(--tinci-ring); }
+.border-ring { border-color: var(--tinci-ring); }
+.ring-ring { --tw-ring-color: var(--tinci-ring); }

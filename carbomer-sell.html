@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卡波姆销售 · 竞品对标 · 客户问答 · 底层逻辑 · 天赐知识库</title>
+    <meta name="description" content="天赐材料日化知识库 · 卡波姆销售：竞品格局、路博润对标、客户问题速查、底层逻辑">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
+    
+    <script src="vendor/tailwind.browser.js?v=10"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--tinci-background);
+    --color-foreground: var(--tinci-foreground);
+    --color-card: var(--tinci-card);
+    --color-card-foreground: var(--tinci-card-foreground);
+    --color-popover: var(--tinci-popover);
+    --color-popover-foreground: var(--tinci-popover-foreground);
+    --color-primary: var(--tinci-primary);
+    --color-primary-foreground: var(--tinci-primary-foreground);
+    --color-secondary: var(--tinci-muted);
+    --color-secondary-foreground: var(--tinci-muted-emphasis);
+    --color-muted: var(--tinci-muted);
+    --color-muted-foreground: var(--tinci-muted-foreground);
+    --color-accent: var(--tinci-teal);
+    --color-accent-foreground: var(--tinci-primary-foreground);
+    --color-border: var(--tinci-border);
+    --color-input: var(--tinci-input);
+    --color-ring: var(--tinci-ring);
+    --radius-sm: var(--tinci-radius-small);
+    --radius-md: var(--tinci-radius-medium);
+    --radius-lg: var(--tinci-radius-large);
+  }
+  @layer base {
+    body { background: var(--tinci-background); color: var(--tinci-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <link rel="stylesheet" href="tokens.css?v=1">
+    <link rel="stylesheet" href="shared-components.css?v=10">
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+<nav class="site-nav">
+  <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
+  <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
+    <a href="index.html">首页</a>
+    <div class="nav-dd">
+      <a href="theory.html" class="dd-trigger">理论 <span class="dd-caret">▾</span></a>
+      <div class="dd-menu">
+        <a href="theory.html">理论总览</a>
+        <a href="fundamentals.html">基础概念与原理</a>
+        <a href="amphoteric.html">两性表面活性剂</a>
+        <a href="anionic.html">阴离子表面活性剂</a>
+        <a href="cationic.html">阳离子表面活性剂</a>
+        <a href="nonionic.html">非离子表面活性剂</a>
+        <a href="apg.html">APG 烷基糖苷</a>
+        <a href="synthesis.html">合成工艺</a>
+        <a href="properties.html">核心物化性质</a>
+        <a href="applications.html">应用原理</a>
+        <a href="advanced.html">高阶理论</a>
+        <a href="troubleshooting.html">排故诊断</a>
+      </div>
+    </div>
+    <div class="nav-dd">
+      <a href="products.html" class="dd-trigger active">产品 <span class="dd-caret">▾</span></a>
+      <div class="dd-menu">
+        <a href="products.html">产品体系</a>
+        <a href="carbomer.html">卡波姆体系</a>
+        <a href="carbomer-products.html">卡波姆产品</a>
+        <a href="carbomer-theory.html">卡波姆原理</a>
+        <a href="carbomer-sell.html" class="active">卡波姆销售</a>
+      </div>
+    </div>
+    <a href="formulation.html">配方</a>
+    <a href="sales.html">销售</a>
+    <a href="market.html">市场</a>
+    <div class="nav-dd">
+      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <div class="dd-menu">
+        <a href="finechem-additives.html">添加剂与助剂</a>
+        <a href="finechem-daily-chem.html">日化产品体系</a>
+        <a href="finechem-surfaces.html">涂料胶粘剂</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ============ Page Hero ============ -->
+  <section class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="bc-sep">›</span>
+      <a href="products.html">产品</a>
+      <span class="bc-sep">›</span>
+      <a href="carbomer.html">卡波姆体系</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">销售实战</span>
+    </div>
+    <h1>卡波姆销售 · 竞品对标 + 客户问答 + 底层逻辑</h1>
+    <p class="page-hero-desc">体系第 5 层，把前四层变成业绩的临门一脚。面对路博润客户怎么讲、国产压价怎么破、客户问"为什么"怎么接——这里有对标表和话术。</p>
+    <div class="page-hero-meta">
+      <span class="tag">第 5 层 · 销售</span>
+      <span class="tag">竞品对标</span>
+      <span class="tag">9 条问答</span>
+      <span class="tag">3 个底层逻辑</span>
+    </div>
+  </section>
+
+  <!-- ============ TOC ============ -->
+  <details class="toc-nav" open>
+    <summary>本页目录 · 3 大部分</summary>
+    <div class="toc-grid">
+      <a href="#competition"><span class="toc-num">1</span>竞品格局与对标</a>
+      <a href="#faq"><span class="toc-num">2</span>客户问题速查（9 条）</a>
+      <a href="#logic"><span class="toc-num">3</span>卖卡波姆的 3 个底层逻辑</a>
+    </div>
+  </details>
+
+  <!-- ============ 竞品 ============ -->
+  <section class="section" id="competition">
+    <h2>第 5 层 · 销售：竞品格局与对标</h2>
+
+    <h3>5.1 竞品格局总览</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>厂商</th><th>品牌</th><th>产地</th><th>市场地位</th></tr></thead>
+        <tbody>
+          <tr><td><strong>路博润（Lubrizol）</strong></td><td>Carbopol、Pemulen</td><td>美国</td><td>行业标杆，技术原创者，全球最大</td></tr>
+          <tr><td><strong>天赐材料（Tinci）</strong></td><td>TC-CARBOMER</td><td>中国</td><td>国产替代龙头（产能占比超 85%，2020 数据 ⚠待核实）</td></tr>
+          <tr><td><strong>Newman Chemicals</strong></td><td>NM-Carbomer</td><td>中国安徽</td><td>国产第二梯队（粉体 4000T/年 + 液体 6000T/年）</td></tr>
+          <tr><td><strong>Evonik / Clariant</strong></td><td>—</td><td>德国 / 瑞士</td><td>特种化学品，卡波非主战场</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>5.2 路博润 Carbopol 全线参数（对标武器库）</h3>
+    <div class="callout accent2">
+      <strong>先记三句：</strong>Carbopol = 卡波姆代名词（客户认知度高）；路博润只卖卡波姆不卖表活（给不了组合方案）；价格 = 进口关税 + 品牌溢价（贵）。
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>路博润型号</th><th>类型</th><th>流变</th><th>粘度</th><th>透明度</th><th>耐离子</th><th>典型应用</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Carbopol 940</strong></td><td>传统均聚</td><td>短流</td><td>高</td><td>极高</td><td>低</td><td>透明凝胶、膏霜</td></tr>
+          <tr><td><strong>Carbopol 941</strong></td><td>传统均聚</td><td>长流</td><td>低</td><td>极高</td><td>中</td><td>低粘度乳液、凝胶</td></tr>
+          <tr><td><strong>Carbopol 934</strong></td><td>传统均聚</td><td>短流</td><td>中高</td><td>中</td><td>低</td><td>浓凝胶、乳剂、混悬剂（医药）</td></tr>
+          <tr><td><strong>Carbopol 980</strong></td><td>传统均聚</td><td>短流</td><td>高</td><td>极高</td><td>低</td><td>高透明凝胶、水醇凝胶</td></tr>
+          <tr><td><strong>Carbopol 5984</strong></td><td>传统均聚</td><td>短流</td><td>极高</td><td>高</td><td>低</td><td>膏霜乳液流变修饰（&lt;0.2% 低粘 / &gt;0.5% 极高粘）</td></tr>
+          <tr><td><strong>ETD 2020</strong></td><td><strong>疏水改性</strong></td><td>长流</td><td>低</td><td>极高</td><td><strong>高</strong></td><td>清澈凝胶、含盐配方</td></tr>
+          <tr><td><strong>Carbopol 1342</strong></td><td><strong>疏水改性</strong></td><td>长流</td><td>中</td><td>高</td><td><strong>极高</strong></td><td>电解质体系、聚合乳化</td></tr>
+          <tr><td><strong>Ultrez 20</strong></td><td><strong>疏水改性</strong></td><td>长流</td><td>中</td><td>高</td><td>中</td><td>香波、沐浴凝胶、含表活体系</td></tr>
+          <tr><td><strong>Ultrez 21</strong></td><td><strong>疏水改性</strong></td><td>短流</td><td>高</td><td>高</td><td>中</td><td>凝胶、洗涤清洁、高电解质产品</td></tr>
+          <tr><td><strong>Pemulen TR-1/TR-2</strong></td><td>乳化型</td><td>短/长流</td><td>—</td><td>—</td><td>—</td><td>增稠型乳化剂（膏霜/乳液）</td></tr>
+          <tr><td><strong>AQUA SF-1</strong></td><td>液体型</td><td>长流</td><td>—</td><td>高</td><td>—</td><td>液态预中和、表活体系、冷配</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>5.3 天赐 ↔ 路博润对标关系</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>天赐牌号</th><th>路博润对标</th><th>类型</th><th>备注</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TC-CARBOMER 380</strong></td><td>Carbopol 980</td><td>传统型</td><td>短流高透明旗舰款 ⚠</td></tr>
+          <tr><td><strong>TC-CARBOMER FD980</strong></td><td>Carbopol 980</td><td>传统型（易分散）</td><td>980 的易分散版 ⚠</td></tr>
+          <tr><td><strong>TC-CARBOMER 396</strong></td><td>Carbopol 5984 类</td><td>传统型（高粘）</td><td>全系最高粘，同量增稠效率最高 ⚠</td></tr>
+          <tr><td><strong>TC-CARBOMER FD2010/2020</strong></td><td>ETD 2020</td><td>疏水改性</td><td>长流耐盐 ⚠</td></tr>
+          <tr><td><strong>TC-CARBOMER FD21</strong></td><td>Ultrez 21 类</td><td>疏水改性（易分散）</td><td>短流耐盐 + 最快分散 ⚠</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout warning">
+      <strong>⚠ 对标关系为公开供应商信息 / 行业对标推断，非天赐官方确认</strong>——销售时建议说"性能对标、参数同级"，别把"= 路博润 XX"说死；正式对标以天赐官方资料为准。
+    </div>
+
+    <h3>5.4 天赐差异化优势（面对竞品的话术底座）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>维度</th><th>天赐</th><th>路博润</th></tr></thead>
+        <tbody>
+          <tr><td><strong>价格</strong></td><td>国产价格优势（约路博润 60-80%）</td><td>品牌溢价高</td></tr>
+          <tr><td><strong>供应</strong></td><td>本土生产，交期短，库存灵活</td><td>进口周期长，受国际物流影响</td></tr>
+          <tr><td><strong>组合方案</strong></td><td><strong>表活 + 卡波姆一起卖</strong></td><td>只卖卡波姆</td></tr>
+          <tr><td><strong>技术壁垒</strong></td><td>二十多年卡波积累、无盐专利（TF 系列）、一锅法合成</td><td>60+ 年原创技术</td></tr>
+          <tr><td><strong>品牌认知</strong></td><td>客户习惯说"用 Carbopol"——需用样品和数据建立信任</td><td>Carbopol = 代名词</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 客户问答 ============ -->
+  <section class="section" id="faq">
+    <h2>客户问题速查 · 客户说，你答（9 条）</h2>
+    <p>一线销售实战速查——客户常见问题，对应推荐牌号和话术。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>客户说</th><th>推荐牌号</th><th>话术要点</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>"卡波姆结块，分散不开"</strong></td>
+            <td>FD21（≤6min）<br>FD980 / FD10</td>
+            <td>"结块是普通卡波姆的通病——外层先吸水变粘，把里面的粉包住了。FD 系列做了表面润湿处理，水直接渗进颗粒，免浸泡、免高速剪切。您先试试 FD21，最快 6 分钟润湿。"</td>
+          </tr>
+          <tr>
+            <td><strong>"凝胶不透明，发白发雾"</strong></td>
+            <td>640（≥95% 最透明）</td>
+            <td>"先排查两件事：①pH 中和到位没有（pH 6-7 才最透）；②配方里有没有盐/离子。如果都正常还想要更透，换 640——全系透光率最高，≥95%，透明啫喱、水晶皂都用它。"</td>
+          </tr>
+          <tr>
+            <td><strong>"一加盐就变稀"</strong></td>
+            <td>FD20 / FD21（短流）<br>FD2010 / FD2020（长流）</td>
+            <td>"这是卡波姆的物理本性——盐离子把撑开网络的电荷屏蔽了，网塌了当然稀。要耐盐，得用疏水改性的 FD 系列，它除了电荷还靠'油锚'勾住网络，1% NaCl 实测不塌。您配方里盐大概多少？我帮您挑短流还是长流。"</td>
+          </tr>
+          <tr>
+            <td><strong>"做免洗消毒凝胶发白"</strong></td>
+            <td>351（乙醇相容）</td>
+            <td>"乙醇浓度超过 70%，普通卡波姆撑网的电就被抽走了，网络缩成一团就发白。351 是专门为乙醇体系设计的，70% 乙醇下透光率还能保持 ≥85%。我们寄样品您对比一下，高下立判。"</td>
+          </tr>
+          <tr>
+            <td><strong>"做婴童产品，担心溶剂残留"</strong></td>
+            <td>340H / 381 / 380（无苯）</td>
+            <td>"普通卡波姆有的用苯做溶剂，会有苯残留（如 340/341/396 ≤0.50%，符合 USP 通用级限值）。婴童和出口产品建议用无苯系列：340H、381、380。医药级的 356 更彻底，无苯无环己烷，残留丙烯酸全系最低。"</td>
+          </tr>
+          <tr>
+            <td><strong>"做牙膏/口腔产品"</strong></td>
+            <td>356（医药级）</td>
+            <td>"口腔产品建议直接用医药级 356——无苯无环己烷，残留丙烯酸 ≤0.1% 全系最低，过得了口腔安全要求。您可以拿现有供应商的规格书对比残留指标。"</td>
+          </tr>
+          <tr>
+            <td><strong>"粘度上不去"</strong></td>
+            <td>396（全系最高粘）</td>
+            <td>"先问 pH 中和到位没有——90% 的'粘度不够'是 pH 没调到位（目标 pH 6-11，1g 卡波姆约 0.4g NaOH）。如果 pH 没问题还嫌不够稠，换 396，0.5% 就有 68000-80000，全系最高，还能帮您省用量成本。"</td>
+          </tr>
+          <tr>
+            <td><strong>"想走 ESG，要绿色原料"</strong></td>
+            <td>TC-BIO-CARBOMER 380</td>
+            <td>"BIO 380 用 95% 生物质原料，拿了 ISCC+ 认证，碳足迹比常规低 50%，性能跟 380 完全一致，可以直接 1:1 替换，配方都不用改。国际大牌供应链现在很认这个。"</td>
+          </tr>
+          <tr>
+            <td><strong>"进口卡波姆太贵/断货"</strong></td>
+            <td>380（对标路博润 980 ⚠）</td>
+            <td>"天赐卡波姆产能占国内 85% 以上（2020 年数据 ⚠待核实），供应稳定、价格约路博润 60-80%。380 是旗舰款，短流高透明，性能对标 Carbopol 980。而且我们跟路博润不一样——我们表活、卡波姆一起卖，能给您组合方案。"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout accent3">
+      <strong>速查口诀：</strong>结块找 FD，发白换 351，怕盐上 FD 四兄弟，婴童选无苯（340H/381），口腔用 356，要稠上 396，要透上 640，ESG 用 BIO 380。
+    </div>
+  </section>
+
+  <!-- ============ 底层逻辑 ============ -->
+  <section class="section" id="logic">
+    <h2>卖卡波姆的 3 个底层逻辑</h2>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h4>① 卡波姆是表活的"自然延伸"</h4>
+        <p>客户买了你的表活，必然遇到增稠问题（含盐/透明/结块）。卖表活时问一句："增稠体系定了吗？有没有遇到过盐析、结块、不透明？"——卡波姆不是硬推，是帮客户解决配方痛点。</p>
+      </div>
+      <div class="concept-card">
+        <h4>② 天赐卖的是"组合方案"</h4>
+        <p>路博润只卖卡波姆，天赐表活+卡波姆一起卖。氨基酸表活难增稠 → CAB 协同 + 卡波姆双保险；无硫酸盐透明体系 → CAB 35TF + 340H/640 双透明。竞品给不了"清洁+增稠"一单打包。</p>
+      </div>
+      <div class="concept-card">
+        <h4>③ 用原理建立信任，用数据收口</h4>
+        <p>客户问"为什么"，你从分子层答（电荷撑网、油锚耐盐、乙醇去溶剂化）——客户觉得你懂行；然后马上用 TDS 数据收口（1% NaCl 实测 ≥4000、70% 乙醇 ≥85%、透光率 ≥95%）+ 药典背书（CIR 上限 15%、高分子豁免）。原理立信任，数据促下单。</p>
+      </div>
+    </div>
+
+    <div class="callout accent2">
+      <strong>与表活的组合销售（牌号级）：</strong>常规个护 → CAB 35 + 380/FD980；无硫酸盐婴童 → CAB 35TF + 340H（无盐无苯双保险）；氨基酸体系 → 氨基酸表活 + CAB 35 + FD21（耐盐）；透明极致 → CAB 35TF + 640；免洗消毒凝胶 → 温和表活 + 351；口腔 → MAB 40LDL + 356；家居清洁 → CAB 35/氧化胺 + 276/396；ESG → RSPO 表活 + BIO 380。
+    </div>
+  </section>
+
+  <!-- ============ 数据来源 ============ -->
+  <section class="section" id="sources">
+    <h2>数据来源与可信度</h2>
+    <ol>
+      <li><strong>Lubrizol 中文官网 + 金锄头（路博润官方数据整理）</strong>——Carbopol 全线参数、INCI 名</li>
+      <li><strong>Newman Chemicals 官网</strong>——国产第二梯队产能数据</li>
+      <li><strong>天赐产品 TDS（18 张）</strong>——话术中的全部牌号参数</li>
+      <li><strong>中国药典 2020 / USP-NF</strong>——安全口径、中和换算（S 级）</li>
+    </ol>
+    <div class="callout warning">
+      <strong>可信度标注：</strong>对标关系（380↔980 等）、BIO 380 可 1:1 替换、天赐产能占比 85% 为 ⚠ 推测/待核实；Carbopol 全线参数来自路博润官方整理（A/B 级）；其余为 TDS 实证。具体以天赐官方资料为准。
+    </div>
+  </section>
+
+  <!-- ============ 上下篇导航 ============ -->
+  <nav class="page-nav">
+    <a href="carbomer-products.html" class="nav-link prev">
+      <span class="nav-label">上一篇 · 第 3+4 层</span>
+      <span class="nav-title">卡波姆产品（18 牌号 + 选型）</span>
+    </a>
+    <a href="carbomer.html" class="nav-link next">
+      <span class="nav-label">返回 · 体系入口</span>
+      <span class="nav-title">卡波姆知识体系</span>
+    </a>
+  </nav>
+
+  <!-- ============ 相关页面推荐 ============ -->
+  <div class="related-pages">
+    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-grid">
+      <a href="carbomer.html" class="rp-card">
+        <span class="rp-icon">🗺️</span>
+        <span class="rp-name">卡波姆知识体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">六层地图 · 学习路径</small></span>
+      </a>
+      <a href="carbomer-products.html" class="rp-card">
+        <span class="rp-icon">🏭</span>
+        <span class="rp-name">卡波姆产品<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">18 牌号 · 选型决策树 · 操作</small></span>
+      </a>
+      <a href="carbomer-theory.html" class="rp-card">
+        <span class="rp-icon">🧠</span>
+        <span class="rp-name">卡波姆原理<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">定位 · 8 个为什么 · 安全</small></span>
+      </a>
+      <a href="sales.html" class="rp-card">
+        <span class="rp-icon">💬</span>
+        <span class="rp-name">销售实战<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">六大核心话术 · 9 场景</small></span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+    </main>
+<footer><div class="container"><h2>天赐材料日化知识库</h2><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+<script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
+
+    <script src="site.js?v=10"></script>
+</body>
+</html>

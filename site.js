@@ -53,6 +53,8 @@
     links.classList.remove('open');
     toggle.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
+    var ods = links.querySelectorAll('.nav-dd.open');
+    for (var oi = 0; oi < ods.length; oi++) ods[oi].classList.remove('open');
   }
 
   toggle.addEventListener('click', function () {
@@ -64,6 +66,21 @@
   links.addEventListener('click', function (e) {
     if (e.target && e.target.tagName === 'A') close();
   });
+
+  /* 二级下拉：移动端点击展开/收起（桌面 hover 由 CSS 处理） */
+  var dds = links.querySelectorAll('.nav-dd');
+  for (var di = 0; di < dds.length; di++) {
+    (function (dd) {
+      var trig = dd.querySelector('.dd-trigger');
+      if (!trig) return;
+      trig.addEventListener('click', function (e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          dd.classList.toggle('open');
+        }
+      });
+    })(dds[di]);
+  }
 
   document.addEventListener('click', function (e) {
     if (!links.contains(e.target) && !toggle.contains(e.target)) close();
