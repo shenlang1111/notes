@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>卡波姆知识体系 · 从分子原理到销售实战 · 天赐知识库</title>
-    <meta name="description" content="天赐材料日化知识库 · 卡波姆知识体系：定位、原理、产品、应用、销售、安全六层递进，学完能卖">
+    <title>卡波姆知识域 · 门户指引 · 天赐知识库</title>
+    <meta name="description" content="天赐材料日化知识库 · 卡波姆知识域门户：理论 / 命名规则 / 产品 / 应用 / 销售五大栏目指引 · 从分子原理到销售实战">
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
     
     <script src="vendor/tailwind.browser.js?v=10"></script>
@@ -53,6 +53,29 @@
         mask-position: center;
         background-color: currentColor;
       }
+      /* 门户栏卡 */
+      .col-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.1rem;margin:1.35rem 0;}
+      .col-card{
+        background:var(--tinci-card);border:1px solid var(--tinci-border);border-radius:var(--tinci-radius-large);
+        padding:1.35rem 1.4rem;box-shadow:var(--tinci-shadow-xs);position:relative;overflow:hidden;
+        transition:all 0.22s cubic-bezier(0.4,0,0.2,1);
+      }
+      .col-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--tinci-nav-grad);opacity:0;transition:opacity 0.22s;}
+      .col-card:hover{box-shadow:var(--tinci-shadow-md);transform:translateY(-3px);border-color:rgba(20,184,166,0.4);}
+      .col-card:hover::before{opacity:1;}
+      .col-card .col-num{
+        display:inline-flex;align-items:center;justify-content:center;
+        width:1.9rem;height:1.9rem;background:var(--tinci-nav-grad);color:#fff;
+        font-size:0.85rem;font-weight:800;border-radius:9px;margin-bottom:0.7rem;
+      }
+      .col-card h3{font-size:1.02rem;font-weight:800;margin-bottom:0.35rem;color:var(--tinci-foreground);}
+      .col-card .col-what{font-size:0.83rem;color:var(--tinci-muted-foreground);line-height:1.7;margin-bottom:0.5rem;}
+      .col-card .col-can{
+        font-size:0.8rem;color:var(--tinci-primary);font-weight:600;line-height:1.6;
+        padding:0.55rem 0.7rem;background:var(--tinci-primary-50);border-radius:10px;margin-bottom:0.85rem;
+      }
+      .col-card .col-link{font-size:0.8rem;font-weight:700;color:var(--tinci-primary);text-decoration:none;}
+      .col-card .col-link:hover{text-decoration:underline;}
     </style>
     <link rel="stylesheet" href="tokens.css?v=1">
     <link rel="stylesheet" href="shared-components.css?v=11">
@@ -84,6 +107,7 @@
       <a href="products.html" class="dd-trigger active">产品 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="products.html">产品体系</a>
+        <a href="naming-rules.html">命名规则中心</a>
         <a href="carbomer.html" class="active">卡波姆体系</a>
         <a href="carbomer-products.html">卡波姆产品</a>
         <a href="carbomer-theory.html">卡波姆原理</a>
@@ -113,14 +137,13 @@
       <span class="bc-sep">›</span>
       <a href="products.html">产品</a>
       <span class="bc-sep">›</span>
-      <span class="bc-current">卡波姆知识体系</span>
+      <span class="bc-current">卡波姆知识</span>
     </div>
-    <h1>卡波姆知识体系 · 从分子原理到销售实战</h1>
-    <p class="page-hero-desc">一张"能兜水的网"，怎么学成一套完整的知识体系？六层递进：定位 → 原理 → 产品 → 应用 → 销售 → 安全。每一层都回答一个具体问题，学完你能讲出"为什么"，也能答上"卖哪个"。</p>
+    <h1>卡波姆知识域 · 门户指引</h1>
+    <p class="page-hero-desc">天赐第二条产品线（增稠剂 · 18 牌号）的全部知识按栏目走：<strong>想懂原理 → 栏 1 理论；想读懂牌号名 → 栏 2 命名规则；想选产品 → 栏 3 产品；想配方案 → 栏 4 应用；想会卖 → 栏 5 销售</strong>。一张"能兜水的网"，怎么学成一套完整体系？看这里。</p>
     <div class="page-hero-meta">
-      <span class="tag">增稠剂</span>
-      <span class="tag">六层体系</span>
-      <span class="tag">分子原理</span>
+      <span class="tag">知识域门户</span>
+      <span class="tag">5 大栏目</span>
       <span class="tag">18 牌号</span>
       <span class="tag">药典背书</span>
     </div>
@@ -144,55 +167,60 @@
     </div>
   </section>
 
-  <!-- ============ 体系地图 ============ -->
-  <section class="section" id="map">
-    <h2>知识体系地图 · 六层递进</h2>
-    <p>从"卡波姆站在哪"学到"怎么卖出去"，每层解决一类问题。<strong>建议按 1→6 顺序学</strong>，也可以现场速查直接进 4/5 层。</p>
+  <!-- ============ 门户分栏 ============ -->
+  <section class="section" id="cols">
+    <h2>知识门户 · 五大栏目</h2>
+    <p>从"卡波姆站在哪"学到"怎么卖出去"，每栏解决一类问题。<strong>建议按 1→5 顺序学</strong>，也可以现场速查直接进 3/4/5 栏。</p>
 
-    <div class="page-grid">
-      <a href="carbomer-theory.html#position" class="page-card">
-        <span class="card-icon">🗺️</span>
-        <h3>第 1 层 · 定位：卡波姆站在哪</h3>
-        <p>日化配方里的位置、增稠的四种机制、增稠剂家族横向对比（黄原胶/纤维素/瓜尔胶），卡波姆的独特生态位。<br><strong>学完能答：客户为什么用卡波姆不用黄原胶？</strong></p>
-      </a>
-      <a href="carbomer-theory.html#principle" class="page-card">
-        <span class="card-icon">🧠</span>
-        <h3>第 2 层 · 原理：它是什么、怎么工作</h3>
-        <p>化学本质（交联聚丙烯酸）、三种增稠力（电荷/氢键/疏水缔合）、8 个为什么——每个讲到分子层，配原理→牌号映射。<br><strong>学完能答：客户问任何"为什么"，你都能从分子层接住。</strong></p>
-      </a>
-      <a href="carbomer-products.html#series" class="page-card">
-        <span class="card-icon">🏭</span>
-        <h3>第 3 层 · 产品：天赐 18 牌号</h3>
-        <p>命名规则、4 个原理变量（产品线设计逻辑）、18 牌号完整速览（常规/FD/生物基）、孪生牌号与记忆法。<br><strong>学完能答：18 个牌号差异说得清、记得住。</strong></p>
-      </a>
-      <a href="carbomer-products.html#selection" class="page-card">
-        <span class="card-icon">🧪</span>
-        <h3>第 4 层 · 应用：怎么用、选哪个</h3>
-        <p>应用场景全谱（化妆品/医药/工业）、选型决策树（场景→分支→牌号）、操作指南（分散/中和/避坑）、与表活的组合方案。<br><strong>学完能答：客户说场景，你给牌号 + 用法 + 避坑。</strong></p>
-      </a>
-      <a href="carbomer-sell.html#competition" class="page-card">
-        <span class="card-icon">💬</span>
-        <h3>第 5 层 · 销售：怎么卖出去</h3>
-        <p>竞品格局（路博润/Newman/天赐）、对标关系、客户问题速查、卖卡波姆的底层逻辑与话术。<br><strong>学完能答：面对路博润客户、国产压价客户有武器。</strong></p>
-      </a>
-      <a href="carbomer-theory.html#safety" class="page-card">
-        <span class="card-icon">🛡️</span>
-        <h3>第 6 层 · 安全：背书与法规</h3>
-        <p>中国药典 2020 专论、USP-NF 对照、CIR 安全评估、苯残留口径、毒性数据——全是销售必知的硬背书。<br><strong>学完能答：客户问安全，你有数据。</strong></p>
-      </a>
+    <div class="col-grid">
+      <div class="col-card">
+        <div class="col-num">1</div>
+        <h3>理论 · 它是什么、怎么工作</h3>
+        <div class="col-what">定位（卡波姆站在哪、增稠剂家族对比）+ 化学本质（交联聚丙烯酸）+ 8 个为什么（每个讲到分子层，配原理→牌号映射）+ 安全背书（药典/CIR/法规）。</div>
+        <div class="col-can">学完能答：客户问任何"为什么"，你都能从分子层接住。</div>
+        <a class="col-link" href="carbomer-theory.html">进入栏 1 · 理论 →</a>
+      </div>
+      <div class="col-card">
+        <div class="col-num">2</div>
+        <h3>命名规则 · 牌号名怎么读</h3>
+        <div class="col-what">卡波姆独立命名体系（不走表活结构）：TC- + CARBOMER/BIO-CARBOMER + 数字；FD 快速分散、BIO 生物基、H 无苯版；18 个数字牌号的定位速查。</div>
+        <div class="col-can">学完能答：客户报一个牌号，你立刻知道它是哪类、耐不耐盐。</div>
+        <a class="col-link" href="naming-rules.html#carbomer">进入栏 2 · 命名规则中心 →</a>
+      </div>
+      <div class="col-card">
+        <div class="col-num">3</div>
+        <h3>产品 · 天赐 18 牌号</h3>
+        <div class="col-what">4 个原理变量（产品线设计逻辑）、18 牌号完整速览（常规 11 / FD 6 / 生物基 1）、孪生牌号与 3 步记忆法。</div>
+        <div class="col-can">学完能答：18 个牌号差异说得清、记得住。</div>
+        <a class="col-link" href="carbomer-products.html#series">进入栏 3 · 产品 →</a>
+      </div>
+      <div class="col-card">
+        <div class="col-num">4</div>
+        <h3>应用 · 怎么用、选哪个</h3>
+        <div class="col-what">选型决策树（场景→分支→牌号，30 秒定位）+ 14 个真实客户场景 + 操作指南（分散/中和/避坑）+ 与表活的组合方案。</div>
+        <div class="col-can">学完能答：客户说场景，你给牌号 + 用法 + 避坑。</div>
+        <a class="col-link" href="carbomer-products.html#selection">进入栏 4 · 应用 →</a>
+      </div>
+      <div class="col-card">
+        <div class="col-num">5</div>
+        <h3>销售 · 怎么卖出去</h3>
+        <div class="col-what">竞品格局（路博润/Newman/天赐）、对标关系、9 条客户问答、卖卡波姆的 3 个底层逻辑与组合销售方案。</div>
+        <div class="col-can">学完能答：面对路博润客户、国产压价客户有武器。</div>
+        <a class="col-link" href="carbomer-sell.html">进入栏 5 · 销售 →</a>
+      </div>
     </div>
   </section>
 
   <!-- ============ 学习路径 ============ -->
   <section class="section" id="path">
     <h2>学习路径建议</h2>
-    <div class="process-flow">
-      <div class="step"><span class="step-num">1</span><span><strong>先学原理（theory 页）：</strong>第 1 层定位搞清"卡波姆是什么家族"，第 2 层 8 个为什么搞清"它怎么工作"，第 6 层安全搞清"背书的底气"。这是地基，一次学完。</span></div>
-      <div class="step"><span class="step-num">2</span><span><strong>再学产品（products 页）：</strong>第 3 层 18 牌号（配 3 步记忆法），第 4 层选型决策树 + 操作指南。学完能"对着场景给牌号"。</span></div>
-      <div class="step"><span class="step-num">3</span><span><strong>最后学销售（sell 页）：</strong>第 5 层竞品对标 + 客户问答 + 底层逻辑。这是把前四层变成业绩的临门一脚。</span></div>
+    <div class="path-box">
+      <div class="pb-step"><span class="pb-num">1</span><span><strong>先学理论（栏 1）：</strong>搞清"卡波姆是什么家族、怎么工作、安全底气在哪"。这是地基，一次学完。</span></div>
+      <div class="pb-step"><span class="pb-num">2</span><span><strong>再学产品（栏 3 + 栏 4）：</strong>18 牌号（配 3 步记忆法）+ 选型决策树 + 操作指南。学完能"对着场景给牌号"。</span></div>
+      <div class="pb-step"><span class="pb-num">3</span><span><strong>最后学销售（栏 5）：</strong>竞品对标 + 客户问答 + 底层逻辑。这是把前四栏变成业绩的临门一脚。</span></div>
     </div>
     <div class="callout accent2">
-      <strong>现场速查路径：</strong>客户说场景 → 直接进 <strong>products 页选型决策树</strong>；客户问原理 → 进 <strong>theory 页 8 个为什么</strong>；客户拿竞品压价 → 进 <strong>sell 页竞品对标</strong>。不需要按顺序。
+      <strong>现场速查路径：</strong>客户说场景 → 直接进 <strong>栏 4 选型决策树</strong>；客户问原理 → 进 <strong>栏 1 的 8 个为什么</strong>；客户拿竞品压价 → 进 <strong>栏 5 竞品对标</strong>；客户报牌号听不懂 → 进 <strong>栏 2 命名规则</strong>。不需要按顺序。
     </div>
   </section>
 
@@ -214,13 +242,13 @@
 
   <!-- ============ 上下篇导航 ============ -->
   <nav class="page-nav">
-    <a href="products.html" class="nav-link prev">
+    <a href="index.html" class="nav-link prev">
       <span class="nav-label">上一篇</span>
-      <span class="nav-title">天赐产品体系</span>
+      <span class="nav-title">首页 · 知识库入口</span>
     </a>
     <a href="carbomer-theory.html" class="nav-link next">
       <span class="nav-label">下一步 · 开始学习</span>
-      <span class="nav-title">卡波姆原理（第 1+2+6 层）</span>
+      <span class="nav-title">卡波姆理论（栏 1）</span>
     </a>
   </nav>
 
@@ -230,7 +258,7 @@
     <div class="rp-grid">
       <a href="carbomer-theory.html" class="rp-card">
         <span class="rp-icon">🧠</span>
-        <span class="rp-name">卡波姆原理<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">定位 · 8 个为什么 · 表活专题 · 安全</small></span>
+        <span class="rp-name">卡波姆理论<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">定位 · 8 个为什么 · 安全背书</small></span>
       </a>
       <a href="carbomer-products.html" class="rp-card">
         <span class="rp-icon">🏭</span>
@@ -240,9 +268,9 @@
         <span class="rp-icon">💬</span>
         <span class="rp-name">卡波姆销售<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">竞品对标 · 客户问答 · 底层逻辑</small></span>
       </a>
-      <a href="products.html" class="rp-card">
-        <span class="rp-icon">🏭</span>
-        <span class="rp-name">天赐产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">命名规则 · 六大系列 · 选型速查</small></span>
+      <a href="surfactants.html" class="rp-card">
+        <span class="rp-icon">🧪</span>
+        <span class="rp-name">表活知识域<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">天赐主业 · 六大栏目门户</small></span>
       </a>
     </div>
   </div>

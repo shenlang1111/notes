@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表活知识域 · 门户指引 · 天赐知识库</title>
+    <meta name="description" content="天赐材料日化知识库 · 表活知识域门户：理论 / 命名规则 / 产品牌号 / 配方应用 / 销售实战 / 市场六大栏目指引">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
+    
+    <script src="vendor/tailwind.browser.js?v=10"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--tinci-background);
+    --color-foreground: var(--tinci-foreground);
+    --color-card: var(--tinci-card);
+    --color-card-foreground: var(--tinci-card-foreground);
+    --color-popover: var(--tinci-popover);
+    --color-popover-foreground: var(--tinci-popover-foreground);
+    --color-primary: var(--tinci-primary);
+    --color-primary-foreground: var(--tinci-primary-foreground);
+    --color-secondary: var(--tinci-muted);
+    --color-secondary-foreground: var(--tinci-muted-emphasis);
+    --color-muted: var(--tinci-muted);
+    --color-muted-foreground: var(--tinci-muted-foreground);
+    --color-accent: var(--tinci-teal);
+    --color-accent-foreground: var(--tinci-primary-foreground);
+    --color-border: var(--tinci-border);
+    --color-input: var(--tinci-input);
+    --color-ring: var(--tinci-ring);
+    --radius-sm: var(--tinci-radius-small);
+    --radius-md: var(--tinci-radius-medium);
+    --radius-lg: var(--tinci-radius-large);
+  }
+  @layer base {
+    body { background: var(--tinci-background); color: var(--tinci-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <link rel="stylesheet" href="tokens.css?v=1">
+    <link rel="stylesheet" href="shared-components.css?v=11">
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+<nav class="site-nav">
+  <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
+  <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
+    <a href="index.html">首页</a>
+    <div class="nav-dd">
+      <a href="theory.html" class="dd-trigger">理论 <span class="dd-caret">▾</span></a>
+      <div class="dd-menu">
+        <a href="theory.html">理论总览</a>
+        <a href="fundamentals.html">基础概念与原理</a>
+        <a href="amphoteric.html">两性表面活性剂</a>
+        <a href="anionic.html">阴离子表面活性剂</a>
+        <a href="cationic.html">阳离子表面活性剂</a>
+        <a href="nonionic.html">非离子表面活性剂</a>
+        <a href="apg.html">APG 烷基糖苷</a>
+        <a href="synthesis.html">合成工艺</a>
+        <a href="properties.html">核心物化性质</a>
+        <a href="applications.html">应用原理</a>
+        <a href="advanced.html">高阶理论</a>
+        <a href="troubleshooting.html">排故诊断</a>
+      </div>
+    </div>
+    <div class="nav-dd">
+      <a href="products.html" class="dd-trigger active">产品 <span class="dd-caret">▾</span></a>
+      <div class="dd-menu">
+        <a href="products.html">产品体系</a>
+        <a href="naming-rules.html">命名规则中心</a>
+        <a href="carbomer.html">卡波姆体系</a>
+        <a href="carbomer-products.html">卡波姆产品</a>
+        <a href="carbomer-theory.html">卡波姆原理</a>
+        <a href="carbomer-sell.html">卡波姆销售</a>
+      </div>
+    </div>
+    <a href="formulation.html">配方</a>
+    <a href="sales.html">销售</a>
+    <a href="market.html">市场</a>
+    <div class="nav-dd">
+      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <div class="dd-menu">
+        <a href="finechem-additives.html">添加剂与助剂</a>
+        <a href="finechem-daily-chem.html">日化产品体系</a>
+        <a href="finechem-surfaces.html">涂料胶粘剂</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ============ Page Hero ============ -->
+  <section class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">表活知识</span>
+    </div>
+    <h1>表活知识域 · 门户指引</h1>
+    <p class="page-hero-desc">天赐表活（表面活性剂）的全部知识都在这里，按栏目走：<strong>想懂原理 → 理论栏；想读懂牌号名 → 命名规则栏；想选产品 → 产品牌号栏；想配方案 → 配方应用栏；想会卖 → 销售实战栏</strong>。</p>
+    <div class="page-hero-meta">
+      <span class="tag">知识域门户</span>
+      <span class="tag">6 大栏目</span>
+      <span class="tag">阴/阳/两性/非离子</span>
+      <span class="tag">命名规则中心</span>
+    </div>
+  </section>
+
+  <!-- ============ 栏 1 · 理论知识 ============ -->
+  <section class="section" id="theory">
+    <h2>栏 1 · 理论知识</h2>
+    <p>表活"为什么"的全部答案：从基础概念到四大分类，从合成工艺到物化性质，再到应用原理、高阶复配与排故诊断。</p>
+    <div class="rp-grid">
+      <a href="theory.html" class="rp-card entry"><span class="rp-icon">📖</span><span class="rp-name">理论总览（入口）<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">四大分类 · 核心物化性质 · 合成与应用原理</small></span></a>
+      <a href="fundamentals.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">基础概念与原理<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">表面张力、Gibbs 吸附、胶束理论、CPP 堆积参数、四大分类体系</small></span></a>
+      <a href="amphoteric.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">两性表面活性剂<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">甜菜碱、咪唑啉、氧化胺——天赐核心产品线的理论基础</small></span></a>
+      <a href="anionic.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">阴离子表面活性剂<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">肥皂、LAS、AES、K12、氨基酸表活——产量最大的类别</small></span></a>
+      <a href="cationic.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">阳离子表面活性剂<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">季铵盐、聚季铵盐——护发调理与杀菌消毒的核心</small></span></a>
+      <a href="nonionic.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">非离子表面活性剂<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">AEO、APG、Span/Tween——产量第二大的类别</small></span></a>
+      <a href="apg.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">APG 烷基糖苷<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">绿色非离子表活——天赐 TC-APG 系列的理论基础</small></span></a>
+      <a href="synthesis.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">合成工艺<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">各类表活的合成路线、亲水基引入方式与工艺要点</small></span></a>
+      <a href="properties.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">核心物化性质<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">CMC、HLB、Krafft 点、浊点——四大参数详解</small></span></a>
+      <a href="applications.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">应用原理<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">乳化、增溶、去污、泡沫——四大功能的理论基础</small></span></a>
+      <a href="advanced.html" class="rp-card"><span class="rp-icon">📄</span><span class="rp-name">高阶理论<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">复配协同、Gemini 表活、新型表活——前沿深度内容</small></span></a>
+      <a href="troubleshooting.html" class="rp-card"><span class="rp-icon">🔧</span><span class="rp-name">排故诊断<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">粘度、泡沫、干涩、变色、透明度——五大常见问题排查</small></span></a>
+    </div>
+  </section>
+
+  <!-- ============ 栏 2 · 命名规则 ============ -->
+  <section class="section" id="naming">
+    <h2>栏 2 · 命名规则</h2>
+    <p>看到牌号不会读？后缀密码全在这里——单独建了<strong>全站命名规则中心</strong>（表活 + 卡波姆两条产品线的命名一页速查）。</p>
+    <div class="rp-grid">
+      <a href="naming-rules.html" class="rp-card entry"><span class="rp-icon">🔤</span><span class="rp-name">命名规则中心<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">表活后缀编码表（TF/HP/FA…）· 化学系列前缀 · 氨基酸三段拆解 · 卡波姆独立命名</small></span></a>
+    </div>
+  </section>
+
+  <!-- ============ 栏 3 · 产品牌号 ============ -->
+  <section class="section" id="products">
+    <h2>栏 3 · 产品牌号</h2>
+    <p>天赐表活产品全景：命名规则之外的全部——六大系列、29 个两性牌号、氨基酸 30+ 牌号、阳离子/非离子，以及选型速查与客户 FAQ。</p>
+    <div class="rp-grid">
+      <a href="products.html" class="rp-card entry"><span class="rp-icon">🏭</span><span class="rp-name">表活产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">六大系列 · 29 两性牌号 · 氨基酸/阳离子/非离子 · 选型速查</small></span></a>
+    </div>
+  </section>
+
+  <!-- ============ 栏 4 · 配方应用 ============ -->
+  <section class="section" id="formulation">
+    <h2>栏 4 · 配方应用</h2>
+    <p>理论到产品的桥——配方怎么搭：五大相、三剂型、无硫酸盐体系与婴童配方。</p>
+    <div class="rp-grid">
+      <a href="formulation.html" class="rp-card entry"><span class="rp-icon">🧪</span><span class="rp-name">配方设计<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">五大相 · 三剂型 · 无硫酸盐体系与婴童配方</small></span></a>
+    </div>
+  </section>
+
+  <!-- ============ 栏 5 · 销售实战 ============ -->
+  <section class="section" id="sales">
+    <h2>栏 5 · 销售实战</h2>
+    <p>把知识变成业绩：六大核心话术、场景速查、客户异议回应——表活的销售武器库。</p>
+    <div class="rp-grid">
+      <a href="sales.html" class="rp-card entry"><span class="rp-icon">💬</span><span class="rp-name">销售实战<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">六大核心话术 · 场景速查 · 客户异议回应 · 术语速查</small></span></a>
+    </div>
+  </section>
+
+  <!-- ============ 栏 6 · 市场与诊断 ============ -->
+  <section class="section" id="market">
+    <h2>栏 6 · 市场与诊断</h2>
+    <p>行业大盘与天赐定位：行业数据、四大趋势、竞争格局与差异化优势。</p>
+    <div class="rp-grid">
+      <a href="market.html" class="rp-card entry"><span class="rp-icon">📊</span><span class="rp-name">市场与诊断<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">行业数据 · 四大趋势 · 竞争格局与天赐差异化定位</small></span></a>
+    </div>
+  </section>
+
+  <!-- ============ 相关页面推荐 ============ -->
+  <div class="related-pages">
+    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-grid">
+      <a href="carbomer.html" class="rp-card">
+        <span class="rp-icon">🧪</span>
+        <span class="rp-name">卡波姆知识域<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">天赐第二条产品线 · 六层知识体系</small></span>
+      </a>
+      <a href="naming-rules.html" class="rp-card">
+        <span class="rp-icon">🔤</span>
+        <span class="rp-name">命名规则中心<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">表活 + 卡波姆命名一页速查</small></span>
+      </a>
+      <a href="index.html" class="rp-card">
+        <span class="rp-icon">🏠</span>
+        <span class="rp-name">首页 · 知识库入口<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">知识域地图</small></span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+    </main>
+<footer><div class="container"><h2>天赐材料日化知识库</h2><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+<script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
+
+    <script src="site.js?v=12"></script>
+</body>
+</html>
