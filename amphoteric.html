@@ -54,17 +54,19 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=1">
-    <link rel="stylesheet" href="shared-components.css?v=12">
+    <link rel="stylesheet" href="tokens.css?v=2">
+    <link rel="stylesheet" href="shared-components.css?v=13">
 </head>
 <body class="min-h-screen font-sans antialiased">
-    <main>
+    <a href="#main" class="skip-link">跳到主内容</a>
+    <main id="main">
 <nav class="site-nav">
   <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
   <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
     <a href="index.html">首页</a>
+    <a href="surfactants.html">表活</a>
     <div class="nav-dd">
-      <a href="theory.html" class="dd-trigger active">理论 <span class="dd-caret">▾</span></a>
+      <a href="theory.html" class="dd-trigger active" aria-haspopup="true">理论 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="theory.html">理论总览</a>
         <a href="fundamentals.html">基础概念与原理</a>
@@ -81,7 +83,7 @@
       </div>
     </div>
     <div class="nav-dd">
-      <a href="products.html" class="dd-trigger">产品 <span class="dd-caret">▾</span></a>
+      <a href="products.html" class="dd-trigger" aria-haspopup="true">产品 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="products.html">产品体系</a>
         <a href="naming-rules.html">命名规则中心</a>
@@ -95,7 +97,7 @@
     <a href="sales.html">销售</a>
     <a href="market.html">市场</a>
     <div class="nav-dd">
-      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <a href="finechem-additives.html" class="dd-trigger" aria-haspopup="true">精细化工 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="finechem-additives.html">添加剂与助剂</a>
         <a href="finechem-daily-chem.html">日化产品体系</a>
@@ -109,13 +111,13 @@
 
   <!-- ============ Page Hero ============ -->
   <section class="page-hero">
-    <div class="breadcrumb">
+    <nav aria-label="面包屑" class="breadcrumb">
       <a href="index.html">首页</a>
       <span class="bc-sep">›</span>
       <a href="theory.html">理论</a>
       <span class="bc-sep">›</span>
       <span class="bc-current">两性表面活性剂</span>
-    </div>
+    </nav>
     <h1>两性表面活性剂</h1>
     <p class="page-hero-desc">甜菜碱型（天赐主力）、咪唑啉、氧化胺、磺基甜菜碱——温和与稳泡的平衡大师。</p>
     <div class="page-hero-meta">
@@ -235,7 +237,7 @@
     <div class="callout">
       <strong>合成路线与开环机理</strong>
       <p><strong>两步法合成：</strong></p>
-      <p><strong>第一步——脱水环化：</strong>脂肪酸 + 羟乙基乙二胺（AEEA）→ 200-250°C（参考值，视工艺与催化剂，待核实），分子间脱水缩合 → 咪唑啉环（五元含氮杂环）。此步需严格控制温度和真空度，以推动脱水反应正向进行。</p>
+      <p><strong>第一步——脱水环化：</strong>脂肪酸 + 羟乙基乙二胺（AEEA）→ 200-250°C（参考值，视工艺与催化剂），分子间脱水缩合 → 咪唑啉环（五元含氮杂环）。此步需严格控制温度和真空度，以推动脱水反应正向进行。</p>
       <p><strong>第二步——开环季铵化：</strong>咪唑啉环 + 氯乙酸钠 → 环打开，在氮原子上引入 -CH₂COO⁻ 基团 → 最终产物为开环的酰胺结构两性表活。</p>
       <p><strong>关键认知：</strong>最终产物中的咪唑啉环已被打开，实际结构为酰胺型两性表活，但行业内仍沿用"咪唑啉型"的名称。</p>
     </div>
@@ -250,7 +252,7 @@
       <strong>分子结构与质子化平衡</strong>
       <p><strong>通式：</strong>R-NH-CH₂-CH₂-COOH（以β-氨基丙酸型为例）</p>
       <p><strong>两性来源：</strong>分子中的氨基（-NH-）可结合质子变为 -NH₂⁺-（阳离子态），羧基（-COOH）可解离为 -COO⁻（阴离子态）。与甜菜碱型不同，氨基酸型的两性来源于<strong>同一分子内的弱碱/弱酸对</strong>，而非强季铵阳离子。因此其等电点范围更宽，pH响应更缓和。</p>
-      <p><strong>代表产品：</strong>如天赐的氨基酸型两性表活（具体产品待核实），此类产品天然来源、可生物降解，刺激性极低，适用于高端洁面和婴童产品。</p>
+      <p><strong>代表产品：</strong>氨基酸型两性表活在天赐产品线中暂无独立牌号（天赐氨基酸表活多属阴离子温和型，详见产品体系页 AMIN/Napure 系列）；此类产品天然来源、可生物降解，刺激性极低，适用于高端洁面和婴童产品。</p>
     </div>
   </section>
 
@@ -411,15 +413,15 @@
     <div class="rp-title">相关页面推荐</div>
     <div class="rp-grid">
       <a href="products.html" class="rp-card">
-        <span class="rp-icon">🏭</span>
+        <span class="rp-icon" aria-hidden="true">🏭</span>
         <span class="rp-name">产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">6 大系列选型指南</small></span>
       </a>
       <a href="formulation.html" class="rp-card">
-        <span class="rp-icon">🧪</span>
+        <span class="rp-icon" aria-hidden="true">🧪</span>
         <span class="rp-name">配方设计<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">五大相与三剂型</small></span>
       </a>
       <a href="sales.html" class="rp-card">
-        <span class="rp-icon">💬</span>
+        <span class="rp-icon" aria-hidden="true">💬</span>
         <span class="rp-name">销售实战<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">9 场景话术模板</small></span>
       </a>
     </div>
@@ -430,7 +432,7 @@
     </main>
 <footer>
   <div class="container">
-    <h2>天赐材料日化知识库</h2>
+    <p class="footer-title">天赐材料日化知识库</p>
     <p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p>
     <p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p>
   </div>
@@ -438,6 +440,6 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=14"></script>
+    <script src="site.js?v=15"></script>
 </body>
 </html>

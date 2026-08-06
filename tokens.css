@@ -111,8 +111,29 @@
   --tinci-surface-2: #1A3A35;
   --tinci-ink: #E2EFEB;
   --tinci-ink-2: #8FA8A2;
-  --tinci-ink-3: #5B7A74;
+  --tinci-ink-3: #8AA8A2;
   --tinci-line: #1F3D38;
+
+  /* === Dark Mode Color Scale Overrides === */
+  --tinci-primary-50: #1A3A35;
+  --tinci-primary-100: #1F4540;
+  --tinci-primary-200: #2A5550;
+  --tinci-primary-300: #3A6B65;
+  --tinci-primary-400: #4A8580;
+  --tinci-primary-500: #14B8A6;
+  --tinci-primary-600: #0B7666;
+  --tinci-primary-700: #084840;
+  --tinci-primary-800: #063130;
+  --tinci-primary-900: #042020;
+  --tinci-teal: #14B8A6;
+  --tinci-teal-soft: rgba(20,184,166,0.12);
+  --tinci-teal-50: rgba(20,184,166,0.10);
+  --tinci-teal-100: rgba(20,184,166,0.16);
+  --tinci-teal-200: rgba(20,184,166,0.24);
+  --tinci-teal-300: rgba(20,184,166,0.36);
+  --tinci-teal-400: #14B8A6;
+  --tinci-teal-500: #0E9488;
+  --tinci-teal-600: #0B7666;
 }
 
 /* ========================================

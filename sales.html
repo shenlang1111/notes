@@ -54,17 +54,19 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=1">
-    <link rel="stylesheet" href="shared-components.css?v=12">
+    <link rel="stylesheet" href="tokens.css?v=2">
+    <link rel="stylesheet" href="shared-components.css?v=13">
 </head>
 <body class="min-h-screen font-sans antialiased">
-    <main>
+    <a href="#main" class="skip-link">跳到主内容</a>
+    <main id="main">
 <nav class="site-nav">
   <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
   <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
     <a href="index.html">首页</a>
+    <a href="surfactants.html">表活</a>
     <div class="nav-dd">
-      <a href="theory.html" class="dd-trigger">理论 <span class="dd-caret">▾</span></a>
+      <a href="theory.html" class="dd-trigger" aria-haspopup="true">理论 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="theory.html">理论总览</a>
         <a href="fundamentals.html">基础概念与原理</a>
@@ -81,7 +83,7 @@
       </div>
     </div>
     <div class="nav-dd">
-      <a href="products.html" class="dd-trigger">产品 <span class="dd-caret">▾</span></a>
+      <a href="products.html" class="dd-trigger" aria-haspopup="true">产品 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="products.html">产品体系</a>
         <a href="naming-rules.html">命名规则中心</a>
@@ -95,7 +97,7 @@
     <a href="sales.html" class="active">销售</a>
     <a href="market.html">市场</a>
     <div class="nav-dd">
-      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <a href="finechem-additives.html" class="dd-trigger" aria-haspopup="true">精细化工 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="finechem-additives.html">添加剂与助剂</a>
         <a href="finechem-daily-chem.html">日化产品体系</a>
@@ -109,13 +111,11 @@
 
   <!-- ============ Page Hero ============ -->
   <section class="page-hero">
-    <div class="breadcrumb">
+    <nav aria-label="面包屑" class="breadcrumb">
       <a href="index.html">首页</a>
       <span class="bc-sep">›</span>
-      <a href="sales.html">销售</a>
-      <span class="bc-sep">›</span>
       <span class="bc-current">销售实战</span>
-    </div>
+    </nav>
     <h1>销售实战</h1>
     <p class="page-hero-desc">六大核心话术、选型指南、INCI命名规则、术语速查——把技术翻译成销售语言。</p>
     <div class="page-hero-meta">
@@ -133,24 +133,24 @@
       <p>优秀的销售不是"背参数"，而是把<strong>每个技术参数翻译成客户能听懂的价值</strong>。以下是将天赐核心优势转化为客户价值的标准话术。</p>
     </div>
 
-    <h3>17.1 六大核心话术</h3>
+    <h2>17.1 六大核心话术</h2>
 
-    <h4>话术一："低盐=低刺激"</h4>
+    <h3>话术一："低盐=低刺激"</h3>
     <p>"天赐的椰油酰谷氨酸二钠无机盐副产物控制在0.5%以下，远低于行业平均1.5-2.0%。低盐降低了电解质引起的盐析风险，也意味着更低的渗透压，对皮肤和眼睛的刺激性更小。EPISKIN™模型刺激指数仅0.3，Draize评分0。<mark class="key">这就是低盐工艺带来的直接价值。</mark>"</p>
 
-    <h4>话术二："市占率第一=稳定性"</h4>
-    <p>"天赐椰油酰谷氨酸二钠市占率31.8%行业第一，它意味着三件事：①供应链稳定——年产6.2万吨的柔性产线（来源待核实），旺季不涨价不断货；②批次一致——每批产品偏差在±1.5%以内；③技术支持——我们有应用实验室，可以帮您针对不同体系提供配方优化建议。"</p>
+    <h3>话术二："市占率第一=稳定性"</h3>
+    <p>"天赐椰油酰谷氨酸二钠市占率31.8%行业第一，它意味着三件事：①供应链稳定——规模化柔性产线，旺季不涨价不断货；②批次一致——每批产品偏差在±1.5%以内；③技术支持——我们有应用实验室，可以帮您针对不同体系提供配方优化建议。"</p>
 
-    <h4>话术三："垂直整合=成本优势"</h4>
+    <h3>话术三："垂直整合=成本优势"</h3>
     <p>"天赐自建椰子油衍生脂肪酸精炼产线，从原料端就开始控制质量和成本。椰油酰谷氨酸二钠的单位生产成本较行业平均低15-18%，同等品质下天赐报价通常比进口品牌低20-30%。这个成本优势可以传递给您。"</p>
 
-    <h4>话术四："高纯度=高端定位"</h4>
+    <h3>话术四："高纯度=高端定位"</h3>
     <p>"天赐氨基酸表活美妆级纯度达到99.5%，这意味着杂质更少、气味更纯、颜色更浅。对于做高端洁面膏、婴童产品的客户，高纯度原料意味着配方更稳定——不会因为批次差异导致膏体硬度变化、颜色偏差或气味异常。产品在货架上的表现一致性，就是品牌溢价的基础。"</p>
 
-    <h4>话术五："生物降解=ESG合规"</h4>
+    <h3>话术五："生物降解=ESG合规"</h3>
     <p>"天赐的椰油酰甘氨酸钠在OECD 301F标准下28天生物降解率达96.7%，属易生物降解物质。现在头部品牌都对供应链有ESG要求，选天赐的氨基酸表活，您的产品天然就具备绿色宣称的底气——'98%可生物降解配方'，这是消费者愿意买单的卖点。"</p>
 
-    <h4>话术六："产能+长协=安全感"</h4>
+    <h3>话术六："产能+长协=安全感"</h3>
     <p>"天赐日化材料2025年销量突破12万吨，同比增长10%，是全球第三大两性表面活性剂生产商（市占率10.6%），亚洲最大。全球前十大个护制造商服务了九家。欧莱雅已签署亚太区2026-2028年长期供货协议。我们的交付能力经过全球最挑剔的客户验证——选天赐，就是选供应链安全感。"</p>
 
     <h3>17.2 客户场景快速匹配</h3>
@@ -334,15 +334,15 @@
     <div class="rp-title">相关页面</div>
     <div class="rp-grid">
       <a href="market.html" class="rp-card">
-        <span class="rp-icon">📈</span>
+        <span class="rp-icon" aria-hidden="true">📈</span>
         <span class="rp-name">市场趋势与竞争</span>
       </a>
       <a href="products.html" class="rp-card">
-        <span class="rp-icon">🧪</span>
+        <span class="rp-icon" aria-hidden="true">🧪</span>
         <span class="rp-name">天赐产品全对照</span>
       </a>
       <a href="index.html" class="rp-card">
-        <span class="rp-icon">🏠</span>
+        <span class="rp-icon" aria-hidden="true">🏠</span>
         <span class="rp-name">返回首页</span>
       </a>
     </div>
@@ -353,7 +353,7 @@
     </main>
 <footer>
   <div class="container">
-    <h2>天赐材料日化知识库</h2>
+    <p class="footer-title">天赐材料日化知识库</p>
     <p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p>
     <p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p>
   </div>
@@ -361,6 +361,6 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=14"></script>
+    <script src="site.js?v=15"></script>
 </body>
 </html>

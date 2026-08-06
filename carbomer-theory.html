@@ -54,17 +54,19 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=1">
-    <link rel="stylesheet" href="shared-components.css?v=12">
+    <link rel="stylesheet" href="tokens.css?v=2">
+    <link rel="stylesheet" href="shared-components.css?v=13">
 </head>
 <body class="min-h-screen font-sans antialiased">
-    <main>
+    <a href="#main" class="skip-link">跳到主内容</a>
+    <main id="main">
 <nav class="site-nav">
   <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
   <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
     <a href="index.html">首页</a>
+    <a href="surfactants.html">表活</a>
     <div class="nav-dd">
-      <a href="theory.html" class="dd-trigger">理论 <span class="dd-caret">▾</span></a>
+      <a href="theory.html" class="dd-trigger" aria-haspopup="true">理论 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="theory.html">理论总览</a>
         <a href="fundamentals.html">基础概念与原理</a>
@@ -81,7 +83,7 @@
       </div>
     </div>
     <div class="nav-dd">
-      <a href="products.html" class="dd-trigger active">产品 <span class="dd-caret">▾</span></a>
+      <a href="products.html" class="dd-trigger active" aria-haspopup="true">产品 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="products.html">产品体系</a>
         <a href="naming-rules.html">命名规则中心</a>
@@ -95,7 +97,7 @@
     <a href="sales.html">销售</a>
     <a href="market.html">市场</a>
     <div class="nav-dd">
-      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <a href="finechem-additives.html" class="dd-trigger" aria-haspopup="true">精细化工 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="finechem-additives.html">添加剂与助剂</a>
         <a href="finechem-daily-chem.html">日化产品体系</a>
@@ -109,7 +111,7 @@
 
   <!-- ============ Page Hero ============ -->
   <section class="page-hero">
-    <div class="breadcrumb">
+    <nav aria-label="面包屑" class="breadcrumb">
       <a href="index.html">首页</a>
       <span class="bc-sep">›</span>
       <a href="products.html">产品</a>
@@ -117,7 +119,7 @@
       <a href="carbomer.html">卡波姆体系</a>
       <span class="bc-sep">›</span>
       <span class="bc-current">原理</span>
-    </div>
+    </nav>
     <h1>卡波姆原理 · 从家族定位到分子机制</h1>
     <p class="page-hero-desc">体系第 1+2+6 层。先搞清"卡波姆在增稠剂家族站在哪"，再深挖 8 个为什么（每个都到分子层、并对应天赐牌号），最后是药典级安全背书。学完这一页，客户问任何"为什么"你都能接住。</p>
     <div class="page-hero-meta">
@@ -385,19 +387,19 @@
     <div class="rp-title">相关页面推荐</div>
     <div class="rp-grid">
       <a href="carbomer.html" class="rp-card">
-        <span class="rp-icon">🗺️</span>
+        <span class="rp-icon" aria-hidden="true">🗺️</span>
         <span class="rp-name">卡波姆知识体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">六层地图 · 学习路径</small></span>
       </a>
       <a href="carbomer-products.html" class="rp-card">
-        <span class="rp-icon">🏭</span>
+        <span class="rp-icon" aria-hidden="true">🏭</span>
         <span class="rp-name">卡波姆产品<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">18 牌号 · 选型决策树 · 操作</small></span>
       </a>
       <a href="carbomer-sell.html" class="rp-card">
-        <span class="rp-icon">💬</span>
+        <span class="rp-icon" aria-hidden="true">💬</span>
         <span class="rp-name">卡波姆销售<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">竞品对标 · 客户问答</small></span>
       </a>
       <a href="theory.html" class="rp-card">
-        <span class="rp-icon">📚</span>
+        <span class="rp-icon" aria-hidden="true">📚</span>
         <span class="rp-name">理论总览<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">表活理论体系</small></span>
       </a>
     </div>
@@ -406,10 +408,10 @@
 </div>
 
     </main>
-<footer><div class="container"><h2>天赐材料日化知识库</h2><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
+<footer><div class="container"><p class="footer-title">天赐材料日化知识库</p><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=14"></script>
+    <script src="site.js?v=15"></script>
 </body>
 </html>

@@ -54,17 +54,19 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=1">
-    <link rel="stylesheet" href="shared-components.css?v=12">
+    <link rel="stylesheet" href="tokens.css?v=2">
+    <link rel="stylesheet" href="shared-components.css?v=13">
 </head>
 <body class="min-h-screen font-sans antialiased">
-    <main>
+    <a href="#main" class="skip-link">跳到主内容</a>
+    <main id="main">
 <nav class="site-nav">
   <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
   <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
     <a href="index.html">首页</a>
+    <a href="surfactants.html">表活</a>
     <div class="nav-dd">
-      <a href="theory.html" class="dd-trigger">理论 <span class="dd-caret">▾</span></a>
+      <a href="theory.html" class="dd-trigger" aria-haspopup="true">理论 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="theory.html">理论总览</a>
         <a href="fundamentals.html">基础概念与原理</a>
@@ -81,7 +83,7 @@
       </div>
     </div>
     <div class="nav-dd">
-      <a href="products.html" class="dd-trigger active">产品 <span class="dd-caret">▾</span></a>
+      <a href="products.html" class="dd-trigger active" aria-haspopup="true">产品 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="products.html">产品体系</a>
         <a href="naming-rules.html">命名规则中心</a>
@@ -95,7 +97,7 @@
     <a href="sales.html">销售</a>
     <a href="market.html">市场</a>
     <div class="nav-dd">
-      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <a href="finechem-additives.html" class="dd-trigger" aria-haspopup="true">精细化工 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="finechem-additives.html">添加剂与助剂</a>
         <a href="finechem-daily-chem.html">日化产品体系</a>
@@ -109,7 +111,7 @@
 
   <!-- ============ Page Hero ============ -->
   <section class="page-hero">
-    <div class="breadcrumb">
+    <nav aria-label="面包屑" class="breadcrumb">
       <a href="index.html">首页</a>
       <span class="bc-sep">›</span>
       <a href="products.html">产品</a>
@@ -117,7 +119,7 @@
       <a href="carbomer.html">卡波姆体系</a>
       <span class="bc-sep">›</span>
       <span class="bc-current">销售实战</span>
-    </div>
+    </nav>
     <h1>卡波姆销售 · 竞品对标 + 客户问答 + 底层逻辑</h1>
     <p class="page-hero-desc">体系第 5 层，把前四层变成业绩的临门一脚。面对路博润客户怎么讲、国产压价怎么破、客户问"为什么"怎么接——这里有对标表和话术。</p>
     <div class="page-hero-meta">
@@ -262,7 +264,7 @@
           <tr>
             <td><strong>"进口卡波姆太贵/断货"</strong></td>
             <td>380（对标路博润 980 ⚠）</td>
-            <td>"天赐卡波姆产能占国内 85% 以上（2020 年数据 ⚠待核实），供应稳定、价格约路博润 60-80%。380 是旗舰款，短流高透明，性能对标 Carbopol 980。而且我们跟路博润不一样——我们表活、卡波姆一起卖，能给您组合方案。"</td>
+            <td>"天赐是国内主要卡波姆供应商之一，供应稳定、价格约路博润 60-80%。380 是旗舰款，短流高透明，性能对标 Carbopol 980。而且我们跟路博润不一样——我们表活、卡波姆一起卖，能给您组合方案。"</td>
           </tr>
         </tbody>
       </table>
@@ -279,7 +281,7 @@
 
     <div class="concept-grid">
       <div class="concept-card">
-        <h4>① 卡波姆是表活的"自然延伸"</h4>
+        <h3>① 卡波姆是表活的"自然延伸"</h3>
         <p>客户买了你的表活，必然遇到增稠问题（含盐/透明/结块）。卖表活时问一句："增稠体系定了吗？有没有遇到过盐析、结块、不透明？"——卡波姆不是硬推，是帮客户解决配方痛点。</p>
       </div>
       <div class="concept-card">
@@ -328,19 +330,19 @@
     <div class="rp-title">相关页面推荐</div>
     <div class="rp-grid">
       <a href="carbomer.html" class="rp-card">
-        <span class="rp-icon">🗺️</span>
+        <span class="rp-icon" aria-hidden="true">🗺️</span>
         <span class="rp-name">卡波姆知识体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">六层地图 · 学习路径</small></span>
       </a>
       <a href="carbomer-products.html" class="rp-card">
-        <span class="rp-icon">🏭</span>
+        <span class="rp-icon" aria-hidden="true">🏭</span>
         <span class="rp-name">卡波姆产品<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">18 牌号 · 选型决策树 · 操作</small></span>
       </a>
       <a href="carbomer-theory.html" class="rp-card">
-        <span class="rp-icon">🧠</span>
+        <span class="rp-icon" aria-hidden="true">🧠</span>
         <span class="rp-name">卡波姆原理<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">定位 · 8 个为什么 · 安全</small></span>
       </a>
       <a href="sales.html" class="rp-card">
-        <span class="rp-icon">💬</span>
+        <span class="rp-icon" aria-hidden="true">💬</span>
         <span class="rp-name">销售实战<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">六大核心话术 · 9 场景</small></span>
       </a>
     </div>
@@ -349,10 +351,10 @@
 </div>
 
     </main>
-<footer><div class="container"><h2>天赐材料日化知识库</h2><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
+<footer><div class="container"><p class="footer-title">天赐材料日化知识库</p><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=14"></script>
+    <script src="site.js?v=15"></script>
 </body>
 </html>

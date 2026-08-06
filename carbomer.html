@@ -54,17 +54,19 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=1">
-    <link rel="stylesheet" href="shared-components.css?v=12">
+    <link rel="stylesheet" href="tokens.css?v=2">
+    <link rel="stylesheet" href="shared-components.css?v=13">
 </head>
 <body class="min-h-screen font-sans antialiased">
-    <main>
+    <a href="#main" class="skip-link">跳到主内容</a>
+    <main id="main">
 <nav class="site-nav">
   <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
   <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
     <a href="index.html">首页</a>
+    <a href="surfactants.html">表活</a>
     <div class="nav-dd">
-      <a href="theory.html" class="dd-trigger">理论 <span class="dd-caret">▾</span></a>
+      <a href="theory.html" class="dd-trigger" aria-haspopup="true">理论 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="theory.html">理论总览</a>
         <a href="fundamentals.html">基础概念与原理</a>
@@ -81,7 +83,7 @@
       </div>
     </div>
     <div class="nav-dd">
-      <a href="products.html" class="dd-trigger active">产品 <span class="dd-caret">▾</span></a>
+      <a href="products.html" class="dd-trigger active" aria-haspopup="true">产品 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="products.html">产品体系</a>
         <a href="naming-rules.html">命名规则中心</a>
@@ -95,7 +97,7 @@
     <a href="sales.html">销售</a>
     <a href="market.html">市场</a>
     <div class="nav-dd">
-      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <a href="finechem-additives.html" class="dd-trigger" aria-haspopup="true">精细化工 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="finechem-additives.html">添加剂与助剂</a>
         <a href="finechem-daily-chem.html">日化产品体系</a>
@@ -109,13 +111,13 @@
 
   <!-- ============ Page Hero ============ -->
   <section class="page-hero">
-    <div class="breadcrumb">
+    <nav aria-label="面包屑" class="breadcrumb">
       <a href="index.html">首页</a>
       <span class="bc-sep">›</span>
       <a href="products.html">产品</a>
       <span class="bc-sep">›</span>
       <span class="bc-current">卡波姆知识</span>
-    </div>
+    </nav>
     <h1>卡波姆知识域 · 门户指引</h1>
     <p class="page-hero-desc">天赐第二条产品线（增稠剂 · 18 牌号）的全部知识按栏目走：<strong>想懂原理 → 1 理论；想读懂牌号名 → 2 命名规则；想选产品 → 3 产品；想配方案 → 4 应用；想会卖 → 5 销售</strong>。一张"能兜水的网"，怎么学成一套完整体系？看这里。</p>
     <div class="page-hero-meta">
@@ -131,7 +133,7 @@
     <h2>30 秒速览 · 先记住 3 句话</h2>
 
     <div class="card accent">
-      <h4>第 1 句：卡波姆 = 一张能兜水的网</h4>
+      <h3>第 1 句：卡波姆 = 一张能兜水的网</h3>
       <p>分子上是"聚丙烯酸 + 交联剂"搭成的三维网络。单根高分子链兜不住水，织成网才能把水锁住。类比：<mark class="key">渔网</mark>——单根鱼线会漏，网能兜住鱼（水）。</p>
     </div>
     <div class="card accent2">
@@ -151,7 +153,7 @@
 
     <div class="concept-grid">
       <div class="concept-card">
-        <h4>1 · 理论：它是什么、怎么工作</h4>
+        <h3>1 · 理论：它是什么、怎么工作</h3>
         <p>定位（卡波姆站在哪、增稠剂家族对比）+ 化学本质（交联聚丙烯酸）+ 8 个为什么（每个讲到分子层，配原理→牌号映射）+ 安全背书（药典/CIR/法规）。</p>
         <p><strong>学完能答：</strong>客户问任何"为什么"，你都能从分子层接住。</p>
         <p><a href="carbomer-theory.html" style="color:var(--tinci-primary);font-weight:700;">进入理论 →</a></p>
@@ -187,7 +189,7 @@
   <section class="section" id="path">
     <h2>学习路径建议</h2>
     <div class="card accent2">
-      <h4>三步学完整套体系</h4>
+      <h3>三步学完整套体系</h3>
       <ul class="feature-list">
         <li><strong>先学理论（1）：</strong>搞清"卡波姆是什么家族、怎么工作、安全底气在哪"。这是地基，一次学完。</li>
         <li><strong>再学产品（3 + 4）：</strong>18 牌号（配 3 步记忆法）+ 选型决策树 + 操作指南。学完能"对着场景给牌号"。</li>
@@ -232,19 +234,19 @@
     <div class="rp-title">相关页面推荐</div>
     <div class="rp-grid">
       <a href="carbomer-theory.html" class="rp-card">
-        <span class="rp-icon">🧠</span>
+        <span class="rp-icon" aria-hidden="true">🧠</span>
         <span class="rp-name">卡波姆理论<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">定位 · 8 个为什么 · 安全背书</small></span>
       </a>
       <a href="carbomer-products.html" class="rp-card">
-        <span class="rp-icon">🏭</span>
+        <span class="rp-icon" aria-hidden="true">🏭</span>
         <span class="rp-name">卡波姆产品<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">18 牌号 · 选型决策树 · 操作指南</small></span>
       </a>
       <a href="carbomer-sell.html" class="rp-card">
-        <span class="rp-icon">💬</span>
+        <span class="rp-icon" aria-hidden="true">💬</span>
         <span class="rp-name">卡波姆销售<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">竞品对标 · 客户问答 · 底层逻辑</small></span>
       </a>
       <a href="surfactants.html" class="rp-card">
-        <span class="rp-icon">🧪</span>
+        <span class="rp-icon" aria-hidden="true">🧪</span>
         <span class="rp-name">表活知识域<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">天赐主业 · 六大栏目门户</small></span>
       </a>
     </div>
@@ -253,10 +255,10 @@
 </div>
 
     </main>
-<footer><div class="container"><h2>天赐材料日化知识库</h2><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
+<footer><div class="container"><p class="footer-title">天赐材料日化知识库</p><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=14"></script>
+    <script src="site.js?v=15"></script>
 </body>
 </html>

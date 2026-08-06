@@ -54,17 +54,19 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=1">
-    <link rel="stylesheet" href="shared-components.css?v=12">
+    <link rel="stylesheet" href="tokens.css?v=2">
+    <link rel="stylesheet" href="shared-components.css?v=13">
 </head>
 <body class="min-h-screen font-sans antialiased">
-    <main>
+    <a href="#main" class="skip-link">跳到主内容</a>
+    <main id="main">
 <nav class="site-nav">
   <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
   <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
     <a href="index.html">首页</a>
+    <a href="surfactants.html">表活</a>
     <div class="nav-dd">
-      <a href="theory.html" class="dd-trigger">理论 <span class="dd-caret">▾</span></a>
+      <a href="theory.html" class="dd-trigger" aria-haspopup="true">理论 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="theory.html">理论总览</a>
         <a href="fundamentals.html">基础概念与原理</a>
@@ -81,7 +83,7 @@
       </div>
     </div>
     <div class="nav-dd">
-      <a href="products.html" class="dd-trigger active">产品 <span class="dd-caret">▾</span></a>
+      <a href="products.html" class="dd-trigger active" aria-haspopup="true">产品 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="products.html" class="active">产品体系</a>
         <a href="naming-rules.html">命名规则中心</a>
@@ -95,7 +97,7 @@
     <a href="sales.html">销售</a>
     <a href="market.html">市场</a>
     <div class="nav-dd">
-      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <a href="finechem-additives.html" class="dd-trigger" aria-haspopup="true">精细化工 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="finechem-additives.html">添加剂与助剂</a>
         <a href="finechem-daily-chem.html">日化产品体系</a>
@@ -109,11 +111,11 @@
 
   <!-- ============ Page Hero ============ -->
   <section class="page-hero">
-    <div class="breadcrumb">
+    <nav aria-label="面包屑" class="breadcrumb">
       <a href="index.html">首页</a>
       <span class="bc-sep">›</span>
       <span class="bc-current">产品</span>
-    </div>
+    </nav>
     <h1>天赐产品体系</h1>
     <p class="page-hero-desc">命名规则、全谱系牌号与选型指南——两性（29牌号）、氨基酸（30+牌号）、阳离子、非离子四大类产品，从牌号密码到销售速查的完整产品知识地图。</p>
     <div class="page-hero-meta">
@@ -122,6 +124,42 @@
       <span class="tag">氨基酸30+</span>
       <span class="tag">命名规则</span>
       <span class="tag">选型速查</span>
+    </div>
+  </section>
+
+  <!-- ============ 卡波姆 · 第二条产品线导流 ============ -->
+  <section class="section" id="carbomer-entry">
+    <h2>卡波姆 · 第二条产品线</h2>
+    <p>天赐不止做表活——<strong>卡波姆（增稠剂）是最新上线的第二条产品线，18 个牌号</strong>，覆盖常规 / FD 快速分散 / 生物基三大类，有药典背书。从分子原理到销售实战，一套完整体系；表活之外，别漏了这条线。</p>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h3>卡波姆知识域 · 门户</h3>
+        <p><span class="tag tag-blue">体系门户</span> <span class="tag tag-green">18 牌号</span></p>
+        <p style="margin-top:0.5rem;">第二条产品线总入口：5 大栏目（理论 / 命名 / 产品 / 应用 / 销售）指引、30 秒速览 3 句话、学习路径建议。</p>
+        <p style="margin-top:0.4rem;"><strong>适合：</strong>第一次接触卡波姆，先从这里建立全局。</p>
+        <p><a href="carbomer.html" style="color:var(--tinci-primary);font-weight:700;">进入卡波姆门户 →</a></p>
+      </div>
+      <div class="concept-card">
+        <h4>卡波姆原理</h4>
+        <p><span class="tag tag-purple">理论</span></p>
+        <p style="margin-top:0.5rem;">定位（增稠剂家族对比）+ 化学本质（交联聚丙烯酸）+ 8 个为什么（讲到分子层）+ 安全背书（药典 / CIR / 法规）。</p>
+        <p style="margin-top:0.4rem;"><strong>学完能答：</strong>客户问任何“为什么”，从分子层接住。</p>
+        <p><a href="carbomer-theory.html" style="color:var(--tinci-primary);font-weight:700;">进入原理 →</a></p>
+      </div>
+      <div class="concept-card">
+        <h4>卡波姆产品 · 18 牌号</h4>
+        <p><span class="tag tag-blue">产品</span> <span class="tag tag-green">18 牌号</span></p>
+        <p style="margin-top:0.5rem;">4 个原理变量的产品线设计逻辑、18 牌号完整速览（常规 11 / FD 6 / 生物基 1）、孪生牌号与 3 步记忆法、选型决策树与操作指南。</p>
+        <p style="margin-top:0.4rem;"><strong>学完能答：</strong>18 个牌号差异说得清、对着场景给牌号。</p>
+        <p><a href="carbomer-products.html" style="color:var(--tinci-primary);font-weight:700;">进入产品 →</a></p>
+      </div>
+      <div class="concept-card">
+        <h4>卡波姆销售</h4>
+        <p><span class="tag tag-orange">销售</span></p>
+        <p style="margin-top:0.5rem;">竞品格局（路博润 / Newman / 天赐）、对标关系、9 条客户问答、卖卡波姆的 3 个底层逻辑与组合销售方案。</p>
+        <p style="margin-top:0.4rem;"><strong>学完能答：</strong>面对路博润客户、国产压价客户有武器。</p>
+        <p><a href="carbomer-sell.html" style="color:var(--tinci-primary);font-weight:700;">进入销售 →</a></p>
+      </div>
     </div>
   </section>
 
@@ -228,7 +266,7 @@
 
     <div class="concept-grid">
       <div class="concept-card">
-        <h4>CAB 系列 · 椰油酰胺丙基甜菜碱</h4>
+        <h3>CAB 系列 · 椰油酰胺丙基甜菜碱</h3>
         <p><span class="tag tag-blue">主力系列</span> <span class="tag tag-green">17牌号</span></p>
         <p style="margin-top:0.5rem;"><strong>羧基甜菜碱</strong>，天赐两性表活绝对主力，行业市占率第一。温和 + 稳泡 + 增稠三合一，与 AES 复配增稠效果极佳。</p>
         <p style="margin-top:0.4rem;"><strong>典型应用：</strong>香波、沐浴露、洗手液、洗面奶（2-8%）；覆盖 30%~97% 全浓度梯度。</p>
@@ -453,7 +491,7 @@
     </div>
 
     <div class="tier-section tier-high">
-      <h4>高端梯队 <span class="tier-badge">TF / HP</span></h4>
+      <h3>高端梯队 <span class="tier-badge">TF / HP</span></h3>
       <p><strong>TF（无盐型）</strong>：天赐专利无盐路线，从合成工艺杜绝氯离子，温和性最优、透明度最高。婴童/敏感肌配方首选，无硫酸盐透明体系核心。</p>
       <p><strong>HP（膏状型）</strong>：特殊结晶工艺，室温下呈膏状，含更高比例长链烷基甜菜碱。增稠效率比标准 CAB 35 高 30-50%，追求高粘稠感配方的首选。注意需加热至 40-50℃ 泵送。</p>
       <p style="margin-top:0.6rem;"><strong>销售定位：</strong>面向中高端品牌、婴童线、追求差异化肤感的配方商。毛利空间大于标准型。</p>
@@ -663,7 +701,7 @@
     <p>客户选型时，活性物含量是最直接的切入点：30% = 经济款，35% = 标准款，45% = 浓缩款，97% = 固体款。销售时按"客户对成本 vs 浓度的偏好"快速定位等级，再在同级中按后缀功能细分。</p>
 
     <div class="tier-section tier-standard">
-      <h4>30% 经济入门级<span class="tier-badge">经济</span></h4>
+      <h3>30% 经济入门级<span class="tier-badge">经济</span></h3>
       <p>适合成本敏感的大众配方或对活性物浓度要求不高的工业清洁场景。</p>
       <div class="table-wrap">
         <table>
@@ -940,15 +978,15 @@
     <div class="rp-title">相关页面推荐</div>
     <div class="rp-grid">
       <a href="theory.html" class="rp-card">
-        <span class="rp-icon">📚</span>
+        <span class="rp-icon" aria-hidden="true">📚</span>
         <span class="rp-name">理论<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">表活基础与复配原理</small></span>
       </a>
       <a href="formulation.html" class="rp-card">
-        <span class="rp-icon">🧪</span>
+        <span class="rp-icon" aria-hidden="true">🧪</span>
         <span class="rp-name">配方设计<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">五大相与三剂型</small></span>
       </a>
       <a href="sales.html" class="rp-card">
-        <span class="rp-icon">💬</span>
+        <span class="rp-icon" aria-hidden="true">💬</span>
         <span class="rp-name">销售实战<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">9 场景话术模板</small></span>
       </a>
     </div>
@@ -957,10 +995,10 @@
 </div>
 
     </main>
-<footer><div class="container"><h2>天赐材料日化知识库</h2><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
+<footer><div class="container"><p class="footer-title">天赐材料日化知识库</p><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=14"></script>
+    <script src="site.js?v=15"></script>
 </body>
 </html>

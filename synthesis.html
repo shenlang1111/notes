@@ -54,17 +54,19 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=1">
-    <link rel="stylesheet" href="shared-components.css?v=12">
+    <link rel="stylesheet" href="tokens.css?v=2">
+    <link rel="stylesheet" href="shared-components.css?v=13">
 </head>
 <body class="min-h-screen font-sans antialiased">
-    <main>
+    <a href="#main" class="skip-link">跳到主内容</a>
+    <main id="main">
 <nav class="site-nav">
   <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
   <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
     <a href="index.html">首页</a>
+    <a href="surfactants.html">表活</a>
     <div class="nav-dd">
-      <a href="theory.html" class="dd-trigger active">理论 <span class="dd-caret">▾</span></a>
+      <a href="theory.html" class="dd-trigger active" aria-haspopup="true">理论 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="theory.html">理论总览</a>
         <a href="fundamentals.html">基础概念与原理</a>
@@ -81,7 +83,7 @@
       </div>
     </div>
     <div class="nav-dd">
-      <a href="products.html" class="dd-trigger">产品 <span class="dd-caret">▾</span></a>
+      <a href="products.html" class="dd-trigger" aria-haspopup="true">产品 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="products.html">产品体系</a>
         <a href="naming-rules.html">命名规则中心</a>
@@ -95,7 +97,7 @@
     <a href="sales.html">销售</a>
     <a href="market.html">市场</a>
     <div class="nav-dd">
-      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <a href="finechem-additives.html" class="dd-trigger" aria-haspopup="true">精细化工 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="finechem-additives.html">添加剂与助剂</a>
         <a href="finechem-daily-chem.html">日化产品体系</a>
@@ -109,13 +111,13 @@
 
   <!-- ============ Page Hero ============ -->
   <section class="page-hero">
-    <div class="breadcrumb">
+    <nav aria-label="面包屑" class="breadcrumb">
       <a href="index.html">首页</a>
       <span class="bc-sep">›</span>
       <a href="theory.html">理论</a>
       <span class="bc-sep">›</span>
       <span class="bc-current">合成工艺</span>
-    </div>
+    </nav>
     <h1>合成工艺详解</h1>
     <p class="page-hero-desc">LAS磺化、AES乙氧基化+硫酸化、甜菜碱季铵化、氨基酸表活肖顿-鲍曼反应等10种合成路线。本页工艺参数为通用行业参考值，具体以天赐工艺卡与 TDS 为准。</p>
     <div class="page-hero-meta">
@@ -444,16 +446,16 @@ R-COCl + H₂N-CHR'-COONa + NaOH → R-CO-NH-CHR'-COONa + NaCl + H₂O<br>
     <div class="rp-title">相关页面推荐</div>
     <div class="rp-grid">
       <a href="amphoteric.html" class="rp-card">
-        <span class="rp-icon">📚</span>
+        <span class="rp-icon" aria-hidden="true">📚</span>
         <span class="rp-name">两性表面活性剂<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">甜菜碱合成——天赐核心工艺 8.5</small></span>
       </a>
       <a href="applications.html" class="rp-card">
-        <span class="rp-icon">📊</span>
+        <span class="rp-icon" aria-hidden="true">📊</span>
         <span class="rp-name">应用原理<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">乳化、增溶、去污、泡沫四大功能</small></span>
       </a>
       <a href="products.html" class="rp-card">
-        <span class="rp-icon">🏭</span>
-        <span class="rp-name">产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">6 大系列选型指南</small></span>
+        <span class="rp-icon" aria-hidden="true">🏭</span>
+        <span class="rp-name">产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">全系列牌号选型</small></span>
       </a>
     </div>
   </div>
@@ -463,7 +465,7 @@ R-COCl + H₂N-CHR'-COONa + NaOH → R-CO-NH-CHR'-COONa + NaCl + H₂O<br>
     </main>
 <footer>
   <div class="container">
-    <h2>天赐材料日化知识库</h2>
+    <p class="footer-title">天赐材料日化知识库</p>
     <p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p>
     <p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p>
   </div>
@@ -471,6 +473,6 @@ R-COCl + H₂N-CHR'-COONa + NaOH → R-CO-NH-CHR'-COONa + NaCl + H₂O<br>
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=14"></script>
+    <script src="site.js?v=15"></script>
 </body>
 </html>

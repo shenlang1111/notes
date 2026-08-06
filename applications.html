@@ -54,17 +54,19 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=1">
-    <link rel="stylesheet" href="shared-components.css?v=12">
+    <link rel="stylesheet" href="tokens.css?v=2">
+    <link rel="stylesheet" href="shared-components.css?v=13">
 </head>
 <body class="min-h-screen font-sans antialiased">
-    <main>
+    <a href="#main" class="skip-link">跳到主内容</a>
+    <main id="main">
 <nav class="site-nav">
   <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
   <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
     <a href="index.html">首页</a>
+    <a href="surfactants.html">表活</a>
     <div class="nav-dd">
-      <a href="theory.html" class="dd-trigger active">理论 <span class="dd-caret">▾</span></a>
+      <a href="theory.html" class="dd-trigger active" aria-haspopup="true">理论 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="theory.html">理论总览</a>
         <a href="fundamentals.html">基础概念与原理</a>
@@ -81,7 +83,7 @@
       </div>
     </div>
     <div class="nav-dd">
-      <a href="products.html" class="dd-trigger">产品 <span class="dd-caret">▾</span></a>
+      <a href="products.html" class="dd-trigger" aria-haspopup="true">产品 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="products.html">产品体系</a>
         <a href="naming-rules.html">命名规则中心</a>
@@ -95,7 +97,7 @@
     <a href="sales.html">销售</a>
     <a href="market.html">市场</a>
     <div class="nav-dd">
-      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <a href="finechem-additives.html" class="dd-trigger" aria-haspopup="true">精细化工 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="finechem-additives.html">添加剂与助剂</a>
         <a href="finechem-daily-chem.html">日化产品体系</a>
@@ -109,13 +111,13 @@
 
   <!-- ============ Page Hero ============ -->
   <section class="page-hero">
-    <div class="breadcrumb">
+    <nav aria-label="面包屑" class="breadcrumb">
       <a href="index.html">首页</a>
       <span class="bc-sep">›</span>
       <a href="theory.html">理论</a>
       <span class="bc-sep">›</span>
       <span class="bc-current">应用原理</span>
-    </div>
+    </nav>
     <h1>应用原理深度</h1>
     <p class="page-hero-desc">乳化（HLB法/PIT法）、增溶、洗涤去污（卷缩机理）、泡沫理论、复配协同（β参数）、消泡破乳。</p>
     <div class="page-hero-meta">
@@ -204,7 +206,7 @@
         <rect x="35" y="80" width="85" height="25" rx="4" fill="#D97706" opacity="0.6"/>
         <text x="77" y="96" text-anchor="middle" font-size="8" fill="#fff">油污</text>
         <!-- 表活 + 水 -->
-        <g><rect x="55" y="110" width="10" height="8" rx="2" fill="#D97706"/><circle cx="60" cy="124" r="5" fill="#2563EB"/><rect x="75" y="115" width="10" height="8" rx="2" fill="#D97706"/><circle cx="80" cy="129" r="5" fill="#2563EB"/></g>
+        <g><rect x="55" y="110" width="10" height="8" rx="2" fill="#D97706"/><circle cx="60" cy="124" r="5" fill="#14B8A6"/><rect x="75" y="115" width="10" height="8" rx="2" fill="#D97706"/><circle cx="80" cy="129" r="5" fill="#14B8A6"/></g>
         <text x="77" y="155" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">表活降低表面张力</text>
         <text x="77" y="170" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">水渗入油污与基底之间</text>
 
@@ -220,7 +222,7 @@
         <ellipse cx="242" cy="100" rx="35" ry="15" fill="#D97706" opacity="0.5"/>
         <text x="242" y="104" text-anchor="middle" font-size="8" fill="#fff">油污卷缩</text>
         <!-- 表活插入 -->
-        <g><rect x="210" y="85" width="8" height="6" rx="2" fill="#D97706"/><circle cx="214" cy="97" r="4" fill="#2563EB"/><rect x="270" y="85" width="8" height="6" rx="2" fill="#D97706"/><circle cx="274" cy="97" r="4" fill="#2563EB"/></g>
+        <g><rect x="210" y="85" width="8" height="6" rx="2" fill="#D97706"/><circle cx="214" cy="97" r="4" fill="#14B8A6"/><rect x="270" y="85" width="8" height="6" rx="2" fill="#D97706"/><circle cx="274" cy="97" r="4" fill="#14B8A6"/></g>
         <text x="242" y="140" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">表活亲油尾插入油污</text>
         <text x="242" y="155" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">油污被撑开、卷缩</text>
         <text x="242" y="170" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">从基底上脱离</text>
@@ -235,7 +237,7 @@
         <circle cx="407" cy="90" r="22" fill="#D97706" opacity="0.4"/>
         <text x="407" y="94" text-anchor="middle" font-size="8" fill="#fff">油滴</text>
         <!-- 表活包裹 -->
-        <circle cx="388" cy="78" r="4" fill="#2563EB"/><circle cx="425" cy="75" r="4" fill="#2563EB"/><circle cx="430" cy="95" r="4" fill="#2563EB"/><circle cx="415" cy="105" r="4" fill="#2563EB"/><circle cx="395" cy="100" r="4" fill="#2563EB"/><circle cx="385" cy="90" r="4" fill="#2563EB"/>
+        <circle cx="388" cy="78" r="4" fill="#14B8A6"/><circle cx="425" cy="75" r="4" fill="#14B8A6"/><circle cx="430" cy="95" r="4" fill="#14B8A6"/><circle cx="415" cy="105" r="4" fill="#14B8A6"/><circle cx="395" cy="100" r="4" fill="#14B8A6"/><circle cx="385" cy="90" r="4" fill="#14B8A6"/>
         <text x="407" y="140" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">表活在油滴表面排列</text>
         <text x="407" y="155" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">亲水头朝外→稳定分散</text>
         <text x="407" y="170" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">O/W乳液形成</text>
@@ -247,8 +249,8 @@
         <circle cx="572" cy="20" r="10" fill="var(--tinci-primary)"/><text x="572" y="24" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">4</text>
         <text x="572" y="45" text-anchor="middle" font-size="11" font-weight="700" fill="var(--tinci-foreground)">增溶稳定</text>
         <!-- 胶束包裹油 -->
-        <circle cx="572" cy="90" r="28" fill="none" stroke="#2563EB" stroke-width="2"/>
-        <circle cx="560" cy="80" r="4" fill="#2563EB"/><circle cx="582" cy="78" r="4" fill="#2563EB"/><circle cx="590" cy="92" r="4" fill="#2563EB"/><circle cx="578" cy="102" r="4" fill="#2563EB"/><circle cx="560" cy="98" r="4" fill="#2563EB"/>
+        <circle cx="572" cy="90" r="28" fill="none" stroke="#14B8A6" stroke-width="2"/>
+        <circle cx="560" cy="80" r="4" fill="#14B8A6"/><circle cx="582" cy="78" r="4" fill="#14B8A6"/><circle cx="590" cy="92" r="4" fill="#14B8A6"/><circle cx="578" cy="102" r="4" fill="#14B8A6"/><circle cx="560" cy="98" r="4" fill="#14B8A6"/>
         <circle cx="572" cy="90" r="8" fill="#D97706" opacity="0.5"/>
         <text x="572" y="140" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">小油滴被胶束包裹</text>
         <text x="572" y="155" text-anchor="middle" font-size="8" fill="var(--tinci-muted-foreground)">"增溶"在溶液中</text>
@@ -263,7 +265,7 @@
         <!-- 底部：O/W vs W/O -->
         <rect x="10" y="200" width="345" height="170" rx="8" fill="var(--tinci-surface-2)"/>
         <text x="182" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="var(--tinci-primary)">O/W型（水包油）— 洗发水、沐浴露</text>
-        <circle cx="182" cy="290" r="50" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+        <circle cx="182" cy="290" r="50" fill="none" stroke="#14B8A6" stroke-width="2.5"/>
         <text x="182" y="360" text-anchor="middle" font-size="10" fill="var(--tinci-muted-foreground)">连续相：水（蓝色）</text>
         <!-- 油滴散布 -->
         <circle cx="155" cy="275" r="12" fill="#D97706" opacity="0.5"/><text x="155" y="279" text-anchor="middle" font-size="7" fill="#fff">油</text>
@@ -271,7 +273,7 @@
         <circle cx="175" cy="310" r="14" fill="#D97706" opacity="0.5"/><text x="175" y="314" text-anchor="middle" font-size="7" fill="#fff">油</text>
         <circle cx="200" cy="300" r="8" fill="#D97706" opacity="0.5"/><text x="200" y="304" text-anchor="middle" font-size="7" fill="#fff">油</text>
         <!-- 表活 -->
-        <circle cx="145" cy="268" r="3" fill="#2563EB"/><circle cx="165" cy="265" r="3" fill="#2563EB"/><circle cx="200" cy="260" r="3" fill="#2563EB"/><circle cx="220" cy="275" r="3" fill="#2563EB"/>
+        <circle cx="145" cy="268" r="3" fill="#14B8A6"/><circle cx="165" cy="265" r="3" fill="#14B8A6"/><circle cx="200" cy="260" r="3" fill="#14B8A6"/><circle cx="220" cy="275" r="3" fill="#14B8A6"/>
         <text x="182" y="375" text-anchor="middle" font-size="9" fill="var(--tinci-muted-foreground)">HLB 8~18 · 清爽不油腻 · 易水稀释</text>
 
         <rect x="370" y="200" width="340" height="170" rx="8" fill="var(--tinci-surface-2)"/>
@@ -279,10 +281,10 @@
         <circle cx="540" cy="290" r="50" fill="none" stroke="#D97706" stroke-width="2.5"/>
         <text x="540" y="360" text-anchor="middle" font-size="10" fill="var(--tinci-muted-foreground)">连续相：油（橙色）</text>
         <!-- 水滴散布 -->
-        <circle cx="515" cy="275" r="12" fill="#2563EB" opacity="0.5"/><text x="515" y="279" text-anchor="middle" font-size="7" fill="#fff">水</text>
-        <circle cx="565" cy="270" r="10" fill="#2563EB" opacity="0.5"/><text x="565" y="274" text-anchor="middle" font-size="7" fill="#fff">水</text>
-        <circle cx="535" cy="310" r="14" fill="#2563EB" opacity="0.5"/><text x="535" y="314" text-anchor="middle" font-size="7" fill="#fff">水</text>
-        <circle cx="555" cy="300" r="8" fill="#2563EB" opacity="0.5"/><text x="555" y="304" text-anchor="middle" font-size="7" fill="#fff">水</text>
+        <circle cx="515" cy="275" r="12" fill="#14B8A6" opacity="0.5"/><text x="515" y="279" text-anchor="middle" font-size="7" fill="#fff">水</text>
+        <circle cx="565" cy="270" r="10" fill="#14B8A6" opacity="0.5"/><text x="565" y="274" text-anchor="middle" font-size="7" fill="#fff">水</text>
+        <circle cx="535" cy="310" r="14" fill="#14B8A6" opacity="0.5"/><text x="535" y="314" text-anchor="middle" font-size="7" fill="#fff">水</text>
+        <circle cx="555" cy="300" r="8" fill="#14B8A6" opacity="0.5"/><text x="555" y="304" text-anchor="middle" font-size="7" fill="#fff">水</text>
         <!-- 表活 -->
         <circle cx="505" cy="268" r="3" fill="#D97706"/><circle cx="525" cy="265" r="3" fill="#D97706"/><circle cx="555" cy="260" r="3" fill="#D97706"/><circle cx="575" cy="275" r="3" fill="#D97706"/>
         <text x="540" y="375" text-anchor="middle" font-size="9" fill="var(--tinci-muted-foreground)">HLB 3~6 · 油腻滋润 · 难水稀释</text>
@@ -388,15 +390,15 @@
     <div class="rp-title">相关页面推荐</div>
     <div class="rp-grid">
       <a href="formulation.html" class="rp-card">
-        <span class="rp-icon">🧪</span>
+        <span class="rp-icon" aria-hidden="true">🧪</span>
         <span class="rp-name">配方设计<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">五大相 · 三剂型——应用原理落到配方</small></span>
       </a>
       <a href="properties.html" class="rp-card">
-        <span class="rp-icon">📊</span>
+        <span class="rp-icon" aria-hidden="true">📊</span>
         <span class="rp-name">核心物化性质<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">CMC、HLB 与功能表现的关联</small></span>
       </a>
       <a href="fundamentals.html" class="rp-card">
-        <span class="rp-icon">📖</span>
+        <span class="rp-icon" aria-hidden="true">📖</span>
         <span class="rp-name">基础概念与原理<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">胶束与 CPP——功能背后的结构基础</small></span>
       </a>
     </div>
@@ -407,7 +409,7 @@
     </main>
 <footer>
   <div class="container">
-    <h2>天赐材料日化知识库</h2>
+    <p class="footer-title">天赐材料日化知识库</p>
     <p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p>
     <p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p>
   </div>
@@ -415,6 +417,6 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=14"></script>
+    <script src="site.js?v=15"></script>
 </body>
 </html>

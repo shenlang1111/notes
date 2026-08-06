@@ -176,7 +176,7 @@ tbody tr:hover td{background:var(--tinci-primary-50);box-shadow:inset 3px 0 0 va
 .tag{display:inline-block;font-size:0.7rem;font-weight:700;padding:0.16rem 0.65rem;border-radius:100px;margin-right:0.3rem;white-space:nowrap;letter-spacing:0.02em;}
 .tag-blue{background:var(--tinci-primary-50);color:var(--tinci-primary);}
 .tag-green{background:var(--state-success-soft);color:var(--state-success);}
-.tag-purple{background:#F0ECFD;color:#6D4FC9;}
+.tag-purple{background:var(--tinci-primary-100);color:var(--tinci-primary-700);}
 .tag-red{background:var(--state-warning-soft);color:#D97706;}
 .tag-teal{background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.35);}
 .tag-orange{background:var(--state-warning-soft);color:var(--state-warning);}
@@ -368,7 +368,7 @@ tbody tr:hover td{background:var(--tinci-primary-50);box-shadow:inset 3px 0 0 va
 .dark tbody tr:hover td{background:rgba(20,184,166,0.14);}
 .dark .tier-section.tier-high{background:rgba(20,184,166,0.10);}
 .dark .tier-section.tier-standard .tier-badge{background:var(--tinci-muted);color:var(--tinci-muted-foreground);}
-.dark .tag-purple{background:rgba(109,79,201,0.16);color:#A78BFA;}
+.dark .tag-purple{background:rgba(20,184,166,0.16);color:var(--tinci-teal);}
 .dark .site-nav .nav-links a:hover,.dark .site-nav .nav-links a.active{background:rgba(20,184,166,0.16);}
 .dark .toc-nav .toc-grid a:hover{background:rgba(20,184,166,0.16);}
 .dark footer{background:var(--tinci-card);border-top:1px solid var(--tinci-border);}
@@ -626,3 +626,16 @@ mark.search-hl.fade{background:transparent;box-shadow:none;}
 .dark mark.search-hl.fade{background:transparent;box-shadow:none;}
 /* 锚点跳转避开 sticky 导航遮挡 */
 section[id],h2[id],h3[id],h4[id]{scroll-margin-top:84px;}
+
+/* ============ Skip Link（无障碍） ============ */
+.skip-link{
+  position:absolute;left:-9999px;top:0;z-index:200;
+  background:var(--tinci-primary);color:#fff;
+  padding:0.7rem 1.3rem;border-radius:0 0 8px 8px;
+  font-size:0.85rem;font-weight:600;text-decoration:none;
+  transition:left 0.15s;
+}
+.skip-link:focus{left:0;}
+
+/* ============ Footer Title（替代页脚 h2） ============ */
+.footer-title{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:0.4rem;}

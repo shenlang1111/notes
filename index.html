@@ -54,11 +54,12 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=1">
-    <link rel="stylesheet" href="shared-components.css?v=12">
+    <link rel="stylesheet" href="tokens.css?v=2">
+    <link rel="stylesheet" href="shared-components.css?v=13">
 </head>
 <body class="min-h-screen font-sans antialiased">
-    <main>
+    <a href="#main" class="skip-link">跳到主内容</a>
+    <main id="main">
 <nav class="site-nav">
   <a href="index.html" class="nav-home">
     <span class="nav-dot"></span>
@@ -66,8 +67,9 @@
   </a>
   <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
     <a href="index.html" class="active">首页</a>
+    <a href="surfactants.html">表活</a>
     <div class="nav-dd">
-      <a href="theory.html" class="dd-trigger">理论 <span class="dd-caret">▾</span></a>
+      <a href="theory.html" class="dd-trigger" aria-haspopup="true">理论 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="theory.html">理论总览</a>
         <a href="fundamentals.html">基础概念与原理</a>
@@ -84,7 +86,7 @@
       </div>
     </div>
     <div class="nav-dd">
-      <a href="products.html" class="dd-trigger">产品 <span class="dd-caret">▾</span></a>
+      <a href="products.html" class="dd-trigger" aria-haspopup="true">产品 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="products.html">产品体系</a>
         <a href="naming-rules.html">命名规则中心</a>
@@ -98,7 +100,7 @@
     <a href="sales.html">销售</a>
     <a href="market.html">市场</a>
     <div class="nav-dd">
-      <a href="finechem-additives.html" class="dd-trigger">精细化工 <span class="dd-caret">▾</span></a>
+      <a href="finechem-additives.html" class="dd-trigger" aria-haspopup="true">精细化工 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="finechem-additives.html">添加剂与助剂</a>
         <a href="finechem-daily-chem.html">日化产品体系</a>
@@ -120,27 +122,29 @@
   <!-- ============ 关键数字 ============ -->
   <!-- 数据来源：wiki 产品页牌号统计（2026-08-05），知识库牌号变更时需同步 -->
   <div class="stat-grid">
-    <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">大表活系列</div></div>
+    <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">大两性系列</div></div>
     <div class="stat-card"><div class="stat-num">29</div><div class="stat-label">个两性牌号</div></div>
     <div class="stat-card"><div class="stat-num">30+</div><div class="stat-label">氨基酸牌号</div></div>
     <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">大表活分类</div></div>
+    <div class="stat-card"><div class="stat-num">18</div><div class="stat-label">卡波姆牌号</div></div>
   </div>
+  <p style="text-align:center;font-size:0.78rem;color:var(--tinci-muted-foreground);margin-top:0.5rem;">⚠ 牌号数量为知识库整理值，部分数据待核实，具体以天赐官方 TDS 为准</p>
 
   <!-- ============ 领域分区 ============ -->
 
   <div class="category-title">知识域 · 表活</div>
   <div class="rp-grid">
-    <a href="surfactants.html" class="rp-card entry"><span class="rp-icon">🧪</span><span class="rp-name">表活知识域（门户）<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">理论（阴/阳/两性/非离子）· 命名规则 · 产品牌号 · 配方 · 销售 · 市场</small></span></a>
+    <a href="surfactants.html" class="rp-card entry"><span class="rp-icon" aria-hidden="true">🧪</span><span class="rp-name">表活知识域（门户）<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">理论（阴/阳/两性/非离子）· 命名规则 · 产品牌号 · 配方 · 销售 · 市场</small></span></a>
   </div>
   <div class="category-title">知识域 · 卡波姆</div>
   <div class="rp-grid">
-    <a href="carbomer.html" class="rp-card entry"><span class="rp-icon">🧪</span><span class="rp-name">卡波姆知识域（门户）<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">理论 · 命名规则 · 产品（18 牌号）· 应用 · 销售 · 药典背书</small></span></a>
+    <a href="carbomer.html" class="rp-card entry"><span class="rp-icon" aria-hidden="true">🧪</span><span class="rp-name">卡波姆知识域（门户）<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">理论 · 命名规则 · 产品（18 牌号）· 应用 · 销售 · 药典背书</small></span></a>
   </div>
   <div class="category-title">精细化工与扩展</div>
   <div class="rp-grid">
-    <a href="finechem-additives.html" class="rp-card"><span class="rp-icon">🔬</span><span class="rp-name">添加剂与助剂<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">增塑剂、热稳定剂、阻燃剂、食品添加剂、香料香精——精细化工全景</small></span></a>
-    <a href="finechem-daily-chem.html" class="rp-card"><span class="rp-icon">🔬</span><span class="rp-name">日化产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">乳液、膏霜、水剂、粉剂——四大剂型与配方基础</small></span></a>
-    <a href="finechem-surfaces.html" class="rp-card"><span class="rp-icon">🔬</span><span class="rp-name">涂料、胶粘剂与展望<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">黏合剂、涂料中的表活应用——精细化工延伸视角</small></span></a>
+    <a href="finechem-additives.html" class="rp-card"><span class="rp-icon" aria-hidden="true">🔬</span><span class="rp-name">添加剂与助剂<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">增塑剂、热稳定剂、阻燃剂、食品添加剂、香料香精——精细化工全景</small></span></a>
+    <a href="finechem-daily-chem.html" class="rp-card"><span class="rp-icon" aria-hidden="true">🔬</span><span class="rp-name">日化产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">乳液、膏霜、水剂、粉剂——四大剂型与配方基础</small></span></a>
+    <a href="finechem-surfaces.html" class="rp-card"><span class="rp-icon" aria-hidden="true">🔬</span><span class="rp-name">涂料、胶粘剂与展望<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">黏合剂、涂料中的表活应用——精细化工延伸视角</small></span></a>
   </div>
   <div class="callout accent2">
     <strong>不知道怎么找？</strong>想懂理论、看牌号、配方案、学话术——从 <a href="surfactants.html">表活知识域</a> 或 <a href="carbomer.html">卡波姆知识域</a> 的门户进去，按栏目直达；牌号名读不懂 → <a href="naming-rules.html">命名规则中心</a>。
@@ -190,7 +194,7 @@
     </main>
 <footer>
   <div class="container">
-    <h2>天赐材料日化知识库</h2>
+    <p class="footer-title">天赐材料日化知识库</p>
     <p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p>
     <p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p>
   </div>
@@ -198,6 +202,6 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=14"></script>
+    <script src="site.js?v=15"></script>
 </body>
 </html>

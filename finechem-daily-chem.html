@@ -54,17 +54,19 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=1">
-    <link rel="stylesheet" href="shared-components.css?v=12">
+    <link rel="stylesheet" href="tokens.css?v=2">
+    <link rel="stylesheet" href="shared-components.css?v=13">
 </head>
 <body class="min-h-screen font-sans antialiased">
-    <main>
+    <a href="#main" class="skip-link">跳到主内容</a>
+    <main id="main">
 <nav class="site-nav">
   <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
   <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
     <a href="index.html">首页</a>
+    <a href="surfactants.html">表活</a>
     <div class="nav-dd">
-      <a href="theory.html" class="dd-trigger">理论 <span class="dd-caret">▾</span></a>
+      <a href="theory.html" class="dd-trigger" aria-haspopup="true">理论 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="theory.html">理论总览</a>
         <a href="fundamentals.html">基础概念与原理</a>
@@ -81,7 +83,7 @@
       </div>
     </div>
     <div class="nav-dd">
-      <a href="products.html" class="dd-trigger">产品 <span class="dd-caret">▾</span></a>
+      <a href="products.html" class="dd-trigger" aria-haspopup="true">产品 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="products.html">产品体系</a>
         <a href="naming-rules.html">命名规则中心</a>
@@ -95,7 +97,7 @@
     <a href="sales.html">销售</a>
     <a href="market.html">市场</a>
     <div class="nav-dd">
-      <a href="finechem-additives.html" class="dd-trigger active">精细化工 <span class="dd-caret">▾</span></a>
+      <a href="finechem-additives.html" class="dd-trigger active" aria-haspopup="true">精细化工 <span class="dd-caret">▾</span></a>
       <div class="dd-menu">
         <a href="finechem-additives.html">添加剂与助剂</a>
         <a href="finechem-daily-chem.html" class="active">日化产品体系</a>
@@ -109,13 +111,13 @@
 
   <!-- ============ Page Hero ============ -->
   <section class="page-hero">
-    <div class="breadcrumb">
+    <nav aria-label="面包屑" class="breadcrumb">
       <a href="index.html">首页</a>
       <span class="bc-sep">›</span>
-      <a href="theory.html">理论</a>
+      <a href="finechem-additives.html">精细化工</a>
       <span class="bc-sep">›</span>
       <span class="bc-current">日化产品体系</span>
-    </div>
+    </nav>
     <h1>精细化工：日用化学品与化妆品</h1>
     <p class="page-hero-desc">《精细化工工艺学》（第四版）核心内容提炼——化妆品原料、剂型、配方设计、防腐体系、流变学</p>
     <div class="page-hero-meta">
@@ -154,7 +156,7 @@
     <h2>二、化妆品的四大剂型</h2>
     <div class="concept-grid">
       <div class="concept-card">
-        <h4>乳化型</h4>
+        <h3>乳化型</h3>
         <p>水+油+乳化剂 → 乳液/膏霜。O/W型（水包油）清爽不油腻，W/O型（油包水）滋润持久。核心是<strong>乳化剂的选择和HLB匹配</strong>。</p>
       </div>
       <div class="concept-card">
@@ -218,7 +220,7 @@
   <section class="section" id="sec-5">
     <h2>五、乳化剂选择原则</h2>
     <p>乳化剂的选择是化妆品配方设计的核心，直接影响乳液稳定性、肤感和功效。主要有三种方法：</p>
-    <h4>HLB法（亲水亲油平衡法）</h4>
+    <h3>HLB法（亲水亲油平衡法）</h3>
     <p>最经典的方法。每种油脂都有其"所需HLB值"，选择与该值匹配的乳化剂或乳化剂组合即可获得稳定乳液。混合乳化剂的HLB按重量加权计算：</p>
     <div class="formula-box">HLB(混合) = (W₁ × HLB₁ + W₂ × HLB₂) / (W₁ + W₂)</div>
     <p>优点是简单直观，缺点是不考虑乳化剂化学结构、温度、电解质等因素的影响。</p>
@@ -265,7 +267,7 @@
         </tbody>
       </table>
     </div>
-    <h4>SPF与PA值</h4>
+    <h3>SPF与PA值</h3>
     <p>SPF（Sun Protection Factor）衡量对UVB（晒伤）的防护能力——SPF 30可阻挡约97%的UVB，SPF 50约98%。PA（Protection Grade of UVA）衡量对UVA（光老化）的防护能力——PA+到PA++++。防晒配方中，防晒剂浓度每增加一倍，SPF不翻倍而是对数增长，因此高SPF产品需要多种防晒剂复配协同。</p>
     <div class="callout accent2">
       <strong>与天赐的关联：</strong>
@@ -368,7 +370,7 @@
   <!-- ============ 十二、与天赐销售的关联 ============ -->
   <section class="section" id="sec-12">
     <h2>十二、与天赐销售的关联</h2>
-    <h4>这本书帮你建立了什么认知框架？</h4>
+    <h3>这本书帮你建立了什么认知框架？</h3>
     <div class="table-wrap">
       <table>
         <thead>
@@ -415,15 +417,15 @@
     <div class="rp-title">相关页面推荐</div>
     <div class="rp-grid">
       <a href="formulation.html" class="rp-card">
-        <span class="rp-icon">🧪</span>
+        <span class="rp-icon" aria-hidden="true">🧪</span>
         <span class="rp-name">配方设计<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">剂型、乳化与流变——配方落地细节</small></span>
       </a>
       <a href="finechem-additives.html" class="rp-card">
-        <span class="rp-icon">🔬</span>
+        <span class="rp-icon" aria-hidden="true">🔬</span>
         <span class="rp-name">助剂与添加剂<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">精细化工全景——配方中的"配角"</small></span>
       </a>
       <a href="products.html" class="rp-card">
-        <span class="rp-icon">🏭</span>
+        <span class="rp-icon" aria-hidden="true">🏭</span>
         <span class="rp-name">产品体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">与天赐产品直接相关的配方品类</small></span>
       </a>
     </div>
@@ -434,7 +436,7 @@
     </main>
 <footer>
   <div class="container">
-    <h2>天赐材料日化知识库</h2>
+    <p class="footer-title">天赐材料日化知识库</p>
     <p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p>
     <p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p>
   </div>
@@ -442,6 +444,6 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=14"></script>
+    <script src="site.js?v=15"></script>
 </body>
 </html>

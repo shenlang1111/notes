@@ -29,6 +29,8 @@
   function initTheme() {
     var nav = document.querySelector('.site-nav');
     var navLinks = document.querySelector('.nav-links');
+    // 任何页面都先应用已存主题（无 .site-nav 的页面如 404 也能继承暗/亮色，避免不应用）
+    applyTheme(savedTheme());
     if (!nav) return;
     themeBtn = document.createElement('button');
     themeBtn.type = 'button';
@@ -40,6 +42,7 @@
     });
     if (navLinks) nav.insertBefore(themeBtn, navLinks);
     else nav.appendChild(themeBtn);
+    // 按钮创建后再次应用，以同步按钮图标/aria-label
     applyTheme(savedTheme());
   }
   initTheme();
