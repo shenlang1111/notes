@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>天赐材料日化知识库</title>
     <meta name="description" content="天赐材料日化知识库 · 首页">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=11">
     <script>(function(){try{var t=localStorage.getItem('tinci-theme');var h=document.documentElement;h.classList.remove('light','dark');if(t==='dark'||(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)){h.classList.add('dark')}else{h.classList.add('light')}}catch(e){document.documentElement.classList.add('light')}})();</script>
-    <script src="vendor/tailwind.browser.js?v=10"></script>
+    <script src="vendor/tailwind.browser.js?v=1010"></script>
     <style type="text/tailwindcss">
   @theme inline {
     --color-background: var(--tinci-background);
@@ -54,8 +54,8 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=2">
-    <link rel="stylesheet" href="shared-components.css?v=13">
+    <link rel="stylesheet" href="tokens.css?v=42">
+    <link rel="stylesheet" href="shared-components.css?v=1813">
 </head>
 <body class="min-h-screen font-sans antialiased">
     <a href="#main" class="skip-link">跳到主内容</a>
@@ -130,15 +130,29 @@
   </div>
   <p style="text-align:center;font-size:0.78rem;color:var(--tinci-muted-foreground);margin-top:0.5rem;">⚠ 牌号数量为知识库整理值，部分数据待核实，具体以天赐官方 TDS 为准</p>
 
-  <!-- ============ 领域分区 ============ -->
+  <!-- ============ 知识库入口 ============ -->
 
-  <div class="category-title">知识域 · 表活</div>
-  <div class="rp-grid">
-    <a href="surfactants.html" class="rp-card entry"><span class="rp-icon" aria-hidden="true">🧪</span><span class="rp-name">表活知识域（门户）<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">理论（阴/阳/两性/非离子）· 命名规则 · 产品牌号 · 配方 · 销售 · 市场</small></span></a>
+  <div class="category-title">知识库 · 表活</div>
+  <div class="domain-grid">
+    <a href="surfactants.html" class="domain-card">
+      <span class="dc-icon" aria-hidden="true">🧪</span>
+      <span class="dc-body">
+        <h3>表活知识库</h3>
+        <p>理论（阴/阳/两性/非离子）· 命名规则 · 产品牌号 · 配方 · 销售 · 市场</p>
+        <span class="dc-link">进入 →</span>
+      </span>
+    </a>
   </div>
-  <div class="category-title">知识域 · 卡波姆</div>
-  <div class="rp-grid">
-    <a href="carbomer.html" class="rp-card entry"><span class="rp-icon" aria-hidden="true">🧪</span><span class="rp-name">卡波姆知识域（门户）<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">理论 · 命名规则 · 产品（18 牌号）· 应用 · 销售 · 药典背书</small></span></a>
+  <div class="category-title">知识库 · 卡波姆</div>
+  <div class="domain-grid">
+    <a href="carbomer.html" class="domain-card">
+      <span class="dc-icon" aria-hidden="true">🧪</span>
+      <span class="dc-body">
+        <h3>卡波姆知识库</h3>
+        <p>理论 · 命名规则 · 产品（18 牌号）· 应用 · 销售 · 药典背书</p>
+        <span class="dc-link">进入 →</span>
+      </span>
+    </a>
   </div>
   <div class="category-title">精细化工与扩展</div>
   <div class="rp-grid">
@@ -147,7 +161,7 @@
     <a href="finechem-surfaces.html" class="rp-card"><span class="rp-icon" aria-hidden="true">🔬</span><span class="rp-name">涂料、胶粘剂与展望<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">黏合剂、涂料中的表活应用——精细化工延伸视角</small></span></a>
   </div>
   <div class="callout accent2">
-    <strong>不知道怎么找？</strong>想懂理论、看牌号、配方案、学话术——从 <a href="surfactants.html">表活知识域</a> 或 <a href="carbomer.html">卡波姆知识域</a> 的门户进去，按栏目直达；牌号名读不懂 → <a href="naming-rules.html">命名规则中心</a>。
+    <strong>不知道怎么找？</strong>想懂理论、看牌号、配方案、学话术——从 <a href="surfactants.html">表活知识库</a> 或 <a href="carbomer.html">卡波姆知识库</a> 进去，按栏目直达；牌号名读不懂 → <a href="naming-rules.html">命名规则中心</a>。
   </div>
 <!-- ============ 最近更新 ============ -->
   <section class="recent-updates">
@@ -155,7 +169,7 @@
     <ul class="ru-list">
       <li class="ru-item">
         <span class="ru-date">2026-08-05</span>
-        <span class="ru-name">知识域门户重构 · 表活/卡波姆各建门户页 · 命名规则独立成中心 · 首页改知识域地图</span>
+        <span class="ru-name">知识库重构 · 表活/卡波姆各建知识库 · 命名规则独立成中心 · 首页改知识库地图</span>
       </li>
       <li class="ru-item">
         <span class="ru-date">2026-08-05</span>
@@ -202,6 +216,6 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=15"></script>
+    <script src="site.js?v=1615"></script>
 </body>
 </html>

@@ -172,14 +172,15 @@ tbody tr:hover td{background:var(--tinci-primary-50);box-shadow:inset 3px 0 0 va
 .concept-card h4{font-size:0.92rem;font-weight:800;margin-bottom:0.35rem;color:var(--tinci-primary);}
 .concept-card p{font-size:0.87rem;color:var(--tinci-muted-foreground);line-height:1.75;}
 
-/* ============ Tags ============ */
-.tag{display:inline-block;font-size:0.7rem;font-weight:700;padding:0.16rem 0.65rem;border-radius:100px;margin-right:0.3rem;white-space:nowrap;letter-spacing:0.02em;}
+/* ============ Tags（彻底单色相：全站仅深青绿系，深浅分层，无第二色相） ============ */
+.tag{display:inline-block;font-size:0.7rem;font-weight:700;padding:0.16rem 0.65rem;border-radius:100px;margin-right:0.3rem;white-space:nowrap;letter-spacing:0.02em;background:var(--tinci-primary-50);color:var(--tinci-primary);}
 .tag-blue{background:var(--tinci-primary-50);color:var(--tinci-primary);}
 .tag-green{background:var(--state-success-soft);color:var(--state-success);}
 .tag-purple{background:var(--tinci-primary-100);color:var(--tinci-primary-700);}
-.tag-red{background:var(--state-warning-soft);color:#D97706;}
+.tag-red{background:var(--state-error-soft);color:var(--state-error);}
 .tag-teal{background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.35);}
 .tag-orange{background:var(--state-warning-soft);color:var(--state-warning);}
+.tag-gray{background:var(--tinci-muted);color:var(--tinci-muted-foreground);}
 
 /* ============ TOC ============ */
 .toc-nav{background:var(--tinci-card);border:1px solid var(--tinci-border);border-radius:var(--tinci-radius-large);padding:1.35rem 1.5rem;margin:1.6rem 0;box-shadow:var(--tinci-shadow-xs);}
@@ -274,6 +275,29 @@ tbody tr:hover td{background:var(--tinci-primary-50);box-shadow:inset 3px 0 0 va
 /* 首页领域分区：入口高亮 */
 .rp-card.entry{background:var(--tinci-primary-50);border-color:rgba(20,184,166,0.45);}
 .rp-card.entry .rp-name{font-weight:800;color:var(--tinci-primary);}
+
+/* ============ 首页知识域大卡（并排横版，两个门户对称） ============ */
+.domain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin:1.4rem 0;}
+.domain-card{
+  display:flex;align-items:stretch;gap:1rem;padding:1.3rem 1.35rem;
+  background:var(--tinci-card);border:1px solid var(--tinci-border);border-radius:var(--tinci-radius-large);
+  text-decoration:none;color:var(--tinci-foreground);box-shadow:var(--tinci-shadow-xs);
+  transition:all 0.22s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;
+}
+.domain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--tinci-nav-grad);opacity:0;transition:opacity 0.22s;}
+.domain-card:hover{border-color:rgba(20,184,166,0.45);box-shadow:var(--tinci-shadow-lg);transform:translateY(-3px);}
+.domain-card:hover::before{opacity:1;}
+.domain-card .dc-icon{
+  flex-shrink:0;width:3.6rem;height:3.6rem;font-size:1.7rem;display:flex;align-items:center;justify-content:center;
+  background:var(--tinci-teal-soft);border-radius:14px;
+}
+.domain-card .dc-body{display:flex;flex-direction:column;justify-content:center;gap:0.35rem;}
+.domain-card h3{font-size:1.08rem;font-weight:800;color:var(--tinci-foreground);letter-spacing:-0.01em;}
+.domain-card p{font-size:0.84rem;color:var(--tinci-muted-foreground);line-height:1.65;}
+.domain-card .dc-link{font-size:0.8rem;font-weight:700;color:var(--tinci-primary);margin-top:0.1rem;}
+.domain-card:hover .dc-link{text-decoration:underline;}
+@media(max-width:768px){.domain-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){.domain-card{flex-direction:column;align-items:flex-start;}}
 .rp-card.entry .rp-icon{filter:saturate(1.1);}
 
 /* ============ 上下篇导航 ============ */
@@ -360,10 +384,10 @@ tbody tr:hover td{background:var(--tinci-primary-50);box-shadow:inset 3px 0 0 va
 /* ============ 暗色模式适配（补充页面内联 token 未覆盖的场景） ============ */
 .dark .callout{background:rgba(20,184,166,0.12);}
 .dark .callout.accent2{background:rgba(20,184,166,0.10);}
-.dark .callout.accent3{background:rgba(5,150,105,0.12);}
-.dark .callout.accent4,.dark .callout.warning{background:rgba(217,119,6,0.12);}
-.dark .card.warning{background:rgba(217,119,6,0.10);}
-.dark .card.success{background:rgba(5,150,105,0.10);}
+.dark .callout.accent3{background:rgba(14,148,136,0.12);}
+.dark .callout.accent4,.dark .callout.warning{background:rgba(11,118,102,0.12);}
+.dark .card.warning{background:rgba(11,118,102,0.10);}
+.dark .card.success{background:rgba(14,148,136,0.10);}
 .dark .formula-box{background:rgba(20,184,166,0.12);}
 .dark tbody tr:hover td{background:rgba(20,184,166,0.14);}
 .dark .tier-section.tier-high{background:rgba(20,184,166,0.10);}
