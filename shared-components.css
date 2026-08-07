@@ -285,13 +285,16 @@ tbody tr:hover td{background:var(--tinci-primary-50);box-shadow:inset 3px 0 0 va
 .rp-card.entry .rp-name{font-weight:800;color:var(--tinci-primary);}
 .rp-card.entry .rp-icon{filter:saturate(1.1);}
 
-/* 竖版大卡（两列并排）——首页扩展区与表活理论窗口共用 */
+/* 竖版大卡（两列并排，含移动端）——首页扩展区与表活理论窗口共用 */
 .rp-grid.cols-2{grid-template-columns:repeat(2,1fr);}
-@media(max-width:640px){.rp-grid.cols-2{grid-template-columns:1fr;}}
 .rp-card.large{flex-direction:column;align-items:flex-start;gap:0.55rem;padding:1.5rem 1.5rem;}
 .rp-card.large .rp-icon{width:3rem;height:3rem;font-size:1.55rem;display:inline-flex;align-items:center;justify-content:center;background:var(--tinci-teal-soft);border-radius:12px;}
 .rp-card.large .rp-name{font-size:1rem;}
-@media(max-width:640px){.rp-card.large{padding:1.2rem 1.1rem;}}
+@media(max-width:640px){
+  .rp-card.large{padding:1rem 0.9rem;gap:0.4rem;}
+  .rp-card.large .rp-icon{width:2.4rem;height:2.4rem;font-size:1.2rem;border-radius:10px;}
+  .rp-card.large .rp-name{font-size:0.88rem;}
+}
 
 /* ============ 上下篇导航 ============ */
 .page-nav{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.5rem 0 1.5rem;}
