@@ -161,6 +161,7 @@ tbody tr:hover td{background:var(--tinci-primary-50);box-shadow:inset 3px 0 0 va
 
 /* ============ Concept Grid ============ */
 .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;margin:1.35rem 0;}
+.concept-grid.stack{grid-template-columns:1fr;} /* 单列堆叠：每张卡横跨整行（栏目总览用，与表活页大栏一致） */
 .concept-card{
   background:var(--tinci-card);border:1px solid var(--tinci-border);border-radius:var(--tinci-radius-large);
   padding:1.2rem 1.3rem;box-shadow:var(--tinci-shadow-xs);
