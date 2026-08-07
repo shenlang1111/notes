@@ -74,13 +74,13 @@
   --tinci-nav-grad: linear-gradient(135deg, #0B7666 0%, #14B8A6 100%);
   --tinci-hero-grad: linear-gradient(135deg, #0A4A42 0%, #0F766E 50%, #14B8A6 110%);
 
-  /* === State Colors (semantic only) — 彻底单色相：全站仅深青绿系，深浅分层 === */
-  --state-success: #0E9488;           /* teal-500 亮青 */
-  --state-success-soft: #E9FAF6;      /* teal-soft */
-  --state-warning: #0B7666;           /* primary-500 中青 */
-  --state-warning-soft: #E6F5F1;      /* primary-50 */
-  --state-error: #084840;             /* primary-700 深青 */
-  --state-error-soft: #CBE8E2;        /* primary-100 */
+  /* === State Colors (semantic only, 同色系深浅区分) === */
+  --state-success: #0E9488;
+  --state-success-soft: #E9FAF6;
+  --state-warning: #0A5F52;
+  --state-warning-soft: #E6F5F1;
+  --state-error: #063130;
+  --state-error-soft: #D5E6E8;
   --state-info: #0B7666;
   --state-info-soft: #E6F5F1;
 

@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>卡波姆销售 · 竞品对标 · 客户问答 · 底层逻辑 · 天赐知识库</title>
-    <meta name="description" content="天赐材料日化知识库 · 卡波姆销售：竞品格局、路博润对标、客户问题速查、底层逻辑">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=11">
+    <title>鍗℃尝濮嗛攢鍞?路 绔炲搧瀵规爣 路 瀹㈡埛闂瓟 路 搴曞眰閫昏緫 路 澶╄祼鐭ヨ瘑搴?/title>
+    <meta name="description" content="澶╄祼鏉愭枡鏃ュ寲鐭ヨ瘑搴?路 鍗℃尝濮嗛攢鍞細绔炲搧鏍煎眬銆佽矾鍗氭鼎瀵规爣銆佸鎴烽棶棰橀€熸煡銆佸簳灞傞€昏緫">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
     <script>(function(){try{var t=localStorage.getItem('tinci-theme');var h=document.documentElement;h.classList.remove('light','dark');if(t==='dark'||(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)){h.classList.add('dark')}else{h.classList.add('light')}}catch(e){document.documentElement.classList.add('light')}})();</script>
-    <script src="vendor/tailwind.browser.js?v=1010"></script>
+    <script src="vendor/tailwind.browser.js?v=10?v=10"></script>
     <style type="text/tailwindcss">
   @theme inline {
     --color-background: var(--tinci-background);
@@ -54,54 +54,54 @@
         background-color: currentColor;
       }
     </style>
-    <link rel="stylesheet" href="tokens.css?v=42">
-    <link rel="stylesheet" href="shared-components.css?v=1813">
+    <link rel="stylesheet" href="tokens.css?v=3">
+    <link rel="stylesheet" href="shared-components.css?v=14">
 </head>
 <body class="min-h-screen font-sans antialiased">
-    <a href="#main" class="skip-link">跳到主内容</a>
+    <a href="#main" class="skip-link">璺冲埌涓诲唴瀹?/a>
     <main id="main">
 <nav class="site-nav">
-  <a href="index.html" class="nav-home"><span class="nav-dot"></span>天赐材料日化知识库</a>
-  <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button><div class="nav-links">
-    <a href="index.html">首页</a>
-    <a href="surfactants.html">表活</a>
+  <a href="index.html" class="nav-home"><span class="nav-dot"></span>澶╄祼鏉愭枡鏃ュ寲鐭ヨ瘑搴?/a>
+  <button class="nav-toggle" aria-label="鎵撳紑鑿滃崟" aria-expanded="false">鈽?/button><div class="nav-links">
+    <a href="index.html">棣栭〉</a>
+    <a href="surfactants.html">琛ㄦ椿</a>
     <div class="nav-dd">
-      <a href="theory.html" class="dd-trigger" aria-haspopup="true">理论 <span class="dd-caret">▾</span></a>
+      <a href="theory.html" class="dd-trigger" aria-haspopup="true">鐞嗚 <span class="dd-caret">鈻?/span></a>
       <div class="dd-menu">
-        <a href="theory.html">理论总览</a>
-        <a href="fundamentals.html">基础概念与原理</a>
-        <a href="amphoteric.html">两性表面活性剂</a>
-        <a href="anionic.html">阴离子表面活性剂</a>
-        <a href="cationic.html">阳离子表面活性剂</a>
-        <a href="nonionic.html">非离子表面活性剂</a>
-        <a href="apg.html">APG 烷基糖苷</a>
-        <a href="synthesis.html">合成工艺</a>
-        <a href="properties.html">核心物化性质</a>
-        <a href="applications.html">应用原理</a>
-        <a href="advanced.html">高阶理论</a>
-        <a href="troubleshooting.html">排故诊断</a>
+        <a href="theory.html">鐞嗚鎬昏</a>
+        <a href="fundamentals.html">鍩虹姒傚康涓庡師鐞?/a>
+        <a href="amphoteric.html">涓ゆ€ц〃闈㈡椿鎬у墏</a>
+        <a href="anionic.html">闃寸瀛愯〃闈㈡椿鎬у墏</a>
+        <a href="cationic.html">闃崇瀛愯〃闈㈡椿鎬у墏</a>
+        <a href="nonionic.html">闈炵瀛愯〃闈㈡椿鎬у墏</a>
+        <a href="apg.html">APG 鐑峰熀绯栬嫹</a>
+        <a href="synthesis.html">鍚堟垚宸ヨ壓</a>
+        <a href="properties.html">鏍稿績鐗╁寲鎬ц川</a>
+        <a href="applications.html">搴旂敤鍘熺悊</a>
+        <a href="advanced.html">楂橀樁鐞嗚</a>
+        <a href="troubleshooting.html">鎺掓晠璇婃柇</a>
       </div>
     </div>
     <div class="nav-dd">
-      <a href="products.html" class="dd-trigger active" aria-haspopup="true">产品 <span class="dd-caret">▾</span></a>
+      <a href="products.html" class="dd-trigger active" aria-haspopup="true">浜у搧 <span class="dd-caret">鈻?/span></a>
       <div class="dd-menu">
-        <a href="products.html">产品体系</a>
-        <a href="naming-rules.html">命名规则中心</a>
-        <a href="carbomer.html">卡波姆体系</a>
-        <a href="carbomer-products.html">卡波姆产品</a>
-        <a href="carbomer-theory.html">卡波姆原理</a>
-        <a href="carbomer-sell.html" class="active">卡波姆销售</a>
+        <a href="products.html">浜у搧浣撶郴</a>
+        <a href="naming-rules.html">鍛藉悕瑙勫垯涓績</a>
+        <a href="carbomer.html">鍗℃尝濮嗕綋绯?/a>
+        <a href="carbomer-products.html">鍗℃尝濮嗕骇鍝?/a>
+        <a href="carbomer-theory.html">鍗℃尝濮嗗師鐞?/a>
+        <a href="carbomer-sell.html" class="active">鍗℃尝濮嗛攢鍞?/a>
       </div>
     </div>
-    <a href="formulation.html">配方</a>
-    <a href="sales.html">销售</a>
-    <a href="market.html">市场</a>
+    <a href="formulation.html">閰嶆柟</a>
+    <a href="sales.html">閿€鍞?/a>
+    <a href="market.html">甯傚満</a>
     <div class="nav-dd">
-      <a href="finechem-additives.html" class="dd-trigger" aria-haspopup="true">精细化工 <span class="dd-caret">▾</span></a>
+      <a href="finechem-additives.html" class="dd-trigger" aria-haspopup="true">绮剧粏鍖栧伐 <span class="dd-caret">鈻?/span></a>
       <div class="dd-menu">
-        <a href="finechem-additives.html">添加剂与助剂</a>
-        <a href="finechem-daily-chem.html">日化产品体系</a>
-        <a href="finechem-surfaces.html">涂料胶粘剂</a>
+        <a href="finechem-additives.html">娣诲姞鍓備笌鍔╁墏</a>
+        <a href="finechem-daily-chem.html">鏃ュ寲浜у搧浣撶郴</a>
+        <a href="finechem-surfaces.html">娑傛枡鑳剁矘鍓?/a>
       </div>
     </div>
   </div>
@@ -111,239 +111,239 @@
 
   <!-- ============ Page Hero ============ -->
   <section class="page-hero">
-    <nav aria-label="面包屑" class="breadcrumb">
-      <a href="index.html">首页</a>
-      <span class="bc-sep">›</span>
-      <a href="products.html">产品</a>
-      <span class="bc-sep">›</span>
-      <a href="carbomer.html">卡波姆体系</a>
-      <span class="bc-sep">›</span>
-      <span class="bc-current">销售实战</span>
+    <nav aria-label="闈㈠寘灞? class="breadcrumb">
+      <a href="index.html">棣栭〉</a>
+      <span class="bc-sep">鈥?/span>
+      <a href="products.html">浜у搧</a>
+      <span class="bc-sep">鈥?/span>
+      <a href="carbomer.html">鍗℃尝濮嗕綋绯?/a>
+      <span class="bc-sep">鈥?/span>
+      <span class="bc-current">閿€鍞疄鎴?/span>
     </nav>
-    <h1>卡波姆销售 · 竞品对标 + 客户问答 + 底层逻辑</h1>
-    <p class="page-hero-desc">体系第 5 层，把前四层变成业绩的临门一脚。面对路博润客户怎么讲、国产压价怎么破、客户问"为什么"怎么接——这里有对标表和话术。</p>
+    <h1>鍗℃尝濮嗛攢鍞?路 绔炲搧瀵规爣 + 瀹㈡埛闂瓟 + 搴曞眰閫昏緫</h1>
+    <p class="page-hero-desc">浣撶郴绗?5 灞傦紝鎶婂墠鍥涘眰鍙樻垚涓氱哗鐨勪复闂ㄤ竴鑴氥€傞潰瀵硅矾鍗氭鼎瀹㈡埛鎬庝箞璁层€佸浗浜у帇浠锋€庝箞鐮淬€佸鎴烽棶"涓轰粈涔?鎬庝箞鎺モ€斺€旇繖閲屾湁瀵规爣琛ㄥ拰璇濇湳銆?/p>
     <div class="page-hero-meta">
-      <span class="tag">第 5 层 · 销售</span>
-      <span class="tag">竞品对标</span>
-      <span class="tag">9 条问答</span>
-      <span class="tag">3 个底层逻辑</span>
+      <span class="tag">绗?5 灞?路 閿€鍞?/span>
+      <span class="tag">绔炲搧瀵规爣</span>
+      <span class="tag">9 鏉￠棶绛?/span>
+      <span class="tag">3 涓簳灞傞€昏緫</span>
     </div>
   </section>
 
   <!-- ============ TOC ============ -->
   <details class="toc-nav" open>
-    <summary>本页目录 · 3 大部分</summary>
+    <summary>鏈〉鐩綍 路 3 澶ч儴鍒?/summary>
     <div class="toc-grid">
-      <a href="#competition"><span class="toc-num">1</span>竞品格局与对标</a>
-      <a href="#faq"><span class="toc-num">2</span>客户问题速查（9 条）</a>
-      <a href="#logic"><span class="toc-num">3</span>卖卡波姆的 3 个底层逻辑</a>
+      <a href="#competition"><span class="toc-num">1</span>绔炲搧鏍煎眬涓庡鏍?/a>
+      <a href="#faq"><span class="toc-num">2</span>瀹㈡埛闂閫熸煡锛? 鏉★級</a>
+      <a href="#logic"><span class="toc-num">3</span>鍗栧崱娉㈠鐨?3 涓簳灞傞€昏緫</a>
     </div>
   </details>
 
-  <!-- ============ 竞品 ============ -->
+  <!-- ============ 绔炲搧 ============ -->
   <section class="section" id="competition">
-    <h2>第 5 层 · 销售：竞品格局与对标</h2>
+    <h2>绗?5 灞?路 閿€鍞細绔炲搧鏍煎眬涓庡鏍?/h2>
 
-    <h3>5.1 竞品格局总览</h3>
+    <h3>5.1 绔炲搧鏍煎眬鎬昏</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>厂商</th><th>品牌</th><th>产地</th><th>市场地位</th></tr></thead>
+        <thead><tr><th>鍘傚晢</th><th>鍝佺墝</th><th>浜у湴</th><th>甯傚満鍦颁綅</th></tr></thead>
         <tbody>
-          <tr><td><strong>路博润（Lubrizol）</strong></td><td>Carbopol、Pemulen</td><td>美国</td><td>行业标杆，技术原创者，全球最大</td></tr>
-          <tr><td><strong>天赐材料（Tinci）</strong></td><td>TC-CARBOMER</td><td>中国</td><td>国产替代龙头（产能占比超 85%，2020 数据 ⚠待核实）</td></tr>
-          <tr><td><strong>Newman Chemicals</strong></td><td>NM-Carbomer</td><td>中国安徽</td><td>国产第二梯队（粉体 4000T/年 + 液体 6000T/年）</td></tr>
-          <tr><td><strong>Evonik / Clariant</strong></td><td>—</td><td>德国 / 瑞士</td><td>特种化学品，卡波非主战场</td></tr>
+          <tr><td><strong>璺崥娑︼紙Lubrizol锛?/strong></td><td>Carbopol銆丳emulen</td><td>缇庡浗</td><td>琛屼笟鏍囨潌锛屾妧鏈師鍒涜€咃紝鍏ㄧ悆鏈€澶?/td></tr>
+          <tr><td><strong>澶╄祼鏉愭枡锛圱inci锛?/strong></td><td>TC-CARBOMER</td><td>涓浗</td><td>鍥戒骇鏇夸唬榫欏ご锛堜骇鑳藉崰姣旇秴 85%锛?020 鏁版嵁 鈿犲緟鏍稿疄锛?/td></tr>
+          <tr><td><strong>Newman Chemicals</strong></td><td>NM-Carbomer</td><td>涓浗瀹夊窘</td><td>鍥戒骇绗簩姊槦锛堢矇浣?4000T/骞?+ 娑蹭綋 6000T/骞达級</td></tr>
+          <tr><td><strong>Evonik / Clariant</strong></td><td>鈥?/td><td>寰峰浗 / 鐟炲＋</td><td>鐗圭鍖栧鍝侊紝鍗℃尝闈炰富鎴樺満</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3>5.2 路博润 Carbopol 全线参数（对标武器库）</h3>
+    <h3>5.2 璺崥娑?Carbopol 鍏ㄧ嚎鍙傛暟锛堝鏍囨鍣ㄥ簱锛?/h3>
     <div class="callout accent2">
-      <strong>先记三句：</strong>Carbopol = 卡波姆代名词（客户认知度高）；路博润只卖卡波姆不卖表活（给不了组合方案）；价格 = 进口关税 + 品牌溢价（贵）。
+      <strong>鍏堣涓夊彞锛?/strong>Carbopol = 鍗℃尝濮嗕唬鍚嶈瘝锛堝鎴疯鐭ュ害楂橈級锛涜矾鍗氭鼎鍙崠鍗℃尝濮嗕笉鍗栬〃娲伙紙缁欎笉浜嗙粍鍚堟柟妗堬級锛涗环鏍?= 杩涘彛鍏崇◣ + 鍝佺墝婧环锛堣吹锛夈€?
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>路博润型号</th><th>类型</th><th>流变</th><th>粘度</th><th>透明度</th><th>耐离子</th><th>典型应用</th></tr></thead>
+        <thead><tr><th>璺崥娑﹀瀷鍙?/th><th>绫诲瀷</th><th>娴佸彉</th><th>绮樺害</th><th>閫忔槑搴?/th><th>鑰愮瀛?/th><th>鍏稿瀷搴旂敤</th></tr></thead>
         <tbody>
-          <tr><td><strong>Carbopol 940</strong></td><td>传统均聚</td><td>短流</td><td>高</td><td>极高</td><td>低</td><td>透明凝胶、膏霜</td></tr>
-          <tr><td><strong>Carbopol 941</strong></td><td>传统均聚</td><td>长流</td><td>低</td><td>极高</td><td>中</td><td>低粘度乳液、凝胶</td></tr>
-          <tr><td><strong>Carbopol 934</strong></td><td>传统均聚</td><td>短流</td><td>中高</td><td>中</td><td>低</td><td>浓凝胶、乳剂、混悬剂（医药）</td></tr>
-          <tr><td><strong>Carbopol 980</strong></td><td>传统均聚</td><td>短流</td><td>高</td><td>极高</td><td>低</td><td>高透明凝胶、水醇凝胶</td></tr>
-          <tr><td><strong>Carbopol 5984</strong></td><td>传统均聚</td><td>短流</td><td>极高</td><td>高</td><td>低</td><td>膏霜乳液流变修饰（&lt;0.2% 低粘 / &gt;0.5% 极高粘）</td></tr>
-          <tr><td><strong>ETD 2020</strong></td><td><strong>疏水改性</strong></td><td>长流</td><td>低</td><td>极高</td><td><strong>高</strong></td><td>清澈凝胶、含盐配方</td></tr>
-          <tr><td><strong>Carbopol 1342</strong></td><td><strong>疏水改性</strong></td><td>长流</td><td>中</td><td>高</td><td><strong>极高</strong></td><td>电解质体系、聚合乳化</td></tr>
-          <tr><td><strong>Ultrez 20</strong></td><td><strong>疏水改性</strong></td><td>长流</td><td>中</td><td>高</td><td>中</td><td>香波、沐浴凝胶、含表活体系</td></tr>
-          <tr><td><strong>Ultrez 21</strong></td><td><strong>疏水改性</strong></td><td>短流</td><td>高</td><td>高</td><td>中</td><td>凝胶、洗涤清洁、高电解质产品</td></tr>
-          <tr><td><strong>Pemulen TR-1/TR-2</strong></td><td>乳化型</td><td>短/长流</td><td>—</td><td>—</td><td>—</td><td>增稠型乳化剂（膏霜/乳液）</td></tr>
-          <tr><td><strong>AQUA SF-1</strong></td><td>液体型</td><td>长流</td><td>—</td><td>高</td><td>—</td><td>液态预中和、表活体系、冷配</td></tr>
+          <tr><td><strong>Carbopol 940</strong></td><td>浼犵粺鍧囪仛</td><td>鐭祦</td><td>楂?/td><td>鏋侀珮</td><td>浣?/td><td>閫忔槑鍑濊兌銆佽啅闇?/td></tr>
+          <tr><td><strong>Carbopol 941</strong></td><td>浼犵粺鍧囪仛</td><td>闀挎祦</td><td>浣?/td><td>鏋侀珮</td><td>涓?/td><td>浣庣矘搴︿钩娑层€佸嚌鑳?/td></tr>
+          <tr><td><strong>Carbopol 934</strong></td><td>浼犵粺鍧囪仛</td><td>鐭祦</td><td>涓珮</td><td>涓?/td><td>浣?/td><td>娴撳嚌鑳躲€佷钩鍓傘€佹贩鎮墏锛堝尰鑽級</td></tr>
+          <tr><td><strong>Carbopol 980</strong></td><td>浼犵粺鍧囪仛</td><td>鐭祦</td><td>楂?/td><td>鏋侀珮</td><td>浣?/td><td>楂橀€忔槑鍑濊兌銆佹按閱囧嚌鑳?/td></tr>
+          <tr><td><strong>Carbopol 5984</strong></td><td>浼犵粺鍧囪仛</td><td>鐭祦</td><td>鏋侀珮</td><td>楂?/td><td>浣?/td><td>鑶忛湝涔虫恫娴佸彉淇グ锛?lt;0.2% 浣庣矘 / &gt;0.5% 鏋侀珮绮橈級</td></tr>
+          <tr><td><strong>ETD 2020</strong></td><td><strong>鐤忔按鏀规€?/strong></td><td>闀挎祦</td><td>浣?/td><td>鏋侀珮</td><td><strong>楂?/strong></td><td>娓呮緢鍑濊兌銆佸惈鐩愰厤鏂?/td></tr>
+          <tr><td><strong>Carbopol 1342</strong></td><td><strong>鐤忔按鏀规€?/strong></td><td>闀挎祦</td><td>涓?/td><td>楂?/td><td><strong>鏋侀珮</strong></td><td>鐢佃В璐ㄤ綋绯汇€佽仛鍚堜钩鍖?/td></tr>
+          <tr><td><strong>Ultrez 20</strong></td><td><strong>鐤忔按鏀规€?/strong></td><td>闀挎祦</td><td>涓?/td><td>楂?/td><td>涓?/td><td>棣欐尝銆佹矏娴村嚌鑳躲€佸惈琛ㄦ椿浣撶郴</td></tr>
+          <tr><td><strong>Ultrez 21</strong></td><td><strong>鐤忔按鏀规€?/strong></td><td>鐭祦</td><td>楂?/td><td>楂?/td><td>涓?/td><td>鍑濊兌銆佹礂娑ゆ竻娲併€侀珮鐢佃В璐ㄤ骇鍝?/td></tr>
+          <tr><td><strong>Pemulen TR-1/TR-2</strong></td><td>涔冲寲鍨?/td><td>鐭?闀挎祦</td><td>鈥?/td><td>鈥?/td><td>鈥?/td><td>澧炵鍨嬩钩鍖栧墏锛堣啅闇?涔虫恫锛?/td></tr>
+          <tr><td><strong>AQUA SF-1</strong></td><td>娑蹭綋鍨?/td><td>闀挎祦</td><td>鈥?/td><td>楂?/td><td>鈥?/td><td>娑叉€侀涓拰銆佽〃娲讳綋绯汇€佸喎閰?/td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3>5.3 天赐 ↔ 路博润对标关系</h3>
+    <h3>5.3 澶╄祼 鈫?璺崥娑﹀鏍囧叧绯?/h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>天赐牌号</th><th>路博润对标</th><th>类型</th><th>备注</th></tr></thead>
+        <thead><tr><th>澶╄祼鐗屽彿</th><th>璺崥娑﹀鏍?/th><th>绫诲瀷</th><th>澶囨敞</th></tr></thead>
         <tbody>
-          <tr><td><strong>TC-CARBOMER 380</strong></td><td>Carbopol 980</td><td>传统型</td><td>短流高透明旗舰款 ⚠</td></tr>
-          <tr><td><strong>TC-CARBOMER FD980</strong></td><td>Carbopol 980</td><td>传统型（易分散）</td><td>980 的易分散版 ⚠</td></tr>
-          <tr><td><strong>TC-CARBOMER 396</strong></td><td>Carbopol 5984 类</td><td>传统型（高粘）</td><td>全系最高粘，同量增稠效率最高 ⚠</td></tr>
-          <tr><td><strong>TC-CARBOMER FD2010/2020</strong></td><td>ETD 2020</td><td>疏水改性</td><td>长流耐盐 ⚠</td></tr>
-          <tr><td><strong>TC-CARBOMER FD21</strong></td><td>Ultrez 21 类</td><td>疏水改性（易分散）</td><td>短流耐盐 + 最快分散 ⚠</td></tr>
+          <tr><td><strong>TC-CARBOMER 380</strong></td><td>Carbopol 980</td><td>浼犵粺鍨?/td><td>鐭祦楂橀€忔槑鏃楄埌娆?鈿?/td></tr>
+          <tr><td><strong>TC-CARBOMER FD980</strong></td><td>Carbopol 980</td><td>浼犵粺鍨嬶紙鏄撳垎鏁ｏ級</td><td>980 鐨勬槗鍒嗘暎鐗?鈿?/td></tr>
+          <tr><td><strong>TC-CARBOMER 396</strong></td><td>Carbopol 5984 绫?/td><td>浼犵粺鍨嬶紙楂樼矘锛?/td><td>鍏ㄧ郴鏈€楂樼矘锛屽悓閲忓绋犳晥鐜囨渶楂?鈿?/td></tr>
+          <tr><td><strong>TC-CARBOMER FD2010/2020</strong></td><td>ETD 2020</td><td>鐤忔按鏀规€?/td><td>闀挎祦鑰愮洂 鈿?/td></tr>
+          <tr><td><strong>TC-CARBOMER FD21</strong></td><td>Ultrez 21 绫?/td><td>鐤忔按鏀规€э紙鏄撳垎鏁ｏ級</td><td>鐭祦鑰愮洂 + 鏈€蹇垎鏁?鈿?/td></tr>
         </tbody>
       </table>
     </div>
     <div class="callout warning">
-      <strong>⚠ 对标关系为公开供应商信息 / 行业对标推断，非天赐官方确认</strong>——销售时建议说"性能对标、参数同级"，别把"= 路博润 XX"说死；正式对标以天赐官方资料为准。
+      <strong>鈿?瀵规爣鍏崇郴涓哄叕寮€渚涘簲鍟嗕俊鎭?/ 琛屼笟瀵规爣鎺ㄦ柇锛岄潪澶╄祼瀹樻柟纭</strong>鈥斺€旈攢鍞椂寤鸿璇?鎬ц兘瀵规爣銆佸弬鏁板悓绾?锛屽埆鎶?= 璺崥娑?XX"璇存锛涙寮忓鏍囦互澶╄祼瀹樻柟璧勬枡涓哄噯銆?
     </div>
 
-    <h3>5.4 天赐差异化优势（面对竞品的话术底座）</h3>
+    <h3>5.4 澶╄祼宸紓鍖栦紭鍔匡紙闈㈠绔炲搧鐨勮瘽鏈簳搴э級</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>维度</th><th>天赐</th><th>路博润</th></tr></thead>
+        <thead><tr><th>缁村害</th><th>澶╄祼</th><th>璺崥娑?/th></tr></thead>
         <tbody>
-          <tr><td><strong>价格</strong></td><td>国产价格优势（约路博润 60-80%）</td><td>品牌溢价高</td></tr>
-          <tr><td><strong>供应</strong></td><td>本土生产，交期短，库存灵活</td><td>进口周期长，受国际物流影响</td></tr>
-          <tr><td><strong>组合方案</strong></td><td><strong>表活 + 卡波姆一起卖</strong></td><td>只卖卡波姆</td></tr>
-          <tr><td><strong>技术壁垒</strong></td><td>二十多年卡波积累、无盐专利（TF 系列）、一锅法合成</td><td>60+ 年原创技术</td></tr>
-          <tr><td><strong>品牌认知</strong></td><td>客户习惯说"用 Carbopol"——需用样品和数据建立信任</td><td>Carbopol = 代名词</td></tr>
+          <tr><td><strong>浠锋牸</strong></td><td>鍥戒骇浠锋牸浼樺娍锛堢害璺崥娑?60-80%锛?/td><td>鍝佺墝婧环楂?/td></tr>
+          <tr><td><strong>渚涘簲</strong></td><td>鏈湡鐢熶骇锛屼氦鏈熺煭锛屽簱瀛樼伒娲?/td><td>杩涘彛鍛ㄦ湡闀匡紝鍙楀浗闄呯墿娴佸奖鍝?/td></tr>
+          <tr><td><strong>缁勫悎鏂规</strong></td><td><strong>琛ㄦ椿 + 鍗℃尝濮嗕竴璧峰崠</strong></td><td>鍙崠鍗℃尝濮?/td></tr>
+          <tr><td><strong>鎶€鏈鍨?/strong></td><td>浜屽崄澶氬勾鍗℃尝绉疮銆佹棤鐩愪笓鍒╋紙TF 绯诲垪锛夈€佷竴閿呮硶鍚堟垚</td><td>60+ 骞村師鍒涙妧鏈?/td></tr>
+          <tr><td><strong>鍝佺墝璁ょ煡</strong></td><td>瀹㈡埛涔犳儻璇?鐢?Carbopol"鈥斺€旈渶鐢ㄦ牱鍝佸拰鏁版嵁寤虹珛淇′换</td><td>Carbopol = 浠ｅ悕璇?/td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- ============ 客户问答 ============ -->
+  <!-- ============ 瀹㈡埛闂瓟 ============ -->
   <section class="section" id="faq">
-    <h2>客户问题速查 · 客户说，你答（9 条）</h2>
-    <p>一线销售实战速查——客户常见问题，对应推荐牌号和话术。</p>
+    <h2>瀹㈡埛闂閫熸煡 路 瀹㈡埛璇达紝浣犵瓟锛? 鏉★級</h2>
+    <p>涓€绾块攢鍞疄鎴橀€熸煡鈥斺€斿鎴峰父瑙侀棶棰橈紝瀵瑰簲鎺ㄨ崘鐗屽彿鍜岃瘽鏈€?/p>
 
     <div class="table-wrap">
       <table>
-        <thead><tr><th>客户说</th><th>推荐牌号</th><th>话术要点</th></tr></thead>
+        <thead><tr><th>瀹㈡埛璇?/th><th>鎺ㄨ崘鐗屽彿</th><th>璇濇湳瑕佺偣</th></tr></thead>
         <tbody>
           <tr>
-            <td><strong>"卡波姆结块，分散不开"</strong></td>
-            <td>FD21（≤6min）<br>FD980 / FD10</td>
-            <td>"结块是普通卡波姆的通病——外层先吸水变粘，把里面的粉包住了。FD 系列做了表面润湿处理，水直接渗进颗粒，免浸泡、免高速剪切。您先试试 FD21，最快 6 分钟润湿。"</td>
+            <td><strong>"鍗℃尝濮嗙粨鍧楋紝鍒嗘暎涓嶅紑"</strong></td>
+            <td>FD21锛堚墹6min锛?br>FD980 / FD10</td>
+            <td>"缁撳潡鏄櫘閫氬崱娉㈠鐨勯€氱梾鈥斺€斿灞傚厛鍚告按鍙樼矘锛屾妸閲岄潰鐨勭矇鍖呬綇浜嗐€侳D 绯诲垪鍋氫簡琛ㄩ潰娑︽箍澶勭悊锛屾按鐩存帴娓楄繘棰楃矑锛屽厤娴告场銆佸厤楂橀€熷壀鍒囥€傛偍鍏堣瘯璇?FD21锛屾渶蹇?6 鍒嗛挓娑︽箍銆?</td>
           </tr>
           <tr>
-            <td><strong>"凝胶不透明，发白发雾"</strong></td>
-            <td>640（≥95% 最透明）</td>
-            <td>"先排查两件事：①pH 中和到位没有（pH 6-7 才最透）；②配方里有没有盐/离子。如果都正常还想要更透，换 640——全系透光率最高，≥95%，透明啫喱、水晶皂都用它。"</td>
+            <td><strong>"鍑濊兌涓嶉€忔槑锛屽彂鐧藉彂闆?</strong></td>
+            <td>640锛堚墺95% 鏈€閫忔槑锛?/td>
+            <td>"鍏堟帓鏌ヤ袱浠朵簨锛氣憼pH 涓拰鍒颁綅娌℃湁锛坧H 6-7 鎵嶆渶閫忥級锛涒憽閰嶆柟閲屾湁娌℃湁鐩?绂诲瓙銆傚鏋滈兘姝ｅ父杩樻兂瑕佹洿閫忥紝鎹?640鈥斺€斿叏绯婚€忓厜鐜囨渶楂橈紝鈮?5%锛岄€忔槑鍟柋銆佹按鏅剁殏閮界敤瀹冦€?</td>
           </tr>
           <tr>
-            <td><strong>"一加盐就变稀"</strong></td>
-            <td>FD20 / FD21（短流）<br>FD2010 / FD2020（长流）</td>
-            <td>"这是卡波姆的物理本性——盐离子把撑开网络的电荷屏蔽了，网塌了当然稀。要耐盐，得用疏水改性的 FD 系列，它除了电荷还靠'油锚'勾住网络，1% NaCl 实测不塌。您配方里盐大概多少？我帮您挑短流还是长流。"</td>
+            <td><strong>"涓€鍔犵洂灏卞彉绋€"</strong></td>
+            <td>FD20 / FD21锛堢煭娴侊級<br>FD2010 / FD2020锛堥暱娴侊級</td>
+            <td>"杩欐槸鍗℃尝濮嗙殑鐗╃悊鏈€р€斺€旂洂绂诲瓙鎶婃拺寮€缃戠粶鐨勭數鑽峰睆钄戒簡锛岀綉濉屼簡褰撶劧绋€銆傝鑰愮洂锛屽緱鐢ㄧ枏姘存敼鎬х殑 FD 绯诲垪锛屽畠闄や簡鐢佃嵎杩橀潬'娌归敋'鍕句綇缃戠粶锛?% NaCl 瀹炴祴涓嶅銆傛偍閰嶆柟閲岀洂澶ф澶氬皯锛熸垜甯偍鎸戠煭娴佽繕鏄暱娴併€?</td>
           </tr>
           <tr>
-            <td><strong>"做免洗消毒凝胶发白"</strong></td>
-            <td>351（乙醇相容）</td>
-            <td>"乙醇浓度超过 70%，普通卡波姆撑网的电就被抽走了，网络缩成一团就发白。351 是专门为乙醇体系设计的，70% 乙醇下透光率还能保持 ≥85%。我们寄样品您对比一下，高下立判。"</td>
+            <td><strong>"鍋氬厤娲楁秷姣掑嚌鑳跺彂鐧?</strong></td>
+            <td>351锛堜箼閱囩浉瀹癸級</td>
+            <td>"涔欓唶娴撳害瓒呰繃 70%锛屾櫘閫氬崱娉㈠鎾戠綉鐨勭數灏辫鎶借蛋浜嗭紝缃戠粶缂╂垚涓€鍥㈠氨鍙戠櫧銆?51 鏄笓闂ㄤ负涔欓唶浣撶郴璁捐鐨勶紝70% 涔欓唶涓嬮€忓厜鐜囪繕鑳戒繚鎸?鈮?5%銆傛垜浠瘎鏍峰搧鎮ㄥ姣斾竴涓嬶紝楂樹笅绔嬪垽銆?</td>
           </tr>
           <tr>
-            <td><strong>"做婴童产品，担心溶剂残留"</strong></td>
-            <td>340H / 381 / 380（无苯）</td>
-            <td>"普通卡波姆有的用苯做溶剂，会有苯残留（如 340/341/396 ≤0.50%，符合 USP 通用级限值）。婴童和出口产品建议用无苯系列：340H、381、380。医药级的 356 更彻底，无苯无环己烷，残留丙烯酸全系最低。"</td>
+            <td><strong>"鍋氬┐绔ヤ骇鍝侊紝鎷呭績婧跺墏娈嬬暀"</strong></td>
+            <td>340H / 381 / 380锛堟棤鑻級</td>
+            <td>"鏅€氬崱娉㈠鏈夌殑鐢ㄨ嫰鍋氭憾鍓傦紝浼氭湁鑻畫鐣欙紙濡?340/341/396 鈮?.50%锛岀鍚?USP 閫氱敤绾ч檺鍊硷級銆傚┐绔ュ拰鍑哄彛浜у搧寤鸿鐢ㄦ棤鑻郴鍒楋細340H銆?81銆?80銆傚尰鑽骇鐨?356 鏇村交搴曪紝鏃犺嫰鏃犵幆宸辩兎锛屾畫鐣欎笝鐑吀鍏ㄧ郴鏈€浣庛€?</td>
           </tr>
           <tr>
-            <td><strong>"做牙膏/口腔产品"</strong></td>
-            <td>356（医药级）</td>
-            <td>"口腔产品建议直接用医药级 356——无苯无环己烷，残留丙烯酸 ≤0.1% 全系最低，过得了口腔安全要求。您可以拿现有供应商的规格书对比残留指标。"</td>
+            <td><strong>"鍋氱墮鑶?鍙ｈ厰浜у搧"</strong></td>
+            <td>356锛堝尰鑽骇锛?/td>
+            <td>"鍙ｈ厰浜у搧寤鸿鐩存帴鐢ㄥ尰鑽骇 356鈥斺€旀棤鑻棤鐜繁鐑凤紝娈嬬暀涓欑儻閰?鈮?.1% 鍏ㄧ郴鏈€浣庯紝杩囧緱浜嗗彛鑵斿畨鍏ㄨ姹傘€傛偍鍙互鎷跨幇鏈変緵搴斿晢鐨勮鏍间功瀵规瘮娈嬬暀鎸囨爣銆?</td>
           </tr>
           <tr>
-            <td><strong>"粘度上不去"</strong></td>
-            <td>396（全系最高粘）</td>
-            <td>"先问 pH 中和到位没有——90% 的'粘度不够'是 pH 没调到位（目标 pH 6-11，1g 卡波姆约 0.4g NaOH）。如果 pH 没问题还嫌不够稠，换 396，0.5% 就有 68000-80000，全系最高，还能帮您省用量成本。"</td>
+            <td><strong>"绮樺害涓婁笉鍘?</strong></td>
+            <td>396锛堝叏绯绘渶楂樼矘锛?/td>
+            <td>"鍏堥棶 pH 涓拰鍒颁綅娌℃湁鈥斺€?0% 鐨?绮樺害涓嶅'鏄?pH 娌¤皟鍒颁綅锛堢洰鏍?pH 6-11锛?g 鍗℃尝濮嗙害 0.4g NaOH锛夈€傚鏋?pH 娌￠棶棰樿繕瀚屼笉澶熺锛屾崲 396锛?.5% 灏辨湁 68000-80000锛屽叏绯绘渶楂橈紝杩樿兘甯偍鐪佺敤閲忔垚鏈€?</td>
           </tr>
           <tr>
-            <td><strong>"想走 ESG，要绿色原料"</strong></td>
+            <td><strong>"鎯宠蛋 ESG锛岃缁胯壊鍘熸枡"</strong></td>
             <td>TC-BIO-CARBOMER 380</td>
-            <td>"BIO 380 用 95% 生物质原料，拿了 ISCC+ 认证，碳足迹比常规低 50%，性能跟 380 完全一致，可以直接 1:1 替换，配方都不用改。国际大牌供应链现在很认这个。"</td>
+            <td>"BIO 380 鐢?95% 鐢熺墿璐ㄥ師鏂欙紝鎷夸簡 ISCC+ 璁よ瘉锛岀⒊瓒宠抗姣斿父瑙勪綆 50%锛屾€ц兘璺?380 瀹屽叏涓€鑷达紝鍙互鐩存帴 1:1 鏇挎崲锛岄厤鏂归兘涓嶇敤鏀广€傚浗闄呭ぇ鐗屼緵搴旈摼鐜板湪寰堣杩欎釜銆?</td>
           </tr>
           <tr>
-            <td><strong>"进口卡波姆太贵/断货"</strong></td>
-            <td>380（对标路博润 980 ⚠）</td>
-            <td>"天赐是国内主要卡波姆供应商之一，供应稳定、价格约路博润 60-80%。380 是旗舰款，短流高透明，性能对标 Carbopol 980。而且我们跟路博润不一样——我们表活、卡波姆一起卖，能给您组合方案。"</td>
+            <td><strong>"杩涘彛鍗℃尝濮嗗お璐?鏂揣"</strong></td>
+            <td>380锛堝鏍囪矾鍗氭鼎 980 鈿狅級</td>
+            <td>"澶╄祼鏄浗鍐呬富瑕佸崱娉㈠渚涘簲鍟嗕箣涓€锛屼緵搴旂ǔ瀹氥€佷环鏍肩害璺崥娑?60-80%銆?80 鏄棗鑸版锛岀煭娴侀珮閫忔槑锛屾€ц兘瀵规爣 Carbopol 980銆傝€屼笖鎴戜滑璺熻矾鍗氭鼎涓嶄竴鏍封€斺€旀垜浠〃娲汇€佸崱娉㈠涓€璧峰崠锛岃兘缁欐偍缁勫悎鏂规銆?</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="callout accent3">
-      <strong>速查口诀：</strong>结块找 FD，发白换 351，怕盐上 FD 四兄弟，婴童选无苯（340H/381），口腔用 356，要稠上 396，要透上 640，ESG 用 BIO 380。
+      <strong>閫熸煡鍙ｈ瘈锛?/strong>缁撳潡鎵?FD锛屽彂鐧芥崲 351锛屾€曠洂涓?FD 鍥涘厔寮燂紝濠寸閫夋棤鑻紙340H/381锛夛紝鍙ｈ厰鐢?356锛岃绋犱笂 396锛岃閫忎笂 640锛孍SG 鐢?BIO 380銆?
     </div>
   </section>
 
-  <!-- ============ 底层逻辑 ============ -->
+  <!-- ============ 搴曞眰閫昏緫 ============ -->
   <section class="section" id="logic">
-    <h2>卖卡波姆的 3 个底层逻辑</h2>
+    <h2>鍗栧崱娉㈠鐨?3 涓簳灞傞€昏緫</h2>
 
     <div class="concept-grid">
       <div class="concept-card">
-        <h3>① 卡波姆是表活的"自然延伸"</h3>
-        <p>客户买了你的表活，必然遇到增稠问题（含盐/透明/结块）。卖表活时问一句："增稠体系定了吗？有没有遇到过盐析、结块、不透明？"——卡波姆不是硬推，是帮客户解决配方痛点。</p>
+        <h3>鈶?鍗℃尝濮嗘槸琛ㄦ椿鐨?鑷劧寤朵几"</h3>
+        <p>瀹㈡埛涔颁簡浣犵殑琛ㄦ椿锛屽繀鐒堕亣鍒板绋犻棶棰橈紙鍚洂/閫忔槑/缁撳潡锛夈€傚崠琛ㄦ椿鏃堕棶涓€鍙ワ細"澧炵浣撶郴瀹氫簡鍚楋紵鏈夋病鏈夐亣鍒拌繃鐩愭瀽銆佺粨鍧椼€佷笉閫忔槑锛?鈥斺€斿崱娉㈠涓嶆槸纭帹锛屾槸甯鎴疯В鍐抽厤鏂圭棝鐐广€?/p>
       </div>
       <div class="concept-card">
-        <h4>② 天赐卖的是"组合方案"</h4>
-        <p>路博润只卖卡波姆，天赐表活+卡波姆一起卖。氨基酸表活难增稠 → CAB 协同 + 卡波姆双保险；无硫酸盐透明体系 → CAB 35TF + 340H/640 双透明。竞品给不了"清洁+增稠"一单打包。</p>
+        <h4>鈶?澶╄祼鍗栫殑鏄?缁勫悎鏂规"</h4>
+        <p>璺崥娑﹀彧鍗栧崱娉㈠锛屽ぉ璧愯〃娲?鍗℃尝濮嗕竴璧峰崠銆傛皑鍩洪吀琛ㄦ椿闅惧绋?鈫?CAB 鍗忓悓 + 鍗℃尝濮嗗弻淇濋櫓锛涙棤纭吀鐩愰€忔槑浣撶郴 鈫?CAB 35TF + 340H/640 鍙岄€忔槑銆傜珵鍝佺粰涓嶄簡"娓呮磥+澧炵"涓€鍗曟墦鍖呫€?/p>
       </div>
       <div class="concept-card">
-        <h4>③ 用原理建立信任，用数据收口</h4>
-        <p>客户问"为什么"，你从分子层答（电荷撑网、油锚耐盐、乙醇去溶剂化）——客户觉得你懂行；然后马上用 TDS 数据收口（1% NaCl 实测 ≥4000、70% 乙醇 ≥85%、透光率 ≥95%）+ 药典背书（CIR 上限 15%、高分子豁免）。原理立信任，数据促下单。</p>
+        <h4>鈶?鐢ㄥ師鐞嗗缓绔嬩俊浠伙紝鐢ㄦ暟鎹敹鍙?/h4>
+        <p>瀹㈡埛闂?涓轰粈涔?锛屼綘浠庡垎瀛愬眰绛旓紙鐢佃嵎鎾戠綉銆佹补閿氳€愮洂銆佷箼閱囧幓婧跺墏鍖栵級鈥斺€斿鎴疯寰椾綘鎳傝锛涚劧鍚庨┈涓婄敤 TDS 鏁版嵁鏀跺彛锛?% NaCl 瀹炴祴 鈮?000銆?0% 涔欓唶 鈮?5%銆侀€忓厜鐜?鈮?5%锛? 鑽吀鑳屼功锛圕IR 涓婇檺 15%銆侀珮鍒嗗瓙璞佸厤锛夈€傚師鐞嗙珛淇′换锛屾暟鎹績涓嬪崟銆?/p>
       </div>
     </div>
 
     <div class="callout accent2">
-      <strong>与表活的组合销售（牌号级）：</strong>常规个护 → CAB 35 + 380/FD980；无硫酸盐婴童 → CAB 35TF + 340H（无盐无苯双保险）；氨基酸体系 → 氨基酸表活 + CAB 35 + FD21（耐盐）；透明极致 → CAB 35TF + 640；免洗消毒凝胶 → 温和表活 + 351；口腔 → MAB 40LDL + 356；家居清洁 → CAB 35/氧化胺 + 276/396；ESG → RSPO 表活 + BIO 380。
+      <strong>涓庤〃娲荤殑缁勫悎閿€鍞紙鐗屽彿绾э級锛?/strong>甯歌涓姢 鈫?CAB 35 + 380/FD980锛涙棤纭吀鐩愬┐绔?鈫?CAB 35TF + 340H锛堟棤鐩愭棤鑻弻淇濋櫓锛夛紱姘ㄥ熀閰镐綋绯?鈫?姘ㄥ熀閰歌〃娲?+ CAB 35 + FD21锛堣€愮洂锛夛紱閫忔槑鏋佽嚧 鈫?CAB 35TF + 640锛涘厤娲楁秷姣掑嚌鑳?鈫?娓╁拰琛ㄦ椿 + 351锛涘彛鑵?鈫?MAB 40LDL + 356锛涘灞呮竻娲?鈫?CAB 35/姘у寲鑳?+ 276/396锛汦SG 鈫?RSPO 琛ㄦ椿 + BIO 380銆?
     </div>
   </section>
 
-  <!-- ============ 数据来源 ============ -->
+  <!-- ============ 鏁版嵁鏉ユ簮 ============ -->
   <section class="section" id="sources">
-    <h2>数据来源与可信度</h2>
+    <h2>鏁版嵁鏉ユ簮涓庡彲淇″害</h2>
     <ol>
-      <li><strong>Lubrizol 中文官网 + 金锄头（路博润官方数据整理）</strong>——Carbopol 全线参数、INCI 名</li>
-      <li><strong>Newman Chemicals 官网</strong>——国产第二梯队产能数据</li>
-      <li><strong>天赐产品 TDS（18 张）</strong>——话术中的全部牌号参数</li>
-      <li><strong>中国药典 2020 / USP-NF</strong>——安全口径、中和换算（S 级）</li>
+      <li><strong>Lubrizol 涓枃瀹樼綉 + 閲戦攧澶达紙璺崥娑﹀畼鏂规暟鎹暣鐞嗭級</strong>鈥斺€擟arbopol 鍏ㄧ嚎鍙傛暟銆両NCI 鍚?/li>
+      <li><strong>Newman Chemicals 瀹樼綉</strong>鈥斺€斿浗浜х浜屾闃熶骇鑳芥暟鎹?/li>
+      <li><strong>澶╄祼浜у搧 TDS锛?8 寮狅級</strong>鈥斺€旇瘽鏈腑鐨勫叏閮ㄧ墝鍙峰弬鏁?/li>
+      <li><strong>涓浗鑽吀 2020 / USP-NF</strong>鈥斺€斿畨鍏ㄥ彛寰勩€佷腑鍜屾崲绠楋紙S 绾э級</li>
     </ol>
     <div class="callout warning">
-      <strong>可信度标注：</strong>对标关系（380↔980 等）、BIO 380 可 1:1 替换、天赐产能占比 85% 为 ⚠ 推测/待核实；Carbopol 全线参数来自路博润官方整理（A/B 级）；其余为 TDS 实证。具体以天赐官方资料为准。
+      <strong>鍙俊搴︽爣娉細</strong>瀵规爣鍏崇郴锛?80鈫?80 绛夛級銆丅IO 380 鍙?1:1 鏇挎崲銆佸ぉ璧愪骇鑳藉崰姣?85% 涓?鈿?鎺ㄦ祴/寰呮牳瀹烇紱Carbopol 鍏ㄧ嚎鍙傛暟鏉ヨ嚜璺崥娑﹀畼鏂规暣鐞嗭紙A/B 绾э級锛涘叾浣欎负 TDS 瀹炶瘉銆傚叿浣撲互澶╄祼瀹樻柟璧勬枡涓哄噯銆?
     </div>
   </section>
 
-  <!-- ============ 上下篇导航 ============ -->
+  <!-- ============ 涓婁笅绡囧鑸?============ -->
   <nav class="page-nav">
     <a href="carbomer-products.html" class="nav-link prev">
-      <span class="nav-label">上一篇 · 第 3+4 层</span>
-      <span class="nav-title">卡波姆产品（18 牌号 + 选型）</span>
+      <span class="nav-label">涓婁竴绡?路 绗?3+4 灞?/span>
+      <span class="nav-title">鍗℃尝濮嗕骇鍝侊紙18 鐗屽彿 + 閫夊瀷锛?/span>
     </a>
     <a href="carbomer.html" class="nav-link next">
-      <span class="nav-label">返回 · 体系入口</span>
-      <span class="nav-title">卡波姆知识体系</span>
+      <span class="nav-label">杩斿洖 路 浣撶郴鍏ュ彛</span>
+      <span class="nav-title">鍗℃尝濮嗙煡璇嗕綋绯?/span>
     </a>
   </nav>
 
-  <!-- ============ 相关页面推荐 ============ -->
+  <!-- ============ 鐩稿叧椤甸潰鎺ㄨ崘 ============ -->
   <div class="related-pages">
-    <div class="rp-title">相关页面推荐</div>
+    <div class="rp-title">鐩稿叧椤甸潰鎺ㄨ崘</div>
     <div class="rp-grid">
       <a href="carbomer.html" class="rp-card">
-        <span class="rp-icon" aria-hidden="true">🗺️</span>
-        <span class="rp-name">卡波姆知识体系<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">六层地图 · 学习路径</small></span>
+        <span class="rp-icon" aria-hidden="true">馃椇锔?/span>
+        <span class="rp-name">鍗℃尝濮嗙煡璇嗕綋绯?br><small style="color:var(--tinci-muted-foreground);font-weight:400;">鍏眰鍦板浘 路 瀛︿範璺緞</small></span>
       </a>
       <a href="carbomer-products.html" class="rp-card">
-        <span class="rp-icon" aria-hidden="true">🏭</span>
-        <span class="rp-name">卡波姆产品<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">18 牌号 · 选型决策树 · 操作</small></span>
+        <span class="rp-icon" aria-hidden="true">馃彮</span>
+        <span class="rp-name">鍗℃尝濮嗕骇鍝?br><small style="color:var(--tinci-muted-foreground);font-weight:400;">18 鐗屽彿 路 閫夊瀷鍐崇瓥鏍?路 鎿嶄綔</small></span>
       </a>
       <a href="carbomer-theory.html" class="rp-card">
-        <span class="rp-icon" aria-hidden="true">🧠</span>
-        <span class="rp-name">卡波姆原理<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">定位 · 8 个为什么 · 安全</small></span>
+        <span class="rp-icon" aria-hidden="true">馃</span>
+        <span class="rp-name">鍗℃尝濮嗗師鐞?br><small style="color:var(--tinci-muted-foreground);font-weight:400;">瀹氫綅 路 8 涓负浠€涔?路 瀹夊叏</small></span>
       </a>
       <a href="sales.html" class="rp-card">
-        <span class="rp-icon" aria-hidden="true">💬</span>
-        <span class="rp-name">销售实战<br><small style="color:var(--tinci-muted-foreground);font-weight:400;">六大核心话术 · 9 场景</small></span>
+        <span class="rp-icon" aria-hidden="true">馃挰</span>
+        <span class="rp-name">閿€鍞疄鎴?br><small style="color:var(--tinci-muted-foreground);font-weight:400;">鍏ぇ鏍稿績璇濇湳 路 9 鍦烘櫙</small></span>
       </a>
     </div>
   </div>
@@ -351,10 +351,10 @@
 </div>
 
     </main>
-<footer><div class="container"><p class="footer-title">天赐材料日化知识库</p><p style="margin-bottom:0.5rem;">个人进化系统 · 表面活性剂销售的知识沉淀</p><p style="font-size:0.8rem;">基于 wiki 知识库生成 · 深青渐变设计系统 · 2026-08</p></div></footer>
-<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+<footer><div class="container"><p class="footer-title">澶╄祼鏉愭枡鏃ュ寲鐭ヨ瘑搴?/p><p style="margin-bottom:0.5rem;">涓汉杩涘寲绯荤粺 路 琛ㄩ潰娲绘€у墏閿€鍞殑鐭ヨ瘑娌夋穩</p><p style="font-size:0.8rem;">鍩轰簬 wiki 鐭ヨ瘑搴撶敓鎴?路 娣遍潚娓愬彉璁捐绯荤粺 路 2026-08</p></div></footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="鍥炲埌椤堕儴">鈫?/button>
 <script>(function(){var b=document.querySelector('.back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('visible');else b.classList.remove('visible')})})();</script>
 
-    <script src="site.js?v=1615"></script>
+    <script src="site.js?v=15"></script>
 </body>
 </html>
