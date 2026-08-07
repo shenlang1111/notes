@@ -97,7 +97,7 @@
       icon: '🧪',
       pages: ['surfactants.html','theory.html','fundamentals.html','amphoteric.html','anionic.html','cationic.html','nonionic.html','apg.html','synthesis.html','properties.html','applications.html','advanced.html','troubleshooting.html','products.html','formulation.html','sales.html','market.html','naming-rules.html'],
       cols: [
-        ['门户', 'surfactants.html'],
+        ['总览', 'surfactants.html'],
         ['1 理论', 'theory.html'],
         ['2 命名规则', 'naming-rules.html'],
         ['3 产品', 'products.html'],
@@ -111,7 +111,7 @@
       icon: '🧪',
       pages: ['carbomer.html','carbomer-theory.html','carbomer-products.html','carbomer-sell.html'],
       cols: [
-        ['门户', 'carbomer.html'],
+        ['总览', 'carbomer.html'],
         ['1 理论', 'carbomer-theory.html'],
         ['2 命名规则', 'naming-rules.html#carbomer'],
         ['3 产品', 'carbomer-products.html'],

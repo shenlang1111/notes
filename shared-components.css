@@ -625,12 +625,12 @@ footer p{color:rgba(255,255,255,0.6);line-height:1.7;}
 
 /* ============ 搜索结果跳转高亮（短暂高亮后淡出） ============ */
 mark.search-hl{
-  background:#FDE68A;color:inherit;padding:0 0.1em;border-radius:3px;
-  box-shadow:0 0 0 2px rgba(253,230,138,0.5);
+  background:rgba(20,184,166,0.24);color:inherit;padding:0 0.1em;border-radius:3px;
+  box-shadow:0 0 0 2px rgba(20,184,166,0.45);
   transition:background 1.4s ease 1.2s,box-shadow 1.4s ease 1.2s;
 }
 mark.search-hl.fade{background:transparent;box-shadow:none;}
-.dark mark.search-hl{background:#B45309;color:#FEF3C7;box-shadow:0 0 0 2px rgba(180,83,9,0.4);}
+.dark mark.search-hl{background:rgba(20,184,166,0.34);color:inherit;box-shadow:0 0 0 2px rgba(20,184,166,0.5);}
 .dark mark.search-hl.fade{background:transparent;box-shadow:none;}
 /* 锚点跳转避开 sticky 导航遮挡 */
 section[id],h2[id],h3[id],h4[id]{scroll-margin-top:84px;}
