@@ -258,14 +258,14 @@ tbody tr:hover td{background:var(--tinci-primary-50);box-shadow:inset 3px 0 0 va
 .page-card.featured .card-icon{width:3.4rem;height:3.4rem;font-size:1.7rem;background:var(--tinci-teal-soft);}
 .page-card.featured h3{font-size:1.15rem;}
 .page-card.featured p{font-size:0.9rem;}
-/* 首页知识域入口：横跨全行宽卡 */
-.page-card.portal{grid-column:1 / -1;display:flex;align-items:center;gap:1.2rem;padding:1.6rem 1.8rem;}
-.page-card.portal::after{content:'\2192';font-size:1.3rem;color:var(--tinci-primary);opacity:0.5;margin-left:auto;transition:transform 0.22s cubic-bezier(0.4,0,0.2,1);}
+/* 首页知识域入口：横跨全行宽竖版大卡 */
+.page-card.portal{grid-column:1 / -1;display:flex;flex-direction:column;align-items:flex-start;gap:1rem;padding:1.9rem 2rem;}
+.page-card.portal::after{content:'\2192';position:absolute;right:1.9rem;bottom:1.6rem;font-size:1.4rem;color:var(--tinci-primary);opacity:0.45;transition:transform 0.22s cubic-bezier(0.4,0,0.2,1);}
 .page-card.portal:hover::after{transform:translateX(4px);opacity:1;}
-.page-card.portal .card-icon{width:3.8rem;height:3.8rem;font-size:1.9rem;margin-bottom:0;flex-shrink:0;background:var(--tinci-teal-soft);}
-.page-card.portal .portal-text h3{font-size:1.2rem;margin-bottom:0.4rem;}
-.page-card.portal .portal-text p{font-size:0.9rem;margin:0;}
-@media(max-width:640px){.page-card.portal{flex-direction:column;align-items:flex-start;gap:0.8rem;}.page-card.portal::after{display:none;}}
+.page-card.portal .card-icon{width:4.4rem;height:4.4rem;font-size:2.2rem;margin-bottom:0;flex-shrink:0;background:var(--tinci-teal-soft);}
+.page-card.portal .portal-text h3{font-size:1.35rem;margin-bottom:0.45rem;}
+.page-card.portal .portal-text p{font-size:0.95rem;margin:0;max-width:680px;}
+@media(max-width:640px){.page-card.portal{gap:0.8rem;padding:1.4rem 1.2rem;}.page-card.portal::after{display:none;}}
 
 /* ============ 相关页面推荐 ============ */
 .related-pages{margin:2rem 0 1.5rem;}
@@ -283,6 +283,16 @@ tbody tr:hover td{background:var(--tinci-primary-50);box-shadow:inset 3px 0 0 va
 .rp-card.entry{background:var(--tinci-primary-50);border-color:rgba(20,184,166,0.45);}
 .rp-card.entry .rp-name{font-weight:800;color:var(--tinci-primary);}
 .rp-card.entry .rp-icon{filter:saturate(1.1);}
+
+/* 首页扩展区：竖版大卡（两列并排，第三张横跨全宽横幅） */
+.rp-grid.cols-2{grid-template-columns:repeat(2,1fr);}
+@media(max-width:640px){.rp-grid.cols-2{grid-template-columns:1fr;}}
+.rp-card.large{flex-direction:column;align-items:flex-start;gap:0.55rem;padding:1.5rem 1.5rem;}
+.rp-card.large .rp-icon{width:3rem;height:3rem;font-size:1.55rem;display:inline-flex;align-items:center;justify-content:center;background:var(--tinci-teal-soft);border-radius:12px;}
+.rp-card.large .rp-name{font-size:1rem;}
+.rp-card.large.wide{grid-column:1/-1;flex-direction:row;align-items:center;gap:1rem;}
+.rp-card.large.wide .rp-icon{width:3.4rem;height:3.4rem;font-size:1.7rem;}
+@media(max-width:640px){.rp-card.large.wide{flex-direction:column;align-items:flex-start;gap:0.55rem;}}
 
 /* ============ 上下篇导航 ============ */
 .page-nav{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.5rem 0 1.5rem;}
