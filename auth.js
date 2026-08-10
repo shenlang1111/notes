@@ -1,8 +1,9 @@
 // auth.js — 全站访问登录（哈希校验，不存明文）
 // 密码不落明文：前端只存 SHA-256 哈希，用户输入时现场哈希比对。
 (function () {
-  // sha256('shenlang') — 想改密码：node -e "console.log(require('crypto').createHash('sha256').update('新密码').digest('hex'))" 后替换
-  var HASH = '850fdf0d04829fefd5fdb6e0c0d495de209b9ab207b7919dfb8825ac2c341b4a';
+  // 改密码：node -e "console.log(require('crypto').createHash('sha256').update('新密码').digest('hex'))" 算新哈希，
+  // 同步改本行 HASH + _运行/build_search_index.js 的 INDEX_KEY_HASH + _运行/encrypt_html.js 的 KEY_HASH（三处必须一致），改完重新部署
+  var HASH = '97d6d48ca992c23d224e23f8b8dec5dc1e228192fc37618325c321f1eb6874bd';
   var FLAG = HASH.slice(0, 8); // 登录标志（哈希片段，F12 改成 '1' 无效）
 
   function hexToBytes(hex) {
@@ -13,8 +14,32 @@
   // 搜索索引解密密钥 = 密码哈希（仅登录后写入内存，不落 localStorage）
   var INDEX_KEY = hexToBytes(HASH);
 
+  // 解密渲染正文：密文在 <main> 内 #tinci-content[data-enc]，格式 iv(12)+ciphertext+tag(16) base64
+  function renderMain() {
+    var box = document.getElementById('tinci-content');
+    if (!box) return;
+    var enc = box.getAttribute('data-enc');
+    if (!enc) return;
+    try {
+      var bin = atob(enc);
+      var u8 = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+      crypto.subtle.decrypt({ name: 'AES-GCM', iv: u8.slice(0, 12) }, window.__TINCI_INDEX_KEY, u8.slice(12))
+        .then(function (buf) { box.innerHTML = new TextDecoder().decode(buf); })
+        .catch(function () {});
+    } catch (e) {}
+  }
+  function renderMainWhenReady() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderMain);
+    } else {
+      renderMain();
+    }
+  }
+
   if (sessionStorage.getItem('tinci_auth_ok') === FLAG) {
     window.__TINCI_INDEX_KEY = INDEX_KEY;
+    renderMainWhenReady();
     return;
   }
 
@@ -67,6 +92,7 @@
           window.__TINCI_INDEX_KEY = INDEX_KEY; // 解密密钥进内存
           sessionStorage.setItem('tinci_auth_ok', FLAG); // 标志存哈希片段
           mask.remove();
+          renderMain(); // 解密渲染正文
         } else {
           err.textContent = '密码不对，再试一次';
           input.value = '';
