@@ -75,7 +75,7 @@
     mask.id = 'tinci-login-mask';
     mask.innerHTML =
       '<div id="tinci-login-box">' +
-      '<h2>天赐知识库</h2>' +
+      '<h2>个人知识库</h2>' +
       '<p>请输入访问密码</p>' +
       '<input type="password" id="tinci-pw" placeholder="密码" autocomplete="off">' +
       '<button id="tinci-btn">进入</button>' +
