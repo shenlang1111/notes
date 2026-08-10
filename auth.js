@@ -3,8 +3,20 @@
 (function () {
   // sha256('shenlang') — 想改密码：node -e "console.log(require('crypto').createHash('sha256').update('新密码').digest('hex'))" 后替换
   var HASH = '850fdf0d04829fefd5fdb6e0c0d495de209b9ab207b7919dfb8825ac2c341b4a';
+  var FLAG = HASH.slice(0, 8); // 登录标志（哈希片段，F12 改成 '1' 无效）
 
-  if (sessionStorage.getItem('tinci_auth_ok') === '1') return;
+  function hexToBytes(hex) {
+    var u8 = new Uint8Array(hex.length / 2);
+    for (var i = 0; i < u8.length; i++) u8[i] = parseInt(hex.substr(i * 2, 2), 16);
+    return u8;
+  }
+  // 搜索索引解密密钥 = 密码哈希（仅登录后写入内存，不落 localStorage）
+  var INDEX_KEY = hexToBytes(HASH);
+
+  if (sessionStorage.getItem('tinci_auth_ok') === FLAG) {
+    window.__TINCI_INDEX_KEY = INDEX_KEY;
+    return;
+  }
 
   var CSS = '' +
     '#tinci-login-mask{position:fixed;inset:0;z-index:99999;background:rgba(10,20,35,.82);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;}' +
@@ -52,7 +64,8 @@
           return ('0' + b.toString(16)).slice(-2);
         }).join('');
         if (hex === HASH) {
-          sessionStorage.setItem('tinci_auth_ok', '1');
+          window.__TINCI_INDEX_KEY = INDEX_KEY; // 解密密钥进内存
+          sessionStorage.setItem('tinci_auth_ok', FLAG); // 标志存哈希片段
           mask.remove();
         } else {
           err.textContent = '密码不对，再试一次';

@@ -214,9 +214,18 @@
 
   function ensureIndex(cb) {
     if (index) { cb(); return; }
+    var key = window.__TINCI_INDEX_KEY; // auth.js 登录后写入内存（AES-256 密钥 = 密码哈希）
+    if (!key) { cb(); return; } // 未登录无密钥，跳过（页面被登录遮罩挡住）
     fetch(base + 'search-index.json', { cache: 'no-store' })
-      .then(function (r) { return r.json(); })
-      .then(function (data) { index = data; cb(); })
+      .then(function (r) { return r.text(); })
+      .then(function (b64) {
+        var bin = atob(b64);
+        var u8 = new Uint8Array(bin.length);
+        for (var i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+        // 结构：iv(12) + authTag+ciphertext —— 解密输入需带 GCM tag
+        return crypto.subtle.decrypt({ name: 'AES-GCM', iv: u8.slice(0, 12) }, key, u8.slice(12));
+      })
+      .then(function (buf) { index = JSON.parse(new TextDecoder().decode(buf)); cb(); })
       .catch(function () { cb(); });
   }
 
