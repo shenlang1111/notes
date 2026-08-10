@@ -37,9 +37,18 @@
     }
   }
 
+  // 登录通过后：把密码哈希 importKey 成 CryptoKey 写入内存（WebCrypto 要求 key 必须是 CryptoKey，
+  // site.js 搜索解密共用同一变量——2026-08-10 复核发现旧代码直接传 Uint8Array 导致解密必失败，一并修复）
+  function unlockContent(after) {
+    if (window.__TINCI_INDEX_KEY) { if (after) after(); return; }
+    crypto.subtle.importKey('raw', INDEX_KEY, 'AES-GCM', false, ['decrypt']).then(function (k) {
+      window.__TINCI_INDEX_KEY = k;
+      if (after) after();
+    }).catch(function () {});
+  }
+
   if (sessionStorage.getItem('tinci_auth_ok') === FLAG) {
-    window.__TINCI_INDEX_KEY = INDEX_KEY;
-    renderMainWhenReady();
+    unlockContent(renderMainWhenReady);
     return;
   }
 
@@ -89,10 +98,9 @@
           return ('0' + b.toString(16)).slice(-2);
         }).join('');
         if (hex === HASH) {
-          window.__TINCI_INDEX_KEY = INDEX_KEY; // 解密密钥进内存
           sessionStorage.setItem('tinci_auth_ok', FLAG); // 标志存哈希片段
           mask.remove();
-          renderMain(); // 解密渲染正文
+          unlockContent(renderMain); // 生成 CryptoKey 后解密渲染正文
         } else {
           err.textContent = '密码不对，再试一次';
           input.value = '';
