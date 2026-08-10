@@ -225,7 +225,11 @@
         // 结构：iv(12) + authTag+ciphertext —— 解密输入需带 GCM tag
         return crypto.subtle.decrypt({ name: 'AES-GCM', iv: u8.slice(0, 12) }, key, u8.slice(12));
       })
-      .then(function (buf) { index = JSON.parse(new TextDecoder().decode(buf)); cb(); })
+      .then(function (buf) {
+        var data = JSON.parse(new TextDecoder().decode(buf));
+        index = Array.isArray(data) ? data : data.pages; // 兼容：解密数据头部带 _notice（多语言声明），搜索只用 pages
+        cb();
+      })
       .catch(function () { cb(); });
   }
 
