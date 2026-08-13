@@ -214,7 +214,7 @@
 
   function ensureIndex(cb) {
     if (index) { cb(); return; }
-    var key = window.__TINCI_INDEX_KEY; // 登录后写入内存（AES-256 密钥 = 密码哈希）
+    var key = window.__TINCI_INDEX_KEY; // 登录后写入内存（AES-256 密钥 = 密码经 PBKDF2 派生，见 common.min.js）
     if (!key) { cb(); return; } // 未登录无密钥，跳过（页面被登录遮罩挡住）
     fetch(base + 'search-index.json', { cache: 'no-store' })
       .then(function (r) { return r.text(); })
